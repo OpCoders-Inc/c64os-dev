@@ -1,0 +1,10 @@
+spirqvec        = $0334
+sps_hold        = $00ff
+sps_halt        = $00fe
+sps_play        = $00fd
+loadtune_       = $0006
+stattune_       = $0009
+tuneinfo_       = $000c
+spi_auth        = $0001
+spi_name        = $0000
+spi_copy        = $0002

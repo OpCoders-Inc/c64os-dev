@@ -1,0 +1,13 @@
+utiltimr        = $0221
+timeridx        = $0009
+ttime           = $0000
+tstat           = $0003
+ttrig           = $0004
+tvalu           = $0006
+tpause          = $0080
+tintrvl         = $0040
+tcancel         = $0020
+treset          = $0010
+texprd          = $0008
+tprecis         = $0004
+trealtm         = $0002
