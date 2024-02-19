@@ -1,0 +1,78 @@
+;----[ icon.charset.a ]-----------------
+
+         .include "//os/s/:file.s"
+         .include "//os/s/:pointer.s"
+
+         .include "//os/s/ker/:file.s"
+         .include "//os/s/ker/:io.s"
+
+;USAGE NOTE: Run via "_3". It saves a
+;data file called "icon.charset" as
+;a SEQ file, containing binary data but
+;no load header.
+
+         *= $c000
+
+         #ldxy filename
+         lda #16
+         jsr setnam
+
+         lda #templfn
+         ldx #8        ;Hardcoded :'(
+         ldy #2        ;Channel
+         jsr setlfs
+
+         jsr open
+
+         ldx #templfn
+         jsr chkout
+
+         ldx #0
+nextdata lda data,x
+         jsr chrout
+         inx
+         cpx #8*9
+         bne nextdata
+
+         jsr clrchn
+         lda #templfn
+         jsr close
+
+         rts
+
+filename .text "@:icon.charset,w,s"
+
+data
+
+;3x3 Customizable Icon -- "Hello World"
+
+         .byte $7f,$80,$80,$ab
+         .byte $aa,$bb,$aa,$ab
+
+         .byte $ff,$00,$00,$a2
+         .byte $22,$22,$22,$bb
+
+         .byte $fe,$01,$01,$39
+         .byte $29,$29,$29,$b9
+
+;---------------------------------------
+
+         .byte $80,$95,$95,$95
+         .byte $9d,$95,$80,$80
+
+         .byte $00,$dd,$55,$59
+         .byte $55,$d5,$00,$00
+
+         .byte $01,$19,$15,$15
+         .byte $15,$d9,$01,$01
+
+;---------------------------------------
+
+         .byte $81,$8f,$b8,$e0
+         .byte $87,$9f,$bb,$7f
+
+         .byte $ff,$00,$0f,$03
+         .byte $81,$c0,$e0,$ff
+
+         .byte $81,$f1,$fd,$e7
+         .byte $f3,$e3,$cf,$fe
