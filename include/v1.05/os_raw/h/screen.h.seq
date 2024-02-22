@@ -1,0 +1,1 @@
+LSCR            = $00F6EVTLOOP¤        = $0000MARKREDRAW¤     = $0003LAYERPUSH¤      = $0006LAYERPOP¤       = $0009SETLRC¤         = $000CSETDPROPS¤      = $000FCTXCLEAR¤       = $0012CTXDRAW¤        = $0015CTX2SCR¤        = $0018REDRAW¤         = $001BSCRROW¤         = $001ELOADCLR¤        = $0021LOADICNS¤       = $0024COPYBUFS¤       = $0027

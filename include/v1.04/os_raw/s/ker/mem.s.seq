@@ -1,0 +1,1 @@
+;----[ MEM.S ]--------------------------MEMTOP   = $FF99 ;ÄO ÎOT ÕSEMEMBOT   = $FF9C ;ÄO ÎOT ÕSERAMTAS   = $FF87 ;ÄO ÎOT ÕSEVECTOR   = $FF8D ;ÃOMPATIBLERESTOR   = $FF8A ;ÄO ÎOT ÕSEIOBASE   = $FFF3 ;ÄEPRECATED

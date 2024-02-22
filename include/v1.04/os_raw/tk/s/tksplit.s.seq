@@ -1,0 +1,1 @@
+;----[ TKSPLIT.S ]----------------------;ÓPLIT ÏRIENTATIONSSO¤HOR   = 0SO¤VER   = 1CLPS¤HOR = %10000000 ;ASL -> ÃARRYCLPS¤VER = %00000001 ;LSR -> ÃARRY;----ÓIZING ÐROPS----ORIENT   = TKVIEWSZ    ;1SPOS     = TKVIEWSZ+1  ;2SCHILD   = TKVIEWSZ+3  ;2COLLAPSE = TKVIEWSZ+5  ;1

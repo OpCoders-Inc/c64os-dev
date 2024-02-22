@@ -1,0 +1,1 @@
+;---[ RTC.S ]---------------------------T¤SECS   = $DC09T¤MINS   = $DC0AT¤HOUR   = $DC0BD¤DOW    = $03B2D¤YEAR   = $03B3D¤MONTH  = $03B4D¤DAY    = $03B5T¤TWELVE = $03B6T¤BLINKS = $03B7

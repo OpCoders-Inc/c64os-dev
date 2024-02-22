@@ -1,0 +1,1 @@
+;----[ TKLABEL.S ]----------------------;----ÓTRING ÆLAGS-------A¤LFT    = %00000001 ;ÁLIGN ÌEFTA¤RGT    = %00000010 ;ÁLIGN ÒIGHTF¤REV    = %10000000 ;ÒEVERSE ÄRAW;ÔEXT ÁLIGN ÂITS;ÆULL    = 00 ;ÎOT USED BY TKLABEL;ÌEFT    = 01;ÒIGHT   = 10;ÃENTER  = 11;----ÔEXT ÐROPS---------;STRPTR   = TKVIEWSZSTRFLGS  = TKVIEWSZ+2STRLGTH  = TKVIEWSZ+3

@@ -1,0 +1,1 @@
+;----[ MENU.H ]-------------------------LMNU     = $0100-(2*6)MNUDRAW¤ = 0MNUMOUSE¤ = 3MNUKCMD¤ = 6DEACTIV¤ = 9

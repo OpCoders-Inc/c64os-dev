@@ -1,0 +1,1 @@
+;----[ TKSCROLL.S ]---------------------CTNTVIEW = TKVIEWSZ   ;2HSBAR    = TKVIEWSZ+2 ;2VSBAR    = TKVIEWSZ+4 ;2INSET    = TKVIEWSZ+6 ;1

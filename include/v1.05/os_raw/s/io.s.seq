@@ -1,0 +1,1 @@
+STACK           = $0100SCRBUF          = $0400CHARSET         = $D000COLBUF          = $D800SCRMEM          = $DC00BMAPMEM         = $E000VIC             = $D000SID             = $D400COLMEM          = $D800CIA1            = $DC00CIA2            = $DD00

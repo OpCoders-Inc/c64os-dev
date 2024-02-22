@@ -1,0 +1,1 @@
+;----[ TKTIMEPICK.T ]-------------------TPRTCYC¤ = TCVIEWSZ;  SENDER -> CHILD BUTTON WITH TAGSETTIME¤ = TCVIEWSZ+3;  Ù -> ÈOUR (00 TO 23);  Ø -> ÍIN  (00 TO 59)GETTIME¤ = TCVIEWSZ+6;  Ù <- ÈOUR (00 TO 23);  Ø <- ÍIN  (00 TO 59)
