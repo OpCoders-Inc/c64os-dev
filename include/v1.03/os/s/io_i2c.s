@@ -1,0 +1,10 @@
+slvwait         = $0032
+datareg         = $dd01
+datadir         = $dd03
+ret_ok          = $0000
+ret_nok         = $0001
+err_sdalo       = $0002
+err_scllo       = $0003
+writebit        = $0000
+readbit         = $0001
+purebyte        = $00ff

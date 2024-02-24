@@ -1,0 +1,16 @@
+workbank        = $0000
+magicadr        = $0000
+bankordr        = $1ae0
+bankmap         = $1b00
+bnk_nota        = $00ff
+bnk_free        = $00fe
+bnk_empt        = $00fd
+bnk_full        = $00fc
+fasslots        = $1c00
+fss_stat        = $03b8
+fas_name        = $0000
+fas_stat        = $0011
+fss_safe        = $0000
+fss_usaf        = $0001
+opnfrefreu      = $2000
+rtcdrvrreu      = $2100

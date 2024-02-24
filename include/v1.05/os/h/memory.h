@@ -1,0 +1,15 @@
+lmem            = $00fe
+memcpy_         = $0000
+memset_         = $0003
+memfree_        = $0006
+free_           = $0009
+malloc_         = $000c
+pgfree_         = $000f
+pgmark_         = $0012
+pgalloc_        = $0015
+reuconf_        = $0018
+pgfetch_        = $001b
+pgstash_        = $001e
+realloc_        = $0003
+bkfree_         = $0006
+bkalloc_        = $0009
