@@ -130,7 +130,7 @@ exts = {'.h', '.s', '.t'}
 
 for filepath in filepaths:
 
-    # only cleanup convered files
+    # only cleanup converted files
 
     if filepath.suffix in exts:
 
