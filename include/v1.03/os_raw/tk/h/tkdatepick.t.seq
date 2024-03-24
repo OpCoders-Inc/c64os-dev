@@ -1,0 +1,1 @@
+;----[ TKDATEPICK.T ]-------------------DPRTCYC¤ = TCVIEWSZ;  SENDER -> CHILD BUTTON WITH TAGSETDATE¤ = TCVIEWSZ+3;  Ù -> ÙEAR  ($00 = 1900, $FF = 2155);  Ø -> ÍONTH ($01 = ÊAN);  Á -> ÄATE  ($01 = 1ST OF MONTH)GETDATE¤ = TCVIEWSZ+6;  Ù <- ÙEAR  ($00 = 1900, $FF = 2155);  Ø <- ÍONTH ($01 = ÊAN);  Á <- ÄATE  ($01 = 1ST OF MONTH)

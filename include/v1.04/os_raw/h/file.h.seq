@@ -1,0 +1,1 @@
+;----[ FILE.H ]-------------------------LFIL     = $0100-(2*8)FINIT¤   = 0FERROR¤  = 3FOPEN¤   = 6FREAD¤   = 9FWRITE¤  = 12FCLOSE¤  = 15FREFCVT¤ = 18CLIPIN¤  = 21CLIPOUT¤ = 24COPEN¤   = 27CREAD¤   = 30CWRITE¤  = 33CCLOSE¤  = 36

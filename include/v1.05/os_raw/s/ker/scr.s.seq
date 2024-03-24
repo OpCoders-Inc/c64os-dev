@@ -1,0 +1,1 @@
+;----[ SCR.S ]--------------------------CINT     = $FF81 ;ÄO ÎOT ÕSESCREEN   = $FFED ;ÄEPRECATEDPLOT     = $FFF0 ;ÄO ÎOT ÕSESETMSG   = $FF90 ;ÄO ÎOT ÕSE

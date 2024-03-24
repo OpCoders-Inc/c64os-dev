@@ -1,0 +1,1 @@
+;----[ IO.T ]---------------------------STACK    = $0100 ;$01FFSCRBUF   = $0400 ;$07FF;“¡Õ†MAPPEDCHARSET  = $D000 ;$D7FFCOLBUF   = $D800 ;$DBE7SCRMEM   = $DC00 ;$DFE8BMAPMEM  = $E000 ;$FF3F;…/œ MAPPEDVIC      = $D000 ;$D3FFSID      = $D400 ;$D7FFCOLMEM   = $D800 ;$DBE7CIA1     = $DC00 ;$DCFFCIA2     = $DD00 ;$DDFF

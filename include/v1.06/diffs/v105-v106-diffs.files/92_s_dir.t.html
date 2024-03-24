@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WinMerge File Compare Report</title>
+<style>
+<!--
+table { table-layout: fixed; margin: 0; border: 1px solid #a0a0a0; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); }
+th { position: sticky; top: 0; }
+td,th { word-break: break-all; font-size: 12pt; padding: 0 3px; }
+tr { vertical-align: top; }
+.title { font-weight: bold; color: white; background-color: blue; vertical-align: top; text-align: center; padding: 4px 4px; background: linear-gradient(mediumblue, darkblue);}
+.sf3b2 {color: #000000; background-color: #ffffff; }
+.sf3b5 {color: #000000; background-color: #0078d7; }
+.sf3b14 {color: #000000; background-color: #ffa0a0; }
+.sf3b16 {color: #000000; background-color: #f1e2ad; }
+.sf3b18 {color: #000000; background-color: #ffaa82; }
+.sf3b19 {color: #000000; background-color: #c8816c; }
+.sf6b2 {color: #ffffff; background-color: #ffffff; }
+.sf6b5 {color: #ffffff; background-color: #0078d7; }
+.sf6b14 {color: #ffffff; background-color: #ffa0a0; }
+.sf6b16 {color: #ffffff; background-color: #f1e2ad; }
+.sf6b18 {color: #ffffff; background-color: #ffaa82; }
+.sf6b19 {color: #ffffff; background-color: #c8816c; }
+.sf7b2 {color: #0000ff; background-color: #ffffff; font-weight: bold; }
+.sf7b5 {color: #0000ff; background-color: #0078d7; font-weight: bold; }
+.sf7b14 {color: #0000ff; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16 {color: #0000ff; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18 {color: #0000ff; background-color: #ffaa82; font-weight: bold; }
+.sf7b19 {color: #0000ff; background-color: #c8816c; font-weight: bold; }
+.sf8b2 {color: #800080; background-color: #ffffff; }
+.sf8b5 {color: #800080; background-color: #0078d7; }
+.sf8b14 {color: #800080; background-color: #ffa0a0; }
+.sf8b16 {color: #800080; background-color: #f1e2ad; }
+.sf8b18 {color: #800080; background-color: #ffaa82; }
+.sf8b19 {color: #800080; background-color: #c8816c; }
+.sf9b2 {color: #008000; background-color: #ffffff; }
+.sf9b5 {color: #008000; background-color: #0078d7; }
+.sf9b14 {color: #008000; background-color: #ffa0a0; }
+.sf9b16 {color: #008000; background-color: #f1e2ad; }
+.sf9b18 {color: #008000; background-color: #ffaa82; }
+.sf9b19 {color: #008000; background-color: #c8816c; }
+.sf10b2 {color: #ff0000; background-color: #ffffff; }
+.sf10b5 {color: #ff0000; background-color: #0078d7; }
+.sf10b14 {color: #ff0000; background-color: #ffa0a0; }
+.sf10b16 {color: #ff0000; background-color: #f1e2ad; }
+.sf10b18 {color: #ff0000; background-color: #ffaa82; }
+.sf10b19 {color: #ff0000; background-color: #c8816c; }
+.sf11b2 {color: #606060; background-color: #ffffff; }
+.sf11b5 {color: #606060; background-color: #0078d7; }
+.sf11b14 {color: #606060; background-color: #ffa0a0; }
+.sf11b16 {color: #606060; background-color: #f1e2ad; }
+.sf11b18 {color: #606060; background-color: #ffaa82; }
+.sf11b19 {color: #606060; background-color: #c8816c; }
+.sf12b2 {color: #800000; background-color: #ffffff; }
+.sf12b5 {color: #800000; background-color: #0078d7; }
+.sf12b14 {color: #800000; background-color: #ffa0a0; }
+.sf12b16 {color: #800000; background-color: #f1e2ad; }
+.sf12b18 {color: #800000; background-color: #ffaa82; }
+.sf12b19 {color: #800000; background-color: #c8816c; }
+.sf13b2 {color: #0080c0; background-color: #ffffff; }
+.sf13b5 {color: #0080c0; background-color: #0078d7; }
+.sf13b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf13b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf13b18 {color: #0080c0; background-color: #ffaa82; }
+.sf13b19 {color: #0080c0; background-color: #c8816c; }
+.sf15b2 {color: #000000; background-color: #ffffff; }
+.sf15b5 {color: #000000; background-color: #0078d7; }
+.sf15b14 {color: #000000; background-color: #ffa0a0; }
+.sf15b16 {color: #000000; background-color: #f1e2ad; }
+.sf15b18 {color: #000000; background-color: #ffaa82; }
+.sf15b19 {color: #000000; background-color: #c8816c; }
+.sf17b2 {color: #000000; background-color: #ffffff; }
+.sf17b5 {color: #000000; background-color: #0078d7; }
+.sf17b14 {color: #000000; background-color: #ffa0a0; }
+.sf17b16 {color: #000000; background-color: #f1e2ad; }
+.sf17b18 {color: #000000; background-color: #ffaa82; }
+.sf17b19 {color: #000000; background-color: #c8816c; }
+.sf20b2 {color: #000080; background-color: #ffffff; }
+.sf20b5 {color: #000080; background-color: #0078d7; }
+.sf20b14 {color: #000080; background-color: #ffa0a0; }
+.sf20b16 {color: #000080; background-color: #f1e2ad; }
+.sf20b18 {color: #000080; background-color: #ffaa82; }
+.sf20b19 {color: #000080; background-color: #c8816c; }
+.sf21b2 {color: #0080c0; background-color: #ffffff; }
+.sf21b5 {color: #0080c0; background-color: #0078d7; }
+.sf21b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf21b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf21b18 {color: #0080c0; background-color: #ffaa82; }
+.sf21b19 {color: #0080c0; background-color: #c8816c; }
+.sf3b2i {color: #ababab; background-color: #ffffff; }
+.sf3b5i {color: #005190; background-color: #0078d7; }
+.sf3b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf3b16i {color: #a19774; background-color: #f1e2ad; }
+.sf3b18i {color: #ab7257; background-color: #ffaa82; }
+.sf3b19i {color: #865749; background-color: #c8816c; }
+.sf6b2i {color: #ffffff; background-color: #ffffff; }
+.sf6b5i {color: #54a4e4; background-color: #0078d7; }
+.sf6b14i {color: #ffbfbf; background-color: #ffa0a0; }
+.sf6b16i {color: #f5ebc8; background-color: #f1e2ad; }
+.sf6b18i {color: #ffc6ab; background-color: #ffaa82; }
+.sf6b19i {color: #daaa9c; background-color: #c8816c; }
+.sf7b2i {color: #ababff; background-color: #ffffff; font-weight: bold; }
+.sf7b5i {color: #0051e4; background-color: #0078d7; font-weight: bold; }
+.sf7b14i {color: #ab6bbf; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16i {color: #a197c8; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18i {color: #ab72ab; background-color: #ffaa82; font-weight: bold; }
+.sf7b19i {color: #86579c; background-color: #c8816c; font-weight: bold; }
+.sf8b2i {color: #d5abd5; background-color: #ffffff; }
+.sf8b5i {color: #2a51bb; background-color: #0078d7; }
+.sf8b14i {color: #d56b96; background-color: #ffa0a0; }
+.sf8b16i {color: #cc979f; background-color: #f1e2ad; }
+.sf8b18i {color: #d57282; background-color: #ffaa82; }
+.sf8b19i {color: #b15772; background-color: #c8816c; }
+.sf9b2i {color: #abd5ab; background-color: #ffffff; }
+.sf9b5i {color: #007a90; background-color: #0078d7; }
+.sf9b14i {color: #ab966b; background-color: #ffa0a0; }
+.sf9b16i {color: #a1c274; background-color: #f1e2ad; }
+.sf9b18i {color: #ab9d57; background-color: #ffaa82; }
+.sf9b19i {color: #868149; background-color: #c8816c; }
+.sf10b2i {color: #ffabab; background-color: #ffffff; }
+.sf10b5i {color: #545190; background-color: #0078d7; }
+.sf10b14i {color: #ff6b6b; background-color: #ffa0a0; }
+.sf10b16i {color: #f59774; background-color: #f1e2ad; }
+.sf10b18i {color: #ff7257; background-color: #ffaa82; }
+.sf10b19i {color: #da5749; background-color: #c8816c; }
+.sf11b2i {color: #cbcbcb; background-color: #ffffff; }
+.sf11b5i {color: #1f71b0; background-color: #0078d7; }
+.sf11b14i {color: #cb8b8b; background-color: #ffa0a0; }
+.sf11b16i {color: #c1b794; background-color: #f1e2ad; }
+.sf11b18i {color: #cb9277; background-color: #ffaa82; }
+.sf11b19i {color: #a67769; background-color: #c8816c; }
+.sf12b2i {color: #d5abab; background-color: #ffffff; }
+.sf12b5i {color: #2a5190; background-color: #0078d7; }
+.sf12b14i {color: #d56b6b; background-color: #ffa0a0; }
+.sf12b16i {color: #cc9774; background-color: #f1e2ad; }
+.sf12b18i {color: #d57257; background-color: #ffaa82; }
+.sf12b19i {color: #b15749; background-color: #c8816c; }
+.sf13b2i {color: #abd5eb; background-color: #ffffff; }
+.sf13b5i {color: #007ad0; background-color: #0078d7; }
+.sf13b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf13b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf13b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf13b19i {color: #868187; background-color: #c8816c; }
+.sf15b2i {color: #ababab; background-color: #ffffff; }
+.sf15b5i {color: #005190; background-color: #0078d7; }
+.sf15b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf15b16i {color: #a19774; background-color: #f1e2ad; }
+.sf15b18i {color: #ab7257; background-color: #ffaa82; }
+.sf15b19i {color: #865749; background-color: #c8816c; }
+.sf17b2i {color: #ababab; background-color: #ffffff; }
+.sf17b5i {color: #005190; background-color: #0078d7; }
+.sf17b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf17b16i {color: #a19774; background-color: #f1e2ad; }
+.sf17b18i {color: #ab7257; background-color: #ffaa82; }
+.sf17b19i {color: #865749; background-color: #c8816c; }
+.sf20b2i {color: #ababd5; background-color: #ffffff; }
+.sf20b5i {color: #0051bb; background-color: #0078d7; }
+.sf20b14i {color: #ab6b96; background-color: #ffa0a0; }
+.sf20b16i {color: #a1979f; background-color: #f1e2ad; }
+.sf20b18i {color: #ab7282; background-color: #ffaa82; }
+.sf20b19i {color: #865772; background-color: #c8816c; }
+.sf21b2i {color: #abd5eb; background-color: #ffffff; }
+.sf21b5i {color: #007ad0; background-color: #0078d7; }
+.sf21b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf21b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf21b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf21b19i {color: #868187; background-color: #c8816c; }
+.cn {text-align: center; word-break: normal; color: #000000; background-color: #f0f0f0;}
+.ln {text-align: right; word-break: normal; color: #000000; background-color: #f0f0f0;}
+-->
+</style>
+</head>
+<body>
+<table style="width: 100%%; border-collapse: collapse;">
+<colgroup>
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 2 - 0.5em);" />
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 2 - 0.5em);" />
+</colgroup>
+<thead>
+<tr>
+<th colspan="2" class="title">C:\Users\paul\Workspace\retro-coder\c64os-dev\include\v1.06\os\s\dir.t</th>
+<th colspan="2" class="title">C:\Users\paul\Workspace\retro-coder\c64os-dev\include\v1.05\os\s\dir.t</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;----[ dir.t ]--------------------------</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;----[ dir.t ]--------------------------</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">frefptr &nbsp;= $9b ;$9c</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">frefptr &nbsp;= $9b ;$9c</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">deptr &nbsp; &nbsp;= $22 ;$23 ;Was $fb ;$fc</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">deptr &nbsp; &nbsp;= $22 ;$23 ;Was $fb ;$fc</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">mdptr &nbsp; &nbsp;= $24 ;$25 ;Was $fd ;$fe</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">mdptr &nbsp; &nbsp;= $24 ;$25 ;Was $fd ;$fe</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Dir Entry Struct</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Dir Entry Struct</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdbsiz &nbsp; = 1 &nbsp; ; 2 bytes (Alt., Part #)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdbsiz &nbsp; = 1 &nbsp; ; 2 bytes (Alt., Part #)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdname &nbsp; = 3 &nbsp; ;17 bytes</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdname &nbsp; = 3 &nbsp; ;17 bytes</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdtype &nbsp; = 20 &nbsp;; 1 byte</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdtype &nbsp; = 20 &nbsp;; 1 byte</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdstatus = 21 &nbsp;; 1 byte</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdstatus = 21 &nbsp;; 1 byte</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdyear &nbsp; = 22 &nbsp;; 1 byte</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdyear &nbsp; = 22 &nbsp;; 1 byte</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdmnth &nbsp; = 23 &nbsp;; 1 byte</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdmnth &nbsp; = 23 &nbsp;; 1 byte</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fddate &nbsp; = 24 &nbsp;; 1 byte</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fddate &nbsp; = 24 &nbsp;; 1 byte</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdhour &nbsp; = 25 &nbsp;; 1 byte</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdhour &nbsp; = 25 &nbsp;; 1 byte</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdmin &nbsp; &nbsp;= 26 &nbsp;; 1 byte</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdmin &nbsp; &nbsp;= 26 &nbsp;; 1 byte</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdpetsz &nbsp;= 27 &nbsp;; 5 bytes (PETSCII Size)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fdpetsz &nbsp;= 27 &nbsp;; 5 bytes (PETSCII Size)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;File Type (not datatype)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;File Type (not datatype)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_dir &nbsp; = 0 ;sort dir's to top</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_dir &nbsp; = 0 ;sort dir's to top</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_prg &nbsp; = 1</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_prg &nbsp; = 1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_rel &nbsp; = 2</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_rel &nbsp; = 2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_seq &nbsp; = 3</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_seq &nbsp; = 3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_usr &nbsp; = 4</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_usr &nbsp; = 4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_del &nbsp; = 5 ;sort del's to bottom</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ft_del &nbsp; = 5 ;sort del's to bottom</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Partition Type</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Partition Type</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_nat &nbsp; = 6</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_nat &nbsp; = 6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_41 &nbsp; &nbsp;= 7</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_41 &nbsp; &nbsp;= 7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_71 &nbsp; &nbsp;= 8</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_71 &nbsp; &nbsp;= 8</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_81 &nbsp; &nbsp;= 9</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_81 &nbsp; &nbsp;= 9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_cpm &nbsp; = 10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_cpm &nbsp; = 10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_cfs &nbsp; = 11</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_cfs &nbsp; = 11</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_sys &nbsp; = 12</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">pt_sys &nbsp; = 12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;File Status Flags</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;File Status Flags</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fds_lock = %00000001</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fds_lock = %00000001</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fds_hide = %00000010</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fds_hide = %00000010</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fds_open = %00000100</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fds_open = %00000100</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fds_boot = %00001000 ;IDE64 Boot Part.</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fds_boot = %00001000 ;IDE64 Boot Part.</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fds_slct = %10000000</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">fds_slct = %10000000</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Dir Metadata Struct</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Dir Metadata Struct</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_head &nbsp;= 0 &nbsp;;17 Dir Header</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_head &nbsp;= 0 &nbsp;;17 Dir Header</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_did &nbsp; = 17 ; 2 Dir ID</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_did &nbsp; = 17 ; 2 Dir ID</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_free &nbsp;= 19 ; 2 Blocks Free (int)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_free &nbsp;= 19 ; 2 Blocks Free (int)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_pfree = 21 ; 6 Blocks Free (PET)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_pfree = 21 ; 6 Blocks Free (PET)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_part &nbsp;= 27 ; 2 Part # (int)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_part &nbsp;= 27 ; 2 Part # (int)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_ppart = 29 ; 4 Part # (PET)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_ppart = 29 ; 4 Part # (PET)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_fc &nbsp; &nbsp;= 33 ; 2 File Count &nbsp;(int)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_fc &nbsp; &nbsp;= 33 ; 2 File Count &nbsp;(int)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_pfc &nbsp; = 35 ; 5 File Count &nbsp;(PET)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_pfc &nbsp; = 35 ; 5 File Count &nbsp;(PET)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_patt &nbsp;= 40 ;17 File Pattern</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_patt &nbsp;= 40 ;17 File Pattern</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_type &nbsp;= 57 ; 1 File Type</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_type &nbsp;= 57 ; 1 File Type</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_sortf = 58 ; 1 Sort Field</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_sortf = 58 ; 1 Sort Field</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_sorto = 59 ; 1 Sort Options</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_sorto = 59 ; 1 Sort Options</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_sel &nbsp; = 60 ; 1 Selected File Count</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_sel &nbsp; = 60 ; 1 Selected File Count</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_flags = 61 ; 1 Special Flags</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">td_flags = 61 ; 1 Special Flags</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d1" href="#d1">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">td_filt &nbsp;= 62 ; 2 Option. filter routine</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ; &nbsp; Only used if td_flags</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ; &nbsp; has ts_filt bit set.</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Sort Fields</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Sort Fields</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;All sorts &gt; ts_name subsort by ts_name</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;All sorts &gt; ts_name subsort by ts_name</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_disk &nbsp;= 0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_disk &nbsp;= 0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_name &nbsp;= 1</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_name &nbsp;= 1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_size &nbsp;= 2</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_size &nbsp;= 2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_type &nbsp;= 3</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_type &nbsp;= 3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_date &nbsp;= 4</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_date &nbsp;= 4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Sort Options</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Sort Options</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_des &nbsp; = %00000001 ;Descending</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_des &nbsp; = %00000001 ;Descending</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;other bits reserved</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;other bits reserved</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_a2p &nbsp; = %01000000 ;ASCII 2 PETSCII</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_a2p &nbsp; = %01000000 ;ASCII 2 PETSCII</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_case &nbsp;= %10000000 ;Case Insensitive</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_case &nbsp;= %10000000 ;Case Insensitive</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Special Dev/Dir Flags</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">;Special Dev/Dir Flags</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_apps &nbsp;= %00000001 ;Applications Dir</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_apps &nbsp;= %00000001 ;Applications Dir</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_utils = %00000010 ;Utilities Dir</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_utils = %00000010 ;Utilities Dir</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_dirs &nbsp;= %00000100 ;Dev Supports Dirs</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_dirs &nbsp;= %00000100 ;Dev Supports Dirs</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_pdir &nbsp;= %00001000 ;Partition Dir</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">ts_pdir &nbsp;= %00001000 ;Partition Dir</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d2" href="#d2">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">ts_time &nbsp;= %00010000 ;Include Date/Time</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">ts_time &nbsp;= %00010000 ;Include Date/Time</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">ts_filt</span><span style="color: #000000; background-color: #efcb05; ">&nbsp; </span><span class="sf17b18">=</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">%00100000</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">;Dir</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b18">Filtered</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

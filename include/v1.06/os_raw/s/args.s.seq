@@ -1,0 +1,1 @@
+;----[ ARGS.S ]-------------------------ARGPTR   = $45 ;$46ARG8     .MACRO ;INDEX,ADDR         LDY #\1+1         LDA (ARGPTR),Y         STA \2         .ENDMARG16    .MACRO ;INDEX,ADDR         #ARG8 \1,\2         INY         LDA (ARGPTR),Y         STA \2+1         .ENDM

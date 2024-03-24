@@ -1,0 +1,1 @@
+RESET¤          = $0003PREP¤RW¤        = $0006READREG¤        = $0009WRITREG¤        = $000C

@@ -1,0 +1,1 @@
+UTILTIMR        = $0221TIMERIDX        = $0009TTIME           = $0000TSTAT           = $0003TTRIG           = $0004TVALU           = $0006TPAUSE          = $0080TINTRVL         = $0040TCANCEL         = $0020TRESET          = $0010TEXPRD          = $0008TPRECIS         = $0004TREALTM         = $0002

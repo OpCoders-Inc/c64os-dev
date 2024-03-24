@@ -1,0 +1,1 @@
+LMEM            = $00FEMEMCPY¤         = $0000MEMSET¤         = $0003MEMFREE¤        = $0006FREE¤           = $0009MALLOC¤         = $000CPGFREE¤         = $000FPGMARK¤         = $0012PGALLOC¤        = $0015REUCONF¤        = $0018PGFETCH¤        = $001BPGSTASH¤        = $001EREALLOC¤        = $0003BKFREE¤         = $0006BKALLOC¤        = $0009

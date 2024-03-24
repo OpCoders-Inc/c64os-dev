@@ -1,0 +1,1 @@
+;----[ IEC.S ]--------------------------TALK     = $FFB4 ;횱PRECATEDTKSA     = $FF96 ;횱PRECATEDUNTLK    = $FFAB ;횱PRECATEDACPTR    = $FFA5 ;횱PRECATEDLISTEN   = $FFB1 ;횱PRECATEDSECOND   = $FF93 ;횱PRECATEDUNLSN    = $FFAE ;횱PRECATEDCIOUT    = $FFA8 ;횱PRECATEDSETTMO   = $FFA2 ;횱PRECATED
