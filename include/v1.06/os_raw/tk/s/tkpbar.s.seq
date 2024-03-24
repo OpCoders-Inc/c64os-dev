@@ -1,0 +1,1 @@
+;----[ TKPBAR.S ]-----------------------PATHDEP  = TKVIEWSZPBMODE   = TKVIEWSZ+1;----ÃALLBACKS----------PATHCLIK = TKVIEWSZ+2TKPBARSZ = TKVIEWSZ+4

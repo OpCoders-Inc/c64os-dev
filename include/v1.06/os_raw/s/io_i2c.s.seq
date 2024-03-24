@@ -1,0 +1,1 @@
+SLVWAIT         = $0032DATAREG         = $DD01DATADIR         = $DD03RET¤OK          = $0000RET¤NOK         = $0001ERR¤SDALO       = $0002ERR¤SCLLO       = $0003WRITEBIT        = $0000READBIT         = $0001PUREBYTE        = $00FF

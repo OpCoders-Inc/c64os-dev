@@ -1,0 +1,1 @@
+CAR¤TYPE        = $0000CAR¤MAGIC       = $0001CAR¤VER         = $000BCAR¤DATE        = $000CCAR¤LOCK        = $0001CAR¤SIZE        = $0002CAR¤NAME        = $0005CAR¤COMP        = $0015AT¤GNRL         = $0000AT¤RSTR         = $0001CAR¤NOTE        = $0011AT¤INSTL        = $0002

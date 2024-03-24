@@ -1,0 +1,1 @@
+LSTR            = $00FASTRLEN¤         = $0000MEMNCPY¤        = $0003ASC2PET¤        = $0006PET2ASC¤        = $0009PET2SCR¤        = $000CTOLOWER¤        = $000FTOUPPER¤        = $0012ISDIGIT¤        = $0015STRDEL¤         = $0018STRINS¤         = $001B

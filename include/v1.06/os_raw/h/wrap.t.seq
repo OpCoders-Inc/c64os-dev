@@ -1,0 +1,1 @@
+;----[ WRAP.T ]-------------------------;LINK = 0REINDEX  = 3 ;ÒEINDEX STRING  ;ÒEINDEX THE LINES IN A STRING  ;ÒEGÐTR -> Ã-ÓTRING ÐOINTER  ;WIDTH¤ -> WRAP WIDTH  ;WIDTH¤ -> 0 = UNWRAP THE TEXT.  ;WIDTH¤ <- LONGEST LINE (.WORD)  ;Á      <- LINE MAP PAGE  ;Ø      <- LINE MAP SIZE
