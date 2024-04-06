@@ -1,6 +1,6 @@
 
 """
-    c64oshc - C64OS Headers Conversion
+    headconv - C64OS Headers Conversion
     ==================================
     
     Summary
@@ -43,11 +43,11 @@ logging.basicConfig(level=logging.DEBUG)
 HOME_PATH = pathlib.Path.home()
 logging.debug(HOME_PATH)
 
-config_filename = os.path.join(HOME_PATH, "c64oshc.ini")
+config_filename = os.path.join(HOME_PATH, "headconv.ini")
 logging.info("checking for configuration file %s", config_filename)
 
 if not os.path.exists(config_filename):
-    config_filename = os.path.join(pathlib.Path(os.getcwd()).absolute(), "c64oshc.ini")
+    config_filename = os.path.join(pathlib.Path(os.getcwd()).absolute(), "headconv.ini")
     logging.info("checking for configuration file %s", config_filename)
 
     if not os.path.exists(config_filename):
@@ -135,7 +135,7 @@ for filepath in filepaths:
     if filepath.suffix in exts:
 
         logging.debug(filepath.absolute())
-        file = open(filepath.absolute(), 'r', encoding='utf-8')
+        file = open(filepath.absolute(), 'r', encoding='utf-8')d
         file_contents = file.read()
         file_contents = file_contents.rstrip()
         file.close()
