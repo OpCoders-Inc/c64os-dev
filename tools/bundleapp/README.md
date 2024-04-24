@@ -4,9 +4,9 @@ This is a tool, similar to make that can be used to build and bundle a C64OS app
 The tool is a python script that does not need any external libraries to run, so it should be relatively easy to setup and run.
 
 ## What Is The `bundleapp.ini` File?
-This is an important file for the tool that will set the location of the utilities that are needed to build and bundle your application.
+This is a configuration file for the tool that will set the location of the utilities that are needed to build and bundle your application.
 
-It looks like this
+The contents looks like this
 ```ini
 [general]
 petcat_path=petcat.exe
@@ -14,7 +14,7 @@ c1541_path=c1541.exe
 tmpx_path=tmpx.exe
 ```
 
-There are two locations that you can place this file. The first place is in your home folder on your computer. On Windows, this might be
+There are two places where you can put this file. The first place is in your home folder on your computer. On Windows, this might be
 
 ```
 c:\Users\Paul
@@ -34,13 +34,13 @@ Regardless, create a copy of the `bindleapp.ini` file from this tool folder and 
 
 Then you can edit the file, and change the settings to let the tool know where some of the other programs it needs are located.
 
-### petcat_path
+### PETCAT_PATH
 The path and filename to the petcat utility. This utility is used to convert PETSCII to ASCII and vice-versa.
 
-### c1541_path
+### C1541_PATH
 The path and filename to the c1541 utility. This utility is used to create a distribution disk for your application.
 
-### tmpx_path
+### TMPX_PATH
 The path and filename to the TMPx cross compiler from style. You can find the compiler at [this link](https://style64.org/release/tmpx-v1.1.0-style).
 
 ## What Is The `bundle.ini` File?
@@ -66,13 +66,13 @@ menu.m=seq,menu.txt
 msg=seq,msg.txt,msg.t
 ```
 
-### `Bundle` Section
+### The `Bundle` Section
 This section is used to tell the tool what some of the basic parts of the bundle are.
 
-#### app_name
+#### APP_NAME
 This is the name of the application, and is also the name of the disk that is created, and also the name of the archive file that will be created.
 
-#### disk_type
+#### DISK_TYPE
 This is an optional setting that you can use to change the type of disk you want to distribute your bundle in. The default is D64, and usually that is big enough for most applications, but the option is there. 
 
 You can use any disk type supported by the C1541 utility that is provided by the VICE team.
@@ -81,27 +81,58 @@ Supported Types
 
 `d64, d81, d71`
 
-#### car_type
+#### CAR_TYPE
 This setting controls the type of C64 Arvhice file to create. The default value here is 0, which is a Generic archive type.
 
 Currently on type 0 is supported by the tool. We hope to provide support for other types soon.
 
-#### build_disk
+#### BUILD_DISK
 This setting is used to control if you want to create an actual disk image.
 
 - 0 = No (default)
 - 1 = Yes
 
-#### build_car
+#### BUILD_CAR
 This setting is used to control if you want to create a C64 Archive file for distribution. 
 
 - 0 = No (default)
 - 1 = Yes
 
-### `Build` Section
+### The `Build` Section
 This section can be used to build file using the TMPx compiler.
 
-### `Files` Section
+The format of each file is as follows:
+
+`object=source`
+
+#### OBJECT
+This is the name of the object that you want created. This is the equivalent of using the -o option from the command line.
+
+#### SOURCE
+This is the name of the source file that you want to use to build the object.
+
+#### EXAMPLE
+```ini
+[build]
+; create a program called main.o using main.a as
+; its source file
+;
+; this is the same as running
+;
+; > tmpx main.a -o main.o
+;
+main.o=main.a
+; create a program called loader.o using loader.asm
+; as its source file
+;
+; this is the same as running
+;
+; > tmpx loader.a -o loader.asm
+;
+loader.o=loader.asm
+```
+
+### The `Files` Section
 This section is used to define which files will be bundled for your application. 
 
 You can have any number of files in your bundle, the only requirement, is that you cannot have the same filename listed twice.
@@ -110,10 +141,10 @@ The format of each file is as follows:
 
 `filename=type,[from],[to]`
 
-#### filename
+#### FILENAME
 This required setting, is the file that you would like to have in your distribution. It might be the actual name of a file that is in your project folder, or it can also be used as the final name of your file as it will look on the distibution after it is bundled.
 
-#### type
+#### TYPE
 The second required setting is the file type. Currently three types are supported
 
 - SEQ (S) = seqential files
@@ -122,6 +153,29 @@ The second required setting is the file type. Currently three types are supporte
 This setting is especially important for sequential file types because the tool will try to convert the file to PETSCII before adding it to the bundle.
 
 Other types might be supported in the future.
+
+#### FROM
+This is an optional setting that tells the bundler which file to use for distribution.
+
+#### TO
+This is an optional setting that tells the bundler what the final name of the file should be when creating the distribution.
+
+#### EXAMPLE
+```ini
+[files]
+; bundle a file called about.t that is a sequential file
+; using the file about.txt as its source
+about.t=seq,about.txt
+; bundle a file called main.o from the file main.o 
+; which is a program file
+main.o=from=main.o,type=prg
+; bundle a file called menu.m that is a sequential file
+; using the file menu.txt as its source
+menu.m=seq,menu.txt
+; bundle a file called msg.t that is a sequential file
+; using the file msg.txt as its source
+msg=seq,msg.txt,msg.t
+```
 
 ## How To Run This Tool
 Once you have made copies of your bundleapp.ini and bundle.ini files, and have made appropriate changes, you are ready to run the tool.
