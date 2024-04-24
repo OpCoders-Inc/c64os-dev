@@ -381,14 +381,16 @@ for file in bundle.options('files'):
 
         name_len = len(file_to)
         name_fill = "$a0," * (16 - name_len)
-        data_len_lo = len(data)
+        data_len_zen = 0
+        data_len_hi = len(data) // 256
+        data_len_lo = abs((data_len_hi * 256) - len(data))
 
         data_type = file_type[0]
 
         FILE_STR = f"""
             .byte "{data_type}"
             .byte 0
-            .byte {data_len_lo}, 0, 0
+            .byte {data_len_lo}, {data_len_hi}, {data_len_zen}
             .text "{file_to}"
             .byte {name_fill[:-1]}
             .byte 0
