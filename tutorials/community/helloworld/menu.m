@@ -1,1 +1,0 @@
-сYSTEM;CдROP TO реады:6BB*гO хOME:6H!
