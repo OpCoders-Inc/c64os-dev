@@ -1,9 +1,7 @@
 
 ;
-; testapp1
+; helloworld
 ; 
-; main.a
-;
 ; a very simple program that 
 ; prints a message and 
 ; consumes a menu event to
