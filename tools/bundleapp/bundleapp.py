@@ -337,10 +337,13 @@ for file in bundle.options('files'):
 
     if file_type == "seq":
 
+        logging.debug('converting crlf to lf in file %s', file_from)
+
         # create temp file that removes the crlf with just lf
+        
         CRLF = b'\r\n'
         LF = b'\n'
-
+ 
         with open(file_from, 'rb') as open_file:
             content = open_file.read()
 
@@ -350,12 +353,22 @@ for file in bundle.options('files'):
 
         new_from_file = tempfile.TemporaryFile(delete=False)
 
-        logging.debug('converting crlf to lf in file %s', new_from_file.name)
-
         with open(new_from_file.name, 'wb') as open_file:
             open_file.write(content)
 
         subprocess.run([PETCAT_PATH, "-text", "-w2", "-o", file_to, "--", new_from_file.name], shell=True, check=False)
+
+        # convert left arrow to underscore (as intended)
+
+        with open(file_to, 'rb') as open_file:
+
+            LEFT_ARROW = b'\x5f'
+            UNDERSCORE = b'\xa4'
+            content = open_file.read()
+            content = content.replace(LEFT_ARROW, UNDERSCORE)
+
+        with open(file_to, 'wb') as open_file:
+            open_file.write(content)
 
         final_file_from = file_to
         final_file_to = f"{file_to},s"
