@@ -1,9 +1,7 @@
 
 ;
-; testapp1
+; helloworld
 ; 
-; main.a
-;
 ; a very simple program that 
 ; prints a message and 
 ; consumes a menu event to
@@ -184,7 +182,7 @@ drawctx
 
 hello_s
 
-    .null "Test App 1"
+    .null "Hello World"
 
 strcolor
 

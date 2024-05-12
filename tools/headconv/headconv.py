@@ -135,7 +135,7 @@ for filepath in filepaths:
     if filepath.suffix in exts:
 
         logging.debug(filepath.absolute())
-        file = open(filepath.absolute(), 'r', encoding='utf-8')d
+        file = open(filepath.absolute(), 'r', encoding='utf-8')
         file_contents = file.read()
         file_contents = file_contents.rstrip()
         file.close()
