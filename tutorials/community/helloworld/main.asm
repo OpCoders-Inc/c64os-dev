@@ -182,7 +182,7 @@ drawctx
 
 hello_s
 
-    .null "Test App 1"
+    .null "Hello World"
 
 strcolor
 
