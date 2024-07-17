@@ -4,11 +4,10 @@
 ; 
 ; a simple program for c64os that
 ; creates a VIEW and then attaches
-; three BUTTON widgets to it
+; a BUTTON widget to it
 ;
 ; there is no button handling
 ; code in this program
-
 ;
 ; c64os programmers guide
 ;
@@ -21,13 +20,13 @@
 ; use for cross development
 ;
 
-    .include "os/h/modules.h"
+.include "os/h/modules.h"
 
 ;
 ; use for native development
 ;
 
-    ;.include "//os/h/:modules.h"
+;.include "//os/h/:modules.h"
 
 
 ;------------------------------
@@ -55,7 +54,6 @@
          #inc_tkh "tkview"
          #inc_tkh "tkbutton"
          #inc_tkh "tkctrl"
-         #inc_tkh "tktext"
 
          *= appbase
 
@@ -64,8 +62,6 @@
          .word j_quit
          .word raw_rts
          .word raw_rts
-views
-         .word 0    ; root
 
 widgets
          .word 0    ; button
@@ -196,8 +192,6 @@ ptr      = $fb;$fc
          ldx layer+slindx
          jmp markredraw
 
-         rts
-
          .bend
 
 ;------------------------------
@@ -279,7 +273,6 @@ j_quit
 
          .bend
 
-
 extern
 
 ;------------------------------
@@ -287,18 +280,6 @@ extern
          #inc_h "memory"
 pgalloc
          #syscall lmem,pgalloc_
-
-
-;------------------------------
-
-         #inc_h "input"
-initmouse
-         #syscall linp,initmouse_
-killmouse
-         #syscall linp,killmouse_
-hidemouse
-         #syscall linp,hidemouse_
-
 
 ;------------------------------
 
@@ -310,11 +291,11 @@ markredraw
 ctx2scr
          #syscall lscr,ctx2scr_
 
+;------------------------------
 
          #inc_h "service"
 quitapp
          #syscall lser,quitapp_
-
 
 ;------------------------------
 
