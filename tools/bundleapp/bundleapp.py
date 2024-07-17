@@ -96,7 +96,7 @@ TEMP_PATH = tempfile.TemporaryDirectory()
 
 logging.info("CONFIGURATION SETTINGS")
 logging.info("======================")
-logging.info("PATCAT_PATH:  %s", PETCAT_PATH)
+logging.info("PETCAT_PATH:  %s", PETCAT_PATH)
 logging.info("C1541_PATH:   %s", C1541_PATH)
 logging.info("TMPX_PATH:    %s", TMPX_PATH)
 logging.info("TEMP_PATH:    %s", TEMP_PATH.name)
@@ -429,6 +429,6 @@ if BUILD_CAR > 0:
     print(CAR_DATA)
     f = open(final_car_name, "wb")
     f.write(CAR_DATA)
-    f.close
+    f.close()
 
 sys.exit(0)

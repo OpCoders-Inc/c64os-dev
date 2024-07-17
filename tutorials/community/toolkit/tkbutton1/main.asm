@@ -65,10 +65,10 @@
          .word raw_rts
          .word raw_rts
 views
-         .word 0 ;root
+         .word 0    ; root
 
 widgets
-         .word 0,0,0
+         .word 0    ; button
 
 layer
          .word j_draw
@@ -101,9 +101,7 @@ tkenv
 ui_s
          #strxyget 
 
-         .null "Test1"
-         .null "Test2"
-         .null "Test3"
+         .null "Button"
 
 ;------------------------------
 
@@ -133,16 +131,14 @@ ptr      = $fb;$fc
 ;
 ; TKVIEW      39
 ; TKBUTTON    62
-; TKBUTTON    62
-; TKBUTTON    62
 ;
-;            225
+;            101
 ;
-; OBJS 4*3    12
+; OBJS 2*3     6
 ;
-; TOTAL      237
+; TOTAL      107
 ;
-; 237 < 256 = 1 page
+; 107 < 256 = 1 page
 
          lda #mapapp
          ldx #1
@@ -166,7 +162,7 @@ ptr      = $fb;$fc
 
          #setflag this,dflags,df_opaqu
 
-; create the button 1
+; create the button
 
          ldx #tkbutton
          jsr classptr
@@ -191,57 +187,6 @@ ptr      = $fb;$fc
          #rdxy tkenv+te_rview
          jsr appendto
 
-; create the button 2
-
-         ldx #tkbutton
-         jsr classptr
-         jsr tknew
-
-         #storeset widgets,1
-
-         ldy #init_
-         jsr getmethod
-         jsr sysjmp
-
-         ldy #settitle_
-         jsr getmethod
-         lda #1
-         jsr ui_s
-         jsr sysjmp
-
-         #setobj8 this,offtop,4
-         #setobj8 this,offleft,2
-         #setobj8 this,width,8
-
-         #rdxy tkenv+te_rview
-         jsr appendto
-
-; create the button 3
-
-         ldx #tkbutton
-         jsr classptr
-         jsr tknew
-
-         #storeset widgets,2
-
-         ldy #init_
-         jsr getmethod
-         jsr sysjmp
-
-         ldy #settitle_
-         jsr getmethod
-         lda #2
-         jsr ui_s
-         jsr sysjmp
-
-         #setobj8 this,offtop,6
-         #setobj8 this,offleft,2
-         #setobj8 this,width,8
-
-         #rdxy tkenv+te_rview
-         jsr appendto
-
-
 ; push main screen layer
 
          ldx #<layer
@@ -254,7 +199,6 @@ ptr      = $fb;$fc
          rts
 
          .bend
-
 
 ;------------------------------
 
@@ -269,7 +213,6 @@ j_draw
          jmp ctx2scr
 
          .bend
-
 
 ;------------------------------
 
