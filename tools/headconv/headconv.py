@@ -24,7 +24,7 @@
     ----
     Author:     paul@spocker.net
     Github:     https://github.com/OpCoders-Inc/c64os-dev
-    Date:		2024-02-20
+    Date:         2024-02-20
 
 """
 
