@@ -51,12 +51,11 @@ The `helloworld` application has a bundle file that looks like this
 ```ini
 [bundle]
 app_name=helloworld
-car_note=The Hello World App
-car_date=[current]
-disk_type=d64
-car_type=2
 disk_build=0
+disk_type=d64
 car_build=0
+car_type=2
+car_note=The Hello World App
 car_checksum=0
 
 [build]
