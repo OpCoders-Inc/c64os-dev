@@ -106,6 +106,9 @@ This will provide the note in the installer application when opened, up to 30 ch
 #### CAR_CHECKSUM 
 When archive type 3 is specified, you may optionally include a checksum on the file. Turn this setting on to calculate and print the CRC32 generated checksums of the CAR file.
 
+- 0 = No (default)
+- 1 = Yes
+
 ### The `Build` Section
 This section can be used to build file using the TMPx compiler. In future version, alternative assemblers like 64TASS might be supported.
 
