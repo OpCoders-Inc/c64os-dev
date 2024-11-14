@@ -51,10 +51,13 @@ The `helloworld` application has a bundle file that looks like this
 ```ini
 [bundle]
 app_name=helloworld
+car_note=The Hello World App
+car_date=[current]
 disk_type=d64
 car_type=2
-build_disk=0
-build_car=0
+disk_build=0
+car_build=0
+car_checksum=0
 
 [build]
 main.o=main.a
@@ -72,6 +75,12 @@ This section is used to tell the tool what some of the basic parts of the bundle
 #### APP_NAME
 This is the name of the application, and is also the name of the disk that is created, and also the name of the archive file that will be created.
 
+#### DISK_BUILD 
+This setting is used to control if you want to create an actual disk image.
+
+- 0 = No (default)
+- 1 = Yes
+
 #### DISK_TYPE
 This is an optional setting that you can use to change the type of disk you want to distribute your bundle in. The default is D64, and usually that is big enough for most applications, but the option is there. 
 
@@ -81,25 +90,25 @@ Supported Types
 
 `d64, d81, d71`
 
+#### CAR_BUILD 
+This setting is used to control if you want to create a C64 OS Archive file for distribution. 
+
+- 0 = No (default)
+- 1 = Yes
+
 #### CAR_TYPE
-This setting controls the type of C64 Arvhice file to create. The default value here is 0, which is a Generic archive type.
+This setting controls the type of C64 OS Archive file to create. The default value here is 0, which is a Generic archive type.
 
-Currently on type 0 is supported by the tool. We hope to provide support for other types soon.
+The tool currently supports up to a Version 3 archive type.
 
-#### BUILD_DISK
-This setting is used to control if you want to create an actual disk image.
+#### CAR_NOTE
+This will provide the note in the installer application when opened, up to 30 characters.
 
-- 0 = No (default)
-- 1 = Yes
-
-#### BUILD_CAR
-This setting is used to control if you want to create a C64 Archive file for distribution. 
-
-- 0 = No (default)
-- 1 = Yes
+#### CAR_CHECKSUM 
+When archive type 3 is specified, you may optionally include a checksum on the file. Turn this setting on to calculate and print the CRC32 generated checksums of the CAR file.
 
 ### The `Build` Section
-This section can be used to build file using the TMPx compiler.
+This section can be used to build file using the TMPx compiler. In future version, alternative assemblers like 64TASS might be supported.
 
 The format of each file is as follows:
 

@@ -2,13 +2,13 @@
 """
     bundlapp - C64OS Bundle Application Tool
     ========================================
-    
+
     Summary
     -------
     This python script can be used to bundle the files
     for an application or utility that you would like
     to distribute.
-    
+
     See the README.md for more information on how to
     configure and run the program.
 
@@ -37,7 +37,9 @@
     ----
     Author:     paul@spocker.net
     Github:     https://github.com/OpCoders-Inc/c64os-dev
-    Date:		2024-03-24
+
+    History
+    -------
 
 """
 
@@ -48,11 +50,28 @@ import sys
 import subprocess
 import configparser
 import tempfile
+import datetime
+import binascii
 
-print(__file__)
-print(os.path.dirname(os.path.realpath(__file__)))
+print()
+print("C64 OS Application Bundle Tool (bundleapp.py)")
+print("Version 1.0")
+print()
 
-logging.basicConfig(level=logging.DEBUG)
+LOGGING_LEVEL = logging.WARN
+
+for arg in sys.argv:
+
+    if arg.lower() == "--debug":
+        LOGGING_LEVEL = logging.DEBUG
+
+    if arg.lower() == "--info":
+        LOGGING_LEVEL = logging.INFO
+
+logging.basicConfig(level=LOGGING_LEVEL, format='[%(levelname)-8s] %(message)s')
+
+logging.debug(__file__)
+logging.debug(os.path.dirname(os.path.realpath(__file__)))
 
 HOME_PATH = pathlib.Path.home()
 logging.debug(HOME_PATH)
@@ -66,17 +85,17 @@ file_type = ""
 #
 
 config_filename = os.path.join(HOME_PATH, "bundleapp.ini")
-logging.info("checking for configuration file %s", config_filename)
+logging.debug("checking for configuration file %s", config_filename)
 
 if not os.path.exists(config_filename):
-    config_filename = os.path.join(pathlib.Path(os.path.dirname(os.path.realpath(__file__))).absolute(), "bundleapp.ini")
-    logging.info("checking for configuration file %s", config_filename)
+    config_filename = os.path.join(os.getcwd(), "bundleapp.ini")
+    logging.debug("checking for configuration file %s", config_filename)
 
-    if not os.path.exists(config_filename):
-        logging.error("configuration file not found -- consult README.md and try again.")
-        sys.exit(1)
+if not os.path.exists(config_filename):
+    logging.error("configuration file not found -- consult README.md and try again.")
+    sys.exit(1)
 
-logging.info("opening configuration file %s", config_filename)
+logging.debug("opening configuration file %s", config_filename)
 config = configparser.ConfigParser()
 config.read(config_filename)
 
@@ -93,6 +112,8 @@ TMPX_PATH = config.get("general", "tmpx_path")
 
 # a place to store throw away things
 TEMP_PATH = tempfile.TemporaryDirectory()
+
+print()
 
 logging.info("CONFIGURATION SETTINGS")
 logging.info("======================")
@@ -113,7 +134,7 @@ if not os.path.exists(bundle_filename):
     logging.error("the bundle.ini file was not found -- consult README.md and try again.")
     sys.exit(1)
 
-logging.info("opening bundle configuration file %s", bundle_filename)
+logging.debug("opening bundle configuration file %s", bundle_filename)
 bundle = configparser.ConfigParser()
 bundle.read(bundle_filename)
 
@@ -122,36 +143,59 @@ APP_NAME = "myapp"
 if bundle.has_option("bundle", "app_name"):
     APP_NAME = bundle.get("bundle", "app_name")
 
+now = datetime.datetime.now()
+
+CAR_YY = now.year
+CAR_MM = now.month
+CAR_DD = now.day
+CAR_HH = now.hour
+CAR_MI = now.minute
+
+# the note for the archive 
+CAR_NOTE = "NONE"
+if bundle.has_option("bundle", "car_note"):
+    CAR_NOTE=bundle.get("bundle", "car_note")
+
 # the type of disk to create
 DISK_TYPE = ".d64"
 if bundle.has_option("bundle", "disk_type"):
     DISK_TYPE = bundle.get("bundle", "disk_type")
 
 # the type of c64 archive to build
-CAR_TYPE = "2"
+CAR_TYPE = 2
 if bundle.has_option("bundle", "car_type"):
-    CAR_TYPE = bundle.get("bundle", "car_type")
+    CAR_TYPE = bundle.getint("bundle", "car_type")
 
 # should we build the disk
-BUILD_DISK = 0
-if bundle.has_option("bundle", "build_disk"):
-    BUILD_DISK = int(bundle.get("bundle", "build_disk"))
+DISK_BUILD = 0
+if bundle.has_option("bundle", "disk_build"):
+    DISK_BUILD = int(bundle.get("bundle", "disk_build"))
 
 # should we build the car
-BUILD_CAR = 0
-if bundle.has_option("bundle", "build_car"):
-    BUILD_CAR = int(bundle.get("bundle", "build_car"))
+CAR_BUILD = 0
+if bundle.has_option("bundle", "car_build"):
+    CAR_BUILD = int(bundle.get("bundle", "car_build"))
+
+CAR_CHECKSUM = 1
+if bundle.has_option("bundle", "car_checksum"):
+    CAR_CHECKSUM = int(bundle.get("bundle", "car_checksum"))
 
 final_disk_name = APP_NAME + "." + DISK_TYPE
 final_car_name = APP_NAME + ".car"
+
+print()
 
 logging.info("BUNDLE SETTINGS")
 logging.info("====================")
 logging.info("APP_NAME:     %s", APP_NAME)
 logging.info("DISK_TYPE:    %s", DISK_TYPE)
+logging.info("DISK_BUILD:   %s", DISK_BUILD)
+logging.info("CAR_BUILD:    %s", CAR_BUILD)
 logging.info("CAR_TYPE:     %s", CAR_TYPE)
-logging.info("BUILD_DISK:   %s", BUILD_DISK)
-logging.info("BUILD_CAR:    %s", BUILD_CAR)
+logging.info("CAR_NOTE:     %s", CAR_NOTE)
+logging.info("CAR_CHECKSUM: %s", CAR_CHECKSUM)
+
+print()
 
 logging.debug("final_disk_name = %s", final_disk_name)
 logging.debug("final_car_name = %s", final_car_name)
@@ -164,12 +208,12 @@ for file in bundle.options('build'):
     logging.debug("building file %s", file)
     file_src = bundle.get('build', file).strip()
     logging.debug("file source : %s", file_src )
-    subprocess.run([TMPX_PATH, file_src, "-o", file], shell=True, check=False)
+    subprocess.run([TMPX_PATH, file_src, "-o", file], shell=True, check=False, stdout=subprocess.DEVNULL)
 
 #
 # create the disk
 #
-if BUILD_DISK > 0:
+if DISK_BUILD > 0:
     create_disk_title = "%s,a1" % APP_NAME
     create_disk_name = "%s" % final_disk_name
     subprocess.run([C1541_PATH, "-format", 
@@ -177,29 +221,34 @@ if BUILD_DISK > 0:
         DISK_TYPE, 
         create_disk_name], 
         shell=True, 
-        check=False)
-
+        check=False,
+        stdout=subprocess.DEVNULL)
+    print(f"Distribution Disk [{final_disk_name}] created.")
+    print()
 
 CAR_DATA = b''
 
-if BUILD_CAR > 0:
+if CAR_BUILD > 0:
+
+    print(f"Creating the C64 OS Archive File [{final_car_name}].")
+    print()
 
     # create the header
 
-    HEADER_STR = """
+    HEADER_STR = f"""
         .byte 0
         .text "C64Archive"
-        .byte 2
-        .byte 12
-        .byte 03
-        .byte 30
-        .byte 14
-        .byte 18
-        .text "123456789012345678901234567890"
+        .byte {CAR_TYPE:2d}
+        .byte {(CAR_YY % 100)+100:2d}
+        .byte {CAR_MM:2d}
+        .byte {CAR_DD:2d}
+        .byte {CAR_HH:2d}
+        .byte {CAR_MI:2d}
+        .text "{CAR_NOTE:30}"
         .byte 0
         """
-    
-    print(HEADER_STR)
+
+    logging.debug(f"\n\n{HEADER_STR}\n")
 
     header_filename = os.path.join(TEMP_PATH.name, "header.a")
     header_outfile = os.path.join(TEMP_PATH.name, "header.o")
@@ -207,11 +256,11 @@ if BUILD_CAR > 0:
     header_src.write(HEADER_STR)
     header_src.seek(0)
     header_src.close()
-    subprocess.run([TMPX_PATH, header_filename, "-o", header_outfile], shell=True, check=False)
+    subprocess.run([TMPX_PATH, header_filename, "-o", header_outfile], shell=True, check=False, stdout=subprocess.DEVNULL)
     header = open(header_outfile, "rb", encoding=None)
     data = header.read()
     header.close()
-    print(data)
+    logging.debug(f"\n\n{data}\n")
     CAR_DATA = CAR_DATA + data[2:]
 
     # create the dir
@@ -228,8 +277,9 @@ if BUILD_CAR > 0:
         .byte {name_fill[:-1]}
         .byte 0
         """
-    
-    print(DIR_STR)
+
+    logging.debug(f"\n\n{DIR_STR}\n")
+
 
     dir_filename = os.path.join(TEMP_PATH.name, "dir.a")
     dir_outfile = os.path.join(TEMP_PATH.name, "dir.o")
@@ -237,11 +287,11 @@ if BUILD_CAR > 0:
     dir_src.write(DIR_STR)
     dir_src.seek(0)
     dir_src.close()
-    subprocess.run([TMPX_PATH, dir_filename, "-o", dir_outfile], shell=True, check=False)
+    subprocess.run([TMPX_PATH, dir_filename, "-o", dir_outfile], shell=True, check=False, stdout=subprocess.DEVNULL)
     header = open(dir_outfile, "rb", encoding=None)
     data = header.read()
     header.close()
-    print(data)
+    logging.debug(f"\n\n{data}\n")
     CAR_DATA = CAR_DATA + data[2:]
 
 
@@ -340,16 +390,16 @@ for file in bundle.options('files'):
         logging.debug('converting crlf to lf in file %s', file_from)
 
         # create temp file that removes the crlf with just lf
-        
+
         CRLF = b'\r\n'
         LF = b'\n'
- 
+
         with open(file_from, 'rb') as open_file:
             content = open_file.read()
 
         content = content.replace(CRLF, LF)
 
-        logging.debug(content)
+        logging.debug(f"\n\n{content}\n")
 
         new_from_file = tempfile.TemporaryFile(delete=False)
 
@@ -380,10 +430,10 @@ for file in bundle.options('files'):
     logging.debug("final_file_from = %s", final_file_from)
     logging.debug("final_file_to = %s", final_file_to)
 
-    if BUILD_DISK > 0:
-        subprocess.run([C1541_PATH, "-attach", create_disk_name, "-write", final_file_from, final_file_to], shell=True, check=False)
+    if DISK_BUILD > 0:
+        subprocess.run([C1541_PATH, "-attach", create_disk_name, "-write", final_file_from, final_file_to], shell=True, check=False,stdout=subprocess.DEVNULL)
 
-    if BUILD_CAR > 0:
+    if CAR_BUILD > 0:
 
         data_file_from = open(final_file_from, "rb", encoding=None)
         data = data_file_from.read()
@@ -408,8 +458,8 @@ for file in bundle.options('files'):
             .byte {name_fill[:-1]}
             .byte 0
             """
-        
-        print(FILE_STR)
+
+        logging.debug(f"\n\n{FILE_STR}\n")
 
         file_filename = os.path.join(TEMP_PATH.name, "file.a")
         file_outfilename = os.path.join(TEMP_PATH.name, "file.o")
@@ -417,18 +467,50 @@ for file in bundle.options('files'):
         file_src.write(FILE_STR)
         file_src.seek(0)
         file_src.close()
-        subprocess.run([TMPX_PATH, file_filename, "-o", file_outfilename], shell=True, check=False)
+        subprocess.run([TMPX_PATH, file_filename, "-o", file_outfilename], shell=True, check=False, stdout=subprocess.DEVNULL)
         file_outfile = open(file_outfilename, "rb", encoding=None)
         file_data = file_outfile.read()
         file_outfile.close()
-        print(file_data)
+        logging.debug(f"\n\n{file_data}\n")
         CAR_DATA = CAR_DATA + file_data[2:]
         CAR_DATA = CAR_DATA + data
 
-if BUILD_CAR > 0:
-    print(CAR_DATA)
+# write out the car file
+
+if CAR_BUILD > 0:
+
+    # for v3 car files add 4 byte crc32 checksum
+
+    if CAR_TYPE > 2 and CAR_CHECKSUM > 0:
+
+        checksum = binascii.crc32(CAR_DATA)
+        checkstr = f'{checksum:08x}'
+
+        # add checksum in reverse order as per CAR specs
+
+        print(f"C64 OS Archive Internal Checksum is: {checksum:08x}")
+        print()
+
+        CAR_DATA += bytes.fromhex(checkstr[6:8])
+        CAR_DATA += bytes.fromhex(checkstr[4:6])
+        CAR_DATA += bytes.fromhex(checkstr[2:4])
+        CAR_DATA += bytes.fromhex(checkstr[0:2])
+
+    logging.debug(f"\n\n{CAR_DATA}\n")
+
+    # write car to disk
+
     f = open(final_car_name, "wb")
     f.write(CAR_DATA)
     f.close()
+
+    print(f"C64 OS Archive File [{final_car_name}] was created.")
+    print()
+
+    d_checksum = binascii.crc32(CAR_DATA)
+    d_checkstr = f'{d_checksum:08x}'
+
+    print(f"C64 OS Archive Distribution Checksum is: {d_checksum:08x}")
+    print()
 
 sys.exit(0)
