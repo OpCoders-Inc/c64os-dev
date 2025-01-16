@@ -215,7 +215,7 @@ for file in bundle.options('build'):
 #
 if DISK_BUILD > 0:
     create_disk_title = "%s,a1" % APP_NAME
-    create_disk_name = "%s" % final_disk_name
+    create_disk_name = "%s" % final_disk_name.lower()
     subprocess.run([C1541_PATH, "-format", 
         create_disk_title, 
         DISK_TYPE, 

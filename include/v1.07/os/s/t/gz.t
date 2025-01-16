@@ -1,0 +1,1 @@
+;GZip. GNU file compression format. Uses the deflate algorithm.

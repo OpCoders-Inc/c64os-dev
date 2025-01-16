@@ -1,0 +1,1 @@
+;----[ IO.S ]---------------------------CHKIN    = $FFC6CHKOUT   = $FFC9CLRCHN   = $FFCCCLALL    = $FFE7READST   = $FFB7CHRIN    = $FFCFCHROUT   = $FFD2

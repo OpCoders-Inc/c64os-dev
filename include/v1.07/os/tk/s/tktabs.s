@@ -1,0 +1,10 @@
+tabstr   = 0
+willblur = 2
+willfoc  = 4
+didblur  = 6
+didfoc   = 8
+curtab   = tkviewsz
+tabsz    = tkviewsz+1
+tabcnt   = tkviewsz+11
+hltab    = tkviewsz+12
+delegate = tkviewsz+13

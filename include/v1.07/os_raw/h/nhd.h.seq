@@ -1,0 +1,1 @@
+SETHAND¤        = $0006POLLGET¤        = $0009DATAGET¤        = $000CDATAPUT¤        = $000FSETRATE¤        = $0012SSIDSTAT¤       = $0015OPENSOCK¤       = $0018NHDPAUSE¤       = $001BNHDRESUM¤       = $001E

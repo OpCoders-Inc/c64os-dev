@@ -1,0 +1,16 @@
+detectiec       = $3a00
+drivemap        = $0334
+devnot          = $0000
+devfor          = $0001
+devvice         = $000a
+dev1541         = $0029
+dev1571         = $0047
+dev1581         = $0051
+devcmdfd        = $0082
+devcmdhd        = $0083
+devcmdrl        = $0084
+devcmdrd        = $0085
+devsdiec        = $0086
+devide64        = $0087
+devultim        = $00ca
+devp1541        = $00cb

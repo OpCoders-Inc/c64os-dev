@@ -1,0 +1,1 @@
+WIFI¤SSID       = $0000WIFI¤PASS       = $0002TCP¤HOST        = $0000TCP¤PORT        = $0002BRC¤3           = $0000BRC¤12          = $0001BRC¤24          = $0002BRC¤48          = $0003BRC¤96          = $0004BRC¤144         = $0005BRC¤192         = $0006BRC¤384         = $0007BRC¤576         = $0008BRC¤115         = $0009BRC¤230         = $000A

@@ -1,0 +1,1 @@
+;ArtStudio. Hi-Res bitmap graphics format.

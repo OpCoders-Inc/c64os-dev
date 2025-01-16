@@ -1,0 +1,1 @@
+;----[ INPUT.H ]------------------------LINP     = $0100-(2*2)INITMOUSE¤ = $00KILLMOUSE¤ = $03HIDEMOUSE¤ = $06MOUSERC¤ = $09READMOUSE¤ = $0CDEQMOUSE¤ = $0FREADKCMD¤ = $12DEQKCMD¤ = $15READKPRNT¤ = $18DEQKPRNT¤ = $1BPOLLDEVICES¤ = $1E

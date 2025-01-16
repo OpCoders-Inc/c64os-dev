@@ -1,0 +1,9 @@
+sethand_        = $0006
+pollget_        = $0009
+dataget_        = $000c
+dataput_        = $000f
+setrate_        = $0012
+ssidstat_       = $0015
+opensock_       = $0018
+nhdpause_       = $001b
+nhdresum_       = $001e
