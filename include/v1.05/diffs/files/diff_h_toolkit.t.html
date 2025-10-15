@@ -1,0 +1,212 @@
+<html>
+<head>
+    <title>Unchanged File: h/toolkit.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Unchanged File: h/toolkit.t</h1>
+            <p>This file is identical in both directories.</p>
+            <pre class="unchanged_content">;----[ toolkit.t ]----------------------
+
+ltkt     = $0100-(2*9)       ;9th Module
+
+pushctx_ = 0
+;  Pushes the draw context to stack
+;  Must be called with JSR, never JMP
+
+pullctx_ = 3
+;  Pulls the draw context from stack
+;  Must be called with JSR, never JMP
+
+setctx_  = 6
+;  RegPtr -&gt; Ptr to a drawctx in memory
+;  Copies memory to the draw context
+
+recontext_ = 9
+;  Starts with the current context and
+;  modifies and shrinks it for the
+;  offset and size of this view.
+;  this -&gt; current node
+
+boundschk_ = 12
+;  Checks if the current view falls at
+;  least partially inside the context&#x27;s
+;  current drawing region.
+;  this -&gt; current node
+;  C &lt;- Set on out of bounds
+;  C &lt;- Clr on within bounds
+
+settkenv_ = 15
+;  Sets the Toolkit environment
+;  RegPtr -&gt; Toolkit environment struct
+
+;---------------------------------------
+
+tkupdate_ = 18
+;  Checks for dirty flag on the toolkit
+;  environment, and then calls update on
+;  the rootview. Clears TKE dirty flag.
+;  RegPtr -&gt; Toolkit Environment
+
+tkmouse_ = 21
+;  Hit tests and calls hit view&#x27;s
+;  responder method for the event type
+;  RegPtr -&gt; Toolkit Environment
+;  C &lt;- Clr = Event was handled
+;  C &lt;- Set = Event not handled
+
+tkkcmd_  = 24
+;  Calls dokeyeqv on first responder.
+;  RegPtr -&gt; Toolkit Environment
+;  C &lt;- Clr = Event was handled
+;  C &lt;- Set = Event not handled
+
+tkkprnt_ = 27
+;  Calls keypress on first responder.
+;  RegPtr -&gt; Toolkit Environment
+;  C &lt;- Clr = Event was handled
+;  C &lt;- Set = Event not handled
+
+;---------------------------------------
+
+classlnk_ = 30
+;  Links a dynamically loaded class to
+;  its superclass.
+;  RegPtr -&gt; Class to be linked
+;  class  -&gt; SuperClass
+
+classptr_ = 33
+;  Returns class ptr from a classId
+;  X      -&gt; classId
+;  RegPtr &lt;- Class
+
+tknew_   = 36
+;  Instantiates a new object of class X
+;  RegPtr -&gt; Class
+;  this   &lt;- new intance ptr
+;  class  &lt;- class of instance
+;  RegPtr &lt;- new intance ptr
+
+getprop16_ = 39
+;  Get 16-bit property of this
+;  this   -&gt; object
+;  Y      -&gt; property offset
+;  RegWrd &lt;- property
+
+ptrthis_ = 42
+;  Set this to a new pointer.
+;  Set class to this.isa (via fallthru)
+;  RegPtr -&gt; object
+;  this   &lt;- object
+;  class  &lt;- this.isa
+
+setclass_ = 45
+;  Set class to this.isa
+;  this  -&gt; object
+;  class &lt;- this.isa
+
+setsuper_ = 48
+;  Set class to class.super
+;  class -&gt; class
+;  class &lt;- class.super
+
+getmethod_ = 51
+;  Get method pointer from class
+;  class  -&gt; class
+;  Y      -&gt; method offset
+;  jmpvec &lt;- method ptr
+;  RegPtr &lt;- method pointer
+
+;---------------------------------------
+
+instanceof_ = 54
+;  Check if class descends from class
+;  class  -&gt; class
+;  RegPtr -&gt; class
+;  C &lt;- clr = It is an instance
+;  C &lt;- set = Not an instance
+
+walk_    = 57
+;  Recursively walks the node tree
+;  calls sysjmp on each node.
+;  this   -&gt; current node
+;  jmpvec -&gt; routine to call
+;  A -&gt; $2c = Only visible nodes
+;  A -&gt; $4c = The whole node tree
+;  C &lt;- clr = completed
+;  C &lt;- set = keep walking
+
+isdescof_ = 60
+;  Searches up the view hierarchy to see
+;  if this is a nested child of the view
+;  passed in.
+;  this   -&gt; current node
+;  RegPtr -&gt; potential ancestor view
+;  A &lt;- 1=Descends, 0=DoesNotDescend
+;  Z &lt;- Set if not a descendant
+;  Z &lt;- Clr if it does descend
+
+opaqancs_ = 63
+;  Searches up the view hierarchy for
+;  first opaque ancestor. Could return
+;  this, if this is opaque.
+;  this   -&gt; current node
+;  RegPtr &lt;- opaque ancestor of this
+
+viewwtag_ = 66
+;  Finds a view that descends from this
+;  that bears a matching tag.
+;  this -&gt; current node
+;  A    -&gt; a tag to search for
+
+appendto_ = 69
+;  Takes a parent, to which this is
+;  appended, via the parent&#x27;s addchild
+;  method. This is left unchanged.
+;  this   -&gt; current node
+;  RegPtr -&gt; this&#x27;s new parent
+;  this   &lt;- same this that was passed</pre>
+        </div>
+    </div>
+</body>
+</html>

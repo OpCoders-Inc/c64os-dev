@@ -1,0 +1,445 @@
+<html>
+<head>
+    <title>All Files Comparison</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="btn-back">Back to Main Report</a>
+        <div class="card p-4">
+            <h1>All Files Comparison</h1>
+            <p><strong>v1.07 -&gt; v1.08</strong></p>
+            <p>Generated: 2025-10-14 23:08:51</p>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span class="status-added">Added</span>: Files present only in the new directory.</p>
+                <p><span class="status-removed">Removed</span>: Files present only in the old directory.</p>
+                <p><span class="status-modified">Modified</span>: Files present in both directories with differences (change count shown).</p>
+                <p><span class="status-unchanged">Unchanged</span>: Files identical in both directories.</p>
+            </div>
+            <div class="filter-controls">
+                <button class="btn btn-primary active" id="filter-added" data-active="true">Show Added</button>
+                <button class="btn btn-primary active" id="filter-removed" data-active="true">Show Removed</button>
+                <button class="btn btn-primary active" id="filter-modified" data-active="true">Show Modified</button>
+                <button class="btn btn-primary active" id="filter-unchanged" data-active="true">Show Unchanged</button>
+            </div>
+            <table class="table table-bordered table-all-files">
+                <thead>
+                    <tr>
+                        <th>File Path</th>
+                        <th>Status</th>
+                        <th>Changes</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr class="row-status-unchanged"><td>h/calendar.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_calendar.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/calendar.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_calendar.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/checksum.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_checksum.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/checksum.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_checksum.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/cmp.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_cmp.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/cmp.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_cmp.t.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>h/cnp.h</td><td><span class="status-modified">Modified</span></td><td>2</td><td><a href="files/diff_h_cnp.h.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>h/cnp.t</td><td><span class="status-modified">Modified</span></td><td>9</td><td><a href="files/diff_h_cnp.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/datetime.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_datetime.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/datetime.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_datetime.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/dir.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_dir.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/dir.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_dir.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/dt.img.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_dt.img.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/dt.img.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_dt.img.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/fcopy.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_fcopy.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/fcopy.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_fcopy.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/file.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_file.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/file.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_file.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/float.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_float.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/float.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_float.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/flock.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_flock.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/flock.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_flock.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/fname.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_fname.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/fname.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_fname.t.html">View Details</a></td></tr>
+<tr class="row-status-added"><td>h/fpattern.h</td><td><span class="status-added">Added</span></td><td>-</td><td><a href="files/diff_h_fpattern.h.html">View Details</a></td></tr>
+<tr class="row-status-added"><td>h/fpattern.t</td><td><span class="status-added">Added</span></td><td>-</td><td><a href="files/diff_h_fpattern.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/gfx.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_gfx.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/gfx.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_gfx.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/input.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_input.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/input.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_input.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/io_i2c.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_io_i2c.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/io_i2c.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_io_i2c.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/joy.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_joy.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/joy.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_joy.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/kbd.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_kbd.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/kbd.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_kbd.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/math.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_math.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/math.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_math.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/memory.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_memory.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/memory.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_memory.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/menu.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_menu.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/menu.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_menu.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/modules.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_modules.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/network.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_network.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/network.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_network.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/nhd.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_nhd.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/nhd.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_nhd.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/path.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_path.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/path.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_path.t.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>h/places.h</td><td><span class="status-modified">Modified</span></td><td>2</td><td><a href="files/diff_h_places.h.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>h/places.t</td><td><span class="status-modified">Modified</span></td><td>8</td><td><a href="files/diff_h_places.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/ptr.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_ptr.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/ptr.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_ptr.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/qsort.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_qsort.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/qsort.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_qsort.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/rtc.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_rtc.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/rtc.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_rtc.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/screen.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_screen.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/screen.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_screen.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/service.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_service.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/service.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_service.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/sidplay.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_sidplay.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/sidplay.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_sidplay.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/string.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_string.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/string.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_string.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/switcher.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_switcher.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/switcher.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_switcher.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/timers.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_timers.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/timers.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_timers.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/toolkit.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_toolkit.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/toolkit.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_toolkit.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/util.frame.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_util.frame.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/util.frame.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_util.frame.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/wrap.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_wrap.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>h/wrap.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_h_wrap.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/app.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_app.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/app.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_app.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/args.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_args.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/basic.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_basic.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/branch16.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_branch16.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/c.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_c.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/c64archive.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_c64archive.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/c64archive.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_c64archive.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/checksum.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_checksum.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/checksum.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_checksum.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/cmp.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_cmp.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/cmp.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_cmp.t.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>s/cnp.s</td><td><span class="status-modified">Modified</span></td><td>2</td><td><a href="files/diff_s_cnp.s.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>s/cnp.t</td><td><span class="status-modified">Modified</span></td><td>4</td><td><a href="files/diff_s_cnp.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/colors.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_colors.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/colors.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_colors.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/compare16.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_compare16.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ctxcolors.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ctxcolors.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ctxcolors.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ctxcolors.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ctxdraw.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ctxdraw.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ctxdraw.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ctxdraw.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/dir.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_dir.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/dir.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_dir.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/drawbox.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_drawbox.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/dt.img.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_dt.img.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/dt.img.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_dt.img.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/exceptions.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_exceptions.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/file.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_file.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/file.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_file.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/filejobs.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_filejobs.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/filejobs.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_filejobs.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/fileop.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_fileop.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/fileop.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_fileop.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/float.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_float.s.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>s/gfx.s</td><td><span class="status-modified">Modified</span></td><td>13</td><td><a href="files/diff_s_gfx.s.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>s/gfx.t</td><td><span class="status-modified">Modified</span></td><td>5</td><td><a href="files/diff_s_gfx.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/icons.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_icons.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/icons.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_icons.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/input.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_input.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/input.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_input.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/inttohex.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_inttohex.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io.t.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>s/io_i2c.s</td><td><span class="status-modified">Modified</span></td><td>4</td><td><a href="files/diff_s_io_i2c.s.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>s/io_i2c.t</td><td><span class="status-modified">Modified</span></td><td>9</td><td><a href="files/diff_s_io_i2c.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_iec.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_iec.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_iec.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_iec.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_joy.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_joy.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_kbd.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_kbd.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_mmc64.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_mmc64.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_mmc64.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_mmc64.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_ptr.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_ptr.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_rec.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_rec.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_rec.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_rec.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_rs232.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_rs232.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_rs232.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_rs232.t.html">View Details</a></td></tr>
+<tr class="row-status-added"><td>s/io_scpu.s</td><td><span class="status-added">Added</span></td><td>-</td><td><a href="files/diff_s_io_scpu.s.html">View Details</a></td></tr>
+<tr class="row-status-added"><td>s/io_scpu.t</td><td><span class="status-added">Added</span></td><td>-</td><td><a href="files/diff_s_io_scpu.t.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>s/io_swiftlink.s</td><td><span class="status-modified">Modified</span></td><td>4</td><td><a href="files/diff_s_io_swiftlink.s.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>s/io_swiftlink.t</td><td><span class="status-modified">Modified</span></td><td>6</td><td><a href="files/diff_s_io_swiftlink.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_tc64.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_tc64.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_tc64.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_tc64.t.html">View Details</a></td></tr>
+<tr class="row-status-added"><td>s/io_u64t.s</td><td><span class="status-added">Added</span></td><td>-</td><td><a href="files/diff_s_io_u64t.s.html">View Details</a></td></tr>
+<tr class="row-status-added"><td>s/io_u64t.t</td><td><span class="status-added">Added</span></td><td>-</td><td><a href="files/diff_s_io_u64t.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_uaudio.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_uaudio.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/io_uci.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_io_uci.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ker/file.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ker_file.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ker/iec.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ker_iec.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ker/io.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ker_io.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ker/key.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ker_key.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ker/mem.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ker_mem.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ker/scr.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ker_scr.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/ker/tim.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_ker_tim.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/math.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_math.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/mediactrl.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_mediactrl.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/mediactrl.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_mediactrl.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/memory.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_memory.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/menu.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_menu.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/missing.3icon.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_missing.3icon.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/network.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_network.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/network.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_network.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/nhd.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_nhd.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/nhd.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_nhd.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/openjobs.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_openjobs.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/openjobs.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_openjobs.t.html">View Details</a></td></tr>
+<tr class="row-status-modified"><td>s/pointer.s</td><td><span class="status-modified">Modified</span></td><td>2</td><td><a href="files/diff_s_pointer.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/rtc.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_rtc.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/rtc.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_rtc.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/savejobs.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_savejobs.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/savejobs.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_savejobs.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/screen.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_screen.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/screen.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_screen.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/service.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_service.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/service.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_service.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/sidplay.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_sidplay.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/sidplay.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_sidplay.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/string.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_string.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/switch.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_switch.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/switcher.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_switcher.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/switcher.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_switcher.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/3dk.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_3dk.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/a.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_a.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/art.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_art.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/car.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_car.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/cgx.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_cgx.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/cgx.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_cgx.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/chs.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_chs.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/cwg.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_cwg.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/d.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_d.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/d41.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_d41.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/d64.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_d64.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/d71.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_d71.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/d81.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_d81.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/dat.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_dat.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/dd.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_dd.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/ddl.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_ddl.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/dnp.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_dnp.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/ech.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_ech.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/gz.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_gz.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/h.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_h.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/hbm.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_hbm.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/hbw.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_hbw.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/hed.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_hed.t.html">View Details</a></td></tr>
+<tr class="row-status-added"><td>s/t/hs.t</td><td><span class="status-added">Added</span></td><td>-</td><td><a href="files/diff_s_t_hs.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/i.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_i.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/joy.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_joy.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/kbd.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_kbd.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/kla.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_kla.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/koa.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_koa.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/l.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_l.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/m.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_m.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/nhd.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_nhd.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/o.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_o.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/pa.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_pa.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/pbot.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_pbot.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/pet.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_pet.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/ptr.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_ptr.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/r.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_r.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/rtc.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_rtc.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/s.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_s.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/sid.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_sid.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/t.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_t.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/txt.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_txt.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/xl.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_xl.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/t/zip.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_t_zip.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/timers.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_timers.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/timers.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_timers.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/toolkit.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_toolkit.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/toolkit.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_toolkit.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/type.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_type.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/util.frame.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_util.frame.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/util.frame.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_util.frame.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/utilities.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_utilities.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/wrap.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_wrap.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>s/wrap.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_s_wrap.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/classes.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_classes.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkbutton.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkbutton.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkctrl.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkctrl.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkctrl.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkctrl.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkdatepick.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkdatepick.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkdatepick.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkdatepick.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkfilemeta.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkfilemeta.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tklabel.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tklabel.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tklist.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tklist.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkobj.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkobj.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkplaces.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkplaces.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tksbar.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tksbar.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkscroll.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkscroll.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkscroll.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkscroll.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tksplit.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tksplit.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tktabs.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tktabs.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tktext.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tktext.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tktimepick.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tktimepick.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tktimepick.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tktimepick.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tktimer.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tktimer.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tktimer.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tktimer.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkview.h</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkview.h.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/h/tkview.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_h_tkview.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkbutton.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkbutton.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkbutton.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkbutton.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkctrl.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkctrl.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkctrl.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkctrl.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkdatepick.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkdatepick.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkfilemeta.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkfilemeta.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkicon.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkicon.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkinput.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkinput.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkinput.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkinput.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tklabel.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tklabel.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tklist.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tklist.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkobj.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkobj.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkpbar.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkpbar.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkplaces.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkplaces.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkramu.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkramu.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkreuu.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkreuu.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tksbar.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tksbar.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkscroll.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkscroll.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tksizes.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tksizes.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tksplit.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tksplit.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tktable.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tktable.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tktabs.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tktabs.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tktabs.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tktabs.t.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tktarea.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tktarea.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tktcols.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tktcols.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tktext.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tktext.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tktimepick.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tktimepick.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tktimer.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tktimer.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkview.s</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkview.s.html">View Details</a></td></tr>
+<tr class="row-status-unchanged"><td>tk/s/tkview.t</td><td><span class="status-unchanged">Unchanged</span></td><td>-</td><td><a href="files/diff_tk_s_tkview.t.html">View Details</a></td></tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Debug logging
+        console.log('DEBUG: Checking rows in all-files table: ' + document.querySelectorAll('.table-all-files tbody tr').length);
+        console.log('DEBUG: Checking status-added: ' + document.querySelectorAll('.status-added').length);
+        console.log('DEBUG: Checking status-removed: ' + document.querySelectorAll('.status-removed').length);
+        console.log('DEBUG: Checking status-modified: ' + document.querySelectorAll('.status-modified').length);
+        console.log('DEBUG: Checking status-unchanged: ' + document.querySelectorAll('.status-unchanged').length);
+        console.log('DEBUG: Checking change counts: ' + document.querySelectorAll('.table-all-files tbody tr td:nth-child(3)').length);
+
+        // Load button states from localStorage or default to Modified only
+        function loadButtonStates() {
+            const buttons = [
+                { id: 'filter-added', key: 'filter-added-state', defaultState: false },
+                { id: 'filter-removed', key: 'filter-removed-state', defaultState: false },
+                { id: 'filter-modified', key: 'filter-modified-state', defaultState: true },
+                { id: 'filter-unchanged', key: 'filter-unchanged-state', defaultState: false }
+            ];
+            buttons.forEach(button => {
+                const savedState = localStorage.getItem(button.key);
+                const isActive = savedState !== null ? savedState === 'true' : button.defaultState;
+                const element = document.getElementById(button.id);
+                element.setAttribute('data-active', isActive);
+                if (isActive) {
+                    element.classList.add('active', 'btn-primary');
+                    element.classList.remove('btn-outline-primary');
+                } else {
+                    element.classList.remove('active', 'btn-primary');
+                    element.classList.add('btn-outline-primary');
+                }
+            });
+        }
+
+        // Save button state to localStorage
+        function saveButtonState(button) {
+            const isActive = button.getAttribute('data-active') === 'true';
+            const buttonId = button.id;
+            localStorage.setItem(buttonId + '-state', isActive);
+        }
+
+        // Filter toggle logic
+        function updateFilters() {
+            const showAdded = document.getElementById('filter-added').getAttribute('data-active') === 'true';
+            const showRemoved = document.getElementById('filter-removed').getAttribute('data-active') === 'true';
+            const showModified = document.getElementById('filter-modified').getAttribute('data-active') === 'true';
+            const showUnchanged = document.getElementById('filter-unchanged').getAttribute('data-active') === 'true';
+
+            document.querySelectorAll('.table-all-files tbody tr').forEach(row => {
+                if (row.classList.contains('row-status-added')) {
+                    row.style.display = showAdded ? 'table-row' : 'none';
+                } else if (row.classList.contains('row-status-removed')) {
+                    row.style.display = showRemoved ? 'table-row' : 'none';
+                } else if (row.classList.contains('row-status-modified')) {
+                    row.style.display = showModified ? 'table-row' : 'none';
+                } else if (row.classList.contains('row-status-unchanged')) {
+                    row.style.display = showUnchanged ? 'table-row' : 'none';
+                }
+            });
+
+            // Debug filter state
+            console.log('DEBUG: Filter state - Added: ' + showAdded + ', Removed: ' + showRemoved + ', Modified: ' + showModified + ', Unchanged: ' + showUnchanged);
+        }
+
+        // Toggle button state
+        function toggleButton(button) {
+            const isActive = button.getAttribute('data-active') === 'true';
+            button.setAttribute('data-active', !isActive);
+            button.classList.toggle('active');
+            button.classList.toggle('btn-primary');
+            button.classList.toggle('btn-outline-primary');
+            saveButtonState(button);
+            updateFilters();
+        }
+
+        // Attach event listeners to buttons
+        document.getElementById('filter-added').addEventListener('click', function() { toggleButton(this); });
+        document.getElementById('filter-removed').addEventListener('click', function() { toggleButton(this); });
+        document.getElementById('filter-modified').addEventListener('click', function() { toggleButton(this); });
+        document.getElementById('filter-unchanged').addEventListener('click', function() { toggleButton(this); });
+
+        // Load button states and run initial filter update
+        loadButtonStates();
+        updateFilters();
+    </script>
+</body>
+</html>

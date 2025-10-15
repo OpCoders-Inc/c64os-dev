@@ -1,0 +1,141 @@
+<html>
+<head>
+    <title>Diff for s/input.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for s/input.t</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: s/input.t</td><td class="diff_header">Old: s/input.t</td></tr>
+<tr><td class="">;----[ input.t ]------------------------</td><td class="">;----[ input.t ]------------------------</td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub"></span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">idrvpg   = $0801 ;Input Driver Page #</span></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">scrlwhls = $0287 ;ScrlWheel Sensitivity</td><td class="">scrlwhls = $0287 ;ScrlWheel Sensitivity</td></tr>
+<tr><td class="diff_unchanged_alt">dblclktm = $0288 ;DblClick Jiffy Delay</td><td class="diff_unchanged_alt_old">dblclktm = $0288 ;DblClick Jiffy Delay</td></tr>
+<tr><td class="">mouseptr = $028f</td><td class="">mouseptr = $028f</td></tr>
+<tr><td class="diff_unchanged_alt">mouseacc = $0290</td><td class="diff_unchanged_alt_old">mouseacc = $0290</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">musxpos  = $41 ;$42 16-bit 0 to 319</td><td class="diff_unchanged_alt_old">musxpos  = $41 ;$42 16-bit 0 to 319</td></tr>
+<tr><td class="">musypos  = $43 ;$44 16-bit 0 to 200</td><td class="">musypos  = $43 ;$44 16-bit 0 to 200</td></tr>
+<tr><td class="diff_unchanged_alt">               ;Room for overflow math</td><td class="diff_unchanged_alt_old">               ;Room for overflow math</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">mus<span class="diff_text_add">0c</span>o<span class="diff_text_add">l</span>  = $02<span class="diff_text_add">fa</span> ;<span class="diff_text_add">Mouse Sprite </span>0<span class="diff_text_add"> Color</span></td><td class="diff_chg"><span class="diff_text_sub">;</span>mus<span class="diff_text_sub">xp</span>o<span class="diff_text_sub">s</span>  = $02<span class="diff_text_sub">42</span> ;<span class="diff_text_sub">$</span>0<span class="diff_text_sub">243</span></td></tr>
+<tr><td class="diff_chg">mus<span class="diff_text_add">1c</span>o<span class="diff_text_add">l</span>  = $02<span class="diff_text_add">fb</span> ;<span class="diff_text_add">Mouse Sprite 1 Color</span></td><td class="diff_chg"><span class="diff_text_sub">;</span>mus<span class="diff_text_sub">yp</span>o<span class="diff_text_sub">s</span>  = $02<span class="diff_text_sub">44</span> ;<span class="diff_text_sub">$0245</span></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">mousesiz = $08cb ;X/Y Sprite Expand</span></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg"><span class="diff_text_add">;Mo</span>us<span class="diff_text_add">e and Key C</span>o<span class="diff_text_add">mmand</span> <span class="diff_text_add">Buffers:</span> <span class="diff_text_add">24</span> <span class="diff_text_add">bytes</span></td><td class="diff_chg"><span class="diff_text_sub">m</span>us<span class="diff_text_sub">0c</span>o<span class="diff_text_sub">l</span>  <span class="diff_text_sub">=</span> <span class="diff_text_sub">$02fa</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">mus1col  = $02fb</span></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">mbufidx  = $0310 ;offset to next mus evt</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">musbufx  = $07e8 ;evt X positions (6)</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">musbufy  = $07ee ;evt Y positions (6)</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">musbuff  = $07f4 ;evt Flags       (6)</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">kcbufidx = $0311 ;offset to next key evt</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">kcbufpet = $07fa ;PET values (3)</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">kcbufkmd = $07fd ;Keymods    (3)</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">kbufptr  = $c6   ;Index into KeyPrnt buf</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">kbuffer  = $0277 ;Printable Key Buffer</span></td><td class=""></td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">musflgs  = $03fd</td><td class="diff_unchanged_alt_old">musflgs  = $03fd</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">mouseon  = %00000001 ;mouse On/Off</td><td class="diff_unchanged_alt_old">mouseon  = %00000001 ;mouse On/Off</td></tr>
+<tr><td class="">mousetrk = %00000010 ;move events On/Off</td><td class="">mousetrk = %00000010 ;move events On/Off</td></tr>
+<tr><td class="diff_unchanged_alt">mousemvd = %00000100 ;mouse moved</td><td class="diff_unchanged_alt_old">mousemvd = %00000100 ;mouse moved</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">          ;%00001000 ;reserved</td><td class="diff_unchanged_alt_old">          ;%00001000 ;reserved</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">mousehid = %00010000 ;mouse hidden</td><td class="diff_unchanged_alt_old">mousehid = %00010000 ;mouse hidden</td></tr>
+<tr><td class="">mousepre = %00100000 ;precision tracking</td><td class="">mousepre = %00100000 ;precision tracking</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">mousenat = %01000000 ;natural scrl mode</td><td class="">mousenat = %01000000 ;natural scrl mode</td></tr>
+<tr><td class="diff_unchanged_alt">mouselft = %10000000 ;left-handed mode</td><td class="diff_unchanged_alt_old">mouselft = %10000000 ;left-handed mode</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">keymods  = $028d     ;Modifier Keys Mask</td><td class="">keymods  = $028d     ;Modifier Keys Mask</td></tr>
+<tr><td class="diff_unchanged_alt">musbtns  = $f2</td><td class="diff_unchanged_alt_old">musbtns  = $f2</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">lshftkey = %00000001</td><td class="diff_unchanged_alt_old">lshftkey = %00000001</td></tr>
+<tr><td class="">cbmkey   = %00000010</td><td class="">cbmkey   = %00000010</td></tr>
+<tr><td class="diff_unchanged_alt">ctrlkey  = %00000100</td><td class="diff_unchanged_alt_old">ctrlkey  = %00000100</td></tr>
+<tr><td class="">rshftkey = %00001000</td><td class="">rshftkey = %00001000</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">mus_shft = %00010000</td><td class="">mus_shft = %00010000</td></tr>
+<tr><td class="diff_unchanged_alt">mus_cbm  = %00100000</td><td class="diff_unchanged_alt_old">mus_cbm  = %00100000</td></tr>
+<tr><td class="">mus_ctrl = %01000000</td><td class="">mus_ctrl = %01000000</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">lbutmask = %00010000 ;Left but, Joy Fire</td><td class="">lbutmask = %00010000 ;Left but, Joy Fire</td></tr>
+<tr><td class="diff_unchanged_alt">wdnmask  = %00001000 ;Wheel Dn, Joy Rght</td><td class="diff_unchanged_alt_old">wdnmask  = %00001000 ;Wheel Dn, Joy Rght</td></tr>
+<tr><td class="">wupmask  = %00000100 ;Wheel Up, Joy Left</td><td class="">wupmask  = %00000100 ;Wheel Up, Joy Left</td></tr>
+<tr><td class="diff_unchanged_alt">mbutmask = %00000010 ;Midl but, Joy Down</td><td class="diff_unchanged_alt_old">mbutmask = %00000010 ;Midl but, Joy Down</td></tr>
+<tr><td class="">rbutmask = %00000001 ;Rght but, Joy Up</td><td class="">rbutmask = %00000001 ;Rght but, Joy Up</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;Mouse Event Types</td><td class="">;Mouse Event Types</td></tr>
+<tr><td class="diff_unchanged_alt">move     = 0</td><td class="diff_unchanged_alt_old">move     = 0</td></tr>
+<tr><td class="">ldown    = 1</td><td class="">ldown    = 1</td></tr>
+<tr><td class="diff_unchanged_alt">ltrack   = 2</td><td class="diff_unchanged_alt_old">ltrack   = 2</td></tr>
+<tr><td class="">lup      = 3</td><td class="">lup      = 3</td></tr>
+<tr><td class="diff_unchanged_alt">lclick   = 4</td><td class="diff_unchanged_alt_old">lclick   = 4</td></tr>
+<tr><td class="">ldclik   = 5</td><td class="">ldclik   = 5</td></tr>
+<tr><td class="diff_unchanged_alt">rdown    = 6</td><td class="diff_unchanged_alt_old">rdown    = 6</td></tr>
+<tr><td class="">rtrack   = 7</td><td class="">rtrack   = 7</td></tr>
+<tr><td class="diff_unchanged_alt">rup      = 8</td><td class="diff_unchanged_alt_old">rup      = 8</td></tr>
+<tr><td class="">rclick   = 9</td><td class="">rclick   = 9</td></tr>
+<tr><td class="diff_unchanged_alt">mdown    = 10</td><td class="diff_unchanged_alt_old">mdown    = 10</td></tr>
+<tr><td class="">mup      = 11</td><td class="">mup      = 11</td></tr>
+<tr><td class="diff_unchanged_alt">mclick   = 12</td><td class="diff_unchanged_alt_old">mclick   = 12</td></tr>
+<tr><td class="">wdown    = 13</td><td class="">wdown    = 13</td></tr>
+<tr><td class="diff_unchanged_alt">wup      = 14</td><td class="diff_unchanged_alt_old">wup      = 14</td></tr>
+<tr><td class="">;reservd = 15</td><td class="">;reservd = 15</td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<html>
+<head>
+    <title>Added File: s/toolkit.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Added File: s/toolkit.t</h1>
+            <p>This file was added in the new directory.</p>
+            <pre class="added_content">;----[ toolkit.t ]----------------------
+
+this     = $2b ;$2c THIS  pointer
+class    = $2d ;$2e CLASS pointer
+pnode    = $2f ;$30 PNODE pointer
+
+rootview = $03ba ;$03bb Root TK View
+
+;View Resize Mask
+rm_ankt  = %00000001 ;anchor top
+rm_ankb  = %00000010 ;anchor bottom
+rm_ankl  = %00000100 ;anchor left
+rm_ankr  = %00001000 ;anchor right
+
+rm_rschd = %10000000 ;Resize Children
+
+;View Display Flags
+df_dirty = %00000001 ;Needs redraw
+df_sized = %00000010 ;Don&#x27;t resize
+df_opaqu = %00000100 ;Opaque
+
+df_afkey = %00001000 ;Accept 1st Key
+df_afmus = %00010000 ;Accept 1st Mouse
+df_first = %00100000 ;1st Key Responder
+
+df_ibnds = %01000000 ;Is within bounds
+df_visib = %10000000 ;Visible (not hid)
+
+;View Modified Flags
+mf_resiz = %00000010 ;Needs resize
+mf_bdchk = %01000000 ;Needs bounds check
+
+tkenvptr = $ef; $f0
+
+;Toolkit Environment
+te_dctx  = 0  ;2 Draw Context Pointer
+te_mpool = 2  ;1 Memory Pool Page
+te_flags = 3  ;1 Env.Global Draw Flags
+te_layer = 4  ;1 Screen Layer
+te_rview = 5  ;2 Root view
+te_fkeyv = 7  ;2 First key view
+te_fmusv = 9  ;2 First mouse view
+te_cmusv = 11 ;2 Clicked mouse view
+te_posx  = 13 ;1 Ctx2scr X-Offset
+te_posy  = 14 ;1 Ctx2scr Y-Offset
+
+tf_dirty = %00000001 ;Update Rootview
+tf_keyh  = %01000000 ;Key Event Handled
+tf_blur  = %10000000 ;TKEnv Out of Focus
+
+</pre>
+        </div>
+    </div>
+</body>
+</html>

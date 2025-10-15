@@ -60,6 +60,7 @@ print()
 
 LOGGING_LEVEL = logging.WARN
 
+
 for arg in sys.argv:
 
     if arg.lower() == "--debug":
@@ -208,7 +209,9 @@ for file in bundle.options('build'):
     logging.debug("building file %s", file)
     file_src = bundle.get('build', file).strip()
     logging.debug("file source : %s", file_src )
-    subprocess.run([TMPX_PATH, file_src, "-o", file], shell=True, check=False, stdout=subprocess.DEVNULL)
+    # subprocess.run([TMPX_PATH, file_src, "-o", file], shell=True, check=False, stdout=subprocess.DEVNULL)
+    process = subprocess.run([TMPX_PATH, "-i", file_src, "-o", file])
+    print(process)
 
 #
 # create the disk
@@ -216,13 +219,18 @@ for file in bundle.options('build'):
 if DISK_BUILD > 0:
     create_disk_title = "%s,a1" % APP_NAME
     create_disk_name = "%s" % final_disk_name.lower()
+    logging.debug(f"building disk {create_disk_name}")
+    # subprocess.run([C1541_PATH, "-format", 
+    #     create_disk_title, 
+    #     DISK_TYPE, 
+    #     create_disk_name], 
+    #     shell=True, 
+    #     check=False,
+    #     stdout=subprocess.DEVNULL)
     subprocess.run([C1541_PATH, "-format", 
         create_disk_title, 
         DISK_TYPE, 
-        create_disk_name], 
-        shell=True, 
-        check=False,
-        stdout=subprocess.DEVNULL)
+        create_disk_name])
     print(f"Distribution Disk [{final_disk_name}] created.")
     print()
 
@@ -256,7 +264,8 @@ if CAR_BUILD > 0:
     header_src.write(HEADER_STR)
     header_src.seek(0)
     header_src.close()
-    subprocess.run([TMPX_PATH, header_filename, "-o", header_outfile], shell=True, check=False, stdout=subprocess.DEVNULL)
+    # subprocess.run([TMPX_PATH, header_filename, "-o", header_outfile], shell=True, check=False, stdout=subprocess.DEVNULL)
+    subprocess.run([TMPX_PATH, "-i", header_filename, "-o", header_outfile])
     header = open(header_outfile, "rb", encoding=None)
     data = header.read()
     header.close()
@@ -287,7 +296,8 @@ if CAR_BUILD > 0:
     dir_src.write(DIR_STR)
     dir_src.seek(0)
     dir_src.close()
-    subprocess.run([TMPX_PATH, dir_filename, "-o", dir_outfile], shell=True, check=False, stdout=subprocess.DEVNULL)
+    # subprocess.run([TMPX_PATH, dir_filename, "-o", dir_outfile], shell=True, check=False, stdout=subprocess.DEVNULL)
+    subprocess.run([TMPX_PATH, dir_filename, "-o", dir_outfile])
     header = open(dir_outfile, "rb", encoding=None)
     data = header.read()
     header.close()
@@ -401,12 +411,16 @@ for file in bundle.options('files'):
 
         logging.debug(f"\n\n{content}\n")
 
-        new_from_file = tempfile.TemporaryFile(delete=False)
+        # new_from_file = tempfile.TemporaryFile(delete=False)
+        new_from_file = tempfile.NamedTemporaryFile(delete=False)
 
         with open(new_from_file.name, 'wb') as open_file:
             open_file.write(content)
+        
+        new_from_file.close()
 
-        subprocess.run([PETCAT_PATH, "-text", "-w2", "-o", file_to, "--", new_from_file.name], shell=True, check=False)
+        # subprocess.run([PETCAT_PATH, "-text", "-w2", "-o", file_to, "--", new_from_file.name], shell=True, check=False)
+        subprocess.run([PETCAT_PATH, "-text", "-w2", "-o", file_to, "--", new_from_file.name])
 
         # convert left arrow to underscore (as intended)
 
@@ -431,7 +445,8 @@ for file in bundle.options('files'):
     logging.debug("final_file_to = %s", final_file_to)
 
     if DISK_BUILD > 0:
-        subprocess.run([C1541_PATH, "-attach", create_disk_name, "-write", final_file_from, final_file_to], shell=True, check=False,stdout=subprocess.DEVNULL)
+        # subprocess.run([C1541_PATH, "-attach", create_disk_name, "-write", final_file_from, final_file_to], shell=True, check=False,stdout=subprocess.DEVNULL)
+        subprocess.run([C1541_PATH, "-attach", create_disk_name, "-write", final_file_from, final_file_to])
 
     if CAR_BUILD > 0:
 
@@ -467,7 +482,8 @@ for file in bundle.options('files'):
         file_src.write(FILE_STR)
         file_src.seek(0)
         file_src.close()
-        subprocess.run([TMPX_PATH, file_filename, "-o", file_outfilename], shell=True, check=False, stdout=subprocess.DEVNULL)
+        # subprocess.run([TMPX_PATH, file_filename, "-o", file_outfilename], shell=True, check=False, stdout=subprocess.DEVNULL)
+        subprocess.run([TMPX_PATH, file_filename, "-o", file_outfilename])
         file_outfile = open(file_outfilename, "rb", encoding=None)
         file_data = file_outfile.read()
         file_outfile.close()

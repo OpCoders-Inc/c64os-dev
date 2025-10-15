@@ -1,0 +1,1 @@
+;Hi-res Bitmap. Hi-Res black and white graphics format. Alternative to .hbw

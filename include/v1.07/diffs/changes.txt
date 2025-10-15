@@ -1,0 +1,709 @@
+Directory Comparison Report
+Generated: 2025-10-14 23:13:05
+Old Directory: ../../include/v1.06/os
+New Directory: ../../include/v1.07/os
+==================================================
+
+Summary:
+  Added Files: 70
+  Removed Files: 0
+  Modified Files: 56
+  Unchanged Files: 150
+
+Added Files:
+  - h/cnp.h
+  - h/cnp.t
+  - h/joy.h
+  - h/joy.t
+  - h/kbd.h
+  - h/kbd.t
+  - h/network.h
+  - h/network.t
+  - h/nhd.h
+  - h/nhd.t
+  - h/ptr.h
+  - h/ptr.t
+  - s/cnp.s
+  - s/cnp.t
+  - s/io_iec.t
+  - s/io_kbd.s
+  - s/io_ptr.s
+  - s/io_rs232.s
+  - s/io_rs232.t
+  - s/io_swiftlink.s
+  - s/io_swiftlink.t
+  - s/network.s
+  - s/network.t
+  - s/nhd.s
+  - s/nhd.t
+  - s/t/3dk.t
+  - s/t/a.t
+  - s/t/art.t
+  - s/t/car.t
+  - s/t/chs.t
+  - s/t/cwg.t
+  - s/t/d.t
+  - s/t/d41.t
+  - s/t/d64.t
+  - s/t/d71.t
+  - s/t/d81.t
+  - s/t/dat.t
+  - s/t/dd.t
+  - s/t/ddl.t
+  - s/t/dnp.t
+  - s/t/ech.t
+  - s/t/gz.t
+  - s/t/h.t
+  - s/t/hbm.t
+  - s/t/hbw.t
+  - s/t/hed.t
+  - s/t/i.t
+  - s/t/joy.t
+  - s/t/kbd.t
+  - s/t/kla.t
+  - s/t/koa.t
+  - s/t/l.t
+  - s/t/m.t
+  - s/t/nhd.t
+  - s/t/o.t
+  - s/t/pa.t
+  - s/t/pbot.t
+  - s/t/ptr.t
+  - s/t/r.t
+  - s/t/rtc.t
+  - s/t/s.t
+  - s/t/t.t
+  - s/t/txt.t
+  - s/t/xl.t
+  - s/t/zip.t
+  - tk/s/tkbutton.t
+  - tk/s/tkctrl.t
+  - tk/s/tkinput.t
+  - tk/s/tktabs.t
+  - tk/s/tkview.t
+
+Modified Files:
+  - h/calendar.t (9 changes)
+  - h/checksum.t (11 changes)
+  - h/cmp.t (5 changes)
+  - h/datetime.t (13 changes)
+  - h/dir.t (3 changes)
+  - h/dt.img.t (18 changes)
+  - h/fcopy.t (10 changes)
+  - h/file.h (13 changes)
+  - h/file.t (13 changes)
+  - h/flock.t (2 changes)
+  - h/fname.t (4 changes)
+  - h/gfx.t (4 changes)
+  - h/input.h (11 changes)
+  - h/input.t (11 changes)
+  - h/io_i2c.t (5 changes)
+  - h/math.h (8 changes)
+  - h/math.t (11 changes)
+  - h/memory.t (17 changes)
+  - h/menu.h (4 changes)
+  - h/menu.t (4 changes)
+  - h/modules.h (12 changes)
+  - h/path.t (8 changes)
+  - h/places.t (9 changes)
+  - h/qsort.t (3 changes)
+  - h/rtc.t (3 changes)
+  - h/screen.t (14 changes)
+  - h/service.t (17 changes)
+  - h/sidplay.t (5 changes)
+  - h/string.t (10 changes)
+  - h/switcher.t (3 changes)
+  - h/timers.t (5 changes)
+  - h/toolkit.h (24 changes)
+  - h/toolkit.t (24 changes)
+  - h/util.frame.t (5 changes)
+  - h/wrap.t (2 changes)
+  - s/app.s (3 changes)
+  - s/app.t (1 changes)
+  - s/dir.s (1 changes)
+  - s/dir.t (3 changes)
+  - s/input.s (10 changes)
+  - s/input.t (14 changes)
+  - s/io_iec.s (24 changes)
+  - s/math.s (16 changes)
+  - s/pointer.s (3 changes)
+  - s/screen.s (3 changes)
+  - s/screen.t (3 changes)
+  - s/string.s (1 changes)
+  - s/timers.t (3 changes)
+  - tk/h/classes.h (9 changes)
+  - tk/s/tkbutton.s (19 changes)
+  - tk/s/tkctrl.s (17 changes)
+  - tk/s/tkinput.s (4 changes)
+  - tk/s/tksizes.s (1 changes)
+  - tk/s/tktabs.s (9 changes)
+  - tk/s/tktext.s (1 changes)
+  - tk/s/tkview.s (30 changes)
+
+Unchanged Files:
+  - h/calendar.h
+  - h/checksum.h
+  - h/cmp.h
+  - h/datetime.h
+  - h/dir.h
+  - h/dt.img.h
+  - h/fcopy.h
+  - h/float.h
+  - h/float.t
+  - h/flock.h
+  - h/fname.h
+  - h/gfx.h
+  - h/io_i2c.h
+  - h/memory.h
+  - h/path.h
+  - h/places.h
+  - h/qsort.h
+  - h/rtc.h
+  - h/screen.h
+  - h/service.h
+  - h/sidplay.h
+  - h/string.h
+  - h/switcher.h
+  - h/timers.h
+  - h/util.frame.h
+  - h/wrap.h
+  - s/args.s
+  - s/basic.s
+  - s/branch16.s
+  - s/c.s
+  - s/c64archive.s
+  - s/c64archive.t
+  - s/checksum.s
+  - s/checksum.t
+  - s/cmp.s
+  - s/cmp.t
+  - s/colors.s
+  - s/colors.t
+  - s/compare16.s
+  - s/ctxcolors.s
+  - s/ctxcolors.t
+  - s/ctxdraw.s
+  - s/ctxdraw.t
+  - s/drawbox.s
+  - s/dt.img.s
+  - s/dt.img.t
+  - s/exceptions.s
+  - s/file.s
+  - s/file.t
+  - s/filejobs.s
+  - s/filejobs.t
+  - s/fileop.s
+  - s/fileop.t
+  - s/float.s
+  - s/gfx.s
+  - s/gfx.t
+  - s/icons.s
+  - s/icons.t
+  - s/inttohex.s
+  - s/io.s
+  - s/io.t
+  - s/io_i2c.s
+  - s/io_i2c.t
+  - s/io_joy.s
+  - s/io_mmc64.s
+  - s/io_mmc64.t
+  - s/io_rec.s
+  - s/io_rec.t
+  - s/io_tc64.s
+  - s/io_tc64.t
+  - s/io_uaudio.s
+  - s/io_uci.s
+  - s/ker/file.s
+  - s/ker/iec.s
+  - s/ker/io.s
+  - s/ker/key.s
+  - s/ker/mem.s
+  - s/ker/scr.s
+  - s/ker/tim.s
+  - s/mediactrl.s
+  - s/mediactrl.t
+  - s/memory.s
+  - s/menu.s
+  - s/missing.3icon.t
+  - s/openjobs.s
+  - s/openjobs.t
+  - s/rtc.s
+  - s/rtc.t
+  - s/savejobs.s
+  - s/savejobs.t
+  - s/service.s
+  - s/service.t
+  - s/sidplay.s
+  - s/sidplay.t
+  - s/switch.s
+  - s/switcher.s
+  - s/switcher.t
+  - s/t/cgx.s
+  - s/t/cgx.t
+  - s/t/pet.s
+  - s/t/sid.t
+  - s/timers.s
+  - s/toolkit.s
+  - s/toolkit.t
+  - s/type.s
+  - s/util.frame.s
+  - s/util.frame.t
+  - s/utilities.s
+  - s/wrap.s
+  - s/wrap.t
+  - tk/h/tkbutton.h
+  - tk/h/tkctrl.h
+  - tk/h/tkctrl.t
+  - tk/h/tkdatepick.h
+  - tk/h/tkdatepick.t
+  - tk/h/tkfilemeta.h
+  - tk/h/tklabel.h
+  - tk/h/tklist.h
+  - tk/h/tkobj.h
+  - tk/h/tkplaces.h
+  - tk/h/tksbar.h
+  - tk/h/tkscroll.h
+  - tk/h/tkscroll.t
+  - tk/h/tksplit.h
+  - tk/h/tktabs.h
+  - tk/h/tktext.h
+  - tk/h/tktimepick.h
+  - tk/h/tktimepick.t
+  - tk/h/tktimer.h
+  - tk/h/tktimer.t
+  - tk/h/tkview.h
+  - tk/h/tkview.t
+  - tk/s/tkdatepick.s
+  - tk/s/tkfilemeta.s
+  - tk/s/tkicon.s
+  - tk/s/tklabel.s
+  - tk/s/tklist.s
+  - tk/s/tkobj.s
+  - tk/s/tkpbar.s
+  - tk/s/tkplaces.s
+  - tk/s/tkramu.s
+  - tk/s/tkreuu.s
+  - tk/s/tksbar.s
+  - tk/s/tkscroll.s
+  - tk/s/tksplit.s
+  - tk/s/tktable.s
+  - tk/s/tktarea.s
+  - tk/s/tktcols.s
+  - tk/s/tktimepick.s
+  - tk/s/tktimer.s
+
+Detailed Differences:
+
+Differences in h/calendar.t:
+--------------------------------------------------
+--- old/h/calendar.t
++++ new/h/calendar.t
+@@ -1,47 +1,47 @@
+ ;----[ calendar.t for calendar.lib.r ]---;link = 0-datetos_ = 3+;link = $00+datetos_ = $03 ;Date to Screencodes ;  A -> Date (1 to 31) ;  Y <- Tens Digit (SCRCode) ;  X <- Ones Digit (SCRCode) ;  Raises out-of-range exception-firstdow_ = 6+firstdow_ = $06 ;Day of Week of Date ;  Y -> Year  (1900=0) ;  X -> Month  (Jan=1) ;  A -> Date  (1 to 31) ;  A <- Day of Week (Sun=0) ;  Raises out-of-range exception-dayofyr_ = 9+dayofyr_ = $09 ;Compute Day of Year + 6 ;  Y -> Year ;  X -> Month ;  A -> Date ;  dividnd <- DofY+6-weeknum_ = 12+weeknum_ = $0c ;Compute week number of mon/day ;  Y -> Year ;  X -> Month ;  A -> Date ;  RegWrd <- Week Number-daysinm_ = 15+daysinm_ = $0f ;Number of days in month ;  Y -> Year  (1900=0) ;  X -> Month  (Jan=1) ;  A <- Number of Days (28-31)-isleap_  = 18+isleap_  = $12 ;Checks if a year is a leap ;  Y -> Year (1900=0) ;  C <- Clr = Not a leap year ;  C <- Set = Is a leap year-mnthname_ = 21+mnthname_ = $15 ;Get Month Name String ;  X -> jan=1 dec=12 ;  RegPtr <- Month name string ;  A      <- string length ;  Raises out-of-range exception-dayname_ = 24+dayname_ = $18 ;Get Day Name String ;  X -> sun=0 sat=6 ;  RegPtr <- Day name string
+
+Differences in h/checksum.t:
+--------------------------------------------------
+--- old/h/checksum.t
++++ new/h/checksum.t
+@@ -1,14 +1,15 @@
+ ;----[ checksum.t for checksum.lib.r ]---;link    = 0+;link    = $00 ;If maketab is called in this library, ;then it must be unlinked when unloaded. ;Otherwise, it leaks the table memory.-;unlink  = 3+;unlink  = $03 ;Maketab must be called to create the ;lookup tables before initcrc is called. ;Eg, before calling updc16, you must ;    call maketab with A->16 first.-maketab_ = 6  ;Make CRC Tables+maketab_ = $06 ;Make CRC Tables+;  Note: .A decimal number inputs ;  A -> 1,2,4   = 8,16,32 ;  A -> 8,16,32 = 8,16,32 ;  C <- Set on Error@@ -17,23 +18,24 @@
+ ;updcX routines on the data. ;Eg, to reset a CRC and prepare to ;    compute a new CRC call initcrc.-initcrc_ = 9  ;Initialize CRC workspace+initcrc_ = $09 ;Initialize CRC workspace+;  Note: .A decimal number inputs ;  A -> 1,2,4   = 8,16,32 ;  A -> 8,16,32 = 8,16,32 ;  C <- Set on Error ;Call initcrc A->1{SHIFT--}8 once before ;calling updc8 repeatedly on the data.-updc8_   = 12 ;Update CRC8+updc8_   = $0c ;Update CRC8 ;  A   -> next byte to checksum ;  crc <- 8-bit CRC ;Call initcrc A->2{SHIFT--}16 once before ;calling updc16 repeatedly on the data.-updc16_  = 15 ;Update CRC16+updc16_  = $0f ;Update CRC16 ;  A   -> next byte to checksum ;  crc <- 16-bit CRC ;Call initcrc A->4{SHIFT--}32 once before ;calling updc32 repeatedly on the data.-updc32_  = 18 ;Update CRC32+updc32_  = $12 ;Update CRC32 ;  A   -> next byte to checksum ;  crc <- 32-bit CRC (xor'd $ff) ;After calling updcX on all data, call@@ -43,7 +45,8 @@
+ ;processing on the crc data. ;NOTE: May only be called once if ;      CRC32, because of final EOR's.-getcrc_  = 21 ;Get CRC Value+getcrc_  = $15 ;Get CRC Value+;  Note: .A decimal number inputs ;  A -> 1,2,4   = 8,16,32 ;  A -> 8,16,32 = 8,16,32 ;  C -> Set = Convert to string
+
+Differences in h/cmp.t:
+--------------------------------------------------
+--- old/h/cmp.t
++++ new/h/cmp.t
+@@ -1,6 +1,6 @@
+ ;----[ cmp.t for cmp.lib.r ]-------------confcmp_ = 0 ;Configure Sort Comparator-  ;Y -> Compare Property Index-  ;X -> Comparison Type-  ;A -> Name sub/sort options (dir.s)-  ;RegPtr <- Comparator+confcmp_ = $00 ;Config Sort Comparator+;Y -> Compare Property Index+;X -> Comparison Type+;A -> Name sub/sort options (dir.s)+;RegPtr <- Comparator
+
+Differences in h/datetime.t:
+--------------------------------------------------
+--- old/h/datetime.t
++++ new/h/datetime.t
+@@ -1,36 +1,36 @@
+ ;----[ datetime.t for datetime.lib.a ]---;link = 0-toisodt_ = 3+;link = $00+toisodt_ = $03 ;Int to ISO Date ;  Y -> Year  ($00=1900,$FF=2155) ;  X -> Month (1=Jan,12=Dec) ;  A -> Date  (1 to 31) ;  RegPtr <- ptr to "YYYY-MM-DD" ;  No Date Validity Checking!-frisodt_ = 6+frisodt_ = $06 ;From ISO Date to Int ;  RegPtr -> ptr to "YYYY-MM-DD" ;  Y <- Year  ($00=1900,$FF=2155) ;  X <- Month (1=Jan,12=Dec) ;  A <- Date  (1 to 31) ;  No Date Validity Checking!-toisotm_ = 9+toisotm_ = $09 ;Int to ISO Time-;  Y -> Hour (00 to 23)-;  X -> Min  (00 to 59)+;  Y -> Hour (0 to 23) decimal+;  X -> Min  (0 to 59) decimal ;  RegPtr <- ptr to "HH:MM:SS" ;  No Date Validity Checking!-frisotm_ = 12+frisotm_ = $0c ;From ISO Time to Int ;  RegPtr -> ptr to "HH:MM:SS"-;  Y <- Hour (00 to 23)-;  X <- Min  (00 to 59)+;  Y <- Hour (0 to 23) decimal+;  X <- Min  (0 to 59) decimal ;  No Date Validity Checking!-gettime_ = 15+gettime_ = $0f ;Get current time in Int format-;  Y <- Current Hour (00 to 23)-;  X <- Current Min  (00 to 59)-bcd2int_ = 18+;  Y <- Current Hour (0 to 23) decimal+;  X <- Current Min  (0 to 59) decimal+bcd2int_ = $12 ;Convert 8-bit BCD to INT ;  A -> BCD ($00 to $99) ;  A <- INT ($00 to $63)
+
+Differences in h/dir.t:
+--------------------------------------------------
+--- old/h/dir.t
++++ new/h/dir.t
+@@ -1,9 +1,9 @@
+ ;----[ dir.t for dir.lib.r ]-------------getdirp_ = 0+getdirp_ = $00 ;  A <- directory chain root page-freedir_ = 3+freedir_ = $03 ;  A -> directory chain root page-readdir_ = 6+readdir_ = $06 ;  mdptr   -> directory metadata ;  frefptr -> fref w/path to load ;  X <- directory chain root page
+
+Differences in h/dt.img.t:
+--------------------------------------------------
+--- old/h/dt.img.t
++++ new/h/dt.img.t
+@@ -2,21 +2,32 @@
+ ;The jump tables for image datatype ;loaders and savers. ;---- Image Loaders -----;link = 0+;link = $00 ;Called Automatically by loadreloc-imginfo  = 3+imginfo  = $03 ;Get Image Info String ;  A      -> String Index ;  RegPtr <- Info String-imgconf  = 6+imgconf  = $06 ;Configure read buffers and gfxctx ;  RegPtr -> GfxCtx pointer-;  A      -> First pg of bitmap buffer-imgload  = 9+imgload  = $09 ;Load image into preconfigured buffers ;  imgconf must be called first. ;  RegPtr -> FileRef to img file to load ;  C <- Clr = Success ;  C <- Sec = Failure ;---- Image Savers -----;TODO: Extend with Saver jump table+;link = $00+;Called Automatically by loadreloc+imgprep  = $03+;Config write buffers and confirm+;that gfxctx has valid img data.+;  RegPtr -> GfxCtx pointer+imgsave  = $06+;Save image from preconfigured buffers+;  imgprep must be called first.+;  A      -> $00 or ff_o for overwrite.+;  RegPtr -> FileRef to img file to save+;  C <- Clr = Success+;  C <- Sec = Failure
+
+Differences in h/fcopy.t:
+--------------------------------------------------
+--- old/h/fcopy.t
++++ new/h/fcopy.t
+@@ -1,9 +1,9 @@
+ ;----[ fcopy.t for fcopy.lib.r ]---------;link_    = 0-;unload_  = 3+;link_    = $00+;unload_  = $03 ;Configure source and destination ;file references and command channels.-confcopy_ = 6+confcopy_ = $06   ;X -> src fileref page   ;Y -> dst fileref page   ;C <- Set on error@@ -11,23 +11,24 @@
+   ;  X <- src command channel   ;  Y <- dst command channel ;Copy source file to destination-filecopy_ = 9+filecopy_ = $09   ;src fileref -> source file   ;dst fileref -> destination file   ;A -> File Flags for Write:   ;     ff_o,ff_p   ;A <- value of l_code (ferror) ;Copy file from old filename-spotcopy_ = 12+spotcopy_ = $0c   ;A      -> fileref ptr high byte-  ;RegPtr -> old name string ptr+  ;RegPtr -> new filename string ptr+  ;C      -> SET=PRG, CLR=SEQ   ;A      <- value of l_code (ferror) ;Rename file from old filename-renamef_ = 15+renamef_ = $0f   ;A      -> fileref ptr high byte-  ;RegPtr -> old name string ptr+  ;RegPtr -> new filename string ptr   ;A      <- value of l_code (ferror) ;Scratch a file by file reference ;May be called from behind KERNAL ROM.-scratchf_ = 18+scratchf_ = $12   ;Y -> filefref ptr high byte
+
+Differences in h/file.h:
+--------------------------------------------------
+--- old/h/file.h
++++ new/h/file.h
+@@ -1,15 +1,15 @@
+ ;----[ file.h ]------------------------- lfil     = $0100-(2*8)-finit_   = 0-ferror_  = 3-fopen_   = 6-fread_   = 9-fwrite_  = 12-fclose_  = 15-frefcvt_ = 18-clipin_  = 21-clipout_ = 24-copen_   = 27-cread_   = 30-cwrite_  = 33-cclose_  = 36+finit_   = $00+ferror_  = $03+fopen_   = $06+fread_   = $09+fwrite_  = $0c+fclose_  = $0f+frefcvt_ = $12+clipin_  = $15+clipout_ = $18+copen_   = $1b+cread_   = $1e+cwrite_  = $21+cclose_  = $24
+
+Differences in h/file.t:
+--------------------------------------------------
+--- old/h/file.t
++++ new/h/file.t
+@@ -1,35 +1,35 @@
+ ;----[ file.t ]------------------------- lfil     = $0100-(2*8)       ;8th Module-finit_   = 0+finit_   = $00 ;  RegPtr -> FileRef ;  A <- Error Code ;  C <- Set on Error ;  X <- Current Dev's CmdChan LFN ;  currentdv <- set FileRef's dev-ferror_  = 3+ferror_  = $03 ;  currentdv -> Device Number ;  A <- value of l_code ;----------------------------------------fopen_   = 6+fopen_   = $06 ;  RegPtr -> FileRef ;  A      -> Flags ;  RegPtr <- FileRef ;  C <- Set on error ;  A <- Error code-fread_   = 9+fread_   = $09 ;  RegPtr -> FileRef ;  a1 -> .W Ptr to buffer ;  a2 -> .W Len to read ;  RegPtr <- FileRef-fwrite_  = 12+fwrite_  = $0c ;  RegPtr -> FileRef ;  a1 -> .W Ptr to buffer ;  a2 -> .W Len to write ;  RegPtr <- FileRef-fclose_  = 15+fclose_  = $0f ;  RegPtr -> FileRef ;----------------------------------------frefcvt_ = 18+frefcvt_ = $12 ;  C Set  -> Serialize ;  RegPtr -> fref struct ;  RegPtr <- fref string@@ -38,26 +38,26 @@
+ ;  RegPtr -> fref string ;  RegPtr <- fref struct ;----------------------------------------clipin_  = 21+clipin_  = $15 ;  RegPtr -> Buffer to read CB into ;  A -> Length to read. 0=No Limit-clipout_ = 24+clipout_ = $18 ;  RegPtr -> String to put on CB ;  A -> Length to write. 0=Entire String ;  Writes datatype text/plain.-copen_   = 27+copen_   = $1b ;  A -> Clipboard "file" Flags ;  RegWrd <- Size of clipboard data-cread_   = 30+cread_   = $1e ;  Requires copen with FF_R flag. ;  RegPtr -> Buffer to read CB into ;  A -> Length to read. 0=No Limit ;  Can raise an exception-cwrite_  = 33+cwrite_  = $21 ;  Requires copen with FF_W flag. ;  RegPtr -> String to put on CB ;  A -> Length to write. 0=Entire String-cclose_  = 36+cclose_  = $24 ;  If copen with ff_w: ;  X -> Data Type ;  Y -> Data Subtype
+
+Differences in h/flock.t:
+--------------------------------------------------
+--- old/h/flock.t
++++ new/h/flock.t
+@@ -1,5 +1,5 @@
+ ;----[ flock.t ]-------------------------;link    = 0-toglock_ = 3+;link    = $00+toglock_ = $03 ;  Toggle a file's locked status ;  RegPtr -> file ref to file to un/lock
+
+Differences in h/fname.t:
+--------------------------------------------------
+--- old/h/fname.t
++++ new/h/fname.t
+@@ -1,11 +1,11 @@
+ ;----[ fname.t for fname.lib ]-----------;link = 0-getext   = 3+;link = $00+getext   = $03 ;Get extension from filename ;  RegPtr -> filename string ;  C      <- CLR, extension found ;  RegPtr <- extension string ;  C      <- SET, no extension ;Ideas for future routines.-;setext  = 6-;normal  = 9+;setext  = $06+;normal  = $09
+
+Differences in h/gfx.t:
+--------------------------------------------------
+--- old/h/gfx.t
++++ new/h/gfx.t
+@@ -2,13 +2,13 @@
+ ;Header for gfx.lib.r gfxlibpg = $08ca ;Init called automatically by loadlib.-;init    = 0+;init    = $00 ;Unload called automatically by unldlib.-;unload  = 3-procgfx_ = 6+;unload  = $03+procgfx_ = $06 ;Called automatically by the IRQ handler ;c64os_service. Takes no parameters.-confgfx_ = 9+confgfx_ = $09 ;  Y -> bmmode $D011 ;  A -> mcmode $D016 ;  X -> bgmode $D020
+
+Differences in h/input.h:
+--------------------------------------------------
+--- old/h/input.h
++++ new/h/input.h
+@@ -1,13 +1,13 @@
+ ;----[ input.h ]------------------------ linp     = $0100-(2*2)-initmouse_ = 0-killmouse_ = 3-hidemouse_ = 6-mouserc_ = 9-readmouse_ = 12-deqmouse_ = 15-readkcmd_ = 18-deqkcmd_ = 21-readkprnt_ = 24-deqkprnt_ = 27-polldevices_ = 30+initmouse_ = $00+killmouse_ = $03+hidemouse_ = $06+mouserc_ = $09+readmouse_ = $0c+deqmouse_ = $0f+readkcmd_ = $12+deqkcmd_ = $15+readkprnt_ = $18+deqkprnt_ = $1b+polldevices_ = $1e
+
+Differences in h/input.t:
+--------------------------------------------------
+--- old/h/input.t
++++ new/h/input.t
+@@ -1,17 +1,17 @@
+ ;----[ input.t ]------------------------ linp     = $0100-(2*2)       ;2nd Module-initmouse_ = 0+initmouse_ = $00 ;  C -> Set = Skip Load, just enable ;  Loads mouse cursor from disk ;  Starts tracking mouse events-killmouse_ = 3+killmouse_ = $03 ;  Turns off mouse cursor ;  Stops tracking mouse events ;  C <- Set = Mouse Killed ;  C <- Clr = Mouse Already Off-hidemouse_ = 6+hidemouse_ = $06 ;  Turns off mouse cursor-mouserc_ = 9+mouserc_ = $09 ;  A -> Flags ;  X -> X Pos (Pixels) ;  Y -> Y Pos (Pixels)@@ -19,30 +19,30 @@
+ ;  X <- X Pos (Text Column) ;  Y <- Y Pos (Text Row) ;----------------------------------------readmouse_ = 12+readmouse_ = $0c ;  C <- Set on Empty ;  A <- Flags ;  X <- X Pos (Pixels) ;  Y <- Y Pos (Pixels)-deqmouse_ = 15+deqmouse_ = $0f ;  C -> Clear for normal dequeue ;  Dequeues the first mouse event ;  Shifts the remaining buffer by one ;  C -> Set writes A,X,Y to current evt-readkcmd_ = 18+readkcmd_ = $12 ;  C <- Set on Empty ;  A <- PETSCII Value ;  Y <- Key Event Flags-deqkcmd_ = 21+deqkcmd_ = $15 ;  Dequeues the first key cmd event ;  Shifts the remaining buffer by one-readkprnt_ = 24+readkprnt_ = $18 ;  C <- Set on Empty ;  A <- PETSCII Value-deqkprnt_ = 27+deqkprnt_ = $1b ;  Dequeues the first print key event ;  Shifts the remaining buffer by one ;----------------------------------------polldevices_ = 30+polldevices_ = $1e ;  Moves the mouse cursor ;  Queues mouse and keyboard events
+
+Differences in h/io_i2c.t:
+--------------------------------------------------
+--- old/h/io_i2c.t
++++ new/h/io_i2c.t
+@@ -1,16 +1,16 @@
+ ;----[ io_i2c.t for i2c.lib.r ]--------- ;Init called automatically by loadreloc-;init_   = 0-reset_   = 3+;init_   = $00+reset_   = $03 ;  Takes no parameters. ;  Resets the I2C Bus.-prep_rw_ = 6+prep_rw_ = $06 ;  Regptr -> Pointer to memory buffer ;  A      -> Read/Write data length ;            (maximum 256 bytes) ;prep_rw must be called before a call to ;either readreg or writreg.-readreg_ = 9+readreg_ = $09 ;  Initialize with i2c_prep_rw ;  A -> i2c device address ;  Y -> device register@@ -19,7 +19,7 @@
+ ; ;Register contents will be read from ;i2c device and copied to memory buffer.-writreg_ = 12+writreg_ = $0c ;  Initialize with i2c_prep_rw ;  A -> i2c device address ;  Y -> device register
+
+Differences in h/math.h:
+--------------------------------------------------
+--- old/h/math.h
++++ new/h/math.h
+@@ -1,8 +1,8 @@
+-;----[ math.h ]--------------------------lmat     = $0100-(2*4)-mul16_   = 0-div16_   = 3-tostr_   = 6-toint_   = 9-tohex_   = 12-seebas_  = 15+lmat            = $00f8+mul16_          = $0000+div16_          = $0003+tostr_          = $0006+toint_          = $0009+tohex_          = $000c+seebas_         = $000f+div3216_        = $0012
+
+Differences in h/math.t:
+--------------------------------------------------
+--- old/h/math.t
++++ new/h/math.t
+@@ -1,30 +1,35 @@
+ ;----[ math.t ]------------------------- lmat     = $0100-(2*4)       ;4th Module-mul16_   = 0+mul16_   = $00 ;  multplr -> Multiplier   .word ;  multcnd -> Multiplicand .word ;  product <- Product      .word-div16_   = 3+div16_   = $03 ;  C       -> Round on set ;  divisor -> Divisor   .word ;  dividnd -> Dividnd   .word ;  divrslt <- Quotient  .word ;  remandr <- Remainder .word ;----------------------------------------tostr_   = 6+tostr_   = $06 ;  divisor -> base   (max 10) ;  dividnd -> Int value ;  RegPtr  <- string-toint_   = 9+toint_   = $09 ;  multcnd -> base   (max 10) ;  RegPtr  -> string ;  A       -> strlen (optional) ;  multplr <- Int value-tohex_   = 12+tohex_   = $0c ;  A -> int 0 to 255 ;  X <- Lower Nybble, PETSCII ;  Y <- Upper Nybble, PETSCII ;----------------------------------------seebas_  = 15+seebas_  = $0f ;Enables BASIC/IO/KERNAL. ;Preserves A/X/Y registers+div3216_ = $12+;  divisor  -> Divisor     .word+;  dividnd  -> Dividend  32.word+;  divrslt  <- Quotient    .word+;  remandr  <- Remainder   .word
+
+Differences in h/memory.t:
+--------------------------------------------------
+--- old/h/memory.t
++++ new/h/memory.t
+@@ -1,58 +1,59 @@
+ ;----[ memory.t ]----------------------- lmem     = $0100-(2*1)       ;1st Module-memcpy_  = 0-;  A -> Source page address-;  Y -> Dest page address-memset_  = 3+memcpy_  = $00+;  A   -> Source page address+;  Y   -> Dest page address+;  A/Y <- Same as came in+memset_  = $03 ;  A     -> Fill byte value ;  Y     -> Page address to fill ;  A/X/Y <- Same as the came in.-memfree_ = 6+memfree_ = $06 ;  X <- Number of free pages ;----------------------------------------free_    = 9+free_    = $09 ;  RegPtr -> pointer to malloc'd memory-malloc_  = 12+malloc_  = $0c ;  A      -> Memory pool (start page) ;  RegWrd -> 16-bit length to allocate ;  C      <- Set on error ;  RegPtr <- Pointer to start of memory ;----------------------------------------pgfree_  = 15+pgfree_  = $0f ;  Y -> Page address to free ;  X -> Number of pages to free ;  C <- Set on error-pgmark_  = 18+pgmark_  = $12 ;  X -> First page to mark ;  Y -> Last  page to mark-pgalloc_ = 21+pgalloc_ = $15 ;  A -> Allocation Type ;  X -> Number of pages to allocate ;  Y <- First allocated page address ;  C <- Set on error ;----------------------------------------reuconf_ = 24+reuconf_ = $18 ;  RegPtr -> REU Bank/Page ;  A      -> Config Flags ;  C      <- Set on NO REU available ;  A      <- # Banks Available to App-pgfetch_ = 27+pgfetch_ = $1b ;  RegPtr -> C64 Memory Buffer to fetch ;  C      <- Set on failure to fetch ;  C      <- Clr on successful fetch-pgstash_ = 30+pgstash_ = $1e ;  RegPtr -> C64 Memory Buffer to stash ;  C      <- Set on failure to stash ;  C      <- Clr on successful stash ;--------------------------------------- ;memory.lib routines (not in KERNAL)-realloc_ = 3+realloc_ = $03 ;  A       -> Memory pool (start page) ;  RegPtr  -> Ptr returned from malloc ;  memsize -> Resize to 16-bit length ;  C       <- Set on error ;  RegPtr  <- Pointer to resized memory-bkfree_  = 6+bkfree_  = $06 ;  Y -> Start bank number (normal) ;  X -> Number of banks ;  C <- Failure (bankmap not changed)@@ -60,7 +61,7 @@
+ ;Fails if the range attempting to be ;freed contains any allocation type ;other than the current App's reufrzbk.-bkalloc_ = 9+bkalloc_ = $09 ;  X -> Size in 64K banks ;  Y <- Start bank number (normal) ;  C <- Set on failure
+
+Differences in h/menu.h:
+--------------------------------------------------
+--- old/h/menu.h
++++ new/h/menu.h
+@@ -1,6 +1,6 @@
+ ;----[ menu.h ]------------------------- lmnu     = $0100-(2*6)-mnudraw_ = 0-mnumouse_ = 3-mnukcmd_ = 6-deactiv_ = 9+mnudraw_ = $00+mnumouse_ = $03+mnukcmd_ = $06+deactiv_ = $09
+
+Differences in h/menu.t:
+--------------------------------------------------
+--- old/h/menu.t
++++ new/h/menu.t
+@@ -1,13 +1,13 @@
+ ;----[ menu.t ]------------------------- lmnu     = $0100-(2*6)       ;6th Module-mnudraw_ = 0+mnudraw_ = $00 ;Causes the menu system to redraw its ;current state.-mnumouse_ = 3+mnumouse_ = $03 ;Passes mouse events to the menu system.-mnukcmd_ = 6+mnukcmd_ = $06 ;Passes kcmd events to the menu system.-deactiv_ = 9+deactiv_ = $09 ;Sets mnuactiv low, and closes all open ;menus. Should be called by any process ;that is drawing suddenly taking control
+
+Differences in h/modules.h:
+--------------------------------------------------
+--- old/h/modules.h
++++ new/h/modules.h
+@@ -1,16 +1,16 @@
+ ;----[ modules.h ]---------------------- sltb     = $d000-(2*10) ;Under $cxxx for IDE64-sser     = sltb-$06fc-sinp     = sser-$0574-smat     = sinp-$0130-stim     = smat-$020c+sser     = sltb-$0716+sinp     = sser-$0350+smat     = sinp-$0175+stim     = smat-$021b smem     = stim-$028a-sstr     = smem-$014b-sfil     = sstr-$0537-sscr     = sfil-$069f-smnu     = sscr-$089d-stkt     = smnu-$0548+sstr     = smem-$014d+sfil     = sstr-$0546+sscr     = sfil-$06ae+smnu     = sscr-$08aa+stkt     = smnu-$0557 syscall  .segment ;lxxx,routine          .byte \1          .word \2@@ -21,6 +21,9 @@
+ inc_s    .segment          .include "os/s/@1.s"          .endm+inc_t    .segment+         .include "os/s/t/@1.s"+         .endm inc_k    .segment          .include "os/s/ker/@1.s"          .endm
+
+Differences in h/path.t:
+--------------------------------------------------
+--- old/h/path.t
++++ new/h/path.t
+@@ -1,27 +1,27 @@
+ ;----[ path.t ]--------------------------;link    = 0-setname_ = 3+;link    = $00+setname_ = $03 ;  Set fileref's name from string ;  RegPtr -> Str Pointer ;  A      -> Fref Page #-pathadd_ = 6+pathadd_ = $06 ;  Append string+"/" to path ;  RegPtr -> Str Pointer ;  A      -> Fref Page #-pathup_  = 9+pathup_  = $09 ;  Go up one directory level ;  A -> Fref Page #-partroot_ = 12+partroot_ = $0c ;  Go to root dir of partition ;  A -> Fref Page #-devroot_ = 15+devroot_ = $0f ;  Go to root dir of device ;  A -> Fref Page #-gopath_  = 18+gopath_  = $12 ;  Configure fref from place code ;  A -> Fref Page # ;  X -> Place Code-frclip_  = 21+frclip_  = $15 ;  Fileref to/from clipboard ;  A -> Fref Page # ;  C -> CLR conf fref from CB
+
+Differences in h/places.t:
+--------------------------------------------------
+--- old/h/places.t
++++ new/h/places.t
+@@ -1,38 +1,38 @@
+ ;----[ places.t ]------------------------;link    = 0 ;Loads path.lib-;unlink  = 3 ;Unlds path.lib+;link    = $00 ;Loads path.lib+;unlink  = $03 ;Unlds path.lib              ;Saves favs & rcnts changes              ;Frees favs and rcnts lists-ldfavs   = 6+ldfavs   = $06 ;  Load Favorites List ;  Y <- favorites list page-ldrcnts  = 9+ldrcnts  = $09 ;  Load Recents List ;  Y <- recents list page-rdfav    = 12+rdfav    = $0c ;  Read a Favorite ;  X -> Index ;  RegPtr <- fref to favorite ;  Raises Exceptions-rdrcnt   = 15+rdrcnt   = $0f ;  Read a Recent ;  X -> Index ;  RegPtr <- fref to recent ;  Raises Exceptions-addfav   = 18+addfav   = $12 ;  Add a Favorite ;  A  -> new favorite fref page ;  RegPtr -> favorite name ;  C  <- Clr on successful add ;  Removes existing fav by name first-addrcnt  = 21+addrcnt  = $15 ;  Add a Recent ;  A -> new recent fref pg ;  C <- Always clear, indicating success ;  If full, oldest item is removed. ;  Newest recent is shifted into index 0 ;  Removes existing rcnt by name first-dosave   = 24+dosave   = $18 ;  Save unsaved changes to favorites. ;  Save unsaved changes to recents. ;  Mark both as unmodified.
+
+Differences in h/qsort.t:
+--------------------------------------------------
+--- old/h/qsort.t
++++ new/h/qsort.t
+@@ -1,5 +1,6 @@
+ ;----[ qsort.t for qsort.lib.r ]---------presort_ = 0 ;Copy directory entry ptrs+presort_ = $00+             ;Copy directory entry ptrs              ;to dirlo/dirhi for sorting   ;Sorter only supports 255 files   ;Configures the item count.@@ -13,7 +14,7 @@
+     ;RegPtr <- pointer to obj/struct     ;Z      <- Set if done.     ;RegPtr is null/invalid if Z set.-sort_    = 3 ;Sort item pointers+sort_    = $03 ;Sort item pointers   ;Must call presort first.   ;Comparator may be custom, or may come   ;from routine returned by cmp.lib
+
+Differences in h/rtc.t:
+--------------------------------------------------
+--- old/h/rtc.t
++++ new/h/rtc.t
+@@ -1,10 +1,10 @@
+ ;----[ rtc.t for rtc.* drivers ]---------;init_ = 0+;init_ = $00 ;  Initialize the RTC driver-gettime_ = 3+gettime_ = $03 ;  Reads time from RTC driver and sets ;  memory and CIA(1) TOD registers.-settime_ = 6+settime_ = $06 ;  RegPtr -> YMDHM formatted date/time ;  Writes date/time in the formatted ;  input out the the RTC device.
+
+Differences in h/screen.t:
+--------------------------------------------------
+--- old/h/screen.t
++++ new/h/screen.t
+@@ -1,20 +1,20 @@
+ ;----[ screen.t ]----------------------- lscr     = $0100-(2*5)       ;5th Module-evtloop_ = 0+evtloop_ = $00 ;  Initializes the main event loop. The ;  loop pulls input events and forwards ;  them to screen layers. ;----------------------------------------markredraw_ = 3+markredraw_ = $03 ;  X -> Layer index to redraw from. ;       All layers above X will also be ;       redrawn. ;  X -> 0 to redraw all layers.-layerpush_ = 6+layerpush_ = $06 ;  RegPtr -> layer struct ;  Sets pushed index into layer struct. ;  C <- Set on error-layerpop_ = 9+layerpop_ = $09 ;  Pops last pushed screen layer. ;  Z <- Set if all layers popped ;  Z <- Clr if layers still exist@@ -29,22 +29,22 @@
+ ;HOW TO USE: ;Call setdprops first, then optionally ;Call setlrc twice, for row then column.-setlrc_  = 12+setlrc_  = $0c ;Set Local Row or Column ;  RegWrd -> 16-bit local row/column ;  C      -> Call first Unset for Row ;  C      -> Call again Set   for Column-setdprops_ = 15+setdprops_ = $0f ;Set Draw Properties ;  X -> Draw Property Flags ;  Y -> Color Code-ctxclear_ = 18+ctxclear_ = $12 ;Fill the currently defined context. ;  d_ctx     -> Set and Configured ;  d_reverse -> All pixels on ;  d_color   -> Visible in RVS ;  A         -> Fill Character-ctxdraw_ = 21+ctxdraw_ = $15 ;Draw a character with context settings ;  d_ctx     -> Set and Configured ;  setdprops -> Called earlier@@ -53,21 +53,21 @@
+ ;  C <- Set, no more valid draws ;  C <- Clr, can still draw more ;  Note: Preserves .X and .Y-ctx2scr_ = 24+ctx2scr_ = $18 ;Copy the draw context to the screen buf ;at the offset coordinates. ;  X -> Left offset (signed) ;  Y -> Top  offset ;----------------------------------------redraw_  = 27+redraw_  = $1b ;  Redraws according to layers marked ;  dirty. Called automatically at the ;  end of the main event loop.-scrrow_  = 30+scrrow_  = $1e ;  A -> Row Number ;  RegPtr -> screen buffer ;  RegPtr <- line buffer-loadclr_ = 33+loadclr_ = $21 ;  Clears screen memory of the area ;  that is drawn to by the Loader's ;  splash screen.@@ -75,14 +75,14 @@
+ ;  app being loaded will install a ;  character set. Call this before ;  installing the new character data.-loadicns_ = 36+loadicns_ = $24 ;  Loads a table of system icons ;  RegPtr -> Icon Table ;CharsetIndex,Bitmask,IconID ;.byte $77,$00,icn_man ;.byte $78,$ff,icn_flag ;.byte $00 ;Terminator-copybufs_ = 39+copybufs_ = $27 ;  This is a private API. It will not be ;  documented. It allows other system ;  components to invoke a screen buffer
+
+Differences in h/service.t:
+--------------------------------------------------
+--- old/h/service.t
++++ new/h/service.t
+@@ -1,27 +1,27 @@
+ ;----[ service.t ]---------------------- lser     = $0100-(2*7)       ;7th Module-alert_   = 0+alert_   = $00 ;Rotates the border color twice.-confirq_ = 3+confirq_ = $03 ;  Replace Default IRQ Routine ;----------------------------------------getargs_ = 6+getargs_ = $06 ;  A -> argc ;  argptr <- Points to inline args-updstat_ = 9+updstat_ = $09 ;  Mark menu layer for redraw-setflags_ = 12+setflags_ = $0c ;  Sets the system draw flags ;  A -> Flags Byte-redrwtod_ = 15+redrwtod_ = $0f ;  Redraw Clock if enabled-setgfx_  = 18+setgfx_  = $12 ;  Configures the current graphix state. ;  Allows split screen and rgraphix mode ;  RegPtr -> gstate struct ;  gfx.lib must be loaded before calling ;  setgfx.-getsfref_ = 21+getsfref_ = $15 ;  Y -> Allocated page into which to ;       initialize the sysfref. ;  Y -> 0 to automatically allocate one@@ -29,25 +29,26 @@
+ ;  Y <- End of Path ;  X <- Page of new system fref ;  frefptr <- Alloc'd and Init'd-syskcmd_ = 24+syskcmd_ = $18 ;  Process lowest level system key cmds ;  A -> PETSCII Value ;  Y -> Mod Key Flags ;----------------------------------------initextern_ = 27+initextern_ = $1b ;  Initialize an externs jump table ;  RegPtr -> Start of externs table-loadutil_ = 30+loadutil_ = $1e ;  RegPtr -> Utility name c-string ;  C <- CLR = Will be Opened ;  C <- SET = Already Open-quitapp_ = 33+quitapp_ = $21 ;  RegPtr <- Addr to runhome routine-loadapp_ = 36+loadapp_ = $24 ;  RegPtr -> AppFileRef-loadreloc_ = 39+loadreloc_ = $27 ;  RegPtr -> FileRef to TSR program ;  A <- First page relocated to+;  C <- Set on error ; ;  Automatically runs the first jump ;  table entry, at $xx00. Usually "link"@@ -57,7 +58,7 @@
+ ;  the FileRef must be embedded in a mem ;  buffer large enough to hold the file ;  that it references.-loadlib_ = 42+loadlib_ = $2a ;  X -> 1st lib filename char ;  Y -> 2nd lib filename char ;  A -> Lo nybble = size 0-15pgs@@ -67,7 +68,7 @@
+ ;  Loads a library if not loaded. Sets ;  reference count to 1. If lib already ;  loaded, increments the ref count.-unldlib_ = 45+unldlib_ = $2d ;  X -> 1st lib filename char ;  Y -> 2nd lib filename char ;  A -> Unload flags
+
+Differences in h/sidplay.t:
+--------------------------------------------------
+--- old/h/sidplay.t
++++ new/h/sidplay.t
+@@ -1,9 +1,9 @@
+ ;----[ sidplay.t for sidplay.lib.r ]---- ;Init called automatically by loadlib.-;init    = 0+;init    = $00 ;Unload called automatically by unldlib.-;unload  = 3-loadtune_ = 6+;unload  = $03+loadtune_ = $06 ;  RegPtr -> File Ref to relocated SID ;  C <- CLR = SID file loaded. ;  A <- Number of songs loaded.@@ -12,8 +12,8 @@
+ ;  RegPtr -> NULL to unload tune. ;  C <- CLR = Unloaded. ;  C <- SET = Nothing was loaded.-stattune_ = 9+stattune_ = $09 ;  A -> Tune State{SHIFT--}Tune# to init-tuneinfo_ = 12+tuneinfo_ = $0c ;  X      -> Sidplay Tune Info Index ;  RegPtr <- Pointer to info string
+
+Differences in h/string.t:
+--------------------------------------------------
+--- old/h/string.t
++++ new/h/string.t
+@@ -1,39 +1,39 @@
+ ;----[ string.t ]----------------------- lstr     = $0100-(2*3)       ;3rd Module-strlen_  = 0+strlen_  = $00 ;  RegPtr -> Pointer to c-string ;  RegWrd <- String Length-memncpy_ = 3+memncpy_ = $03 ;  X -> ZP Address to source memory ;  Y -> ZP Address to destin memory ;  A -> ZP to 16-bit length to copy ;----------------------------------------asc2pet_ = 6+asc2pet_ = $06 ;  A -> ASCII character ;  A <- PETSCII character-pet2asc_ = 9+pet2asc_ = $09 ;  A -> PETSCII character ;  A <- ASCII character-pet2scr_ = 12+pet2scr_ = $0c ;  A -> PETSCII character ;  A <- Screen Code ;----------------------------------------tolower_ = 15+tolower_ = $0f ;  A -> Mixedcase character ;  A <- Lowercase character-toupper_ = 18+toupper_ = $12 ;  A -> Mixedcase character ;  A <- Uppercase character-isdigit_ = 21+isdigit_ = $15 ;  A -> PETSCII character ;  C <- Set is a digit ;  C <- Clr is non digit ;----------------------------------------strdel_  = 24+strdel_  = $18 ;  strptr -> Pointer to c-string ;  Y -> start index ;  A -> depth-strins_  = 27+strins_  = $1b ;  strptr -> Pointer to c-string ;  Y -> start index ;  A -> depth
+
+Differences in h/switcher.t:
+--------------------------------------------------
+--- old/h/switcher.t
++++ new/h/switcher.t
+@@ -7,6 +7,6 @@
+ ;To use: jmp (appbase+sinitreu) ;        jmp (appbase+srestore) ;        ...etc.-sinitreu = 10 ;First Boot, init the REU.-srestore = 12 ;Restore REU for reboot.-prepload = 14 ;Prepare to Load an App.+sinitreu = $0a ;First Boot, init the REU+srestore = $0c ;Restore REU for reboot+prepload = $0e ;Prepare to Load an App
+
+Differences in h/timers.t:
+--------------------------------------------------
+--- old/h/timers.t
++++ new/h/timers.t
+@@ -6,24 +6,24 @@
+ ;If tcancel is clr, timer will not be ;reset, and first countdown can be diff. ;than the reset value.-timeque_ = 0+timeque_ = $00 ;  Enqueues a timer struct. ;  Called by the application. ;  RegPtr -> Timer struct ;  C <- Set on failure, buffer full-timedwn_ = 3+timedwn_ = $03 ;  Counts down all timers. ;  Called by the IRQ routine.-timeevt_ = 6+timeevt_ = $06 ;  Runs expired timer triggers. ;  Called by the main event loop.-msgapp_  = 9+msgapp_  = $09 ;  Queue asynchronous message to app. ;  A -> msg code ;  X -> msg data ;  Y -> msg data ;  C -> set, 20 jiffy delay-msgutil_ = 12+msgutil_ = $0c ;  Queue asynchronous message to util. ;  A -> msg code ;  X -> msg data
+
+Differences in h/toolkit.h:
+--------------------------------------------------
+--- old/h/toolkit.h
++++ new/h/toolkit.h
+@@ -1,26 +1,26 @@
+ ;----[ toolkit.h ]---------------------- ltkt     = $0100-(2*9)-pushctx_ = 0-pullctx_ = 3-setctx_  = 6-recontext_ = 9-boundschk_ = 12-settkenv_ = 15-tkupdate_ = 18-tkmouse_ = 21-tkkcmd_  = 24-tkkprnt_ = 27-classlnk_ = 30-classptr_ = 33-tknew_   = 36-getprop16_ = 39-ptrthis_ = 42-setclass_ = 45-setsuper_ = 48-getmethod_ = 51-instanceof_ = 54-walk_    = 57-isdescof_ = 60-opaqancs_ = 63-viewwtag_ = 66-appendto_ = 69+pushctx_ = $00+pullctx_ = $03+setctx_  = $06+recontext_ = $09+boundschk_ = $0c+settkenv_ = $0f+tkupdate_ = $12+tkmouse_ = $15+tkkcmd_  = $18+tkkprnt_ = $1b+classlnk_ = $1e+classptr_ = $21+tknew_   = $24+getprop16_ = $27+ptrthis_ = $2a+setclass_ = $2d+setsuper_ = $30+getmethod_ = $33+instanceof_ = $36+walk_    = $39+isdescof_ = $3c+opaqancs_ = $3f+viewwtag_ = $42+appendto_ = $45
+
+Differences in h/toolkit.t:
+--------------------------------------------------
+--- old/h/toolkit.t
++++ new/h/toolkit.t
+@@ -1,100 +1,100 @@
+ ;----[ toolkit.t ]---------------------- ltkt     = $0100-(2*9)       ;9th Module-pushctx_ = 0+pushctx_ = $00 ;  Pushes the draw context to stack ;  Must be called with JSR, never JMP-pullctx_ = 3+pullctx_ = $03 ;  Pulls the draw context from stack ;  Must be called with JSR, never JMP-setctx_  = 6+setctx_  = $06 ;  RegPtr -> Ptr to a drawctx in memory ;  Copies memory to the draw context-recontext_ = 9+recontext_ = $09 ;  Starts with the current context and ;  modifies and shrinks it for the ;  offset and size of this view. ;  this -> current node-boundschk_ = 12+boundschk_ = $0c ;  Checks if the current view falls at ;  least partially inside the context's ;  current drawing region. ;  this -> current node ;  C <- Set on out of bounds ;  C <- Clr on within bounds-settkenv_ = 15+settkenv_ = $0f ;  Sets the Toolkit environment ;  RegPtr -> Toolkit environment struct ;----------------------------------------tkupdate_ = 18+tkupdate_ = $12 ;  Checks for dirty flag on the toolkit ;  environment, and then calls update on ;  the rootview. Clears TKE dirty flag. ;  RegPtr -> Toolkit Environment-tkmouse_ = 21+tkmouse_ = $15 ;  Hit tests and calls hit view's ;  responder method for the event type ;  RegPtr -> Toolkit Environment ;  C <- Clr = Event was handled ;  C <- Set = Event not handled-tkkcmd_  = 24+tkkcmd_  = $18 ;  Calls dokeyeqv on first responder. ;  RegPtr -> Toolkit Environment ;  C <- Clr = Event was handled ;  C <- Set = Event not handled-tkkprnt_ = 27+tkkprnt_ = $1b ;  Calls keypress on first responder. ;  RegPtr -> Toolkit Environment ;  C <- Clr = Event was handled ;  C <- Set = Event not handled ;----------------------------------------classlnk_ = 30+classlnk_ = $1e ;  Links a dynamically loaded class to ;  its superclass. ;  RegPtr -> Class to be linked ;  class  -> SuperClass-classptr_ = 33+classptr_ = $21 ;  Returns class ptr from a classId ;  X      -> classId ;  RegPtr <- Class-tknew_   = 36+tknew_   = $24 ;  Instantiates a new object of class X ;  RegPtr -> Class ;  this   <- new intance ptr ;  class  <- class of instance ;  RegPtr <- new intance ptr-getprop16_ = 39+getprop16_ = $27 ;  Get 16-bit property of this ;  this   -> object ;  Y      -> property offset ;  RegWrd <- property-ptrthis_ = 42+ptrthis_ = $2a ;  Set this to a new pointer. ;  Set class to this.isa (via fallthru) ;  RegPtr -> object ;  this   <- object ;  class  <- this.isa-setclass_ = 45+setclass_ = $2d ;  Set class to this.isa ;  this  -> object ;  class <- this.isa-setsuper_ = 48+setsuper_ = $30 ;  Set class to class.super ;  class -> class ;  class <- class.super-getmethod_ = 51+getmethod_ = $33 ;  Get method pointer from class ;  class  -> class ;  Y      -> method offset ;  jmpvec <- method ptr ;  RegPtr <- method pointer ;----------------------------------------instanceof_ = 54+instanceof_ = $36 ;  Check if class descends from class ;  class  -> class ;  RegPtr -> class ;  C <- clr = It is an instance ;  C <- set = Not an instance-walk_    = 57+walk_    = $39 ;  Recursively walks the node tree ;  calls sysjmp on each node. ;  this   -> current node@@ -103,7 +103,7 @@
+ ;  A -> $4c = The whole node tree ;  C <- clr = completed ;  C <- set = keep walking-isdescof_ = 60+isdescof_ = $3c ;  Searches up the view hierarchy to see ;  if this is a nested child of the view ;  passed in.@@ -112,18 +112,18 @@
+ ;  A <- 1=Descends, 0=DoesNotDescend ;  Z <- Set if not a descendant ;  Z <- Clr if it does descend-opaqancs_ = 63+opaqancs_ = $3f ;  Searches up the view hierarchy for ;  first opaque ancestor. Could return ;  this, if this is opaque. ;  this   -> current node ;  RegPtr <- opaque ancestor of this-viewwtag_ = 66+viewwtag_ = $42 ;  Finds a view that descends from this ;  that bears a matching tag. ;  this -> current node ;  A    -> a tag to search for-appendto_ = 69+appendto_ = $45 ;  Takes a parent, to which this is ;  appended, via the parent's addchild ;  method. This is left unchanged.
+
+Differences in h/util.frame.t:
+--------------------------------------------------
+--- old/h/util.frame.t
++++ new/h/util.frame.t
+@@ -3,11 +3,11 @@
+ ;utilbase is defined by os/s/:app.s ;utilbase = $e000 ;Extended Exports Table in Utility.-scrlayer_ = utilbase+12-drawctx_ = utilbase+14-tkenv_   = utilbase+16-config_  = utilbase+18-confsize_ = utilbase+20+scrlayer_ = utilbase+$0c+drawctx_ = utilbase+$0e+tkenv_   = utilbase+$10+config_  = utilbase+$12+confsize_ = utilbase+$14 ;Utility Framework's Jumptable uf_kill  = $ff1b uf_load  = $ff1e ;Load Utility
+
+Differences in h/wrap.t:
+--------------------------------------------------
+--- old/h/wrap.t
++++ new/h/wrap.t
+@@ -1,6 +1,6 @@
+ ;----[ wrap.t ]--------------------------;link = 0-reindex  = 3 ;Reindex string+;link = $00+reindex  = $03 ;Reindex string   ;Reindex the lines in a string   ;RegPtr -> C-String Pointer   ;width_ -> wrap width
+
+Differences in s/app.s:
+--------------------------------------------------
+--- old/s/app.s
++++ new/s/app.s
+@@ -35,7 +35,8 @@
+ mc_fsel         = $0014 mc_splt         = $0015 mc_reua         = $0016+mc_media        = $0017+mc_ntwrk        = $0018 mc_null         = $00ff mnu_dis         = $0001 mnu_sel         = $0002-mc_media        = $0017
+
+Differences in s/app.t:
+--------------------------------------------------
+--- old/s/app.t
++++ new/s/app.t
+@@ -44,6 +44,7 @@
+ mc_splt  = 21 ;Split Position Change mc_reua  = 22 ;REU Allocation Request mc_media = 23 ;Media Playback Change+mc_ntwrk = 24 ;Network Status Change mc_null  = $ff ;No Message ;Menu Status Inquiry Flags mnu_dis  = %00000001 ;Entry Disabled
+
+Differences in s/dir.s:
+--------------------------------------------------
+--- old/s/dir.s
++++ new/s/dir.s
+@@ -1,4 +1,4 @@
+-frefptr         = $009b+frefptr         = $00d1 deptr           = $0022 mdptr           = $0024 fdbsiz          = $0001
+
+Differences in s/dir.t:
+--------------------------------------------------
+--- old/s/dir.t
++++ new/s/dir.t
+@@ -1,7 +1,7 @@
+ ;----[ dir.t ]---------------------------frefptr  = $9b ;$9c-deptr    = $22 ;$23 ;Was $fb ;$fc-mdptr    = $24 ;$25 ;Was $fd ;$fe+frefptr  = $d1 ;$d2+deptr    = $22 ;$23+mdptr    = $24 ;$25 ;Dir Entry Struct fdbsiz   = 1   ; 2 bytes (Alt., Part #) fdname   = 3   ;17 bytes
+
+Differences in s/input.s:
+--------------------------------------------------
+--- old/s/input.s
++++ new/s/input.s
+@@ -1,4 +1,5 @@
+-idrvpg          = $0801+kbuffer         = $0277+kbufptr         = $00c6 scrlwhls        = $0287 dblclktm        = $0288 mouseptr        = $028f@@ -7,7 +8,15 @@
+ musypos         = $0043 mus0col         = $02fa mus1col         = $02fb+mbufidx         = $0310+kcbufidx        = $0311 musflgs         = $03fd+musbufx         = $07e8+musbufy         = $07ee+musbuff         = $07f4+kcbufpet        = $07fa+kcbufkmd        = $07fd+mousesiz        = $08cb mouseon         = $0001 mousetrk        = $0002 mousemvd        = $0004
+
+Differences in s/input.t:
+--------------------------------------------------
+--- old/s/input.t
++++ new/s/input.t
+@@ -1,5 +1,4 @@
+ ;----[ input.t ]-------------------------idrvpg   = $0801 ;Input Driver Page # scrlwhls = $0287 ;ScrlWheel Sensitivity dblclktm = $0288 ;DblClick Jiffy Delay mouseptr = $028f@@ -7,10 +6,19 @@
+ musxpos  = $41 ;$42 16-bit 0 to 319 musypos  = $43 ;$44 16-bit 0 to 200                ;Room for overflow math-;musxpos  = $0242 ;$0243-;musypos  = $0244 ;$0245-mus0col  = $02fa-mus1col  = $02fb+mus0col  = $02fa ;Mouse Sprite 0 Color+mus1col  = $02fb ;Mouse Sprite 1 Color+mousesiz = $08cb ;X/Y Sprite Expand+;Mouse and Key Command Buffers: 24 bytes+mbufidx  = $0310 ;offset to next mus evt+musbufx  = $07e8 ;evt X positions (6)+musbufy  = $07ee ;evt Y positions (6)+musbuff  = $07f4 ;evt Flags       (6)+kcbufidx = $0311 ;offset to next key evt+kcbufpet = $07fa ;PET values (3)+kcbufkmd = $07fd ;Keymods    (3)+kbufptr  = $c6   ;Index into KeyPrnt buf+kbuffer  = $0277 ;Printable Key Buffer musflgs  = $03fd mouseon  = %00000001 ;mouse On/Off mousetrk = %00000010 ;move events On/Off
+
+Differences in s/io_iec.s:
+--------------------------------------------------
+--- old/s/io_iec.s
++++ new/s/io_iec.s
+@@ -1,24 +1,16 @@
+-;---[ io_iec.s ]-------------------------detectiec = $2a00 ;2pages relocatable-drivemap = $0334 ;(+8->30) $033c->$0353-;Legacy Devices:-; Bit7 -> 0 = No Sub-Directories-; No Partitions-devnot   = 0     ;No Device Present-devfor   = 1     ;Foreign/Unknown Device-devvice  = 10    ;VICE FS (single dir.)-dev1541  = 41    ;Commodore 1541-dev1571  = 71    ;Commodore 1571-dev1581  = 81    ;Commodore 1581-;Modern Devices:-; Bit7 -> 1 = Sub-Directories-; Bit6 -> 0 = Supports Partitions-; Bit6 -> 1 = 1 Partition Only-devcmdfd = $80+2  ;CMD FD2000/4000-devcmdhd = $80+3  ;CMD HD-devcmdrl = $80+4  ;CMD RamLink-devcmdrd = $80+5  ;RamDrive/REU w/RamDos-devsdiec = $80+6  ;SD2IEC/uIEC SD-devide64 = $80+7  ;IDE64-devultim = $c0+10 ;Ultimate SoftIEC-devp1541 = $c0+11 ;pi1541+detectiec       = $3a00+drivemap        = $0334+devnot          = $0000+devfor          = $0001+devvice         = $000a+dev1541         = $0029+dev1571         = $0047+dev1581         = $0051+devcmdfd        = $0082+devcmdhd        = $0083+devcmdrl        = $0084+devcmdrd        = $0085+devsdiec        = $0086+devide64        = $0087+devultim        = $00ca+devp1541        = $00cb
+
+Differences in s/math.s:
+--------------------------------------------------
+--- old/s/math.s
++++ new/s/math.s
+@@ -1,9 +1,21 @@
+ ;----[ math.s ]----------------------divisor  = $61;$62-dividnd  = $63;$64+;Division+;16bit/16bit = 16bit (+16bit r.)+divisor  = $61;$62 16bit+dividnd  = $63;$64 16bit+divrslt  = $63;$64 (same as dividnd) remandr  = $65;$66-divrslt  = $63;$64 -> dividnd divrond  = $67+;Division+;32bit/16bit = 16bit (+16bit r.)+;divisor = $61;$62         16bit+;dividnd = $63;$64,$65,$66 32bit+;divrslt = $63;$64 (same as dividnd lo)+;remandr = $65;$66 (same as dividnd hi)+divtemp  = $67+divcarry = $68+;Multiply+;16bit*16bit = 32bit multplr  = $61;$62 multcnd  = $63;$64 product  = $65;$66 $67 $68 ;32-bit
+
+Differences in s/pointer.s:
+--------------------------------------------------
+--- old/s/pointer.s
++++ new/s/pointer.s
+@@ -32,13 +32,13 @@
+          sta \1+1,y          .endm storerd  .macro ;store-         ;A      -> index to write to+         ;A      -> index to read from          ;RegPtr <- pointer from store          asl a ;x2          tay-         lda views,y+         lda \1,y          tax-         lda views+1,y+         lda \1+1,y          tay          .endm ;---------------------------------------
+
+Differences in s/screen.s:
+--------------------------------------------------
+--- old/s/screen.s
++++ new/s/screen.s
+@@ -1,3 +1,4 @@
++palflag         = $02a6 screen_cols     = $0028 screen_rows     = $0019 split           = $003f@@ -12,3 +13,5 @@
+ slindx          = $0008 slsize          = $0009 current         = $0381+layeridx        = $0096+laydirtx        = $009f
+
+Differences in s/screen.t:
+--------------------------------------------------
+--- old/s/screen.t
++++ new/s/screen.t
+@@ -1,4 +1,5 @@
+ ;----[ screen.t ]-----------------------+palflag  = $02a6 ;1=pal,0=ntsc screen_cols = 40 screen_rows = 25 split    = $3f ;Current Screen Split Row@@ -25,3 +26,5 @@
+ slindx   = 8 ;This layer's pushed index slsize   = 9 ;sizeof a screen layer current  = $0381 ;Current Render Layer+layeridx = $96 ;Screen Layer Index+laydirtx = $9f ;Screen Layer Dirty Index
+
+Differences in s/string.s:
+--------------------------------------------------
+--- old/s/string.s
++++ new/s/string.s
+@@ -67,3 +67,4 @@
+ index    .byte 0 strings          .endm+printstr = $ab1e      ;In the BASIC ROM
+
+Differences in s/timers.t:
+--------------------------------------------------
+--- old/s/timers.t
++++ new/s/timers.t
+@@ -3,11 +3,12 @@
+ utiltimr = $0221 ;Set to zero to clear timer queue. timeridx = $09+timerprs = $10 ;Timers Progress Flag ;Struct-ttime    = 0 ;3 bytes+ttime    = 0 ;3 bytes  little endian tstat    = 3 ;1 byte ttrig    = 4 ;2 bytes-tvalu    = 6 ;3 bytes+tvalu    = 6 ;3 bytes  little endian ;Timer tpause   = %10000000 ;Paused tintrvl  = %01000000 ;Interval  (reload)
+
+Differences in tk/h/classes.h:
+--------------------------------------------------
+--- old/tk/h/classes.h
++++ new/tk/h/classes.h
+@@ -1,14 +1,14 @@
+ ;----[ classes.h ]---------------------- ;Class Start Offsets      (class size)-tsobj    = stkt-$21-tsview   = tsobj-$0699-tssplit  = tsview-$03d3-tstabs   = tssplit-$034f-tsscroll = tstabs-$0318-tslabel  = tsscroll-$0198-tsctrl   = tslabel-$01e7-tsbutton = tsctrl-$02d7-tssbar   = tsbutton-$0784+tsobj    = stkt-$11+tsview   = tsobj-$06a8+tssplit  = tsview-$03d9+tstabs   = tssplit-$0351+tsscroll = tstabs-$0319+tslabel  = tsscroll-$01a8+tsctrl   = tslabel-$01f7+tsbutton = tsctrl-$02da+tssbar   = tsbutton-$0795 ;--[ Sizes ]---------------------------- tcobjsz  = 10 tcviewsz = tcobjsz+51
+
+Differences in tk/s/tkbutton.s:
+--------------------------------------------------
+--- old/tk/s/tkbutton.s
++++ new/tk/s/tkbutton.s
+@@ -1,19 +1,11 @@
+-;----[ tkbutton.s ]----------------------;----Button Types-------bt_rad   = 0 ;Radio-bt_chk   = 1 ;Checkbox-bt_cyc   = 2 ;Cycle Button-bt_mnu   = 3 ;Menu  Button-bt_psh   = 4 ;Push  Button-;----Button Props--------btype    = tkctrlsz   ;Button type-title    = tkctrlsz+1 ;String ptr-lpad     = tkctrlsz+3 ;Left padding-bnext    = tkctrlsz+4 ;Radio Link Ptr-;When one radio button is activated-;it needs to deactivate all the others-;in its set. Radio Buttons must be-;linked together in a singly-linked loop-;via bnext. 1 -> 2 -> 3 -> 4 -> 1 etc.-minval   = tkctrlsz+6  ;Minimum Value-maxval   = tkctrlsz+7 ;Maximum Value+bt_rad   = 0+bt_chk   = 1+bt_cyc   = 2+bt_mnu   = 3+bt_psh   = 4+btype    = tkctrlsz+title    = tkctrlsz+1+lpad     = tkctrlsz+3+bnext    = tkctrlsz+4+minval   = tkctrlsz+6+maxval   = tkctrlsz+7
+
+Differences in tk/s/tkctrl.s:
+--------------------------------------------------
+--- old/tk/s/tkctrl.s
++++ new/tk/s/tkctrl.s
+@@ -1,23 +1,18 @@
+-;----[ tkctrl.s ]------------------------;----Control Flags-------cf_rvrs  = 1    ;Draw in Reverse Mode-cf_cont  = 2    ;Trigger continuously-cf_hilit = 16   ;Draw Highlighted-cf_deflt = 32   ;Default Control Status-cf_state = 64   ;Active/Inactive State-cf_disab = 128  ;Enable/Disable State-;----Value Types---------vt_byt   = 1    ;1-byte Byte-vt_wrd   = 2    ;2-byte Word-vt_flt   = 4    ;5-byte Float-vt_str   = 8    ;2-byte String Pointer-;----Action Props-------+cf_rvrs  = 1+cf_cont  = 2+cf_secur = 8+cf_hilit = 16+cf_deflt = 32+cf_state = 64+cf_disab = 128+vt_byt   = 1+vt_wrd   = 2+vt_flt   = 4+vt_str   = 8 sender   = tkviewsz act_meth = tkviewsz+2 act_tgt  = tkviewsz+3-;----Interaction Props-- cflags   = tkviewsz+5-rtvalu   = tkviewsz+6 ;Repeat timer valu-;----Value Props--------+rtvalu   = tkviewsz+6 valtype  = tkviewsz+9 value    = tkviewsz+10
+
+Differences in tk/s/tkinput.s:
+--------------------------------------------------
+--- old/tk/s/tkinput.s
++++ new/tk/s/tkinput.s
+@@ -1,13 +1,9 @@
+-;----[ tkinput.s ]-----------------------;delegate struct willins  = 0 didchng  = 2 didfoc   = 4 didblur  = 6-;----Editing Props------ istrlen  = tkctrlsz ilenmax  = tkctrlsz+1 iindex   = tkctrlsz+2 ianchor  = tkctrlsz+3-;----Control Props------ idelegs  = tkctrlsz+4
+
+Differences in tk/s/tksizes.s:
+--------------------------------------------------
+--- old/tk/s/tksizes.s
++++ new/tk/s/tksizes.s
+@@ -15,6 +15,6 @@
+ tktcolssz = tkscrollsz+8 tkinputsz = tkctrlsz+6 tktareasz = tkctrlsz+10-tktextsz = tkviewsz+13+tktextsz = tkviewsz+15 tkfilemetasz = tkviewsz+6 tkiconsz = tkctrlsz+3
+
+Differences in tk/s/tktabs.s:
+--------------------------------------------------
+--- old/tk/s/tktabs.s
++++ new/tk/s/tktabs.s
+@@ -1,14 +1,10 @@
+-;----[ tktabs.s ]------------------------;tktabs delegate struct tabstr   = 0 willblur = 2 willfoc  = 4 didblur  = 6 didfoc   = 8-;----Selection Props-----curtab   = tkviewsz    ; 1-tabsz    = tkviewsz+1  ;10-tabcnt   = tkviewsz+11 ; 1-hltab    = tkviewsz+12 ; 1-;----Control Props-----delegate = tkviewsz+13 ; 2+curtab   = tkviewsz+tabsz    = tkviewsz+1+tabcnt   = tkviewsz+11+hltab    = tkviewsz+12+delegate = tkviewsz+13
+
+Differences in tk/s/tktext.s:
+--------------------------------------------------
+--- old/tk/s/tktext.s
++++ new/tk/s/tktext.s
+@@ -13,3 +13,4 @@
+ tcheight = tkviewsz+7 tselstrt = tkviewsz+9 tselend  = tkviewsz+11+tonclick = tkviewsz+13
+
+Differences in tk/s/tkview.s:
+--------------------------------------------------
+--- old/tk/s/tkview.s
++++ new/tk/s/tkview.s
+@@ -1,30 +1,23 @@
+-;----[ tkview.s ]------------------------colcoord = $61 ; $62 ;multplr-rowcoord = $63 ; $64 ;multcnd-;----Responder Props-----nextresp = tkobjsz-;----Node Props----------parent   = tkobjsz+2-child    = tkobjsz+4-sibling  = tkobjsz+6-tag      = tkobjsz+8-;----Sizing Props--------offtop   = tkobjsz+9-offbot   = tkobjsz+11-absbot   = tkobjsz+13-height   = tkobjsz+15-offleft  = tkobjsz+17-offrght  = tkobjsz+19-absrght  = tkobjsz+21-width    = tkobjsz+23-rsmask   = tkobjsz+25-;----Scrolling Props-----s_top    = tkobjsz+26-s_left   = tkobjsz+28-;----Drawing Props-------dflags   = tkobjsz+30-mflags   = tkobjsz+31-bcolor   = tkobjsz+32-;----Hit Props-----------hitrow   = tkobjsz+33-hitcol   = tkobjsz+35+colcoord = $61+rowcoord = $63+nextresp = 2+parent   = 4+child    = 6+sibling  = 8+tag      = 10+offtop   = 11+offbot   = 13+absbot   = 15+height   = 17+offleft  = 19+offrght  = 21+absrght  = 23+width    = 25+rsmask   = 27+s_top    = 28+s_left   = 30+dflags   = 32+mflags   = 33+bcolor   = 34+hitrow   = 35+hitcol   = 37

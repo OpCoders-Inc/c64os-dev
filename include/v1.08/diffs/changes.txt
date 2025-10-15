@@ -1,0 +1,396 @@
+Directory Comparison Report
+Generated: 2025-10-14 23:08:51
+Old Directory: ../../include/v1.07/os
+New Directory: ../../include/v1.08/os
+==================================================
+
+Summary:
+  Added Files: 7
+  Removed Files: 0
+  Modified Files: 13
+  Unchanged Files: 263
+
+Added Files:
+  - h/fpattern.h
+  - h/fpattern.t
+  - s/io_scpu.s
+  - s/io_scpu.t
+  - s/io_u64t.s
+  - s/io_u64t.t
+  - s/t/hs.t
+
+Modified Files:
+  - h/cnp.h (2 changes)
+  - h/cnp.t (9 changes)
+  - h/places.h (2 changes)
+  - h/places.t (8 changes)
+  - s/cnp.s (2 changes)
+  - s/cnp.t (4 changes)
+  - s/gfx.s (13 changes)
+  - s/gfx.t (5 changes)
+  - s/io_i2c.s (4 changes)
+  - s/io_i2c.t (9 changes)
+  - s/io_swiftlink.s (4 changes)
+  - s/io_swiftlink.t (6 changes)
+  - s/pointer.s (2 changes)
+
+Unchanged Files:
+  - h/calendar.h
+  - h/calendar.t
+  - h/checksum.h
+  - h/checksum.t
+  - h/cmp.h
+  - h/cmp.t
+  - h/datetime.h
+  - h/datetime.t
+  - h/dir.h
+  - h/dir.t
+  - h/dt.img.h
+  - h/dt.img.t
+  - h/fcopy.h
+  - h/fcopy.t
+  - h/file.h
+  - h/file.t
+  - h/float.h
+  - h/float.t
+  - h/flock.h
+  - h/flock.t
+  - h/fname.h
+  - h/fname.t
+  - h/gfx.h
+  - h/gfx.t
+  - h/input.h
+  - h/input.t
+  - h/io_i2c.h
+  - h/io_i2c.t
+  - h/joy.h
+  - h/joy.t
+  - h/kbd.h
+  - h/kbd.t
+  - h/math.h
+  - h/math.t
+  - h/memory.h
+  - h/memory.t
+  - h/menu.h
+  - h/menu.t
+  - h/modules.h
+  - h/network.h
+  - h/network.t
+  - h/nhd.h
+  - h/nhd.t
+  - h/path.h
+  - h/path.t
+  - h/ptr.h
+  - h/ptr.t
+  - h/qsort.h
+  - h/qsort.t
+  - h/rtc.h
+  - h/rtc.t
+  - h/screen.h
+  - h/screen.t
+  - h/service.h
+  - h/service.t
+  - h/sidplay.h
+  - h/sidplay.t
+  - h/string.h
+  - h/string.t
+  - h/switcher.h
+  - h/switcher.t
+  - h/timers.h
+  - h/timers.t
+  - h/toolkit.h
+  - h/toolkit.t
+  - h/util.frame.h
+  - h/util.frame.t
+  - h/wrap.h
+  - h/wrap.t
+  - s/app.s
+  - s/app.t
+  - s/args.s
+  - s/basic.s
+  - s/branch16.s
+  - s/c.s
+  - s/c64archive.s
+  - s/c64archive.t
+  - s/checksum.s
+  - s/checksum.t
+  - s/cmp.s
+  - s/cmp.t
+  - s/colors.s
+  - s/colors.t
+  - s/compare16.s
+  - s/ctxcolors.s
+  - s/ctxcolors.t
+  - s/ctxdraw.s
+  - s/ctxdraw.t
+  - s/dir.s
+  - s/dir.t
+  - s/drawbox.s
+  - s/dt.img.s
+  - s/dt.img.t
+  - s/exceptions.s
+  - s/file.s
+  - s/file.t
+  - s/filejobs.s
+  - s/filejobs.t
+  - s/fileop.s
+  - s/fileop.t
+  - s/float.s
+  - s/icons.s
+  - s/icons.t
+  - s/input.s
+  - s/input.t
+  - s/inttohex.s
+  - s/io.s
+  - s/io.t
+  - s/io_iec.s
+  - s/io_iec.t
+  - s/io_joy.s
+  - s/io_kbd.s
+  - s/io_mmc64.s
+  - s/io_mmc64.t
+  - s/io_ptr.s
+  - s/io_rec.s
+  - s/io_rec.t
+  - s/io_rs232.s
+  - s/io_rs232.t
+  - s/io_tc64.s
+  - s/io_tc64.t
+  - s/io_uaudio.s
+  - s/io_uci.s
+  - s/ker/file.s
+  - s/ker/iec.s
+  - s/ker/io.s
+  - s/ker/key.s
+  - s/ker/mem.s
+  - s/ker/scr.s
+  - s/ker/tim.s
+  - s/math.s
+  - s/mediactrl.s
+  - s/mediactrl.t
+  - s/memory.s
+  - s/menu.s
+  - s/missing.3icon.t
+  - s/network.s
+  - s/network.t
+  - s/nhd.s
+  - s/nhd.t
+  - s/openjobs.s
+  - s/openjobs.t
+  - s/rtc.s
+  - s/rtc.t
+  - s/savejobs.s
+  - s/savejobs.t
+  - s/screen.s
+  - s/screen.t
+  - s/service.s
+  - s/service.t
+  - s/sidplay.s
+  - s/sidplay.t
+  - s/string.s
+  - s/switch.s
+  - s/switcher.s
+  - s/switcher.t
+  - s/t/3dk.t
+  - s/t/a.t
+  - s/t/art.t
+  - s/t/car.t
+  - s/t/cgx.s
+  - s/t/cgx.t
+  - s/t/chs.t
+  - s/t/cwg.t
+  - s/t/d.t
+  - s/t/d41.t
+  - s/t/d64.t
+  - s/t/d71.t
+  - s/t/d81.t
+  - s/t/dat.t
+  - s/t/dd.t
+  - s/t/ddl.t
+  - s/t/dnp.t
+  - s/t/ech.t
+  - s/t/gz.t
+  - s/t/h.t
+  - s/t/hbm.t
+  - s/t/hbw.t
+  - s/t/hed.t
+  - s/t/i.t
+  - s/t/joy.t
+  - s/t/kbd.t
+  - s/t/kla.t
+  - s/t/koa.t
+  - s/t/l.t
+  - s/t/m.t
+  - s/t/nhd.t
+  - s/t/o.t
+  - s/t/pa.t
+  - s/t/pbot.t
+  - s/t/pet.s
+  - s/t/ptr.t
+  - s/t/r.t
+  - s/t/rtc.t
+  - s/t/s.t
+  - s/t/sid.t
+  - s/t/t.t
+  - s/t/txt.t
+  - s/t/xl.t
+  - s/t/zip.t
+  - s/timers.s
+  - s/timers.t
+  - s/toolkit.s
+  - s/toolkit.t
+  - s/type.s
+  - s/util.frame.s
+  - s/util.frame.t
+  - s/utilities.s
+  - s/wrap.s
+  - s/wrap.t
+  - tk/h/classes.h
+  - tk/h/tkbutton.h
+  - tk/h/tkctrl.h
+  - tk/h/tkctrl.t
+  - tk/h/tkdatepick.h
+  - tk/h/tkdatepick.t
+  - tk/h/tkfilemeta.h
+  - tk/h/tklabel.h
+  - tk/h/tklist.h
+  - tk/h/tkobj.h
+  - tk/h/tkplaces.h
+  - tk/h/tksbar.h
+  - tk/h/tkscroll.h
+  - tk/h/tkscroll.t
+  - tk/h/tksplit.h
+  - tk/h/tktabs.h
+  - tk/h/tktext.h
+  - tk/h/tktimepick.h
+  - tk/h/tktimepick.t
+  - tk/h/tktimer.h
+  - tk/h/tktimer.t
+  - tk/h/tkview.h
+  - tk/h/tkview.t
+  - tk/s/tkbutton.s
+  - tk/s/tkbutton.t
+  - tk/s/tkctrl.s
+  - tk/s/tkctrl.t
+  - tk/s/tkdatepick.s
+  - tk/s/tkfilemeta.s
+  - tk/s/tkicon.s
+  - tk/s/tkinput.s
+  - tk/s/tkinput.t
+  - tk/s/tklabel.s
+  - tk/s/tklist.s
+  - tk/s/tkobj.s
+  - tk/s/tkpbar.s
+  - tk/s/tkplaces.s
+  - tk/s/tkramu.s
+  - tk/s/tkreuu.s
+  - tk/s/tksbar.s
+  - tk/s/tkscroll.s
+  - tk/s/tksizes.s
+  - tk/s/tksplit.s
+  - tk/s/tktable.s
+  - tk/s/tktabs.s
+  - tk/s/tktabs.t
+  - tk/s/tktarea.s
+  - tk/s/tktcols.s
+  - tk/s/tktext.s
+  - tk/s/tktimepick.s
+  - tk/s/tktimer.s
+  - tk/s/tkview.s
+  - tk/s/tkview.t
+
+Detailed Differences:
+
+Differences in h/cnp.h:
+--------------------------------------------------
+--- old/h/cnp.h
++++ new/h/cnp.h
+@@ -9,3 +9,5 @@
+ cnpsin_         = $001e cnpsget_        = $0021 cnpsack_        = $0024+cnpspas_        = $0027+cnpsres_        = $002a
+
+Differences in h/cnp.t:
+--------------------------------------------------
+--- old/h/cnp.t
++++ new/h/cnp.t
+@@ -55,3 +55,12 @@
+ ;  is complete. Sends a pt_ack packet. ;  Allows the CNP server to send the ;  next packet.+cnpspas_ = $27+;  Acknowledge that reading the packet+;  is complete. Sends a pt_pause packet.+;  Tells the CNP server to hold before+;  sending the next packet.+cnpsres_ = $2a+;  Resumes the socket. Sends a pt_resum+;  packet. Tells the CNP server that it+;  can send the next packet.
+
+Differences in h/places.h:
+--------------------------------------------------
+--- old/h/places.h
++++ new/h/places.h
+@@ -5,3 +5,5 @@
+ addfav          = $0012 addrcnt         = $0015 dosave          = $0018+marksave        = $001b+rmbyname        = $001e
+
+Differences in h/places.t:
+--------------------------------------------------
+--- old/h/places.t
++++ new/h/places.t
+@@ -36,3 +36,11 @@
+ ;  Save unsaved changes to favorites. ;  Save unsaved changes to recents. ;  Mark both as unmodified.+marksave = $1b+;  Mark as needing to be saved.+;  X -> 1 == Mark Favorites for save+;  Y -> 1 == Mark Recents for save+rmbyname = $1e+;  Remove list item by name.+;  ptr  -> item list    ($22;$23)+;  sptr -> name to find ($26;$27)
+
+Differences in s/cnp.s:
+--------------------------------------------------
+--- old/s/cnp.s
++++ new/s/cnp.s
+@@ -30,6 +30,8 @@
+ pt_open         = $004f pt_close        = $0043 pt_time         = $0054+pt_pause        = $0050+pt_resum        = $0052 pt_ack          = $0041 pt_nak          = $004e pt_data         = $0044
+
+Differences in s/cnp.t:
+--------------------------------------------------
+--- old/s/cnp.t
++++ new/s/cnp.t
+@@ -43,6 +43,8 @@
+ pt_open  = "o" ;Socket Open  Request pt_close = "c" ;Socket Close Request pt_time  = "t" ;Socket Timed Out+pt_pause = "p" ;Socket Pause  Data In+pt_resum = "r" ;Socket Resume Data In pt_ack   = "a" ;Acknowledgement pt_nak   = "n" ;Negative Acknowledgement pt_data  = "d" ;Data Carrier@@ -59,6 +61,8 @@
+ ;  Body      x bytes ;pt_close ;pt_time+;pt_pause+;pt_resume ;pt_ack ;pt_nak ;
+
+Differences in s/gfx.s:
+--------------------------------------------------
+--- old/s/gfx.s
++++ new/s/gfx.s
+@@ -1,13 +1,8 @@
+-;----[ gfx.t ]---------------------------;Graphix State Struct-;--- gfx.lib requires first 6 bytes ----gvidmode = 0  ;1 Byte  vdm_X dt.img.s-gcolhptr = 1  ;2 Bytes screen mem buf-gcolmptr = 3  ;2 Bytes color  mem buf-gbgcol   = 5  ;1 Byte  background color-;--- data loaders/savers need these -----gbmapptr = 6  ;2 Bytes bitmap mem buf-gchbufsz = 8  ;1 Bytes scr mem buf sz-gcmbufsz = 9  ;1 Bytes col mem buf sz-gbmbufsz = 10 ;1 Bytes bit mem buf sz-             ;11 Bytes Total+gvidmode        = $0000+gcolhptr        = $0001+gcolmptr        = $0003+gbgcol          = $0005+gbmapptr        = $0006+gchbufsz        = $0008+gcmbufsz        = $0009+gbmbufsz        = $000a
+
+Differences in s/gfx.t:
+--------------------------------------------------
+--- old/s/gfx.t
++++ new/s/gfx.t
+@@ -1,10 +1,11 @@
+ ;----[ gfx.t ]-------------------------- ;Graphix State Struct ;--- gfx.lib requires first 6 bytes ----gvidmode = 0  ;1 Byte  vdm_X dt.img.s-gcolhptr = 1  ;2 Bytes screen mem buf-gcolmptr = 3  ;2 Bytes color  mem buf-gbgcol   = 5  ;1 Byte  background color+gvidmode = 0  ;1 Byte     vdm_X dt.img.s+gcolhptr = 1  ;2 Bytes    screen mem buf+gcolmptr = 3  ;2 Bytes    color  mem buf+gbgcol   = 5  ;4 bits(lo) bckgrnd color+              ;4 bits(hi) border  color ;--- data loaders/savers need these ---- gbmapptr = 6  ;2 Bytes bitmap mem buf gchbufsz = 8  ;1 Bytes scr mem buf sz
+
+Differences in s/io_i2c.s:
+--------------------------------------------------
+--- old/s/io_i2c.s
++++ new/s/io_i2c.s
+@@ -1,6 +1,8 @@
+ slvwait         = $0032-datareg         = $dd01-datadir         = $dd03+ciareg          = $dd01+ciadir          = $dd03+procreg         = $0001+procdir         = $0000 ret_ok          = $0000 ret_nok         = $0001 err_sdalo       = $0002
+
+Differences in s/io_i2c.t:
+--------------------------------------------------
+--- old/s/io_i2c.t
++++ new/s/io_i2c.t
+@@ -1,8 +1,15 @@
+ ;----[ io_i2c.t for i2c.lib.r ]--------- slvwait  = 50 ;wait time for slave               ;to ack the address-datareg  = $dd01 ;CIA 2 PortB-datadir  = $dd03 ;1 = output, 0 = input+ciareg   = $dd01 ;CIA 2 PortB+ciadir   = $dd03 ;1 = output, 0 = input+procreg  = $01   ;6510 Port+procdir  = $00   ;1 = output, 0 = input+;These two constants are now+;conditionally defined in i2c.lib.a+;as either ciareg/dir or procreg/dir.+;datareg+;datadir ;response codes ret_ok   = 0 ;Not an error ret_nok  = 1
+
+Differences in s/io_swiftlink.s:
+--------------------------------------------------
+--- old/s/io_swiftlink.s
++++ new/s/io_swiftlink.s
+@@ -8,6 +8,7 @@
+ sw_stat  = sw+$01 sw_cmd   = sw+$02 sw_ctrl  = sw+$03+t2_esreg = sw+$07 sws_per  = $01 sws_fer  = $02 sws_oer  = $04@@ -47,6 +48,9 @@
+ swb14400 = $0d swb19200 = $0e swb38400 = $0f+t2b57k   = $02+t2b115k  = $01+t2b230k  = $00 swx_w8b  = $00 swx_w7b  = $20 swx_w6b  = $40
+
+Differences in s/io_swiftlink.t:
+--------------------------------------------------
+--- old/s/io_swiftlink.t
++++ new/s/io_swiftlink.t
+@@ -30,6 +30,7 @@
+ sw_stat  = sw+$01 ;Status Read/Reset sw_cmd   = sw+$02 ;Command Read/Write sw_ctrl  = sw+$03 ;Control Read/Write+t2_esreg = sw+$07 ;T232 Enhanced Speed ;--- Status Bits --------- sws_per  = %00000001 ;Parity  Error sws_fer  = %00000010 ;Framing Error@@ -99,6 +100,11 @@
+ swb14400 = $0d  ;brc_144 swb19200 = $0e  ;brc_192 swb38400 = $0f  ;brc_384+;When these are set on t2_esreg+;The low 4 bits of sw_ctrl must be 0.+t2b57k   = %00000010+t2b115k  = %00000001+t2b230k  = %00000000 ;Word length padding, left-shifted 5x. swx_w8b  = %00000000 ;Word Length: 8-bit swx_w7b  = %00100000 ;Word Length: 7-bit
+
+Differences in s/pointer.s:
+--------------------------------------------------
+--- old/s/pointer.s
++++ new/s/pointer.s
+@@ -27,7 +27,8 @@
+          sty hibyte+1          asl a ;x2          tay-         stx \1,y+         txa+         sta \1,y hibyte   lda #$ff          sta \1+1,y          .endm

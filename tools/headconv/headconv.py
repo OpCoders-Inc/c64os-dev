@@ -37,6 +37,24 @@ import configparser
 import tempfile
 import shutil
 
+def lowercase_rename(folder):
+    print(folder)
+    # Rename all subdirectories and files, starting from the bottom
+    for root, dirs, files in os.walk(folder, topdown=False):
+        # Rename directories
+        for dr in dirs:
+            old_path = os.path.join(root, dr)
+            new_path = os.path.join(root, dr.lower())
+            if old_path != new_path:
+                os.rename(old_path, new_path)
+        # Rename files
+        for f in files:
+            old_path = os.path.join(root, f)
+            new_path = os.path.join(root, f.lower())
+            if old_path != new_path:
+                os.rename(old_path, new_path)
+
+
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -84,11 +102,26 @@ SUFFIX = "*.*"
 w_raw_path = pathlib.Path(OS_RAW_PATH)
 w_temp_path = pathlib.Path(TEMP_PATH.name)
 
+logging.debug(w_raw_path)
+logging.debug(w_raw_path.rglob(SUFFIX))
+
 for source in w_raw_path.rglob(SUFFIX):
     subpath = source.relative_to(w_raw_path)
     destination = w_temp_path.joinpath(subpath)
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, destination)
+
+# convert all files to lowercase
+
+lowercase_rename(w_temp_path)
+
+# folder = w_temp_path
+# for path in pathlib.Path(folder).glob("*.*"):
+#     path2 = path.parent.joinpath(str(path.name).lower())
+#     shutil.move(path, path2)   
+
+# for file in os.listdir(w_temp_path):
+#     os.rename(os.path.join(w_temp_path, file), os.path.join(w_temp_path, file.lower()))
 
 
 #
@@ -98,25 +131,40 @@ for source in w_raw_path.rglob(SUFFIX):
 #
 
 filepaths = w_temp_path.glob(r'**/*')
-exts = {'.seq'}
+exts = {'.s00'}
 
 petcat = pathlib.Path(PETCAT_PATH).absolute()
 
 for filepath in filepaths:
 
     # only cleanup convered files
-
     logging.debug(filepath.absolute())
 
     if filepath.suffix in exts:
 
-        file = filepath.absolute()
+        cleanfile = filepath.with_suffix(".z")
+        print(cleanfile)
+
+        # copy file to temp skipping first 26 bytes
+
+        with open(filepath, 'rb') as in_file:
+
+            in_file.seek(26)  # Skip the first 26 bytes
+
+            with open(cleanfile, 'wb') as out_file:
+                # Copy the rest of the file in chunks to avoid high memory usage
+                for chunk in iter(lambda: in_file.read(16384), b''):
+                    out_file.write(chunk)   
+
+        file = cleanfile.absolute()
         new_file = os.path.splitext(filepath.absolute())[0]
 
         logging.debug(file)
         logging.debug(new_file)
 
-        subprocess.run([petcat, "-text", "-o", new_file, "--", file], shell=True, check=False)
+        opts = [petcat, "-text", "-skip", "26", "-nh", "-o", new_file, "--", file]
+        print(opts)
+        subprocess.run(opts, shell=False, check=False)
 
 
 #

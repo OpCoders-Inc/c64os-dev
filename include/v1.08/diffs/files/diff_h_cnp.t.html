@@ -1,0 +1,144 @@
+<html>
+<head>
+    <title>Diff for h/cnp.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for h/cnp.t</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: h/cnp.t</td><td class="diff_header">Old: h/cnp.t</td></tr>
+<tr><td class="">;----[ cnp.t for cnp.lib.r ]------------</td><td class="">;----[ cnp.t for cnp.lib.r ]------------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;link_   = $00</td><td class="">;link_   = $00</td></tr>
+<tr><td class="diff_unchanged_alt">;  Initializes cnp.lib</td><td class="diff_unchanged_alt_old">;  Initializes cnp.lib</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;unlink  = $03</td><td class="diff_unchanged_alt_old">;unlink  = $03</td></tr>
+<tr><td class="">;  Unsets itself as nhd data handler</td><td class="">;  Unsets itself as nhd data handler</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">bindnhd_ = $06</td><td class="">bindnhd_ = $06</td></tr>
+<tr><td class="diff_unchanged_alt">;  Updates nhd link table from ndrvpg</td><td class="diff_unchanged_alt_old">;  Updates nhd link table from ndrvpg</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">sessbgn_ = $09</td><td class="diff_unchanged_alt_old">sessbgn_ = $09</td></tr>
+<tr><td class="">;  Begin CNP server session. Take ctrl</td><td class="">;  Begin CNP server session. Take ctrl</td></tr>
+<tr><td class="diff_unchanged_alt">;  of an open socket. Send auth.</td><td class="diff_unchanged_alt_old">;  of an open socket. Send auth.</td></tr>
+<tr><td class="">;  Assigns itself as nhd data handler.</td><td class="">;  Assigns itself as nhd data handler.</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; CNP Auth Struct</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; CNP Auth Struct</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">sessend_ = $0c</td><td class="diff_unchanged_alt_old">sessend_ = $0c</td></tr>
+<tr><td class="">;  End CNP server session</td><td class="">;  End CNP server session</td></tr>
+<tr><td class="diff_unchanged_alt">;  Pauses the keep alive timer.</td><td class="diff_unchanged_alt_old">;  Pauses the keep alive timer.</td></tr>
+<tr><td class="">;  C -&gt; Set = Notify that socket closed</td><td class="">;  C -&gt; Set = Notify that socket closed</td></tr>
+<tr><td class="diff_unchanged_alt">;  C -&gt; Clr = Send service msg to close</td><td class="diff_unchanged_alt_old">;  C -&gt; Clr = Send service msg to close</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;---------------------------------------</td><td class="diff_unchanged_alt_old">;---------------------------------------</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">opencnps_ = $0f</td><td class="diff_unchanged_alt_old">opencnps_ = $0f</td></tr>
+<tr><td class="">;  Open CNP Socket</td><td class="">;  Open CNP Socket</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; CNP Socket Struct</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; CNP Socket Struct</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">closcnps_ = $12</td><td class="diff_unchanged_alt_old">closcnps_ = $12</td></tr>
+<tr><td class="">;  Close CNP Socket</td><td class="">;  Close CNP Socket</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; CNP Socket Struct</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; CNP Socket Struct</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">cnpsout_ = $15</td><td class="diff_unchanged_alt_old">cnpsout_ = $15</td></tr>
+<tr><td class="">;  Prepare CNP Socket for output</td><td class="">;  Prepare CNP Socket for output</td></tr>
+<tr><td class="diff_unchanged_alt">;  Equiv. of chkout in KERNAL ROM</td><td class="diff_unchanged_alt_old">;  Equiv. of chkout in KERNAL ROM</td></tr>
+<tr><td class="">;  RegPtr -&gt; CNP Socket Struct</td><td class="">;  RegPtr -&gt; CNP Socket Struct</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">cnpsput_ = $18</td><td class="">cnpsput_ = $18</td></tr>
+<tr><td class="diff_unchanged_alt">;  Output a byte to CNP Socket</td><td class="diff_unchanged_alt_old">;  Output a byte to CNP Socket</td></tr>
+<tr><td class="">;  Equiv. of chrout in KERNAL ROM</td><td class="">;  Equiv. of chrout in KERNAL ROM</td></tr>
+<tr><td class="diff_unchanged_alt">;  A -&gt; byte to send</td><td class="diff_unchanged_alt_old">;  A -&gt; byte to send</td></tr>
+<tr><td class="">;  C &lt;- Set = can take more data</td><td class="">;  C &lt;- Set = can take more data</td></tr>
+<tr><td class="diff_unchanged_alt">;  C &lt;- Clr = current packet full</td><td class="diff_unchanged_alt_old">;  C &lt;- Clr = current packet full</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">cnpsclr_ = $1b</td><td class="diff_unchanged_alt_old">cnpsclr_ = $1b</td></tr>
+<tr><td class="">;  Clear to send packet.</td><td class="">;  Clear to send packet.</td></tr>
+<tr><td class="diff_unchanged_alt">;  The socket is still open, but no more</td><td class="diff_unchanged_alt_old">;  The socket is still open, but no more</td></tr>
+<tr><td class="">;  data will be written at this time.</td><td class="">;  data will be written at this time.</td></tr>
+<tr><td class="diff_unchanged_alt">;  Whatever is in the current packet can</td><td class="diff_unchanged_alt_old">;  Whatever is in the current packet can</td></tr>
+<tr><td class="">;  be sent immediately.</td><td class="">;  be sent immediately.</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">cnpsin_  = $1e</td><td class="">cnpsin_  = $1e</td></tr>
+<tr><td class="diff_unchanged_alt">;  Prepare CNP Socket for input</td><td class="diff_unchanged_alt_old">;  Prepare CNP Socket for input</td></tr>
+<tr><td class="">;  Equiv. of chkin in KERNAL ROM</td><td class="">;  Equiv. of chkin in KERNAL ROM</td></tr>
+<tr><td class="diff_unchanged_alt">;  This must only be called in response</td><td class="diff_unchanged_alt_old">;  This must only be called in response</td></tr>
+<tr><td class="">;  to a socket notification that new</td><td class="">;  to a socket notification that new</td></tr>
+<tr><td class="diff_unchanged_alt">;  data has arrived.</td><td class="diff_unchanged_alt_old">;  data has arrived.</td></tr>
+<tr><td class="">;  RegPtr -&gt; CNP Socket Struct</td><td class="">;  RegPtr -&gt; CNP Socket Struct</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">cnpsget_ = $21</td><td class="">cnpsget_ = $21</td></tr>
+<tr><td class="diff_unchanged_alt">;  Read a byte from the current receive</td><td class="diff_unchanged_alt_old">;  Read a byte from the current receive</td></tr>
+<tr><td class="">;  packet. Requires cnpsin_ first.</td><td class="">;  packet. Requires cnpsin_ first.</td></tr>
+<tr><td class="diff_unchanged_alt">;  A &lt;- next byte in packet</td><td class="diff_unchanged_alt_old">;  A &lt;- next byte in packet</td></tr>
+<tr><td class="">;  C &lt;- Set = when A holds last byte.</td><td class="">;  C &lt;- Set = when A holds last byte.</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">cnpsack_ = $24</td><td class="">cnpsack_ = $24</td></tr>
+<tr><td class="diff_unchanged_alt">;  Acknowledge that reading the packet</td><td class="diff_unchanged_alt_old">;  Acknowledge that reading the packet</td></tr>
+<tr><td class="">;  is complete. Sends a pt_ack packet.</td><td class="">;  is complete. Sends a pt_ack packet.</td></tr>
+<tr><td class="diff_unchanged_alt">;  Allows the CNP server to send the</td><td class="diff_unchanged_alt_old">;  Allows the CNP server to send the</td></tr>
+<tr><td class="">;  next packet.</td><td class="">;  next packet.</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">cnpspas_ = $27</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  Acknowledge that reading the packet</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  is complete. Sends a pt_pause packet.</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  Tells the CNP server to hold before</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  sending the next packet.</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">cnpsres_ = $2a</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  Resumes the socket. Sends a pt_resum</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  packet. Tells the CNP server that it</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  can send the next packet.</span></td><td class=""></td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

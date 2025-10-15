@@ -1,0 +1,131 @@
+<html>
+<head>
+    <title>Diff for s/icons.s</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for s/icons.s</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: s/icons.s</td><td class="diff_header">Old: s/icons.s</td></tr>
+<tr><td class="">icn_clogo       = $0000</td><td class="">icn_clogo       = $0000</td></tr>
+<tr><td class="diff_unchanged_alt">icn_crght       = $0001</td><td class="diff_unchanged_alt_old">icn_crght       = $0001</td></tr>
+<tr><td class="">icn_uparr       = $0002</td><td class="">icn_uparr       = $0002</td></tr>
+<tr><td class="diff_unchanged_alt">icn_dnarr       = $0003</td><td class="diff_unchanged_alt_old">icn_dnarr       = $0003</td></tr>
+<tr><td class="">icn_lfarr       = $0004</td><td class="">icn_lfarr       = $0004</td></tr>
+<tr><td class="diff_unchanged_alt">icn_rtarr       = $0005</td><td class="diff_unchanged_alt_old">icn_rtarr       = $0005</td></tr>
+<tr><td class="">icn_chk0        = $0006</td><td class="">icn_chk0        = $0006</td></tr>
+<tr><td class="diff_unchanged_alt">icn_chk1        = $0007</td><td class="diff_unchanged_alt_old">icn_chk1        = $0007</td></tr>
+<tr><td class="">icn_rad0        = $0008</td><td class="">icn_rad0        = $0008</td></tr>
+<tr><td class="diff_unchanged_alt">icn_rad1        = $0009</td><td class="diff_unchanged_alt_old">icn_rad1        = $0009</td></tr>
+<tr><td class="">icn_dhash       = $000a</td><td class="">icn_dhash       = $000a</td></tr>
+<tr><td class="diff_unchanged_alt">icn_elips       = $000b</td><td class="diff_unchanged_alt_old">icn_elips       = $000b</td></tr>
+<tr><td class="">icn_check       = $000c</td><td class="">icn_check       = $000c</td></tr>
+<tr><td class="diff_unchanged_alt">icn_cycle       = $000d</td><td class="diff_unchanged_alt_old">icn_cycle       = $000d</td></tr>
+<tr><td class="">icn_track       = $000e</td><td class="">icn_track       = $000e</td></tr>
+<tr><td class="diff_unchanged_alt">icn_slide       = $000f</td><td class="diff_unchanged_alt_old">icn_slide       = $000f</td></tr>
+<tr><td class="">icn_tabsp       = $0010</td><td class="">icn_tabsp       = $0010</td></tr>
+<tr><td class="diff_unchanged_alt">icn_hgrip       = $0011</td><td class="diff_unchanged_alt_old">icn_hgrip       = $0011</td></tr>
+<tr><td class="">icn_vgrip       = $0012</td><td class="">icn_vgrip       = $0012</td></tr>
+<tr><td class="diff_unchanged_alt">icn_close       = $0013</td><td class="diff_unchanged_alt_old">icn_close       = $0013</td></tr>
+<tr><td class="">icn_title       = $0014</td><td class="">icn_title       = $0014</td></tr>
+<tr><td class="diff_unchanged_alt">icn_5disk       = $0015</td><td class="diff_unchanged_alt_old">icn_5disk       = $0015</td></tr>
+<tr><td class="">icn_3disk       = $0016</td><td class="">icn_3disk       = $0016</td></tr>
+<tr><td class="diff_unchanged_alt">icn_hdisk       = $0017</td><td class="diff_unchanged_alt_old">icn_hdisk       = $0017</td></tr>
+<tr><td class="">icn_sdcrd       = $0018</td><td class="">icn_sdcrd       = $0018</td></tr>
+<tr><td class="diff_unchanged_alt">icn_tape        = $0019</td><td class="diff_unchanged_alt_old">icn_tape        = $0019</td></tr>
+<tr><td class="">icn_kbd         = $001a</td><td class="">icn_kbd         = $001a</td></tr>
+<tr><td class="diff_unchanged_alt">icn_mus         = $001b</td><td class="diff_unchanged_alt_old">icn_mus         = $001b</td></tr>
+<tr><td class="">icn_joy         = $001c</td><td class="">icn_joy         = $001c</td></tr>
+<tr><td class="diff_unchanged_alt">icn_pad         = $001d</td><td class="diff_unchanged_alt_old">icn_pad         = $001d</td></tr>
+<tr><td class="">icn_pen         = $001e</td><td class="">icn_pen         = $001e</td></tr>
+<tr><td class="diff_unchanged_alt">icn_wifi        = $001f</td><td class="diff_unchanged_alt_old">icn_wifi        = $001f</td></tr>
+<tr><td class="">icn_mem         = $0020</td><td class="">icn_mem         = $0020</td></tr>
+<tr><td class="diff_unchanged_alt">icn_usb         = $0021</td><td class="diff_unchanged_alt_old">icn_usb         = $0021</td></tr>
+<tr><td class="">icn_eth         = $0022</td><td class="">icn_eth         = $0022</td></tr>
+<tr><td class="diff_unchanged_alt">icn_prg         = $0023</td><td class="diff_unchanged_alt_old">icn_prg         = $0023</td></tr>
+<tr><td class="">icn_seq         = $0024</td><td class="">icn_seq         = $0024</td></tr>
+<tr><td class="diff_unchanged_alt">icn_dir         = $0025</td><td class="diff_unchanged_alt_old">icn_dir         = $0025</td></tr>
+<tr><td class="">icn_lock0       = $0026</td><td class="">icn_lock0       = $0026</td></tr>
+<tr><td class="diff_unchanged_alt">icn_lock1       = $0027</td><td class="diff_unchanged_alt_old">icn_lock1       = $0027</td></tr>
+<tr><td class="">icn_trash       = $0028</td><td class="">icn_trash       = $0028</td></tr>
+<tr><td class="diff_unchanged_alt">icn_eject       = $0029</td><td class="diff_unchanged_alt_old">icn_eject       = $0029</td></tr>
+<tr><td class="">icn_home        = $002a</td><td class="">icn_home        = $002a</td></tr>
+<tr><td class="diff_unchanged_alt">icn_flag        = $002b</td><td class="diff_unchanged_alt_old">icn_flag        = $002b</td></tr>
+<tr><td class="">icn_ball        = $002c</td><td class="">icn_ball        = $002c</td></tr>
+<tr><td class="diff_unchanged_alt">icn_pin         = $002d</td><td class="diff_unchanged_alt_old">icn_pin         = $002d</td></tr>
+<tr><td class="">icn_key         = $002e</td><td class="">icn_key         = $002e</td></tr>
+<tr><td class="diff_unchanged_alt">icn_mic         = $002f</td><td class="diff_unchanged_alt_old">icn_mic         = $002f</td></tr>
+<tr><td class="">icn_man         = $0030</td><td class="">icn_man         = $0030</td></tr>
+<tr><td class="diff_unchanged_alt">icn_chat        = $0031</td><td class="diff_unchanged_alt_old">icn_chat        = $0031</td></tr>
+<tr><td class="">icn_face        = $0032</td><td class="">icn_face        = $0032</td></tr>
+<tr><td class="diff_unchanged_alt">icn_tab         = $0033</td><td class="diff_unchanged_alt_old">icn_tab         = $0033</td></tr>
+<tr><td class="">icn_qmark       = $0034</td><td class="">icn_qmark       = $0034</td></tr>
+<tr><td class="diff_unchanged_alt">icn_heart       = $0035</td><td class="diff_unchanged_alt_old">icn_heart       = $0035</td></tr>
+<tr><td class="">icn_today       = $0036</td><td class="">icn_today       = $0036</td></tr>
+<tr><td class="diff_unchanged_alt">icn_clock       = $0037</td><td class="diff_unchanged_alt_old">icn_clock       = $0037</td></tr>
+<tr><td class="">icn_music       = $0038</td><td class="">icn_music       = $0038</td></tr>
+<tr><td class="diff_unchanged_alt">icn_cloud       = $0039</td><td class="diff_unchanged_alt_old">icn_cloud       = $0039</td></tr>
+<tr><td class="">icn_rcket       = $003a</td><td class="">icn_rcket       = $003a</td></tr>
+<tr><td class="diff_unchanged_alt">icn_gear        = $003b</td><td class="diff_unchanged_alt_old">icn_gear        = $003b</td></tr>
+<tr><td class="">icn_table       = $003c</td><td class="">icn_table       = $003c</td></tr>
+<tr><td class="diff_unchanged_alt">icn_list        = $003d</td><td class="diff_unchanged_alt_old">icn_list        = $003d</td></tr>
+<tr><td class="">icn_text        = $003e</td><td class="">icn_text        = $003e</td></tr>
+<tr><td class="diff_unchanged_alt">icn_ehart       = $003f</td><td class="diff_unchanged_alt_old">icn_ehart       = $003f</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">icn_play        = $0040</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">icn_pause       = $0041</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">icn_stop        = $0042</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">icn_ffwd        = $0043</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">icn_rwnd        = $0044</span></td><td class=""></td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

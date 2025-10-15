@@ -1,0 +1,151 @@
+<html>
+<head>
+    <title>Added File: s/dir.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Added File: s/dir.t</h1>
+            <p>This file was added in the new directory.</p>
+            <pre class="added_content">;----[ dir.t ]--------------------------
+
+frefptr  = $9b ;$9c
+deptr    = $22 ;$23 ;Was $fb ;$fc
+mdptr    = $24 ;$25 ;Was $fd ;$fe
+
+;Dir Entry Struct
+
+fdbsiz   = 1   ; 2 bytes (Alt., Part #)
+fdname   = 3   ;17 bytes
+fdtype   = 20  ; 1 byte
+fdstatus = 21  ; 1 byte
+
+fdyear   = 22  ; 1 byte
+fdmnth   = 23  ; 1 byte
+fddate   = 24  ; 1 byte
+fdhour   = 25  ; 1 byte
+fdmin    = 26  ; 1 byte
+
+fdpetsz  = 27  ; 5 bytes (PETSCII Size)
+
+;File Type (not datatype)
+
+ft_dir   = 0 ;sort dir&#x27;s to top
+ft_prg   = 1
+ft_rel   = 2
+ft_seq   = 3
+ft_usr   = 4
+ft_del   = 5 ;sort del&#x27;s to bottom
+
+;Partition Type
+
+pt_nat   = 6
+pt_41    = 7
+pt_71    = 8
+pt_81    = 9
+pt_cpm   = 10
+pt_cfs   = 11
+pt_sys   = 12
+
+;File Status Flags
+
+fds_lock = %00000001
+fds_hide = %00000010
+fds_open = %00000100
+fds_boot = %00001000 ;IDE64 Boot Part.
+fds_slct = %10000000
+
+;Dir Metadata Struct
+
+td_head  = 0  ;17 Dir Header
+td_did   = 17 ; 2 Dir ID
+
+td_free  = 19 ; 2 Blocks Free (int)
+td_pfree = 21 ; 6 Blocks Free (PET)
+
+td_part  = 27 ; 2 Part # (int)
+td_ppart = 29 ; 4 Part # (PET)
+
+td_fc    = 33 ; 2 File Count  (int)
+td_pfc   = 35 ; 5 File Count  (PET)
+
+td_patt  = 40 ;17 File Pattern
+td_type  = 57 ; 1 File Type
+
+td_sortf = 58 ; 1 Sort Field
+td_sorto = 59 ; 1 Sort Options
+
+td_sel   = 60 ; 1 Selected File Count
+td_flags = 61 ; 1 Special Flags
+
+;Sort Fields
+
+;All sorts &gt; ts_name subsort by ts_name
+
+ts_disk  = 0
+ts_name  = 1
+ts_size  = 2
+ts_type  = 3
+ts_date  = 4
+
+;Sort Options
+
+ts_des   = %00000001 ;Descending
+
+;other bits reserved
+
+ts_a2p   = %01000000 ;ASCII 2 PETSCII
+ts_case  = %10000000 ;Case Insensitive
+
+;Special Dev/Dir Flags
+
+ts_apps  = %00000001 ;Applications Dir
+ts_utils = %00000010 ;Utilities Dir
+ts_dirs  = %00000100 ;Dev Supports Dirs
+ts_pdir  = %00001000 ;Partition Dir
+ts_time  = %00010000 ;Include Date/Time
+
+</pre>
+        </div>
+    </div>
+</body>
+</html>

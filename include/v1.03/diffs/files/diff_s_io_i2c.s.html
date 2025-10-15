@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>Diff for s/io_i2c.s</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for s/io_i2c.s</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: s/io_i2c.s</td><td class="diff_header">Old: s/io_i2c.s</td></tr>
+<tr><td class="diff_chg"><span class="diff_text_add">slvwait</span> <span class="diff_text_add">        = $003</span>2</td><td class="diff_chg"><span class="diff_text_sub">;----[</span> <span class="diff_text_sub">io_i</span>2<span class="diff_text_sub">c.s ]-----------------------</span></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">datareg         = $dd01</span></td><td class=""></td></tr>
+<tr><td class="diff_chg"><span class="diff_text_add">dat</span>ad<span class="diff_text_add">i</span>r  <span class="diff_text_add">       = $dd03</span></td><td class="diff_chg"><span class="diff_text_sub">;He</span>ad<span class="diff_text_sub">e</span>r <span class="diff_text_sub">for</span> <span class="diff_text_sub">i2c.lib.r</span></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">ret_ok          = $0000</span></td><td class=""></td></tr>
+<tr><td class="diff_chg">re<span class="diff_text_add">t_n</span>o<span class="diff_text_add">k         = $0001</span></td><td class="diff_chg"><span class="diff_text_sub">;Init called automatically by load</span>re<span class="diff_text_sub">l</span>o<span class="diff_text_sub">c</span></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">err_sdalo       = $0002</span></td><td class=""></td></tr>
+<tr><td class="diff_chg"><span class="diff_text_add">err</span>_<span class="diff_text_add">scllo    </span>   = <span class="diff_text_add">$</span>0<span class="diff_text_add">003</span></td><td class="diff_chg"><span class="diff_text_sub">;init</span>_   = 0</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">writebit        = $0000</span></td><td class=""></td></tr>
+<tr><td class="diff_chg">re<span class="diff_text_add">adbi</span>t<span class="diff_text_add">      </span>   = <span class="diff_text_add">$0001</span></td><td class="diff_chg">re<span class="diff_text_sub">se</span>t<span class="diff_text_sub">_</span>   = <span class="diff_text_sub">3</span></td></tr>
+<tr><td class="diff_chg"><span class="diff_text_add">purebyte</span>    <span class="diff_text_add">    = $00ff</span></td><td class="diff_chg"><span class="diff_text_sub">;</span>  <span class="diff_text_sub">Takes</span> <span class="diff_text_sub">no</span> <span class="diff_text_sub">parameters.</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  Resets the I2C Bus.</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">prep_rw_ = 6</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  Regptr -&gt; Pointer to memory buffer</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  A      -&gt; Read/Write data length</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;            (maximum 256 bytes)</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;prep_rw must be called before a call to</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;either readreg or writreg.</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">readreg_ = 9</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  Initialize with i2c_prep_rw</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  A -&gt; i2c device address</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  Y -&gt; device register</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  C -&gt; Set = skip register write</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  A &lt;- ok/nok response 0 = ok</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;Register contents will be read from</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;i2c device and copied to memory buffer.</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">writreg_ = 12</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  Initialize with i2c_prep_rw</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  A -&gt; i2c device address</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  Y -&gt; device register</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  A &lt;- ok/nok response 0 = ok</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;Contents of memory buffer will be</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;written to the i2c device&#x27;s register(s)</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;---------------------------------------</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">slvwait  = 50 ;wait time for slave</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">              ;to ack the address</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">datareg  = $dd01 ;CIA 2 PortB</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">datadir  = $dd03 ;1 = output, 0 = input</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;response codes</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">ret_ok   = 0 ;Not an error</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">ret_nok  = 1</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">err_sdalo = 2</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">err_scllo = 3</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;i2c address flags</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">writebit = 0    ;in i2c address byte</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">readbit  = 1    ;in i2c address byte</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">purebyte = $ff  ;don&#x27;t modify data byte</span></td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

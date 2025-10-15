@@ -1,0 +1,398 @@
+Directory Comparison Report
+Generated: 2025-10-14 23:21:40
+Old Directory: ../../include/v1.03/os
+New Directory: ../../include/v1.04/os
+==================================================
+
+Summary:
+  Added Files: 12
+  Removed Files: 0
+  Modified Files: 26
+  Unchanged Files: 156
+
+Added Files:
+  - h/fname.h
+  - h/fname.t
+  - h/gfx.h
+  - h/gfx.t
+  - s/io_mmc64.s
+  - s/io_mmc64.t
+  - s/io_tc64.s
+  - s/io_tc64.t
+  - s/t/cgx.s
+  - s/t/cgx.t
+  - s/t/pet.s
+  - s/t/sid.t
+
+Modified Files:
+  - h/flock.h (1 changes)
+  - h/flock.t (1 changes)
+  - h/memory.h (1 changes)
+  - h/memory.t (8 changes)
+  - h/path.h (7 changes)
+  - h/path.t (7 changes)
+  - h/service.t (6 changes)
+  - h/sidplay.t (1 changes)
+  - h/string.h (1 changes)
+  - h/string.t (3 changes)
+  - s/app.s (4 changes)
+  - s/app.t (2 changes)
+  - s/ctxdraw.t (1 changes)
+  - s/dt.img.s (29 changes)
+  - s/dt.img.t (47 changes)
+  - s/filejobs.t (4 changes)
+  - s/gfx.s (13 changes)
+  - s/gfx.t (13 changes)
+  - s/icons.s (5 changes)
+  - s/icons.t (6 changes)
+  - s/io_iec.s (1 changes)
+  - s/memory.s (2 changes)
+  - s/pointer.s (20 changes)
+  - s/service.s (8 changes)
+  - s/service.t (16 changes)
+  - s/switch.s (4 changes)
+
+Unchanged Files:
+  - h/calendar.h
+  - h/calendar.t
+  - h/checksum.h
+  - h/checksum.t
+  - h/cmp.h
+  - h/cmp.t
+  - h/datetime.h
+  - h/datetime.t
+  - h/dir.h
+  - h/dir.t
+  - h/dt.img.h
+  - h/dt.img.t
+  - h/fcopy.h
+  - h/fcopy.t
+  - h/file.h
+  - h/file.t
+  - h/float.h
+  - h/float.t
+  - h/input.h
+  - h/input.t
+  - h/io_i2c.h
+  - h/io_i2c.t
+  - h/math.h
+  - h/math.t
+  - h/menu.h
+  - h/menu.t
+  - h/modules.h
+  - h/places.h
+  - h/places.t
+  - h/qsort.h
+  - h/qsort.t
+  - h/screen.h
+  - h/screen.t
+  - h/service.h
+  - h/sidplay.h
+  - h/timers.h
+  - h/timers.t
+  - h/toolkit.h
+  - h/toolkit.t
+  - h/util.frame.h
+  - h/util.frame.t
+  - h/wrap.h
+  - h/wrap.t
+  - s/args.s
+  - s/basic.s
+  - s/branch16.s
+  - s/c.s
+  - s/c64archive.s
+  - s/c64archive.t
+  - s/checksum.s
+  - s/checksum.t
+  - s/cmp.s
+  - s/cmp.t
+  - s/colors.s
+  - s/colors.t
+  - s/compare16.s
+  - s/ctxcolors.s
+  - s/ctxcolors.t
+  - s/ctxdraw.s
+  - s/dir.s
+  - s/dir.t
+  - s/drawbox.s
+  - s/exceptions.s
+  - s/file.s
+  - s/file.t
+  - s/filejobs.s
+  - s/fileop.s
+  - s/fileop.t
+  - s/float.s
+  - s/input.s
+  - s/input.t
+  - s/inttohex.s
+  - s/io.s
+  - s/io.t
+  - s/io_i2c.s
+  - s/io_i2c.t
+  - s/io_joy.s
+  - s/io_rec.s
+  - s/io_uaudio.s
+  - s/io_uci.s
+  - s/ker/file.s
+  - s/ker/iec.s
+  - s/ker/io.s
+  - s/ker/key.s
+  - s/ker/mem.s
+  - s/ker/scr.s
+  - s/ker/tim.s
+  - s/math.s
+  - s/menu.s
+  - s/missing.3icon.t
+  - s/openjobs.s
+  - s/openjobs.t
+  - s/rtc.s
+  - s/rtc.t
+  - s/savejobs.s
+  - s/savejobs.t
+  - s/screen.s
+  - s/screen.t
+  - s/sidplay.s
+  - s/sidplay.t
+  - s/string.s
+  - s/timers.s
+  - s/timers.t
+  - s/toolkit.s
+  - s/toolkit.t
+  - s/type.s
+  - s/util.frame.s
+  - s/util.frame.t
+  - s/utilities.s
+  - s/wrap.s
+  - s/wrap.t
+  - tk/h/classes.h
+  - tk/h/tkbutton.h
+  - tk/h/tkctrl.h
+  - tk/h/tkctrl.t
+  - tk/h/tkdatepick.h
+  - tk/h/tkdatepick.t
+  - tk/h/tkfilemeta.h
+  - tk/h/tklabel.h
+  - tk/h/tklist.h
+  - tk/h/tkobj.h
+  - tk/h/tkplaces.h
+  - tk/h/tksbar.h
+  - tk/h/tkscroll.h
+  - tk/h/tkscroll.t
+  - tk/h/tksplit.h
+  - tk/h/tktabs.h
+  - tk/h/tktext.h
+  - tk/h/tktimepick.h
+  - tk/h/tktimepick.t
+  - tk/h/tktimer.h
+  - tk/h/tktimer.t
+  - tk/h/tkview.h
+  - tk/h/tkview.t
+  - tk/s/tkbutton.s
+  - tk/s/tkctrl.s
+  - tk/s/tkdatepick.s
+  - tk/s/tkfilemeta.s
+  - tk/s/tkicon.s
+  - tk/s/tkinput.s
+  - tk/s/tklabel.s
+  - tk/s/tklist.s
+  - tk/s/tkobj.s
+  - tk/s/tkpbar.s
+  - tk/s/tkplaces.s
+  - tk/s/tksbar.s
+  - tk/s/tkscroll.s
+  - tk/s/tksizes.s
+  - tk/s/tksplit.s
+  - tk/s/tktable.s
+  - tk/s/tktabs.s
+  - tk/s/tktcols.s
+  - tk/s/tktext.s
+  - tk/s/tktimepick.s
+  - tk/s/tktimer.s
+  - tk/s/tkview.s
+
+Detailed Differences:
+
+Differences in h/flock.h:
+--------------------------------------------------
+--- old/h/flock.h
++++ new/h/flock.h
+@@ -1 +1 @@
+-toglock         = $0003+toglock_        = $0003
+
+Differences in h/flock.t:
+--------------------------------------------------
+--- old/h/flock.t
++++ new/h/flock.t
+@@ -1,5 +1,5 @@
+ ;----[ flock.t ]------------------------ ;link    = 0-toglock  = 3+toglock_ = 3 ;  Toggle a file's locked status ;  RegPtr -> file ref to file to un/lock
+
+Differences in h/memory.h:
+--------------------------------------------------
+--- old/h/memory.h
++++ new/h/memory.h
+@@ -11,3 +11,4 @@
+ reuconf_ = 24 pgfetch_ = 27 pgstash_ = 30+realloc_ = 3
+
+Differences in h/memory.t:
+--------------------------------------------------
+--- old/h/memory.t
++++ new/h/memory.t
+@@ -44,3 +44,11 @@
+ ;  RegPtr -> C64 Memory Buffer to stash ;  C      <- Set on failure to stash ;  C      <- Clr on successful stash+;---------------------------------------+;memory.lib routines (not in KERNAL)+realloc_ = 3+;  A       -> Memory pool (start page)+;  RegPtr  -> Ptr returned from malloc+;  memsize -> Resize to 16-bit length+;  C       <- Set on error+;  RegPtr  <- Pointer to resized memory
+
+Differences in h/path.h:
+--------------------------------------------------
+--- old/h/path.h
++++ new/h/path.h
+@@ -1,7 +1,7 @@
+-pathadd         = $0006-pathup          = $0009-partroot        = $000c-devroot         = $000f-gopath          = $0012-frclip          = $0015-setname         = $0003+setname_        = $0003+pathadd_        = $0006+pathup_         = $0009+partroot_       = $000c+devroot_        = $000f+gopath_         = $0012+frclip_         = $0015
+
+Differences in h/path.t:
+--------------------------------------------------
+--- old/h/path.t
++++ new/h/path.t
+@@ -1,27 +1,27 @@
+ ;----[ path.t ]------------------------- ;link    = 0-setname  = 3+setname_ = 3 ;  Set fileref's name from string ;  RegPtr -> Str Pointer ;  A      -> Fref Page #-pathadd  = 6+pathadd_ = 6 ;  Append string+"/" to path ;  RegPtr -> Str Pointer ;  A      -> Fref Page #-pathup   = 9+pathup_  = 9 ;  Go up one directory level ;  A -> Fref Page #-partroot = 12+partroot_ = 12 ;  Go to root dir of partition ;  A -> Fref Page #-devroot  = 15+devroot_ = 15 ;  Go to root dir of device ;  A -> Fref Page #-gopath   = 18+gopath_  = 18 ;  Configure fref from place code ;  A -> Fref Page # ;  X -> Place Code-frclip   = 21+frclip_  = 21 ;  Fileref to/from clipboard ;  A -> Fref Page # ;  C -> CLR conf fref from CB
+
+Differences in h/service.t:
+--------------------------------------------------
+--- old/h/service.t
++++ new/h/service.t
+@@ -19,9 +19,8 @@
+ ;  Configures the current graphix state. ;  Allows split screen and rgraphix mode ;  RegPtr -> gstate struct-;  If gfx.lib is not installed, it will-;  be automatically installed when this-;  routine is called for the first time.+;  gfx.lib must be loaded before calling+;  setgfx. getsfref_ = 21 ;  Y -> Allocated page into which to ;       initialize the sysfref.@@ -50,6 +49,9 @@
+ ;  RegPtr -> FileRef to TSR program ;  A <- First page relocated to ;+;  Automatically runs the first jump+;  table entry, at $xx00. Usually "link"+; ;  Can relocate a binary that is one or ;  more pages. If the binary is > 1 page ;  the FileRef must be embedded in a mem
+
+Differences in h/sidplay.t:
+--------------------------------------------------
+--- old/h/sidplay.t
++++ new/h/sidplay.t
+@@ -15,5 +15,5 @@
+ stattune_ = 9 ;  A -> Tune State{SHIFT--}Tune# to init tuneinfo_ = 12-;  A      -> Sidplay Tune Info Index+;  X      -> Sidplay Tune Info Index ;  RegPtr <- Pointer to info string
+
+Differences in h/string.h:
+--------------------------------------------------
+--- old/h/string.h
++++ new/h/string.h
+@@ -1,6 +1,6 @@
+ lstr            = $00fa strlen_         = $0000-strcpy_         = $0003+memncpy_        = $0003 asc2pet_        = $0006 pet2asc_        = $0009 pet2scr_        = $000c
+
+Differences in h/string.t:
+--------------------------------------------------
+--- old/h/string.t
++++ new/h/string.t
+@@ -3,9 +3,9 @@
+ strlen_  = 0 ;  RegPtr -> Pointer to c-string ;  RegWrd <- String Length-strcpy_  = 3-;  X -> ZP Address to source c-string-;  Y -> ZP Address to destin c-string+memncpy_ = 3+;  X -> ZP Address to source memory+;  Y -> ZP Address to destin memory ;  A -> ZP to 16-bit length to copy ;--------------------------------------- asc2pet_ = 6
+
+Differences in s/app.s:
+--------------------------------------------------
+--- old/s/app.s
++++ new/s/app.s
+@@ -30,7 +30,9 @@
+ mc_dmod         = $0011 mc_cpbd         = $0012 mc_date         = $0013+mc_fsel         = $0014+mc_splt         = $0015+mc_reua         = $0016 mc_null         = $00ff mnu_dis         = $0001 mnu_sel         = $0002-mc_fsel         = $0014
+
+Differences in s/app.t:
+--------------------------------------------------
+--- old/s/app.t
++++ new/s/app.t
+@@ -35,6 +35,8 @@
+ mc_cpbd  = 18 ;Clipboard Modified mc_date  = 19 ;Selected Date or Datetime mc_fsel  = 20 ;File Selection Change+mc_splt  = 21 ;Split Position Change+mc_reua  = 22 ;REU Allocation Request mc_null  = $ff ;No Message ;Menu Status Inquiry Flags mnu_dis  = %00000001 ;Entry Disabled
+
+Differences in s/ctxdraw.t:
+--------------------------------------------------
+--- old/s/ctxdraw.t
++++ new/s/ctxdraw.t
+@@ -1,7 +1,7 @@
+ ;----[ ctxdraw.t ]---------------------- tkcolors = $0387     ;See ctxcolors.t ;Draw Context Flags-d_crsr_h = %00000001 ;Crsr travels left+d_crsr_h = %00000001 ;Crsr travels right d_petscr = %01000000 ;Convert Pet 2 Scr d_revers = %10000000 ;Reverse the char ;ZeroPage Draw Context
+
+Differences in s/dt.img.s:
+--------------------------------------------------
+--- old/s/dt.img.s
++++ new/s/dt.img.s
+@@ -2,3 +2,32 @@
+ dti_mode        = $0001 dti_pxsz        = $0002 dti_imsz        = $0003+dti_auth        = $0004+dti_sorc        = $0005+dti_date        = $0006+dti_titl        = $0007+dti_mxsz        = $0008+dti_mxst        = $0009+dti_fcnt        = $000a+dti_fdel        = $000b+dti_lcnt        = $000c+dti_mctl        = $000d+dti_frsz        = $000e+dti_vidm        = $000f+dti_vida        = $0010+vdm_stchr       = $0000+vdm_mcchr       = $0001+vdm_ebchr       = $0002+vdm_hrbmp       = $0003+vdm_mcbmp       = $0004+vat_fli8        = $0001+vat_fli4        = $0002+vat_lace        = $0004+vat_xshf        = $0008+vat_bgnd        = $0010+mcl_stat        = $0000+mcl_loop        = $0001+mcl_bnce        = $0002+mcl_hwrp        = $0003+mcl_vwrp        = $0004+mcl_mtrx        = $0005
+
+Differences in s/dt.img.t:
+--------------------------------------------------
+--- old/s/dt.img.t
++++ new/s/dt.img.t
+@@ -1,7 +1,53 @@
+ ;----[ dt.img.t ]----------------------- ;DataType:Image-;ImgInfo string indexes+;Every loader should support the first+;four, Generated Metadata indexes.+;If a loader does not support one of the+;later indexes, return with Carry Set.+;ImgInfo indexes+;Generated Metadata (RegPtr Strings) dti_frmt = 0 ;Image Data Format dti_mode = 1 ;VIC-II Video Mode dti_pxsz = 2 ;Pixel Size (str WxH) dti_imsz = 3 ;Image Size (str byte size)+;Stored Metadata    (RegPtr Strings)+dti_auth = 4 ;Author/Artist+dti_sorc = 5 ;Source (website,device...)+dti_date = 6 ;Year/Date+dti_titl = 7 ;Title+;Image Format       (INTs)+;Matrix info+dti_mxsz = 8 ;Matrix Size        (X,Y)+dti_mxst = 9 ;Matrix Start Frame (X,Y)+;Animation+dti_fcnt = 10 ;Frame Count       (X)+dti_fdel = 11 ;Frame Delay+dti_lcnt = 12 ;Loop Count        (X)+;Media control+dti_mctl = 13 ;Media Control     (X)+;Frame size+dti_frsz = 14 ;Frame Cell Size   (X,Y)+;Video modes+dti_vidm = 15 ;Video Mode        (X)+dti_vida = 16 ;Video Attributes  (X)+;---------------------------------------+;Metadata Value Constants+;Video Modes (VIC-II native modes)+vdm_stchr = 0  ;Standard Char+vdm_mcchr = 1  ;Multicolor Char+vdm_ebchr = 2  ;ExtBgnd Char+vdm_hrbmp = 3  ;HiRes Bitmap+vdm_mcbmp = 4  ;MultiColor Bitmap+;Video Attributes (CPU-assisted modes)+vat_fli8 = %00000001 ;8 Charmaps+vat_fli4 = %00000010 ;4 Charmaps+vat_lace = %00000100 ;Interlaced+vat_xshf = %00001000 ;X-shifted lacing+vat_bgnd = %00010000 ;BG Col#0 Array+;Media Controls+mcl_stat = 0 ;Static (not animated)+mcl_loop = 1 ;Loop   (anim. in a loop)+mcl_bnce = 2 ;Bounce (anim. back/forth)+mcl_hwrp = 3 ;Horz Wrap (3D Matrix)+mcl_vwrp = 4 ;Vert Wrap (3D Matrix)+mcl_mtrx = 5 ;No   Wrap (3D Matrix)
+
+Differences in s/filejobs.t:
+--------------------------------------------------
+--- old/s/filejobs.t
++++ new/s/filejobs.t
+@@ -13,6 +13,7 @@
+ ;"cfop" Copy    with confirm button ;"mfop" Move    with confirm button ;"sfop" Scratch with confirm button-;"Cfop" Copy    auto-start-;"Mfop" Move    auto-start-;"Sfop" Scratch auto-start+;"Cfop" Copy    auto-start & overwrite+;"Mfop" Move    auto-start & overwrite+;"Sfop" Scratch auto-start & overwrite+d
+
+Differences in s/gfx.s:
+--------------------------------------------------
+--- old/s/gfx.s
++++ new/s/gfx.s
+@@ -1,3 +1,13 @@
+-gfxlibpg        = $08ca-procgfx_        = $0006-confgfx_        = $0009+;----[ gfx.t ]--------------------------+;Graphix State Struct+;--- gfx.lib requires first 6 bytes ---+gvidmode = 0  ;1 Byte  vdm_X dt.img.s+gcolhptr = 1  ;2 Bytes screen mem buf+gcolmptr = 3  ;2 Bytes color  mem buf+gbgcol   = 5  ;1 Byte  background color+;--- data loaders/savers need these ----+gbmapptr = 6  ;2 Bytes bitmap mem buf+gchbufsz = 8  ;1 Bytes scr mem buf sz+gcmbufsz = 9  ;1 Bytes col mem buf sz+gbmbufsz = 10 ;1 Bytes bit mem buf sz+             ;11 Bytes Total
+
+Differences in s/gfx.t:
+--------------------------------------------------
+--- old/s/gfx.t
++++ new/s/gfx.t
+@@ -1,14 +1,13 @@
+ ;----[ gfx.t ]---------------------------;Header for gfx.lib.r-gfxlibpg = $08ca-;Init called automatically by loadlib.-;init    = 0-;Unload called automatically by unldlib.-;unload  = 3-procgfx_ = 6-;Called automatically by the IRQ handler-;c64os_service. Takes no parameters.-confgfx_ = 9-;  A -> mcmode-;  X -> bgmode-;Called by setgfx Service KERNAL call.+;Graphix State Struct+;--- gfx.lib requires first 6 bytes ---+gvidmode = 0  ;1 Byte  vdm_X dt.img.s+gcolhptr = 1  ;2 Bytes screen mem buf+gcolmptr = 3  ;2 Bytes color  mem buf+gbgcol   = 5  ;1 Byte  background color+;--- data loaders/savers need these ----+gbmapptr = 6  ;2 Bytes bitmap mem buf+gchbufsz = 8  ;1 Bytes scr mem buf sz+gcmbufsz = 9  ;1 Bytes col mem buf sz+gbmbufsz = 10 ;1 Bytes bit mem buf sz+             ;11 Bytes Total
+
+Differences in s/icons.s:
+--------------------------------------------------
+--- old/s/icons.s
++++ new/s/icons.s
+@@ -62,3 +62,8 @@
+ icn_list        = $003d icn_text        = $003e icn_ehart       = $003f+icn_play        = $0040+icn_pause       = $0041+icn_stop        = $0042+icn_ffwd        = $0043+icn_rwnd        = $0044
+
+Differences in s/icons.t:
+--------------------------------------------------
+--- old/s/icons.t
++++ new/s/icons.t
+@@ -76,3 +76,9 @@
+ icn_list = $3d icn_text = $3e icn_ehart = $3f ;Empty Heart+;Media Control Symbols+icn_play = $40+icn_pause = $41+icn_stop = $42+icn_ffwd = $43+icn_rwnd = $44
+
+Differences in s/io_iec.s:
+--------------------------------------------------
+--- old/s/io_iec.s
++++ new/s/io_iec.s
+@@ -4,6 +4,7 @@
+ ;Drive Types devnot   = 0     ;No Device Present devfor   = 1     ;Foreign/Unknown Device+devvice  = 10    ;VICE FS (single dir.) dev1541  = 41    ;Commodore 1541 dev1571  = 71    ;Commodore 1571 dev1581  = 81    ;Commodore 1581
+
+Differences in s/memory.s:
+--------------------------------------------------
+--- old/s/memory.s
++++ new/s/memory.s
+@@ -26,3 +26,5 @@
+ mhlen    = 1 ;2 bytes mhsize   = 3 ;Malloc Header+;For realloc+memsize  = $61 ;$62
+
+Differences in s/pointer.s:
+--------------------------------------------------
+--- old/s/pointer.s
++++ new/s/pointer.s
+@@ -20,6 +20,26 @@
+ storeget .macro ;store,index          ldx \1+(\2*2)          ldy \1+(\2*2)+1+         .endm+storewt  .macro ;store+         ;A      -> index to write to+         ;RegPtr -> pointer to store+         sty hibyte+1+         asl a ;x2+         tay+         stx \1,y+hibyte   lda #$ff+         sta \1+1,y+         .endm+storerd  .macro ;store+         ;A      -> index to write to+         ;RegPtr <- pointer from store+         asl a ;x2+         tay+         lda views,y+         tax+         lda views+1,y+         tay          .endm ;--------------------------------------- ;Toolkit Helpers
+
+Differences in s/service.s:
+--------------------------------------------------
+--- old/s/service.s
++++ new/s/service.s
+@@ -35,10 +35,6 @@
+ hmembuff        = $0002 hmembitm        = $0040 hmemmult        = $0080-ghimemflg       = $0000-gcolhptr        = $0001-gcolmptr        = $0003-gbgcol          = $0005 redrawflgs      = $03ff rnewgfx         = $0001 renagfx         = $0002@@ -54,7 +50,3 @@
+ liblocs         = $08c0 slnoinit        = $0080 slunload        = $0080-gbmapptr        = $0006-gchbufsz        = $0008-gcmbufsz        = $0009-gbmbufsz        = $000a
+
+Differences in s/service.t:
+--------------------------------------------------
+--- old/s/service.t
++++ new/s/service.t
+@@ -38,27 +38,17 @@
+ opnappmdhi = $03fc   ;Message Data Hi syskvals = $02b8   ;System Key Values syskmods = $02bc   ;System Key Modifiers+;-- High Memory Usage --+himemuse = $03fe ;When in rgraphix mode ;hmemuse will always have hmembitm set.-himemuse = $03fe   ;Himem Usage hmemfree = %00000000 ;Free/Unused hmemutil = %00000001 ;Utility Executable hmembuff = %00000010 ;Generic Buffer ;... hmembitm = %01000000 ;Bitmap Mode Data hmemmult = %10000000 ;Multi-Col Bitmap-;Graphix State Struct-;--- gfx.lib requires first 6 bytes ----ghimemflg = 0 ;1 Byte  himem flags-gcolhptr = 1  ;2 Bytes screen mem buf-gcolmptr = 3  ;2 Bytes color  mem buf-gbgcol   = 5  ;1 Byte  background color-;--- data loaders/savers need these -----gbmapptr = 6  ;2 Bytes bitmap mem buf-gchbufsz = 8  ;1 Bytes scr mem buf sz-gcmbufsz = 9  ;1 Bytes col mem buf sz-gbmbufsz = 10 ;1 Bytes bit mem buf sz-             ;11 Bytes Total+;-- System Redraw Flags -- redrawflgs = $03ff ;Redraw Active Flags ;rnewgfx informs the split code that ;graphics data needs to be copied from@@ -75,7 +65,7 @@
+ rcpubusy = %00100000 rclock   = %01000000 rmenubar = %10000000-;Shared Libraries+;-- Shared Libraries -- libchrlo = $08a2 ;$08ab libchrhi = $08ac ;$08b5 libinfo  = $08b6 ;$08bf
+
+Differences in s/switch.s:
+--------------------------------------------------
+--- old/s/switch.s
++++ new/s/switch.s
+@@ -1,6 +1,9 @@
+ switch   .macro ;case count          ;A -> switch code-         ;A is preserved if not found.+         ;A is always preserved.+         ;Y is always preserved.+         ;X is preserved, if case found.+         ;X NOT preserved on fallthrough          stx tab-2           ;Stash .X          ldx #\1 loop     dex

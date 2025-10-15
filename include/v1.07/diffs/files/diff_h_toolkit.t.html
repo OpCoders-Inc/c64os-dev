@@ -1,0 +1,222 @@
+<html>
+<head>
+    <title>Diff for h/toolkit.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for h/toolkit.t</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: h/toolkit.t</td><td class="diff_header">Old: h/toolkit.t</td></tr>
+<tr><td class="">;----[ toolkit.t ]----------------------</td><td class="">;----[ toolkit.t ]----------------------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">ltkt     = $0100-(2*9)       ;9th Module</td><td class="">ltkt     = $0100-(2*9)       ;9th Module</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">pushctx_ = <span class="diff_text_add">$</span>0<span class="diff_text_add">0</span></td><td class="diff_chg">pushctx_ = 0</td></tr>
+<tr><td class="">;  Pushes the draw context to stack</td><td class="">;  Pushes the draw context to stack</td></tr>
+<tr><td class="diff_unchanged_alt">;  Must be called with JSR, never JMP</td><td class="diff_unchanged_alt_old">;  Must be called with JSR, never JMP</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">pullctx_ = <span class="diff_text_add">$0</span>3</td><td class="diff_chg">pullctx_ = 3</td></tr>
+<tr><td class="diff_unchanged_alt">;  Pulls the draw context from stack</td><td class="diff_unchanged_alt_old">;  Pulls the draw context from stack</td></tr>
+<tr><td class="">;  Must be called with JSR, never JMP</td><td class="">;  Must be called with JSR, never JMP</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">setctx_  = <span class="diff_text_add">$0</span>6</td><td class="diff_chg">setctx_  = 6</td></tr>
+<tr><td class="">;  RegPtr -&gt; Ptr to a drawctx in memory</td><td class="">;  RegPtr -&gt; Ptr to a drawctx in memory</td></tr>
+<tr><td class="diff_unchanged_alt">;  Copies memory to the draw context</td><td class="diff_unchanged_alt_old">;  Copies memory to the draw context</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">recontext_ = <span class="diff_text_add">$0</span>9</td><td class="diff_chg">recontext_ = 9</td></tr>
+<tr><td class="diff_unchanged_alt">;  Starts with the current context and</td><td class="diff_unchanged_alt_old">;  Starts with the current context and</td></tr>
+<tr><td class="">;  modifies and shrinks it for the</td><td class="">;  modifies and shrinks it for the</td></tr>
+<tr><td class="diff_unchanged_alt">;  offset and size of this view.</td><td class="diff_unchanged_alt_old">;  offset and size of this view.</td></tr>
+<tr><td class="">;  this -&gt; current node</td><td class="">;  this -&gt; current node</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">boundschk_ = <span class="diff_text_add">$0c</span></td><td class="diff_chg">boundschk_ = <span class="diff_text_sub">12</span></td></tr>
+<tr><td class="">;  Checks if the current view falls at</td><td class="">;  Checks if the current view falls at</td></tr>
+<tr><td class="diff_unchanged_alt">;  least partially inside the context&#x27;s</td><td class="diff_unchanged_alt_old">;  least partially inside the context&#x27;s</td></tr>
+<tr><td class="">;  current drawing region.</td><td class="">;  current drawing region.</td></tr>
+<tr><td class="diff_unchanged_alt">;  this -&gt; current node</td><td class="diff_unchanged_alt_old">;  this -&gt; current node</td></tr>
+<tr><td class="">;  C &lt;- Set on out of bounds</td><td class="">;  C &lt;- Set on out of bounds</td></tr>
+<tr><td class="diff_unchanged_alt">;  C &lt;- Clr on within bounds</td><td class="diff_unchanged_alt_old">;  C &lt;- Clr on within bounds</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">settkenv_ = <span class="diff_text_add">$0f</span></td><td class="diff_chg">settkenv_ = <span class="diff_text_sub">15</span></td></tr>
+<tr><td class="diff_unchanged_alt">;  Sets the Toolkit environment</td><td class="diff_unchanged_alt_old">;  Sets the Toolkit environment</td></tr>
+<tr><td class="">;  RegPtr -&gt; Toolkit environment struct</td><td class="">;  RegPtr -&gt; Toolkit environment struct</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;---------------------------------------</td><td class="">;---------------------------------------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">tkupdate_ = <span class="diff_text_add">$</span>1<span class="diff_text_add">2</span></td><td class="diff_chg">tkupdate_ = 1<span class="diff_text_sub">8</span></td></tr>
+<tr><td class="">;  Checks for dirty flag on the toolkit</td><td class="">;  Checks for dirty flag on the toolkit</td></tr>
+<tr><td class="diff_unchanged_alt">;  environment, and then calls update on</td><td class="diff_unchanged_alt_old">;  environment, and then calls update on</td></tr>
+<tr><td class="">;  the rootview. Clears TKE dirty flag.</td><td class="">;  the rootview. Clears TKE dirty flag.</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; Toolkit Environment</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; Toolkit Environment</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">tkmouse_ = <span class="diff_text_add">$</span>1<span class="diff_text_add">5</span></td><td class="diff_chg">tkmouse_ = <span class="diff_text_sub">2</span>1</td></tr>
+<tr><td class="diff_unchanged_alt">;  Hit tests and calls hit view&#x27;s</td><td class="diff_unchanged_alt_old">;  Hit tests and calls hit view&#x27;s</td></tr>
+<tr><td class="">;  responder method for the event type</td><td class="">;  responder method for the event type</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; Toolkit Environment</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; Toolkit Environment</td></tr>
+<tr><td class="">;  C &lt;- Clr = Event was handled</td><td class="">;  C &lt;- Clr = Event was handled</td></tr>
+<tr><td class="diff_unchanged_alt">;  C &lt;- Set = Event not handled</td><td class="diff_unchanged_alt_old">;  C &lt;- Set = Event not handled</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">tkkcmd_  = <span class="diff_text_add">$18</span></td><td class="diff_chg">tkkcmd_  = <span class="diff_text_sub">24</span></td></tr>
+<tr><td class="diff_unchanged_alt">;  Calls dokeyeqv on first responder.</td><td class="diff_unchanged_alt_old">;  Calls dokeyeqv on first responder.</td></tr>
+<tr><td class="">;  RegPtr -&gt; Toolkit Environment</td><td class="">;  RegPtr -&gt; Toolkit Environment</td></tr>
+<tr><td class="diff_unchanged_alt">;  C &lt;- Clr = Event was handled</td><td class="diff_unchanged_alt_old">;  C &lt;- Clr = Event was handled</td></tr>
+<tr><td class="">;  C &lt;- Set = Event not handled</td><td class="">;  C &lt;- Set = Event not handled</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">tkkprnt_ = <span class="diff_text_add">$1b</span></td><td class="diff_chg">tkkprnt_ = <span class="diff_text_sub">27</span></td></tr>
+<tr><td class="">;  Calls keypress on first responder.</td><td class="">;  Calls keypress on first responder.</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; Toolkit Environment</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; Toolkit Environment</td></tr>
+<tr><td class="">;  C &lt;- Clr = Event was handled</td><td class="">;  C &lt;- Clr = Event was handled</td></tr>
+<tr><td class="diff_unchanged_alt">;  C &lt;- Set = Event not handled</td><td class="diff_unchanged_alt_old">;  C &lt;- Set = Event not handled</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;---------------------------------------</td><td class="diff_unchanged_alt_old">;---------------------------------------</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">classlnk_ = <span class="diff_text_add">$1e</span></td><td class="diff_chg">classlnk_ = <span class="diff_text_sub">30</span></td></tr>
+<tr><td class="diff_unchanged_alt">;  Links a dynamically loaded class to</td><td class="diff_unchanged_alt_old">;  Links a dynamically loaded class to</td></tr>
+<tr><td class="">;  its superclass.</td><td class="">;  its superclass.</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; Class to be linked</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; Class to be linked</td></tr>
+<tr><td class="">;  class  -&gt; SuperClass</td><td class="">;  class  -&gt; SuperClass</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">classptr_ = <span class="diff_text_add">$21</span></td><td class="diff_chg">classptr_ = <span class="diff_text_sub">33</span></td></tr>
+<tr><td class="">;  Returns class ptr from a classId</td><td class="">;  Returns class ptr from a classId</td></tr>
+<tr><td class="diff_unchanged_alt">;  X      -&gt; classId</td><td class="diff_unchanged_alt_old">;  X      -&gt; classId</td></tr>
+<tr><td class="">;  RegPtr &lt;- Class</td><td class="">;  RegPtr &lt;- Class</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">tknew_   = <span class="diff_text_add">$24</span></td><td class="diff_chg">tknew_   = <span class="diff_text_sub">36</span></td></tr>
+<tr><td class="">;  Instantiates a new object of class X</td><td class="">;  Instantiates a new object of class X</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; Class</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; Class</td></tr>
+<tr><td class="">;  this   &lt;- new intance ptr</td><td class="">;  this   &lt;- new intance ptr</td></tr>
+<tr><td class="diff_unchanged_alt">;  class  &lt;- class of instance</td><td class="diff_unchanged_alt_old">;  class  &lt;- class of instance</td></tr>
+<tr><td class="">;  RegPtr &lt;- new intance ptr</td><td class="">;  RegPtr &lt;- new intance ptr</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">getprop16_ = <span class="diff_text_add">$27</span></td><td class="diff_chg">getprop16_ = <span class="diff_text_sub">39</span></td></tr>
+<tr><td class="">;  Get 16-bit property of this</td><td class="">;  Get 16-bit property of this</td></tr>
+<tr><td class="diff_unchanged_alt">;  this   -&gt; object</td><td class="diff_unchanged_alt_old">;  this   -&gt; object</td></tr>
+<tr><td class="">;  Y      -&gt; property offset</td><td class="">;  Y      -&gt; property offset</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegWrd &lt;- property</td><td class="diff_unchanged_alt_old">;  RegWrd &lt;- property</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">ptrthis_ = <span class="diff_text_add">$</span>2<span class="diff_text_add">a</span></td><td class="diff_chg">ptrthis_ = <span class="diff_text_sub">4</span>2</td></tr>
+<tr><td class="diff_unchanged_alt">;  Set this to a new pointer.</td><td class="diff_unchanged_alt_old">;  Set this to a new pointer.</td></tr>
+<tr><td class="">;  Set class to this.isa (via fallthru)</td><td class="">;  Set class to this.isa (via fallthru)</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; object</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; object</td></tr>
+<tr><td class="">;  this   &lt;- object</td><td class="">;  this   &lt;- object</td></tr>
+<tr><td class="diff_unchanged_alt">;  class  &lt;- this.isa</td><td class="diff_unchanged_alt_old">;  class  &lt;- this.isa</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">setclass_ = <span class="diff_text_add">$2d</span></td><td class="diff_chg">setclass_ = <span class="diff_text_sub">45</span></td></tr>
+<tr><td class="diff_unchanged_alt">;  Set class to this.isa</td><td class="diff_unchanged_alt_old">;  Set class to this.isa</td></tr>
+<tr><td class="">;  this  -&gt; object</td><td class="">;  this  -&gt; object</td></tr>
+<tr><td class="diff_unchanged_alt">;  class &lt;- this.isa</td><td class="diff_unchanged_alt_old">;  class &lt;- this.isa</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">setsuper_ = <span class="diff_text_add">$30</span></td><td class="diff_chg">setsuper_ = <span class="diff_text_sub">48</span></td></tr>
+<tr><td class="diff_unchanged_alt">;  Set class to class.super</td><td class="diff_unchanged_alt_old">;  Set class to class.super</td></tr>
+<tr><td class="">;  class -&gt; class</td><td class="">;  class -&gt; class</td></tr>
+<tr><td class="diff_unchanged_alt">;  class &lt;- class.super</td><td class="diff_unchanged_alt_old">;  class &lt;- class.super</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">getmethod_ = <span class="diff_text_add">$33</span></td><td class="diff_chg">getmethod_ = <span class="diff_text_sub">51</span></td></tr>
+<tr><td class="diff_unchanged_alt">;  Get method pointer from class</td><td class="diff_unchanged_alt_old">;  Get method pointer from class</td></tr>
+<tr><td class="">;  class  -&gt; class</td><td class="">;  class  -&gt; class</td></tr>
+<tr><td class="diff_unchanged_alt">;  Y      -&gt; method offset</td><td class="diff_unchanged_alt_old">;  Y      -&gt; method offset</td></tr>
+<tr><td class="">;  jmpvec &lt;- method ptr</td><td class="">;  jmpvec &lt;- method ptr</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr &lt;- method pointer</td><td class="diff_unchanged_alt_old">;  RegPtr &lt;- method pointer</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;---------------------------------------</td><td class="diff_unchanged_alt_old">;---------------------------------------</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">instanceof_ = <span class="diff_text_add">$36</span></td><td class="diff_chg">instanceof_ = <span class="diff_text_sub">54</span></td></tr>
+<tr><td class="diff_unchanged_alt">;  Check if class descends from class</td><td class="diff_unchanged_alt_old">;  Check if class descends from class</td></tr>
+<tr><td class="">;  class  -&gt; class</td><td class="">;  class  -&gt; class</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; class</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; class</td></tr>
+<tr><td class="">;  C &lt;- clr = It is an instance</td><td class="">;  C &lt;- clr = It is an instance</td></tr>
+<tr><td class="diff_unchanged_alt">;  C &lt;- set = Not an instance</td><td class="diff_unchanged_alt_old">;  C &lt;- set = Not an instance</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">walk_    = <span class="diff_text_add">$39</span></td><td class="diff_chg">walk_    = <span class="diff_text_sub">57</span></td></tr>
+<tr><td class="diff_unchanged_alt">;  Recursively walks the node tree</td><td class="diff_unchanged_alt_old">;  Recursively walks the node tree</td></tr>
+<tr><td class="">;  calls sysjmp on each node.</td><td class="">;  calls sysjmp on each node.</td></tr>
+<tr><td class="diff_unchanged_alt">;  this   -&gt; current node</td><td class="diff_unchanged_alt_old">;  this   -&gt; current node</td></tr>
+<tr><td class="">;  jmpvec -&gt; routine to call</td><td class="">;  jmpvec -&gt; routine to call</td></tr>
+<tr><td class="diff_unchanged_alt">;  A -&gt; $2c = Only visible nodes</td><td class="diff_unchanged_alt_old">;  A -&gt; $2c = Only visible nodes</td></tr>
+<tr><td class="">;  A -&gt; $4c = The whole node tree</td><td class="">;  A -&gt; $4c = The whole node tree</td></tr>
+<tr><td class="diff_unchanged_alt">;  C &lt;- clr = completed</td><td class="diff_unchanged_alt_old">;  C &lt;- clr = completed</td></tr>
+<tr><td class="">;  C &lt;- set = keep walking</td><td class="">;  C &lt;- set = keep walking</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">isdescof_ = <span class="diff_text_add">$3c</span></td><td class="diff_chg">isdescof_ = <span class="diff_text_sub">60</span></td></tr>
+<tr><td class="">;  Searches up the view hierarchy to see</td><td class="">;  Searches up the view hierarchy to see</td></tr>
+<tr><td class="diff_unchanged_alt">;  if this is a nested child of the view</td><td class="diff_unchanged_alt_old">;  if this is a nested child of the view</td></tr>
+<tr><td class="">;  passed in.</td><td class="">;  passed in.</td></tr>
+<tr><td class="diff_unchanged_alt">;  this   -&gt; current node</td><td class="diff_unchanged_alt_old">;  this   -&gt; current node</td></tr>
+<tr><td class="">;  RegPtr -&gt; potential ancestor view</td><td class="">;  RegPtr -&gt; potential ancestor view</td></tr>
+<tr><td class="diff_unchanged_alt">;  A &lt;- 1=Descends, 0=DoesNotDescend</td><td class="diff_unchanged_alt_old">;  A &lt;- 1=Descends, 0=DoesNotDescend</td></tr>
+<tr><td class="">;  Z &lt;- Set if not a descendant</td><td class="">;  Z &lt;- Set if not a descendant</td></tr>
+<tr><td class="diff_unchanged_alt">;  Z &lt;- Clr if it does descend</td><td class="diff_unchanged_alt_old">;  Z &lt;- Clr if it does descend</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">opaqancs_ = <span class="diff_text_add">$</span>3<span class="diff_text_add">f</span></td><td class="diff_chg">opaqancs_ = <span class="diff_text_sub">6</span>3</td></tr>
+<tr><td class="diff_unchanged_alt">;  Searches up the view hierarchy for</td><td class="diff_unchanged_alt_old">;  Searches up the view hierarchy for</td></tr>
+<tr><td class="">;  first opaque ancestor. Could return</td><td class="">;  first opaque ancestor. Could return</td></tr>
+<tr><td class="diff_unchanged_alt">;  this, if this is opaque.</td><td class="diff_unchanged_alt_old">;  this, if this is opaque.</td></tr>
+<tr><td class="">;  this   -&gt; current node</td><td class="">;  this   -&gt; current node</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr &lt;- opaque ancestor of this</td><td class="diff_unchanged_alt_old">;  RegPtr &lt;- opaque ancestor of this</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">viewwtag_ = <span class="diff_text_add">$42</span></td><td class="diff_chg">viewwtag_ = <span class="diff_text_sub">66</span></td></tr>
+<tr><td class="diff_unchanged_alt">;  Finds a view that descends from this</td><td class="diff_unchanged_alt_old">;  Finds a view that descends from this</td></tr>
+<tr><td class="">;  that bears a matching tag.</td><td class="">;  that bears a matching tag.</td></tr>
+<tr><td class="diff_unchanged_alt">;  this -&gt; current node</td><td class="diff_unchanged_alt_old">;  this -&gt; current node</td></tr>
+<tr><td class="">;  A    -&gt; a tag to search for</td><td class="">;  A    -&gt; a tag to search for</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">appendto_ = <span class="diff_text_add">$45</span></td><td class="diff_chg">appendto_ = <span class="diff_text_sub">69</span></td></tr>
+<tr><td class="">;  Takes a parent, to which this is</td><td class="">;  Takes a parent, to which this is</td></tr>
+<tr><td class="diff_unchanged_alt">;  appended, via the parent&#x27;s addchild</td><td class="diff_unchanged_alt_old">;  appended, via the parent&#x27;s addchild</td></tr>
+<tr><td class="">;  method. This is left unchanged.</td><td class="">;  method. This is left unchanged.</td></tr>
+<tr><td class="diff_unchanged_alt">;  this   -&gt; current node</td><td class="diff_unchanged_alt_old">;  this   -&gt; current node</td></tr>
+<tr><td class="">;  RegPtr -&gt; this&#x27;s new parent</td><td class="">;  RegPtr -&gt; this&#x27;s new parent</td></tr>
+<tr><td class="diff_unchanged_alt">;  this   &lt;- same this that was passed</td><td class="diff_unchanged_alt_old">;  this   &lt;- same this that was passed</td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

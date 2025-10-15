@@ -1,0 +1,13 @@
+sc_dtct         = $d0bc
+sc_hrena        = $d07e
+sc_hrdis        = $d07f
+sc_vb2m         = $d075
+sc_vb1m         = $d074
+sc_basm         = $d076
+sc_allm         = $d077
+sc_slow         = $d07a
+sc_fast         = $d07b
+sc_mode         = $d0b0
+scm1            = $00c0
+scm2_64         = $0040
+scm2_128        = $0000

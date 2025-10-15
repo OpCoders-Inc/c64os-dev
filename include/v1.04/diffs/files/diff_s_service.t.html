@@ -1,0 +1,183 @@
+<html>
+<head>
+    <title>Diff for s/service.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for s/service.t</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: s/service.t</td><td class="diff_header">Old: s/service.t</td></tr>
+<tr><td class="">;----[ service.t ]----------------------</td><td class="">;----[ service.t ]----------------------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">jiffylo  = $a2       ;Jiffy Clock 24-bit</td><td class="">jiffylo  = $a2       ;Jiffy Clock 24-bit</td></tr>
+<tr><td class="diff_unchanged_alt">jiffymi  = $a1</td><td class="diff_unchanged_alt_old">jiffymi  = $a1</td></tr>
+<tr><td class="">jiffyhi  = $a0</td><td class="">jiffyhi  = $a0</td></tr>
+<tr><td class="diff_unchanged_alt">jcount   = $cd       ;Jiffy Counter</td><td class="diff_unchanged_alt_old">jcount   = $cd       ;Jiffy Counter</td></tr>
+<tr><td class="">jc_min   = $eb       ;to $ee</td><td class="">jc_min   = $eb       ;to $ee</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">sysjmp   = $54       ;JMP jmpvec</td><td class="">sysjmp   = $54       ;JMP jmpvec</td></tr>
+<tr><td class="diff_unchanged_alt">jmpvec   = $55;$56</td><td class="diff_unchanged_alt_old">jmpvec   = $55;$56</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">raw_rts  = $02b2     ;Address of an RTS</td><td class="diff_unchanged_alt_old">raw_rts  = $02b2     ;Address of an RTS</td></tr>
+<tr><td class="">sec_rts  = $02b3     ;Set Carry,    RTS</td><td class="">sec_rts  = $02b3     ;Set Carry,    RTS</td></tr>
+<tr><td class="diff_unchanged_alt">clc_rts  = $02b5     ;Clear Carry,  RTS</td><td class="diff_unchanged_alt_old">clc_rts  = $02b5     ;Clear Carry,  RTS</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;sev      .macro           ;SEt oVerflow</td><td class="diff_unchanged_alt_old">;sev      .macro           ;SEt oVerflow</td></tr>
+<tr><td class="">;         bit raw_rts</td><td class="">;         bit raw_rts</td></tr>
+<tr><td class="diff_unchanged_alt">;         .endm</td><td class="diff_unchanged_alt_old">;         .endm</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">emptystr = $02b7     ;Address of 0-Byte</td><td class="diff_unchanged_alt_old">emptystr = $02b7     ;Address of 0-Byte</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">sysfref  = $02c0     ;System File Ref</td><td class="diff_unchanged_alt_old">sysfref  = $02c0     ;System File Ref</td></tr>
+<tr><td class="">homebase = $02e9     ;Current Homebase</td><td class="">homebase = $02e9     ;Current Homebase</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">evttime  = $02ff     ;CPUBusy Event Time</td><td class="">evttime  = $02ff     ;CPUBusy Event Time</td></tr>
+<tr><td class="diff_unchanged_alt">cpuusage = $0217     ;CPU Usage History</td><td class="diff_unchanged_alt_old">cpuusage = $0217     ;CPU Usage History</td></tr>
+<tr><td class="">busychar = $e6</td><td class="">busychar = $e6</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">loopbrkvec = $0336   ;Event Loop Break</td><td class="">loopbrkvec = $0336   ;Event Loop Break</td></tr>
+<tr><td class="diff_unchanged_alt">appfileref = $0338   ;Current App Folder</td><td class="diff_unchanged_alt_old">appfileref = $0338   ;Current App Folder</td></tr>
+<tr><td class="">opnfileref = $033a   ;Auto-Open File</td><td class="">opnfileref = $033a   ;Auto-Open File</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">berrcode = $03b9     ;BASIC Error Code</td><td class="">berrcode = $03b9     ;BASIC Error Code</td></tr>
+<tr><td class="diff_unchanged_alt">basicerr = $08f0     ;BASIC Err Handler</td><td class="diff_unchanged_alt_old">basicerr = $08f0     ;BASIC Err Handler</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;Patches in IO/KERNAL</td><td class="diff_unchanged_alt_old">;Patches in IO/KERNAL</td></tr>
+<tr><td class="">;Redirects through redirectvec</td><td class="">;Redirects through redirectvec</td></tr>
+<tr><td class="diff_unchanged_alt">;Patches IO/KERNAL out</td><td class="diff_unchanged_alt_old">;Patches IO/KERNAL out</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">redirect = $08f4     ;KERNAL/IO Patch</td><td class="diff_unchanged_alt_old">redirect = $08f4     ;KERNAL/IO Patch</td></tr>
+<tr><td class="">redirectvec = $08f9  ;JMP to address</td><td class="">redirectvec = $08f9  ;JMP to address</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;Pass message to Util as it opens.</td><td class="">;Pass message to Util as it opens.</td></tr>
+<tr><td class="diff_unchanged_alt">opnutilmcmd = $03fa  ;Message Command</td><td class="diff_unchanged_alt_old">opnutilmcmd = $03fa  ;Message Command</td></tr>
+<tr><td class="">opnutilmdlo = $03fb  ;Message Data Lo</td><td class="">opnutilmdlo = $03fb  ;Message Data Lo</td></tr>
+<tr><td class="diff_unchanged_alt">opnutilmdhi = $03fc  ;Message Data Hi</td><td class="diff_unchanged_alt_old">opnutilmdhi = $03fc  ;Message Data Hi</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;Pass message to App as it opens.</td><td class="diff_unchanged_alt_old">;Pass message to App as it opens.</td></tr>
+<tr><td class="">opnappmcmd = $03fa   ;Message Command</td><td class="">opnappmcmd = $03fa   ;Message Command</td></tr>
+<tr><td class="diff_unchanged_alt">opnappmdlo = $03fb   ;Message Data Lo</td><td class="diff_unchanged_alt_old">opnappmdlo = $03fb   ;Message Data Lo</td></tr>
+<tr><td class="">opnappmdhi = $03fc   ;Message Data Hi</td><td class="">opnappmdhi = $03fc   ;Message Data Hi</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">syskvals = $02b8   ;System Key Values</td><td class="">syskvals = $02b8   ;System Key Values</td></tr>
+<tr><td class="diff_unchanged_alt">syskmods = $02bc   ;System Key Modifiers</td><td class="diff_unchanged_alt_old">syskmods = $02bc   ;System Key Modifiers</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;-- High Memory Usage --</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">himemuse = $03fe</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;When in rgraphix mode</td><td class="diff_unchanged_alt_old">;When in rgraphix mode</td></tr>
+<tr><td class="">;hmemuse will always have hmembitm set.</td><td class="">;hmemuse will always have hmembitm set.</td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub"></span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">himemuse = $03fe   ;Himem Usage</span></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">hmemfree = %00000000 ;Free/Unused</td><td class="">hmemfree = %00000000 ;Free/Unused</td></tr>
+<tr><td class="diff_unchanged_alt">hmemutil = %00000001 ;Utility Executable</td><td class="diff_unchanged_alt_old">hmemutil = %00000001 ;Utility Executable</td></tr>
+<tr><td class="">hmembuff = %00000010 ;Generic Buffer</td><td class="">hmembuff = %00000010 ;Generic Buffer</td></tr>
+<tr><td class="diff_unchanged_alt">;...</td><td class="diff_unchanged_alt_old">;...</td></tr>
+<tr><td class="">hmembitm = %01000000 ;Bitmap Mode Data</td><td class="">hmembitm = %01000000 ;Bitmap Mode Data</td></tr>
+<tr><td class="diff_unchanged_alt">hmemmult = %10000000 ;Multi-Col Bitmap</td><td class="diff_unchanged_alt_old">hmemmult = %10000000 ;Multi-Col Bitmap</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;Graphix State Struct</span></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">;-- <span class="diff_text_add">Sy</span>st<span class="diff_text_add">em</span> <span class="diff_text_add">Redraw</span> <span class="diff_text_add">Flag</span>s --</td><td class="diff_chg">;--<span class="diff_text_sub">-</span> <span class="diff_text_sub">gfx.lib requires fir</span>st <span class="diff_text_sub">6</span> <span class="diff_text_sub">byte</span>s --<span class="diff_text_sub">-</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">ghimemflg = 0 ;1 Byte  himem flags</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gcolhptr = 1  ;2 Bytes screen mem buf</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gcolmptr = 3  ;2 Bytes color  mem buf</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gbgcol   = 5  ;1 Byte  background color</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;--- data loaders/savers need these ----</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gbmapptr = 6  ;2 Bytes bitmap mem buf</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gchbufsz = 8  ;1 Bytes scr mem buf sz</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gcmbufsz = 9  ;1 Bytes col mem buf sz</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gbmbufsz = 10 ;1 Bytes bit mem buf sz</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">             ;11 Bytes Total</span></td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">redrawflgs = $03ff ;Redraw Active Flags</td><td class="diff_unchanged_alt_old">redrawflgs = $03ff ;Redraw Active Flags</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;rnewgfx informs the split code that</td><td class="diff_unchanged_alt_old">;rnewgfx informs the split code that</td></tr>
+<tr><td class="">;graphics data needs to be copied from</td><td class="">;graphics data needs to be copied from</td></tr>
+<tr><td class="diff_unchanged_alt">;buffers again.</td><td class="diff_unchanged_alt_old">;buffers again.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;renagfx signals whether full screen gfx</td><td class="diff_unchanged_alt_old">;renagfx signals whether full screen gfx</td></tr>
+<tr><td class="">;mode should be entered or exited.</td><td class="">;mode should be entered or exited.</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;rgraphix indicates if full screen gfx</td><td class="">;rgraphix indicates if full screen gfx</td></tr>
+<tr><td class="diff_unchanged_alt">;is currently active or not.</td><td class="diff_unchanged_alt_old">;is currently active or not.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">rnewgfx  = %00000001 ;New GFX data</td><td class="diff_unchanged_alt_old">rnewgfx  = %00000001 ;New GFX data</td></tr>
+<tr><td class="">renagfx  = %00000010 ;Enable Full GFX</td><td class="">renagfx  = %00000010 ;Enable Full GFX</td></tr>
+<tr><td class="diff_unchanged_alt">rgraphix = %00000100 ;Full GFX state</td><td class="diff_unchanged_alt_old">rgraphix = %00000100 ;Full GFX state</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">rmodal   = %00001000</td><td class="diff_unchanged_alt_old">rmodal   = %00001000</td></tr>
+<tr><td class="">rstatbar = %00010000</td><td class="">rstatbar = %00010000</td></tr>
+<tr><td class="diff_unchanged_alt">rcpubusy = %00100000</td><td class="diff_unchanged_alt_old">rcpubusy = %00100000</td></tr>
+<tr><td class="">rclock   = %01000000</td><td class="">rclock   = %01000000</td></tr>
+<tr><td class="diff_unchanged_alt">rmenubar = %10000000</td><td class="diff_unchanged_alt_old">rmenubar = %10000000</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;Shared Libraries</span></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;-- Shared Libraries --</span></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">libchrlo = $08a2 ;$08ab</td><td class="">libchrlo = $08a2 ;$08ab</td></tr>
+<tr><td class="diff_unchanged_alt">libchrhi = $08ac ;$08b5</td><td class="diff_unchanged_alt_old">libchrhi = $08ac ;$08b5</td></tr>
+<tr><td class="">libinfo  = $08b6 ;$08bf</td><td class="">libinfo  = $08b6 ;$08bf</td></tr>
+<tr><td class="diff_unchanged_alt">liblocs  = $08c0 ;$08c9</td><td class="diff_unchanged_alt_old">liblocs  = $08c0 ;$08c9</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;loadlib:</td><td class="diff_unchanged_alt_old">;loadlib:</td></tr>
+<tr><td class="">slnoinit = %10000000 ;Skip Auto Init</td><td class="">slnoinit = %10000000 ;Skip Auto Init</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;unldlib:</td><td class="">;unldlib:</td></tr>
+<tr><td class="diff_unchanged_alt">slunload = %10000000 ;Make Unload Call</td><td class="diff_unchanged_alt_old">slunload = %10000000 ;Make Unload Call</td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

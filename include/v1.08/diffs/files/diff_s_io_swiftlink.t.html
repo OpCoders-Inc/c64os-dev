@@ -1,0 +1,225 @@
+<html>
+<head>
+    <title>Diff for s/io_swiftlink.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for s/io_swiftlink.t</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: s/io_swiftlink.t</td><td class="diff_header">Old: s/io_swiftlink.t</td></tr>
+<tr><td class="">;----[ io_swiftlink.t ]-----------------</td><td class="">;----[ io_swiftlink.t ]-----------------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;Workspace memory addresses for</td><td class="">;Workspace memory addresses for</td></tr>
+<tr><td class="diff_unchanged_alt">;swiftlink serial buffers and state.</td><td class="diff_unchanged_alt_old">;swiftlink serial buffers and state.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;driver code addressing scheme</td><td class="diff_unchanged_alt_old">;driver code addressing scheme</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">; e0 = $de00</td><td class="diff_unchanged_alt_old">; e0 = $de00</td></tr>
+<tr><td class="">; e2 = $de20</td><td class="">; e2 = $de20</td></tr>
+<tr><td class="diff_unchanged_alt">; e4 = $de40</td><td class="diff_unchanged_alt_old">; e4 = $de40</td></tr>
+<tr><td class="">; e6 = $de60</td><td class="">; e6 = $de60</td></tr>
+<tr><td class="diff_unchanged_alt">; e8 = $de80</td><td class="diff_unchanged_alt_old">; e8 = $de80</td></tr>
+<tr><td class="">; ea = $dea0</td><td class="">; ea = $dea0</td></tr>
+<tr><td class="diff_unchanged_alt">; ec = $dec0</td><td class="diff_unchanged_alt_old">; ec = $dec0</td></tr>
+<tr><td class="">; ee = $dee0</td><td class="">; ee = $dee0</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">; f0 = $df00</td><td class="">; f0 = $df00</td></tr>
+<tr><td class="diff_unchanged_alt">; f2 = $df20</td><td class="diff_unchanged_alt_old">; f2 = $df20</td></tr>
+<tr><td class="">; f4 = $df40</td><td class="">; f4 = $df40</td></tr>
+<tr><td class="diff_unchanged_alt">; f6 = $df60</td><td class="diff_unchanged_alt_old">; f6 = $df60</td></tr>
+<tr><td class="">; f8 = $df80</td><td class="">; f8 = $df80</td></tr>
+<tr><td class="diff_unchanged_alt">; fa = $dfa0</td><td class="diff_unchanged_alt_old">; fa = $dfa0</td></tr>
+<tr><td class="">; fc = $dfc0</td><td class="">; fc = $dfc0</td></tr>
+<tr><td class="diff_unchanged_alt">; fe = $dfe0</td><td class="diff_unchanged_alt_old">; fe = $dfe0</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;--- Buffer Management ---</td><td class="">;--- Buffer Management ---</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">swibuf   = $f7 ;$f8 ;Input  Buf Ptr</td><td class="">swibuf   = $f7 ;$f8 ;Input  Buf Ptr</td></tr>
+<tr><td class="diff_unchanged_alt">swobuf   = $f9 ;$fa ;Output Buf Ptr</td><td class="diff_unchanged_alt_old">swobuf   = $f9 ;$fa ;Output Buf Ptr</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">swidbe   = $029b  ;Input buf end   index</td><td class="diff_unchanged_alt_old">swidbe   = $029b  ;Input buf end   index</td></tr>
+<tr><td class="">swidbs   = $029c  ;Input buf start index</td><td class="">swidbs   = $029c  ;Input buf start index</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">swodbe   = $029d ;Output buf end   index</td><td class="">swodbe   = $029d ;Output buf end   index</td></tr>
+<tr><td class="diff_unchanged_alt">swodbs   = $029e ;Output buf start index</td><td class="diff_unchanged_alt_old">swodbs   = $029e ;Output buf start index</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;--- ACIA Registers ------</td><td class="diff_unchanged_alt_old">;--- ACIA Registers ------</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">sw_data  = sw+$00 ;Data Read/Write</td><td class="diff_unchanged_alt_old">sw_data  = sw+$00 ;Data Read/Write</td></tr>
+<tr><td class="">sw_stat  = sw+$01 ;Status Read/Reset</td><td class="">sw_stat  = sw+$01 ;Status Read/Reset</td></tr>
+<tr><td class="diff_unchanged_alt">sw_cmd   = sw+$02 ;Command Read/Write</td><td class="diff_unchanged_alt_old">sw_cmd   = sw+$02 ;Command Read/Write</td></tr>
+<tr><td class="">sw_ctrl  = sw+$03 ;Control Read/Write</td><td class="">sw_ctrl  = sw+$03 ;Control Read/Write</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">t2_esreg = sw+$07 ;T232 Enhanced Speed</span></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;--- Status Bits ---------</td><td class="">;--- Status Bits ---------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">sws_per  = %00000001 ;Parity  Error</td><td class="">sws_per  = %00000001 ;Parity  Error</td></tr>
+<tr><td class="diff_unchanged_alt">sws_fer  = %00000010 ;Framing Error</td><td class="diff_unchanged_alt_old">sws_fer  = %00000010 ;Framing Error</td></tr>
+<tr><td class="">sws_oer  = %00000100 ;Overrun Error</td><td class="">sws_oer  = %00000100 ;Overrun Error</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">sws_rrd  = %00001000 ;Receiver    Full</td><td class="">sws_rrd  = %00001000 ;Receiver    Full</td></tr>
+<tr><td class="diff_unchanged_alt">sws_trd  = %00010000 ;Transmitter Empty</td><td class="diff_unchanged_alt_old">sws_trd  = %00010000 ;Transmitter Empty</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">sws_dsr  = %00100000 ;Data Set Ready</td><td class="diff_unchanged_alt_old">sws_dsr  = %00100000 ;Data Set Ready</td></tr>
+<tr><td class="">                     ;Hi = Not Ready</td><td class="">                     ;Hi = Not Ready</td></tr>
+<tr><td class="diff_unchanged_alt">                     ;Lo = Ready</td><td class="diff_unchanged_alt_old">                     ;Lo = Ready</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">sws_dcd  = %01000000 ;Carrier Detect</td><td class="diff_unchanged_alt_old">sws_dcd  = %01000000 ;Carrier Detect</td></tr>
+<tr><td class="">                     ;Hi = Not Detected</td><td class="">                     ;Hi = Not Detected</td></tr>
+<tr><td class="diff_unchanged_alt">                     ;Lo = Detected</td><td class="diff_unchanged_alt_old">                     ;Lo = Detected</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">sws_irq  = %10000000 ;Interrupt Flag</td><td class="diff_unchanged_alt_old">sws_irq  = %10000000 ;Interrupt Flag</td></tr>
+<tr><td class="">                     ;Hi = IRQ Occurred</td><td class="">                     ;Hi = IRQ Occurred</td></tr>
+<tr><td class="diff_unchanged_alt">                     ;Lo = No IRQ occur.</td><td class="diff_unchanged_alt_old">                     ;Lo = No IRQ occur.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">                     ;Unreliable &gt;9600</td><td class="diff_unchanged_alt_old">                     ;Unreliable &gt;9600</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;--- Command Bits --------</td><td class="diff_unchanged_alt_old">;--- Command Bits --------</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">swc_dtr  = %00000001 ;Data Term. Ready</td><td class="diff_unchanged_alt_old">swc_dtr  = %00000001 ;Data Term. Ready</td></tr>
+<tr><td class="">                     ;Hi = Enable  Rx/Tx</td><td class="">                     ;Hi = Enable  Rx/Tx</td></tr>
+<tr><td class="diff_unchanged_alt">                     ;Lo = Disable Rx/Tx</td><td class="diff_unchanged_alt_old">                     ;Lo = Disable Rx/Tx</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">swc_irq  = %00000010 ;IRQ Mask:</td><td class="diff_unchanged_alt_old">swc_irq  = %00000010 ;IRQ Mask:</td></tr>
+<tr><td class="">                     ;Hi = Disable IRQs</td><td class="">                     ;Hi = Disable IRQs</td></tr>
+<tr><td class="diff_unchanged_alt">                     ;Lo = Enable  IRQs</td><td class="diff_unchanged_alt_old">                     ;Lo = Enable  IRQs</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">swc_tc0  = %00000100 ;Transmitter Ctrl 0</td><td class="diff_unchanged_alt_old">swc_tc0  = %00000100 ;Transmitter Ctrl 0</td></tr>
+<tr><td class="">swc_tc1  = %00001000 ;Transmitter Ctrl 1</td><td class="">swc_tc1  = %00001000 ;Transmitter Ctrl 1</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">swc_ech  = %00010000 ;Echo</td><td class="">swc_ech  = %00010000 ;Echo</td></tr>
+<tr><td class="diff_unchanged_alt">                     ;Hi = Echo On</td><td class="diff_unchanged_alt_old">                     ;Hi = Echo On</td></tr>
+<tr><td class="">                     ;Lo = Echo Off</td><td class="">                     ;Lo = Echo Off</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">swc_par  = %00100000 ;Parity Enable</td><td class="">swc_par  = %00100000 ;Parity Enable</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;swc_pm0 = %01000000 ;Parity Mode 0</td><td class="">;swc_pm0 = %01000000 ;Parity Mode 0</td></tr>
+<tr><td class="diff_unchanged_alt">;swc_pm1 = %10000000 ;Parity Mode 1</td><td class="diff_unchanged_alt_old">;swc_pm1 = %10000000 ;Parity Mode 1</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;Transmitter Control Bits</td><td class="diff_unchanged_alt_old">;Transmitter Control Bits</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">swt_tmrh = %00000000 ;TxIRQ=Mask,RTS=Hi</td><td class="diff_unchanged_alt_old">swt_tmrh = %00000000 ;TxIRQ=Mask,RTS=Hi</td></tr>
+<tr><td class="">swt_torl = %00000100 ;TxIRQ=On  ,RTS=Lo</td><td class="">swt_torl = %00000100 ;TxIRQ=On  ,RTS=Lo</td></tr>
+<tr><td class="diff_unchanged_alt">swt_tmrl = %00001000 ;TxIRQ=Mask,RTS=Lo</td><td class="diff_unchanged_alt_old">swt_tmrl = %00001000 ;TxIRQ=Mask,RTS=Lo</td></tr>
+<tr><td class="">swt_tbrk = %00001100 ;TxIRQ=Mask,RTS=Lo</td><td class="">swt_tbrk = %00001100 ;TxIRQ=Mask,RTS=Lo</td></tr>
+<tr><td class="diff_unchanged_alt">                     ;And... Tx BRK ??</td><td class="diff_unchanged_alt_old">                     ;And... Tx BRK ??</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;Parity Mode Bits</td><td class="diff_unchanged_alt_old">;Parity Mode Bits</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">swp_odd  = %00000000 ;R-Odd  Parity 0&lt;&lt;6</td><td class="diff_unchanged_alt_old">swp_odd  = %00000000 ;R-Odd  Parity 0&lt;&lt;6</td></tr>
+<tr><td class="">swp_evn  = %01000000 ;R-Even Parity 1&lt;&lt;6</td><td class="">swp_evn  = %01000000 ;R-Even Parity 1&lt;&lt;6</td></tr>
+<tr><td class="diff_unchanged_alt">swp_mrk  = %10000000 ;X-Mark Parity 2&lt;&lt;6</td><td class="diff_unchanged_alt_old">swp_mrk  = %10000000 ;X-Mark Parity 2&lt;&lt;6</td></tr>
+<tr><td class="">swp_spc  = %11000000 ;X-Spc  Parity 3&lt;&lt;6</td><td class="">swp_spc  = %11000000 ;X-Spc  Parity 3&lt;&lt;6</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;--- Control Bits --------</td><td class="">;--- Control Bits --------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;swx_br0 = %00000001 ;Baud Rate 0</td><td class="">;swx_br0 = %00000001 ;Baud Rate 0</td></tr>
+<tr><td class="diff_unchanged_alt">;swx_br1 = %00000010 ;Baud Rate 1</td><td class="diff_unchanged_alt_old">;swx_br1 = %00000010 ;Baud Rate 1</td></tr>
+<tr><td class="">;swx_br2 = %00000100 ;Baud Rate 2</td><td class="">;swx_br2 = %00000100 ;Baud Rate 2</td></tr>
+<tr><td class="diff_unchanged_alt">;swx_br3 = %00001000 ;Baud Rate 3</td><td class="diff_unchanged_alt_old">;swx_br3 = %00001000 ;Baud Rate 3</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">swx_brc  = %00010000 ;Baud Rate Clocked</td><td class="diff_unchanged_alt_old">swx_brc  = %00010000 ;Baud Rate Clocked</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;swx_wl0 = %00100000 ;Word Length 0</td><td class="diff_unchanged_alt_old">;swx_wl0 = %00100000 ;Word Length 0</td></tr>
+<tr><td class="">;swx_wl1 = %01000000 ;Word Length 1</td><td class="">;swx_wl1 = %01000000 ;Word Length 1</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">swx_stp  = %10000000 ;Lo = 1 Stop Bit</td><td class="">swx_stp  = %10000000 ;Lo = 1 Stop Bit</td></tr>
+<tr><td class="diff_unchanged_alt">                     ;Hi = 2 Stop Bits</td><td class="diff_unchanged_alt_old">                     ;Hi = 2 Stop Bits</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;Baud Rate Values (2x Crystal Speed)</td><td class="diff_unchanged_alt_old">;Baud Rate Values (2x Crystal Speed)</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">                ;brc_ from /s/:nhd.t</td><td class="diff_unchanged_alt_old">                ;brc_ from /s/:nhd.t</td></tr>
+<tr><td class="">swb_100  = $01</td><td class="">swb_100  = $01</td></tr>
+<tr><td class="diff_unchanged_alt">swb_150  = $02</td><td class="diff_unchanged_alt_old">swb_150  = $02</td></tr>
+<tr><td class="">swb_220  = $03</td><td class="">swb_220  = $03</td></tr>
+<tr><td class="diff_unchanged_alt">swb_270  = $04</td><td class="diff_unchanged_alt_old">swb_270  = $04</td></tr>
+<tr><td class="">swb_300  = $05  ;brc_3</td><td class="">swb_300  = $05  ;brc_3</td></tr>
+<tr><td class="diff_unchanged_alt">swb_600  = $06</td><td class="diff_unchanged_alt_old">swb_600  = $06</td></tr>
+<tr><td class="">swb_1200 = $07  ;brc_12</td><td class="">swb_1200 = $07  ;brc_12</td></tr>
+<tr><td class="diff_unchanged_alt">swb_2400 = $08  ;brc_24</td><td class="diff_unchanged_alt_old">swb_2400 = $08  ;brc_24</td></tr>
+<tr><td class="">swb_3600 = $09</td><td class="">swb_3600 = $09</td></tr>
+<tr><td class="diff_unchanged_alt">swb_4800 = $0a  ;brc_48</td><td class="diff_unchanged_alt_old">swb_4800 = $0a  ;brc_48</td></tr>
+<tr><td class="">swb_7200 = $0b</td><td class="">swb_7200 = $0b</td></tr>
+<tr><td class="diff_unchanged_alt">swb_9600 = $0c  ;brc_96</td><td class="diff_unchanged_alt_old">swb_9600 = $0c  ;brc_96</td></tr>
+<tr><td class="">swb14400 = $0d  ;brc_144</td><td class="">swb14400 = $0d  ;brc_144</td></tr>
+<tr><td class="diff_unchanged_alt">swb19200 = $0e  ;brc_192</td><td class="diff_unchanged_alt_old">swb19200 = $0e  ;brc_192</td></tr>
+<tr><td class="">swb38400 = $0f  ;brc_384</td><td class="">swb38400 = $0f  ;brc_384</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;When these are set on t2_esreg</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;The low 4 bits of sw_ctrl must be 0.</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">t2b57k   = %00000010</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">t2b115k  = %00000001</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">t2b230k  = %00000000</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="">;Word length padding, left-shifted 5x.</td><td class="">;Word length padding, left-shifted 5x.</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">swx_w8b  = %00000000 ;Word Length: 8-bit</td><td class="">swx_w8b  = %00000000 ;Word Length: 8-bit</td></tr>
+<tr><td class="diff_unchanged_alt">swx_w7b  = %00100000 ;Word Length: 7-bit</td><td class="diff_unchanged_alt_old">swx_w7b  = %00100000 ;Word Length: 7-bit</td></tr>
+<tr><td class="">swx_w6b  = %01000000 ;Word Length: 6-bit</td><td class="">swx_w6b  = %01000000 ;Word Length: 6-bit</td></tr>
+<tr><td class="diff_unchanged_alt">swx_w5b  = %01100000 ;Word Length: 5-bit</td><td class="diff_unchanged_alt_old">swx_w5b  = %01100000 ;Word Length: 5-bit</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;--- NMI Control ---------</td><td class="diff_unchanged_alt_old">;--- NMI Control ---------</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">swn_rxtx = $b6 ;Rx{SHIFT--}Tx Ready NMIs (both)</td><td class="diff_unchanged_alt_old">swn_rxtx = $b6 ;Rx{SHIFT--}Tx Ready NMIs (both)</td></tr>
+<tr><td class="">swn_rx   = $bd ;Rx    Ready NMIs (only)</td><td class="">swn_rx   = $bd ;Rx    Ready NMIs (only)</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;--- Buffer Control ------</td><td class="">;--- Buffer Control ------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">tbuf_cnt = $ab ;Tx Buffer byte count</td><td class="">tbuf_cnt = $ab ;Tx Buffer byte count</td></tr>
+<tr><td class="diff_unchanged_alt">rbuf_cnt = $b4 ;Rx Buffer byte count</td><td class="diff_unchanged_alt_old">rbuf_cnt = $b4 ;Rx Buffer byte count</td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

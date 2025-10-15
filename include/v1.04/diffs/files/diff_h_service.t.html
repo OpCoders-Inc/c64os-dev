@@ -1,0 +1,158 @@
+<html>
+<head>
+    <title>Diff for h/service.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for h/service.t</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: h/service.t</td><td class="diff_header">Old: h/service.t</td></tr>
+<tr><td class="">;----[ service.t ]----------------------</td><td class="">;----[ service.t ]----------------------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">lser     = $0100-(2*7)       ;7th Module</td><td class="">lser     = $0100-(2*7)       ;7th Module</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">alert_   = 0</td><td class="">alert_   = 0</td></tr>
+<tr><td class="diff_unchanged_alt">;Rotates the border color twice.</td><td class="diff_unchanged_alt_old">;Rotates the border color twice.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">confirq_ = 3</td><td class="diff_unchanged_alt_old">confirq_ = 3</td></tr>
+<tr><td class="">;  Replace Default IRQ Routine</td><td class="">;  Replace Default IRQ Routine</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;---------------------------------------</td><td class="">;---------------------------------------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">getargs_ = 6</td><td class="">getargs_ = 6</td></tr>
+<tr><td class="diff_unchanged_alt">;  A -&gt; argc</td><td class="diff_unchanged_alt_old">;  A -&gt; argc</td></tr>
+<tr><td class="">;  argptr &lt;- Points to inline args</td><td class="">;  argptr &lt;- Points to inline args</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">updstat_ = 9</td><td class="">updstat_ = 9</td></tr>
+<tr><td class="diff_unchanged_alt">;  Mark menu layer for redraw</td><td class="diff_unchanged_alt_old">;  Mark menu layer for redraw</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">setflags_ = 12</td><td class="diff_unchanged_alt_old">setflags_ = 12</td></tr>
+<tr><td class="">;  Sets the system draw flags</td><td class="">;  Sets the system draw flags</td></tr>
+<tr><td class="diff_unchanged_alt">;  A -&gt; Flags Byte</td><td class="diff_unchanged_alt_old">;  A -&gt; Flags Byte</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">redrwtod_ = 15</td><td class="diff_unchanged_alt_old">redrwtod_ = 15</td></tr>
+<tr><td class="">;  Redraw Clock if enabled</td><td class="">;  Redraw Clock if enabled</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">setgfx_  = 18</td><td class="">setgfx_  = 18</td></tr>
+<tr><td class="diff_unchanged_alt">;  Configures the current graphix state.</td><td class="diff_unchanged_alt_old">;  Configures the current graphix state.</td></tr>
+<tr><td class="">;  Allows split screen and rgraphix mode</td><td class="">;  Allows split screen and rgraphix mode</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; gstate struct</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; gstate struct</td></tr>
+<tr><td class="diff_chg">;  gfx.lib <span class="diff_text_add">mu</span>st <span class="diff_text_add">be loaded before c</span>alli<span class="diff_text_add">ng</span></td><td class="diff_chg">; <span class="diff_text_sub"> If</span> gfx.lib <span class="diff_text_sub">i</span>s<span class="diff_text_sub"> no</span>t <span class="diff_text_sub">inst</span>all<span class="diff_text_sub">ed, </span>i<span class="diff_text_sub">t will</span></td></tr>
+<tr><td class="diff_chg">;  <span class="diff_text_add">s</span>et<span class="diff_text_add">gfx.</span></td><td class="diff_chg">;  <span class="diff_text_sub">b</span>e<span class="diff_text_sub"> au</span>t<span class="diff_text_sub">omatically installed when this</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  routine is called for the first time.</span></td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">getsfref_ = 21</td><td class="diff_unchanged_alt_old">getsfref_ = 21</td></tr>
+<tr><td class="">;  Y -&gt; Allocated page into which to</td><td class="">;  Y -&gt; Allocated page into which to</td></tr>
+<tr><td class="diff_unchanged_alt">;       initialize the sysfref.</td><td class="diff_unchanged_alt_old">;       initialize the sysfref.</td></tr>
+<tr><td class="">;  Y -&gt; 0 to automatically allocate one</td><td class="">;  Y -&gt; 0 to automatically allocate one</td></tr>
+<tr><td class="diff_unchanged_alt">;       new memory page for the sysfref.</td><td class="diff_unchanged_alt_old">;       new memory page for the sysfref.</td></tr>
+<tr><td class="">;  Y &lt;- End of Path</td><td class="">;  Y &lt;- End of Path</td></tr>
+<tr><td class="diff_unchanged_alt">;  X &lt;- Page of new system fref</td><td class="diff_unchanged_alt_old">;  X &lt;- Page of new system fref</td></tr>
+<tr><td class="">;  frefptr &lt;- Alloc&#x27;d and Init&#x27;d</td><td class="">;  frefptr &lt;- Alloc&#x27;d and Init&#x27;d</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">syskcmd_ = 24</td><td class="">syskcmd_ = 24</td></tr>
+<tr><td class="diff_unchanged_alt">;  Process lowest level system key cmds</td><td class="diff_unchanged_alt_old">;  Process lowest level system key cmds</td></tr>
+<tr><td class="">;  A -&gt; PETSCII Value</td><td class="">;  A -&gt; PETSCII Value</td></tr>
+<tr><td class="diff_unchanged_alt">;  Y -&gt; Mod Key Flags</td><td class="diff_unchanged_alt_old">;  Y -&gt; Mod Key Flags</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;---------------------------------------</td><td class="diff_unchanged_alt_old">;---------------------------------------</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">initextern_ = 27</td><td class="diff_unchanged_alt_old">initextern_ = 27</td></tr>
+<tr><td class="">;  Initialize an externs jump table</td><td class="">;  Initialize an externs jump table</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; Start of externs table</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; Start of externs table</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">loadutil_ = 30</td><td class="diff_unchanged_alt_old">loadutil_ = 30</td></tr>
+<tr><td class="">;  RegPtr -&gt; Utility name c-string</td><td class="">;  RegPtr -&gt; Utility name c-string</td></tr>
+<tr><td class="diff_unchanged_alt">;  C &lt;- CLR = Will be Opened</td><td class="diff_unchanged_alt_old">;  C &lt;- CLR = Will be Opened</td></tr>
+<tr><td class="">;  C &lt;- SET = Already Open</td><td class="">;  C &lt;- SET = Already Open</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">quitapp_ = 33</td><td class="">quitapp_ = 33</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr &lt;- Addr to runhome routine</td><td class="diff_unchanged_alt_old">;  RegPtr &lt;- Addr to runhome routine</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">loadapp_ = 36</td><td class="diff_unchanged_alt_old">loadapp_ = 36</td></tr>
+<tr><td class="">;  RegPtr -&gt; AppFileRef</td><td class="">;  RegPtr -&gt; AppFileRef</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">loadreloc_ = 39</td><td class="">loadreloc_ = 39</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; FileRef to TSR program</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; FileRef to TSR program</td></tr>
+<tr><td class="">;  A &lt;- First page relocated to</td><td class="">;  A &lt;- First page relocated to</td></tr>
+<tr><td class="diff_unchanged_alt">;</td><td class="diff_unchanged_alt_old">;</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  Automatically runs the first jump</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  table entry, at $xx00. Usually &quot;link&quot;</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;</span></td><td class=""></td></tr>
+<tr><td class="">;  Can relocate a binary that is one or</td><td class="">;  Can relocate a binary that is one or</td></tr>
+<tr><td class="diff_unchanged_alt">;  more pages. If the binary is &gt; 1 page</td><td class="diff_unchanged_alt_old">;  more pages. If the binary is &gt; 1 page</td></tr>
+<tr><td class="">;  the FileRef must be embedded in a mem</td><td class="">;  the FileRef must be embedded in a mem</td></tr>
+<tr><td class="diff_unchanged_alt">;  buffer large enough to hold the file</td><td class="diff_unchanged_alt_old">;  buffer large enough to hold the file</td></tr>
+<tr><td class="">;  that it references.</td><td class="">;  that it references.</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">loadlib_ = 42</td><td class="">loadlib_ = 42</td></tr>
+<tr><td class="diff_unchanged_alt">;  X -&gt; 1st lib filename char</td><td class="diff_unchanged_alt_old">;  X -&gt; 1st lib filename char</td></tr>
+<tr><td class="">;  Y -&gt; 2nd lib filename char</td><td class="">;  Y -&gt; 2nd lib filename char</td></tr>
+<tr><td class="diff_unchanged_alt">;  A -&gt; Lo nybble = size 0-15pgs</td><td class="diff_unchanged_alt_old">;  A -&gt; Lo nybble = size 0-15pgs</td></tr>
+<tr><td class="">;  A -&gt; Hi nybble = load flags</td><td class="">;  A -&gt; Hi nybble = load flags</td></tr>
+<tr><td class="diff_unchanged_alt">;  A &lt;- 1st Page of Library</td><td class="diff_unchanged_alt_old">;  A &lt;- 1st Page of Library</td></tr>
+<tr><td class="">;</td><td class="">;</td></tr>
+<tr><td class="diff_unchanged_alt">;  Loads a library if not loaded. Sets</td><td class="diff_unchanged_alt_old">;  Loads a library if not loaded. Sets</td></tr>
+<tr><td class="">;  reference count to 1. If lib already</td><td class="">;  reference count to 1. If lib already</td></tr>
+<tr><td class="diff_unchanged_alt">;  loaded, increments the ref count.</td><td class="diff_unchanged_alt_old">;  loaded, increments the ref count.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">unldlib_ = 45</td><td class="diff_unchanged_alt_old">unldlib_ = 45</td></tr>
+<tr><td class="">;  X -&gt; 1st lib filename char</td><td class="">;  X -&gt; 1st lib filename char</td></tr>
+<tr><td class="diff_unchanged_alt">;  Y -&gt; 2nd lib filename char</td><td class="diff_unchanged_alt_old">;  Y -&gt; 2nd lib filename char</td></tr>
+<tr><td class="">;  A -&gt; Unload flags</td><td class="">;  A -&gt; Unload flags</td></tr>
+<tr><td class="diff_unchanged_alt">;</td><td class="diff_unchanged_alt_old">;</td></tr>
+<tr><td class="">;  Decrements library&#x27;s reference count.</td><td class="">;  Decrements library&#x27;s reference count.</td></tr>
+<tr><td class="diff_unchanged_alt">;  If RefCount=0, unloads and frees mem.</td><td class="diff_unchanged_alt_old">;  If RefCount=0, unloads and frees mem.</td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<html>
+<head>
+    <title>Diff for s/cnp.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for s/cnp.t</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: s/cnp.t</td><td class="diff_header">Old: s/cnp.t</td></tr>
+<tr><td class="">;----[ cnp.t ]--------------------------</td><td class="">;----[ cnp.t ]--------------------------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;Constants for cnp.lib</td><td class="">;Constants for cnp.lib</td></tr>
+<tr><td class="diff_unchanged_alt">;Commodore Network Protocol Library</td><td class="diff_unchanged_alt_old">;Commodore Network Protocol Library</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;CNP Auth Struct</td><td class="diff_unchanged_alt_old">;CNP Auth Struct</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;A pointer to this struct is sent to</td><td class="diff_unchanged_alt_old">;A pointer to this struct is sent to</td></tr>
+<tr><td class="">;openauth routine of cnp.lib</td><td class="">;openauth routine of cnp.lib</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">cnp_user = 0 ;2 bytes</td><td class="">cnp_user = 0 ;2 bytes</td></tr>
+<tr><td class="diff_unchanged_alt">cnp_pass = 2 ;2 bytes</td><td class="diff_unchanged_alt_old">cnp_pass = 2 ;2 bytes</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;CNP Socket Struct</td><td class="">;CNP Socket Struct</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;A pointer to this struct is sent to</td><td class="">;A pointer to this struct is sent to</td></tr>
+<tr><td class="diff_unchanged_alt">;cnp socket handling routines</td><td class="diff_unchanged_alt_old">;cnp socket handling routines</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">csk_name = 0  ;2 bytes ;host name string</td><td class="diff_unchanged_alt_old">csk_name = 0  ;2 bytes ;host name string</td></tr>
+<tr><td class="">csk_stat = 2  ;2 bytes ;status callback</td><td class="">csk_stat = 2  ;2 bytes ;status callback</td></tr>
+<tr><td class="diff_unchanged_alt">csk_flgs = 4  ;1 byte  ;status flags</td><td class="diff_unchanged_alt_old">csk_flgs = 4  ;1 byte  ;status flags</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">csk_tsiz = 5  ;1 byte  ;Tx Data Size</td><td class="diff_unchanged_alt_old">csk_tsiz = 5  ;1 byte  ;Tx Data Size</td></tr>
+<tr><td class="">csk_tsum = 6  ;1 byte  ;Tx Data Checksum</td><td class="">csk_tsum = 6  ;1 byte  ;Tx Data Checksum</td></tr>
+<tr><td class="diff_unchanged_alt">csk_tbuf = 7  ;1 byte  ;Tx Data Buffer</td><td class="diff_unchanged_alt_old">csk_tbuf = 7  ;1 byte  ;Tx Data Buffer</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">csk_rsiz = 8  ;1 byte  ;Rx Data Size</td><td class="diff_unchanged_alt_old">csk_rsiz = 8  ;1 byte  ;Rx Data Size</td></tr>
+<tr><td class="">csk_rsum = 9  ;1 byte  ;Rx Data Checksum</td><td class="">csk_rsum = 9  ;1 byte  ;Rx Data Checksum</td></tr>
+<tr><td class="diff_unchanged_alt">csk_rbuf = 10 ;1 byte  ;Rx Data Buffer</td><td class="diff_unchanged_alt_old">csk_rbuf = 10 ;1 byte  ;Rx Data Buffer</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">csk_size = 11 ;CNP Socket Struct Size</td><td class="diff_unchanged_alt_old">csk_size = 11 ;CNP Socket Struct Size</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;CNP Socket Flags</td><td class="diff_unchanged_alt_old">;CNP Socket Flags</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">csf_opng = %00000001 ;Opening</td><td class="diff_unchanged_alt_old">csf_opng = %00000001 ;Opening</td></tr>
+<tr><td class="">csf_clng = %00000010 ;Closing</td><td class="">csf_clng = %00000010 ;Closing</td></tr>
+<tr><td class="diff_unchanged_alt">csf_txng = %00000100 ;Transmitting</td><td class="diff_unchanged_alt_old">csf_txng = %00000100 ;Transmitting</td></tr>
+<tr><td class="">csf_open = %10000000 ;Socket is open</td><td class="">csf_open = %10000000 ;Socket is open</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;CNP Socket State Change Notifications</td><td class="">;CNP Socket State Change Notifications</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">csc_open = 0 ;Socket Opened</td><td class="">csc_open = 0 ;Socket Opened</td></tr>
+<tr><td class="diff_unchanged_alt">csc_fail = 1 ;Socket Unable to Open</td><td class="diff_unchanged_alt_old">csc_fail = 1 ;Socket Unable to Open</td></tr>
+<tr><td class="">csc_clos = 2 ;Socket Closed</td><td class="">csc_clos = 2 ;Socket Closed</td></tr>
+<tr><td class="diff_unchanged_alt">csc_time = 3 ;Socket Timedout</td><td class="diff_unchanged_alt_old">csc_time = 3 ;Socket Timedout</td></tr>
+<tr><td class="">csc_data = 4 ;Socket has data to read</td><td class="">csc_data = 4 ;Socket has data to read</td></tr>
+<tr><td class="diff_unchanged_alt">csc_tclr = 5 ;Socket clear to transmit</td><td class="diff_unchanged_alt_old">csc_tclr = 5 ;Socket clear to transmit</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;CNP Packet Struct</td><td class="diff_unchanged_alt_old">;CNP Packet Struct</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">cp_type  = 0 ;1 Packet Type</td><td class="diff_unchanged_alt_old">cp_type  = 0 ;1 Packet Type</td></tr>
+<tr><td class="">cp_port  = 1 ;1 App Bank,Socket Index</td><td class="">cp_port  = 1 ;1 App Bank,Socket Index</td></tr>
+<tr><td class="diff_unchanged_alt">cp_dsiz  = 2 ;1 Data Size (w/out header)</td><td class="diff_unchanged_alt_old">cp_dsiz  = 2 ;1 Data Size (w/out header)</td></tr>
+<tr><td class="">cp_csum  = 3 ;1 XOR data checksum</td><td class="">cp_csum  = 3 ;1 XOR data checksum</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">cp_data  = 4 ;0-255 bytes</td><td class="">cp_data  = 4 ;0-255 bytes</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;CNP Packet Types</td><td class="">;CNP Packet Types</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">pt_alive = &quot;-&quot; ;CNP Service Keep Alive</td><td class="">pt_alive = &quot;-&quot; ;CNP Service Keep Alive</td></tr>
+<tr><td class="diff_unchanged_alt">pt_serv  = &quot;s&quot; ;CNP Service Packet</td><td class="diff_unchanged_alt_old">pt_serv  = &quot;s&quot; ;CNP Service Packet</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">pt_open  = &quot;o&quot; ;Socket Open  Request</td><td class="diff_unchanged_alt_old">pt_open  = &quot;o&quot; ;Socket Open  Request</td></tr>
+<tr><td class="">pt_close = &quot;c&quot; ;Socket Close Request</td><td class="">pt_close = &quot;c&quot; ;Socket Close Request</td></tr>
+<tr><td class="diff_unchanged_alt">pt_time  = &quot;t&quot; ;Socket Timed Out</td><td class="diff_unchanged_alt_old">pt_time  = &quot;t&quot; ;Socket Timed Out</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">pt_pause = &quot;p&quot; ;Socket Pause  Data In</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">pt_resum = &quot;r&quot; ;Socket Resume Data In</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">pt_ack   = &quot;a&quot; ;Acknowledgement</td><td class="diff_unchanged_alt_old">pt_ack   = &quot;a&quot; ;Acknowledgement</td></tr>
+<tr><td class="">pt_nak   = &quot;n&quot; ;Negative Acknowledgement</td><td class="">pt_nak   = &quot;n&quot; ;Negative Acknowledgement</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">pt_data  = &quot;d&quot; ;Data Carrier</td><td class="">pt_data  = &quot;d&quot; ;Data Carrier</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;Packet Sizes by Type:</td><td class="diff_unchanged_alt_old">;Packet Sizes by Type:</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;pt_alive</td><td class="diff_unchanged_alt_old">;pt_alive</td></tr>
+<tr><td class="">;</td><td class="">;</td></tr>
+<tr><td class="diff_unchanged_alt">;  Header    1 byte</td><td class="diff_unchanged_alt_old">;  Header    1 byte</td></tr>
+<tr><td class="">;  Body      0 bytes</td><td class="">;  Body      0 bytes</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;pt_open</td><td class="">;pt_open</td></tr>
+<tr><td class="diff_unchanged_alt">;pt_serv</td><td class="diff_unchanged_alt_old">;pt_serv</td></tr>
+<tr><td class="">;pt_data</td><td class="">;pt_data</td></tr>
+<tr><td class="diff_unchanged_alt">;</td><td class="diff_unchanged_alt_old">;</td></tr>
+<tr><td class="">;  Header    4 bytes</td><td class="">;  Header    4 bytes</td></tr>
+<tr><td class="diff_unchanged_alt">;  Body      x bytes</td><td class="diff_unchanged_alt_old">;  Body      x bytes</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;pt_close</td><td class="diff_unchanged_alt_old">;pt_close</td></tr>
+<tr><td class="">;pt_time</td><td class="">;pt_time</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;pt_pause</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;pt_resume</span></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;pt_ack</td><td class="diff_unchanged_alt_old">;pt_ack</td></tr>
+<tr><td class="">;pt_nak</td><td class="">;pt_nak</td></tr>
+<tr><td class="diff_unchanged_alt">;</td><td class="diff_unchanged_alt_old">;</td></tr>
+<tr><td class="">;  Header    2 bytes</td><td class="">;  Header    2 bytes</td></tr>
+<tr><td class="diff_unchanged_alt">;  Body      0 bytes</td><td class="diff_unchanged_alt_old">;  Body      0 bytes</td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+slvwait         = $0032
+ciareg          = $dd01
+ciadir          = $dd03
+procreg         = $0001
+procdir         = $0000
+ret_ok          = $0000
+ret_nok         = $0001
+err_sdalo       = $0002
+err_scllo       = $0003
+writebit        = $0000
+readbit         = $0001
+purebyte        = $00ff

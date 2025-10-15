@@ -1,0 +1,171 @@
+<html>
+<head>
+    <title>Diff for s/math.s</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for s/math.s</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: s/math.s</td><td class="diff_header">Old: s/math.s</td></tr>
+<tr><td class="">;----[ math.s ]---------------------</td><td class="">;----[ math.s ]---------------------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg"><span class="diff_text_add">;D</span>ivis<span class="diff_text_add">i</span>o<span class="diff_text_add">n</span></td><td class="diff_chg"><span class="diff_text_sub">d</span>iviso<span class="diff_text_sub">r  = $61;$62</span></td></tr>
+<tr><td class="diff_chg"><span class="diff_text_add">;16b</span>i<span class="diff_text_add">t/16b</span>i<span class="diff_text_add">t</span> = <span class="diff_text_add">1</span>6<span class="diff_text_add">bit (+1</span>6<span class="diff_text_add">bit r.)</span></td><td class="diff_chg"><span class="diff_text_sub">d</span>i<span class="diff_text_sub">v</span>i<span class="diff_text_sub">dnd </span> = <span class="diff_text_sub">$</span>6<span class="diff_text_sub">3;$</span>6<span class="diff_text_sub">4</span></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">divisor  = $61;$62 16bit</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">dividnd  = $63;$64 16bit</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">divrslt  = $63;$64 (same as dividnd)</span></td><td class=""></td></tr>
+<tr><td class="">remandr  = $65;$66</td><td class="">remandr  = $65;$66</td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">divrslt  = $63;$64 -&gt; dividnd</span></td></tr>
+<tr><td class="diff_unchanged_alt">divrond  = $67</td><td class="diff_unchanged_alt_old">divrond  = $67</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;Division</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;32bit/16bit = 16bit (+16bit r.)</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;divisor = $61;$62         16bit</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;dividnd = $63;$64,$65,$66 32bit</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;divrslt = $63;$64 (same as dividnd lo)</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;remandr = $65;$66 (same as dividnd hi)</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">divtemp  = $67</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">divcarry = $68</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;Multiply</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;16bit*16bit = 32bit</span></td><td class=""></td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">multplr  = $61;$62</td><td class="diff_unchanged_alt_old">multplr  = $61;$62</td></tr>
+<tr><td class="">multcnd  = $63;$64</td><td class="">multcnd  = $63;$64</td></tr>
+<tr><td class="diff_unchanged_alt">product  = $65;$66 $67 $68 ;32-bit</td><td class="diff_unchanged_alt_old">product  = $65;$66 $67 $68 ;32-bit</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;16-bit inc/dec, addition and subtract</td><td class="diff_unchanged_alt_old">;16-bit inc/dec, addition and subtract</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">inc16    .macro        ;16-bit increment</td><td class="diff_unchanged_alt_old">inc16    .macro        ;16-bit increment</td></tr>
+<tr><td class="">         inc \1                ;Lo Byte</td><td class="">         inc \1                ;Lo Byte</td></tr>
+<tr><td class="diff_unchanged_alt">         bne done              ;Rollover</td><td class="diff_unchanged_alt_old">         bne done              ;Rollover</td></tr>
+<tr><td class="">         inc \1+1              ;Hi Byte</td><td class="">         inc \1+1              ;Hi Byte</td></tr>
+<tr><td class="diff_unchanged_alt">done</td><td class="diff_unchanged_alt_old">done</td></tr>
+<tr><td class="">         .endm</td><td class="">         .endm</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">dec16    .macro        ;16-bit decrement</td><td class="">dec16    .macro        ;16-bit decrement</td></tr>
+<tr><td class="diff_unchanged_alt">         lda \1            ;Test Lo Byte</td><td class="diff_unchanged_alt_old">         lda \1            ;Test Lo Byte</td></tr>
+<tr><td class="">         bne declo</td><td class="">         bne declo</td></tr>
+<tr><td class="diff_unchanged_alt">         dec \1+1               ;Hi Byte</td><td class="diff_unchanged_alt_old">         dec \1+1               ;Hi Byte</td></tr>
+<tr><td class="">declo    dec \1                 ;Lo Byte</td><td class="">declo    dec \1                 ;Lo Byte</td></tr>
+<tr><td class="diff_unchanged_alt">         .endm</td><td class="diff_unchanged_alt_old">         .endm</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">add816   .macro ;ptr += int8</td><td class="diff_unchanged_alt_old">add816   .macro ;ptr += int8</td></tr>
+<tr><td class="">         clc</td><td class="">         clc</td></tr>
+<tr><td class="diff_unchanged_alt">         lda \1</td><td class="diff_unchanged_alt_old">         lda \1</td></tr>
+<tr><td class="">         adc #\2</td><td class="">         adc #\2</td></tr>
+<tr><td class="diff_unchanged_alt">         sta \1</td><td class="diff_unchanged_alt_old">         sta \1</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">         bcc done</td><td class="diff_unchanged_alt_old">         bcc done</td></tr>
+<tr><td class="">         inc \1+1</td><td class="">         inc \1+1</td></tr>
+<tr><td class="diff_unchanged_alt">done</td><td class="diff_unchanged_alt_old">done</td></tr>
+<tr><td class="">         .endm</td><td class="">         .endm</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">sub816   .macro ;ptr -= int8</td><td class="">sub816   .macro ;ptr -= int8</td></tr>
+<tr><td class="diff_unchanged_alt">         sec</td><td class="diff_unchanged_alt_old">         sec</td></tr>
+<tr><td class="">         lda \1</td><td class="">         lda \1</td></tr>
+<tr><td class="diff_unchanged_alt">         sbc #&lt;\2</td><td class="diff_unchanged_alt_old">         sbc #&lt;\2</td></tr>
+<tr><td class="">         sta \1</td><td class="">         sta \1</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">         bcs done</td><td class="">         bcs done</td></tr>
+<tr><td class="diff_unchanged_alt">         dec \1+1</td><td class="diff_unchanged_alt_old">         dec \1+1</td></tr>
+<tr><td class="">done</td><td class="">done</td></tr>
+<tr><td class="diff_unchanged_alt">         .endm</td><td class="diff_unchanged_alt_old">         .endm</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">add16    .macro ;ptr += int16</td><td class="diff_unchanged_alt_old">add16    .macro ;ptr += int16</td></tr>
+<tr><td class="">         clc</td><td class="">         clc</td></tr>
+<tr><td class="diff_unchanged_alt">         lda \1</td><td class="diff_unchanged_alt_old">         lda \1</td></tr>
+<tr><td class="">         adc #&lt;\2</td><td class="">         adc #&lt;\2</td></tr>
+<tr><td class="diff_unchanged_alt">         sta \1</td><td class="diff_unchanged_alt_old">         sta \1</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">         lda \1+1</td><td class="diff_unchanged_alt_old">         lda \1+1</td></tr>
+<tr><td class="">         adc #&gt;\2</td><td class="">         adc #&gt;\2</td></tr>
+<tr><td class="diff_unchanged_alt">         sta \1+1</td><td class="diff_unchanged_alt_old">         sta \1+1</td></tr>
+<tr><td class="">         .endm</td><td class="">         .endm</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">sub16    .macro ;ptr -= int16</td><td class="">sub16    .macro ;ptr -= int16</td></tr>
+<tr><td class="diff_unchanged_alt">         sec</td><td class="diff_unchanged_alt_old">         sec</td></tr>
+<tr><td class="">         lda \1</td><td class="">         lda \1</td></tr>
+<tr><td class="diff_unchanged_alt">         sbc #&lt;\2</td><td class="diff_unchanged_alt_old">         sbc #&lt;\2</td></tr>
+<tr><td class="">         sta \1</td><td class="">         sta \1</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">         lda \1+1</td><td class="">         lda \1+1</td></tr>
+<tr><td class="diff_unchanged_alt">         sbc #&gt;\2</td><td class="diff_unchanged_alt_old">         sbc #&gt;\2</td></tr>
+<tr><td class="">         sta \1+1</td><td class="">         sta \1+1</td></tr>
+<tr><td class="diff_unchanged_alt">         .endm</td><td class="diff_unchanged_alt_old">         .endm</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">add16ptr .macro ;ptr += ptr</td><td class="diff_unchanged_alt_old">add16ptr .macro ;ptr += ptr</td></tr>
+<tr><td class="">         clc</td><td class="">         clc</td></tr>
+<tr><td class="diff_unchanged_alt">         lda \1</td><td class="diff_unchanged_alt_old">         lda \1</td></tr>
+<tr><td class="">         adc \2</td><td class="">         adc \2</td></tr>
+<tr><td class="diff_unchanged_alt">         sta \1</td><td class="diff_unchanged_alt_old">         sta \1</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">         lda \1+1</td><td class="diff_unchanged_alt_old">         lda \1+1</td></tr>
+<tr><td class="">         adc \2+1</td><td class="">         adc \2+1</td></tr>
+<tr><td class="diff_unchanged_alt">         sta \1+1</td><td class="diff_unchanged_alt_old">         sta \1+1</td></tr>
+<tr><td class="">         .endm</td><td class="">         .endm</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">sub16ptr .macro ;ptr -= ptr</td><td class="">sub16ptr .macro ;ptr -= ptr</td></tr>
+<tr><td class="diff_unchanged_alt">         sec</td><td class="diff_unchanged_alt_old">         sec</td></tr>
+<tr><td class="">         lda \1</td><td class="">         lda \1</td></tr>
+<tr><td class="diff_unchanged_alt">         sbc \2</td><td class="diff_unchanged_alt_old">         sbc \2</td></tr>
+<tr><td class="">         sta \1</td><td class="">         sta \1</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">         lda \1+1</td><td class="">         lda \1+1</td></tr>
+<tr><td class="diff_unchanged_alt">         sbc \2+1</td><td class="diff_unchanged_alt_old">         sbc \2+1</td></tr>
+<tr><td class="">         sta \1+1</td><td class="">         sta \1+1</td></tr>
+<tr><td class="diff_unchanged_alt">         .endm</td><td class="diff_unchanged_alt_old">         .endm</td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

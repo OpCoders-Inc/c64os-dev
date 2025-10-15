@@ -1,0 +1,290 @@
+Directory Comparison Report
+Generated: 2025-10-14 23:17:03
+Old Directory: ../../include/v1.05/os
+New Directory: ../../include/v1.06/os
+==================================================
+
+Summary:
+  Added Files: 3
+  Removed Files: 0
+  Modified Files: 9
+  Unchanged Files: 194
+
+Added Files:
+  - s/mediactrl.s
+  - s/mediactrl.t
+  - tk/s/tktarea.s
+
+Modified Files:
+  - s/app.s (1 changes)
+  - s/app.t (1 changes)
+  - s/dir.s (2 changes)
+  - s/dir.t (4 changes)
+  - s/file.s (1 changes)
+  - s/file.t (2 changes)
+  - s/io_iec.s (15 changes)
+  - tk/s/tkpbar.s (3 changes)
+  - tk/s/tksizes.s (1 changes)
+
+Unchanged Files:
+  - h/calendar.h
+  - h/calendar.t
+  - h/checksum.h
+  - h/checksum.t
+  - h/cmp.h
+  - h/cmp.t
+  - h/datetime.h
+  - h/datetime.t
+  - h/dir.h
+  - h/dir.t
+  - h/dt.img.h
+  - h/dt.img.t
+  - h/fcopy.h
+  - h/fcopy.t
+  - h/file.h
+  - h/file.t
+  - h/float.h
+  - h/float.t
+  - h/flock.h
+  - h/flock.t
+  - h/fname.h
+  - h/fname.t
+  - h/gfx.h
+  - h/gfx.t
+  - h/input.h
+  - h/input.t
+  - h/io_i2c.h
+  - h/io_i2c.t
+  - h/math.h
+  - h/math.t
+  - h/memory.h
+  - h/memory.t
+  - h/menu.h
+  - h/menu.t
+  - h/modules.h
+  - h/path.h
+  - h/path.t
+  - h/places.h
+  - h/places.t
+  - h/qsort.h
+  - h/qsort.t
+  - h/rtc.h
+  - h/rtc.t
+  - h/screen.h
+  - h/screen.t
+  - h/service.h
+  - h/service.t
+  - h/sidplay.h
+  - h/sidplay.t
+  - h/string.h
+  - h/string.t
+  - h/switcher.h
+  - h/switcher.t
+  - h/timers.h
+  - h/timers.t
+  - h/toolkit.h
+  - h/toolkit.t
+  - h/util.frame.h
+  - h/util.frame.t
+  - h/wrap.h
+  - h/wrap.t
+  - s/args.s
+  - s/basic.s
+  - s/branch16.s
+  - s/c.s
+  - s/c64archive.s
+  - s/c64archive.t
+  - s/checksum.s
+  - s/checksum.t
+  - s/cmp.s
+  - s/cmp.t
+  - s/colors.s
+  - s/colors.t
+  - s/compare16.s
+  - s/ctxcolors.s
+  - s/ctxcolors.t
+  - s/ctxdraw.s
+  - s/ctxdraw.t
+  - s/drawbox.s
+  - s/dt.img.s
+  - s/dt.img.t
+  - s/exceptions.s
+  - s/filejobs.s
+  - s/filejobs.t
+  - s/fileop.s
+  - s/fileop.t
+  - s/float.s
+  - s/gfx.s
+  - s/gfx.t
+  - s/icons.s
+  - s/icons.t
+  - s/input.s
+  - s/input.t
+  - s/inttohex.s
+  - s/io.s
+  - s/io.t
+  - s/io_i2c.s
+  - s/io_i2c.t
+  - s/io_joy.s
+  - s/io_mmc64.s
+  - s/io_mmc64.t
+  - s/io_rec.s
+  - s/io_rec.t
+  - s/io_tc64.s
+  - s/io_tc64.t
+  - s/io_uaudio.s
+  - s/io_uci.s
+  - s/ker/file.s
+  - s/ker/iec.s
+  - s/ker/io.s
+  - s/ker/key.s
+  - s/ker/mem.s
+  - s/ker/scr.s
+  - s/ker/tim.s
+  - s/math.s
+  - s/memory.s
+  - s/menu.s
+  - s/missing.3icon.t
+  - s/openjobs.s
+  - s/openjobs.t
+  - s/pointer.s
+  - s/rtc.s
+  - s/rtc.t
+  - s/savejobs.s
+  - s/savejobs.t
+  - s/screen.s
+  - s/screen.t
+  - s/service.s
+  - s/service.t
+  - s/sidplay.s
+  - s/sidplay.t
+  - s/string.s
+  - s/switch.s
+  - s/switcher.s
+  - s/switcher.t
+  - s/t/cgx.s
+  - s/t/cgx.t
+  - s/t/pet.s
+  - s/t/sid.t
+  - s/timers.s
+  - s/timers.t
+  - s/toolkit.s
+  - s/toolkit.t
+  - s/type.s
+  - s/util.frame.s
+  - s/util.frame.t
+  - s/utilities.s
+  - s/wrap.s
+  - s/wrap.t
+  - tk/h/classes.h
+  - tk/h/tkbutton.h
+  - tk/h/tkctrl.h
+  - tk/h/tkctrl.t
+  - tk/h/tkdatepick.h
+  - tk/h/tkdatepick.t
+  - tk/h/tkfilemeta.h
+  - tk/h/tklabel.h
+  - tk/h/tklist.h
+  - tk/h/tkobj.h
+  - tk/h/tkplaces.h
+  - tk/h/tksbar.h
+  - tk/h/tkscroll.h
+  - tk/h/tkscroll.t
+  - tk/h/tksplit.h
+  - tk/h/tktabs.h
+  - tk/h/tktext.h
+  - tk/h/tktimepick.h
+  - tk/h/tktimepick.t
+  - tk/h/tktimer.h
+  - tk/h/tktimer.t
+  - tk/h/tkview.h
+  - tk/h/tkview.t
+  - tk/s/tkbutton.s
+  - tk/s/tkctrl.s
+  - tk/s/tkdatepick.s
+  - tk/s/tkfilemeta.s
+  - tk/s/tkicon.s
+  - tk/s/tkinput.s
+  - tk/s/tklabel.s
+  - tk/s/tklist.s
+  - tk/s/tkobj.s
+  - tk/s/tkplaces.s
+  - tk/s/tkramu.s
+  - tk/s/tkreuu.s
+  - tk/s/tksbar.s
+  - tk/s/tkscroll.s
+  - tk/s/tksplit.s
+  - tk/s/tktable.s
+  - tk/s/tktabs.s
+  - tk/s/tktcols.s
+  - tk/s/tktext.s
+  - tk/s/tktimepick.s
+  - tk/s/tktimer.s
+  - tk/s/tkview.s
+
+Detailed Differences:
+
+Differences in s/app.s:
+--------------------------------------------------
+--- old/s/app.s
++++ new/s/app.s
+@@ -38,3 +38,4 @@
+ mc_null         = $00ff mnu_dis         = $0001 mnu_sel         = $0002+mc_media        = $0017
+
+Differences in s/app.t:
+--------------------------------------------------
+--- old/s/app.t
++++ new/s/app.t
+@@ -43,6 +43,7 @@
+ mc_fsel  = 20 ;File Selection Change mc_splt  = 21 ;Split Position Change mc_reua  = 22 ;REU Allocation Request+mc_media = 23 ;Media Playback Change mc_null  = $ff ;No Message ;Menu Status Inquiry Flags mnu_dis  = %00000001 ;Entry Disabled
+
+Differences in s/dir.s:
+--------------------------------------------------
+--- old/s/dir.s
++++ new/s/dir.s
+@@ -43,6 +43,7 @@
+ td_sorto        = $003b td_sel          = $003c td_flags        = $003d+td_filt         = $003e ts_disk         = $0000 ts_name         = $0001 ts_size         = $0002@@ -56,3 +57,4 @@
+ ts_dirs         = $0004 ts_pdir         = $0008 ts_time         = $0010+ts_filt         = $0020
+
+Differences in s/dir.t:
+--------------------------------------------------
+--- old/s/dir.t
++++ new/s/dir.t
+@@ -49,6 +49,9 @@
+ td_sorto = 59 ; 1 Sort Options td_sel   = 60 ; 1 Selected File Count td_flags = 61 ; 1 Special Flags+td_filt  = 62 ; 2 Option. filter routine+              ;   Only used if td_flags+              ;   has ts_filt bit set. ;Sort Fields ;All sorts > ts_name subsort by ts_name ts_disk  = 0@@ -67,3 +70,4 @@
+ ts_dirs  = %00000100 ;Dev Supports Dirs ts_pdir  = %00001000 ;Partition Dir ts_time  = %00010000 ;Include Date/Time+ts_filt  = %00100000 ;Dir Filtered
+
+Differences in s/file.s:
+--------------------------------------------------
+--- old/s/file.s
++++ new/s/file.s
+@@ -11,6 +11,7 @@
+ ff_a            = $0008 ff_o            = $0010 ff_p            = $0040+ff_q            = $0080 status          = $0090 filesopen       = $0098 fnamelen        = $00b7
+
+Differences in s/file.t:
+--------------------------------------------------
+--- old/s/file.t
++++ new/s/file.t
+@@ -16,8 +16,8 @@
+ ff_a     = %00001000 ;Append    out ff_o     = %00010000 ;Overwrite out           ;%00100000 ;RESERVED-ff_p     = %01000000 ;PRG       out-          ;%10000000 ;RESERVED+ff_p     = %01000000 ;PRG       in/out+ff_q     = %10000000 ;SEQ       in/out ;--- Workspace Variables --------------- status   = $90 filesopen = $98
+
+Differences in s/io_iec.s:
+--------------------------------------------------
+--- old/s/io_iec.s
++++ new/s/io_iec.s
+@@ -1,17 +1,24 @@
+ ;---[ io_iec.s ]------------------------ detectiec = $2a00 ;2pages relocatable drivemap = $0334 ;(+8->30) $033c->$0353-;Drive Types+;Legacy Devices:+; Bit7 -> 0 = No Sub-Directories+; No Partitions devnot   = 0     ;No Device Present devfor   = 1     ;Foreign/Unknown Device devvice  = 10    ;VICE FS (single dir.) dev1541  = 41    ;Commodore 1541 dev1571  = 71    ;Commodore 1571 dev1581  = 81    ;Commodore 1581-;Support Parts and Sub-Directories-devcmdfd = $80+2 ;CMD FD2000/4000-devcmdhd = $80+3 ;CMD HD-devcmdrl = $80+4 ;CMD RamLink-devcmdrd = $80+5 ;RamDrive/REU w/RamDos-devsdiec = $80+6 ;SD2IEC/uIEC SD-devide64 = $80+7 ;IDE64+;Modern Devices:+; Bit7 -> 1 = Sub-Directories+; Bit6 -> 0 = Supports Partitions+; Bit6 -> 1 = 1 Partition Only+devcmdfd = $80+2  ;CMD FD2000/4000+devcmdhd = $80+3  ;CMD HD+devcmdrl = $80+4  ;CMD RamLink+devcmdrd = $80+5  ;RamDrive/REU w/RamDos+devsdiec = $80+6  ;SD2IEC/uIEC SD+devide64 = $80+7  ;IDE64+devultim = $c0+10 ;Ultimate SoftIEC+devp1541 = $c0+11 ;pi1541
+
+Differences in tk/s/tkpbar.s:
+--------------------------------------------------
+--- old/tk/s/tkpbar.s
++++ new/tk/s/tkpbar.s
+@@ -1,5 +1,6 @@
+ ;----[ tkpbar.s ]----------------------- pathdep  = tkviewsz+pbmode   = tkviewsz+1 ;----Callbacks-----------pathclik = tkviewsz+1-tkpbarsz = tkviewsz+3+pathclik = tkviewsz+2+tkpbarsz = tkviewsz+4
+
+Differences in tk/s/tksizes.s:
+--------------------------------------------------
+--- old/tk/s/tksizes.s
++++ new/tk/s/tksizes.s
+@@ -14,6 +14,7 @@
+ tktablesz = tklistsz+2 tktcolssz = tkscrollsz+8 tkinputsz = tkctrlsz+6+tktareasz = tkctrlsz+10 tktextsz = tkviewsz+13 tkfilemetasz = tkviewsz+6 tkiconsz = tkctrlsz+3

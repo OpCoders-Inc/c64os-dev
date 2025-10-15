@@ -1,0 +1,334 @@
+Directory Comparison Report
+Generated: 2025-10-14 23:23:06
+Old Directory: ../../include/v1.00/os
+New Directory: ../../include/v1.03/os
+==================================================
+
+Summary:
+  Added Files: 14
+  Removed Files: 0
+  Modified Files: 18
+  Unchanged Files: 150
+
+Added Files:
+  - h/checksum.h
+  - h/checksum.t
+  - h/dt.img.h
+  - h/dt.img.t
+  - h/io_i2c.h
+  - h/io_i2c.t
+  - h/sidplay.h
+  - h/sidplay.t
+  - h/util.frame.h
+  - h/util.frame.t
+  - s/checksum.s
+  - s/checksum.t
+  - s/io_i2c.t
+  - s/util.frame.t
+
+Modified Files:
+  - h/cmp.h (1 changes)
+  - h/fcopy.h (1 changes)
+  - s/c64archive.s (1 changes)
+  - s/cmp.s (1 changes)
+  - s/colors.s (1 changes)
+  - s/ctxcolors.s (1 changes)
+  - s/dt.img.s (3 changes)
+  - s/dt.img.t (23 changes)
+  - s/input.s (11 changes)
+  - s/input.t (10 changes)
+  - s/io_i2c.s (44 changes)
+  - s/sidplay.s (4 changes)
+  - s/sidplay.t (20 changes)
+  - s/type.s (1 changes)
+  - s/util.frame.s (27 changes)
+  - s/utilities.s (2 changes)
+  - tk/h/tkview.h (1 changes)
+  - tk/h/tkview.t (1 changes)
+
+Unchanged Files:
+  - h/calendar.h
+  - h/calendar.t
+  - h/cmp.t
+  - h/datetime.h
+  - h/datetime.t
+  - h/dir.h
+  - h/dir.t
+  - h/fcopy.t
+  - h/file.h
+  - h/file.t
+  - h/float.h
+  - h/float.t
+  - h/flock.h
+  - h/flock.t
+  - h/input.h
+  - h/input.t
+  - h/math.h
+  - h/math.t
+  - h/memory.h
+  - h/memory.t
+  - h/menu.h
+  - h/menu.t
+  - h/modules.h
+  - h/path.h
+  - h/path.t
+  - h/places.h
+  - h/places.t
+  - h/qsort.h
+  - h/qsort.t
+  - h/screen.h
+  - h/screen.t
+  - h/service.h
+  - h/service.t
+  - h/string.h
+  - h/string.t
+  - h/timers.h
+  - h/timers.t
+  - h/toolkit.h
+  - h/toolkit.t
+  - h/wrap.h
+  - h/wrap.t
+  - s/app.s
+  - s/app.t
+  - s/args.s
+  - s/basic.s
+  - s/branch16.s
+  - s/c.s
+  - s/c64archive.t
+  - s/cmp.t
+  - s/colors.t
+  - s/compare16.s
+  - s/ctxcolors.t
+  - s/ctxdraw.s
+  - s/ctxdraw.t
+  - s/dir.s
+  - s/dir.t
+  - s/drawbox.s
+  - s/exceptions.s
+  - s/file.s
+  - s/file.t
+  - s/filejobs.s
+  - s/filejobs.t
+  - s/fileop.s
+  - s/fileop.t
+  - s/float.s
+  - s/gfx.s
+  - s/gfx.t
+  - s/icons.s
+  - s/icons.t
+  - s/inttohex.s
+  - s/io.s
+  - s/io.t
+  - s/io_iec.s
+  - s/io_joy.s
+  - s/io_rec.s
+  - s/io_uaudio.s
+  - s/io_uci.s
+  - s/ker/file.s
+  - s/ker/iec.s
+  - s/ker/io.s
+  - s/ker/key.s
+  - s/ker/mem.s
+  - s/ker/scr.s
+  - s/ker/tim.s
+  - s/math.s
+  - s/memory.s
+  - s/menu.s
+  - s/missing.3icon.t
+  - s/openjobs.s
+  - s/openjobs.t
+  - s/pointer.s
+  - s/rtc.s
+  - s/rtc.t
+  - s/savejobs.s
+  - s/savejobs.t
+  - s/screen.s
+  - s/screen.t
+  - s/service.s
+  - s/service.t
+  - s/string.s
+  - s/switch.s
+  - s/timers.s
+  - s/timers.t
+  - s/toolkit.s
+  - s/toolkit.t
+  - s/wrap.s
+  - s/wrap.t
+  - tk/h/classes.h
+  - tk/h/tkbutton.h
+  - tk/h/tkctrl.h
+  - tk/h/tkctrl.t
+  - tk/h/tkdatepick.h
+  - tk/h/tkdatepick.t
+  - tk/h/tkfilemeta.h
+  - tk/h/tklabel.h
+  - tk/h/tklist.h
+  - tk/h/tkobj.h
+  - tk/h/tkplaces.h
+  - tk/h/tksbar.h
+  - tk/h/tkscroll.h
+  - tk/h/tkscroll.t
+  - tk/h/tksplit.h
+  - tk/h/tktabs.h
+  - tk/h/tktext.h
+  - tk/h/tktimepick.h
+  - tk/h/tktimepick.t
+  - tk/h/tktimer.h
+  - tk/h/tktimer.t
+  - tk/s/tkbutton.s
+  - tk/s/tkctrl.s
+  - tk/s/tkdatepick.s
+  - tk/s/tkfilemeta.s
+  - tk/s/tkicon.s
+  - tk/s/tkinput.s
+  - tk/s/tklabel.s
+  - tk/s/tklist.s
+  - tk/s/tkobj.s
+  - tk/s/tkpbar.s
+  - tk/s/tkplaces.s
+  - tk/s/tksbar.s
+  - tk/s/tkscroll.s
+  - tk/s/tksizes.s
+  - tk/s/tksplit.s
+  - tk/s/tktable.s
+  - tk/s/tktabs.s
+  - tk/s/tktcols.s
+  - tk/s/tktext.s
+  - tk/s/tktimepick.s
+  - tk/s/tktimer.s
+  - tk/s/tkview.s
+
+Detailed Differences:
+
+Differences in h/cmp.h:
+--------------------------------------------------
+--- old/h/cmp.h
++++ new/h/cmp.h
+@@ -1 +1 @@
+-Confcmp_        = $0000+confcmp_        = $0000
+
+Differences in h/fcopy.h:
+--------------------------------------------------
+--- old/h/fcopy.h
++++ new/h/fcopy.h
+@@ -1,4 +1,4 @@
+-Confcopy_       = $0006+confcopy_       = $0006 filecopy_       = $0009 spotcopy_       = $000c renamef_        = $000f
+
+Differences in s/c64archive.s:
+--------------------------------------------------
+--- old/s/c64archive.s
++++ new/s/c64archive.s
+@@ -1,4 +1,4 @@
+-Car_type        = $0000+car_type        = $0000 car_magic       = $0001 car_ver         = $000b car_date        = $000c
+
+Differences in s/cmp.s:
+--------------------------------------------------
+--- old/s/cmp.s
++++ new/s/cmp.s
+@@ -1,4 +1,4 @@
+-Cmp_nstr        = $0000+cmp_nstr        = $0000 cmp_16          = $0001 cmp_8           = $0002 cmp_date        = $0003
+
+Differences in s/colors.s:
+--------------------------------------------------
+--- old/s/colors.s
++++ new/s/colors.s
+@@ -1,4 +1,4 @@
+-Cfgmask         = $000f+cfgmask         = $000f cbgmask         = $00f0 cblack          = $0000 cwhite          = $0001
+
+Differences in s/ctxcolors.s:
+--------------------------------------------------
+--- old/s/ctxcolors.s
++++ new/s/ctxcolors.s
+@@ -1,4 +1,4 @@
+-C_border        = $0000+c_border        = $0000 c_bckgnd        = $0001 c_fpanel        = $0002 c_ftitle        = $0003
+
+Differences in s/dt.img.s:
+--------------------------------------------------
+--- old/s/dt.img.s
++++ new/s/dt.img.s
+@@ -2,6 +2,3 @@
+ dti_mode        = $0001 dti_pxsz        = $0002 dti_imsz        = $0003-imginfo         = $0003-imgconf         = $0006-imgload         = $0009
+
+Differences in s/dt.img.t:
+--------------------------------------------------
+--- old/s/dt.img.t
++++ new/s/dt.img.t
+@@ -1,26 +1,7 @@
+ ;----[ dt.img.t ]----------------------- ;DataType:Image ;ImgInfo string indexes-dti_frmt = 0-dti_mode = 1-dti_pxsz = 2-dti_imsz = 3-;---[ Loaders ]--------------------------;link = 0-;Called Automatically by loadreloc-imginfo  = 3-;Get Image Info String-;  A      -> String Index-;  RegPtr <- Info String-imgconf  = 6-;Configure read buffers and gfxctx-;  RegPtr -> GfxCtx pointer-;  A      -> First pg of bitmap buffer-imgload  = 9-;Load image into preconfigured buffers-;  imgconf must be called first.-;  RegPtr -> FileRef to img file to load-;  C <- Clr = Success-;  C <- Sec = Failure-;---[ Savers ]---------------------------;TODO: Extend with Saver jump table+dti_frmt = 0 ;Image Data Format+dti_mode = 1 ;VIC-II Video Mode+dti_pxsz = 2 ;Pixel Size (str WxH)+dti_imsz = 3 ;Image Size (str byte size)
+
+Differences in s/input.s:
+--------------------------------------------------
+--- old/s/input.s
++++ new/s/input.s
+@@ -1,4 +1,5 @@
+ idrvpg          = $0801+scrlwhls        = $0287 dblclktm        = $0288 mouseptr        = $028f mouseacc        = $0290@@ -12,7 +13,9 @@
+ mousemvd        = $0004 mousehid        = $0010 mousepre        = $0020+mousenat        = $0040 mouselft        = $0080+keymods         = $028d musbtns         = $00f2 lshftkey        = $0001 cbmkey          = $0002@@ -22,6 +25,9 @@
+ mus_cbm         = $0020 mus_ctrl        = $0040 lbutmask        = $0010+wdnmask         = $0008+wupmask         = $0004+mbutmask        = $0002 rbutmask        = $0001 move            = $0000 ldown           = $0001@@ -33,4 +39,8 @@
+ rtrack          = $0007 rup             = $0008 rclick          = $0009-keymods         = $028d+mdown           = $000a+mup             = $000b+mclick          = $000c+wdown           = $000d+wup             = $000e
+
+Differences in s/input.t:
+--------------------------------------------------
+--- old/s/input.t
++++ new/s/input.t
+@@ -1,5 +1,6 @@
+ ;----[ input.t ]------------------------ idrvpg   = $0801 ;Input Driver Page #+scrlwhls = $0287 ;ScrlWheel Sensitivity dblclktm = $0288 ;DblClick Jiffy Delay mouseptr = $028f mouseacc = $0290@@ -17,7 +18,7 @@
+           ;%00001000 ;reserved mousehid = %00010000 ;mouse hidden mousepre = %00100000 ;precision tracking-          ;%01000000 ;reserved+mousenat = %01000000 ;natural scrl mode mouselft = %10000000 ;left-handed mode keymods  = $028d     ;Modifier Keys Mask musbtns  = $f2@@ -29,6 +30,9 @@
+ mus_cbm  = %00100000 mus_ctrl = %01000000 lbutmask = %00010000 ;Left but, Joy Fire+wdnmask  = %00001000 ;Wheel Dn, Joy Rght+wupmask  = %00000100 ;Wheel Up, Joy Left+mbutmask = %00000010 ;Midl but, Joy Down rbutmask = %00000001 ;Rght but, Joy Up ;Mouse Event Types move     = 0@@ -41,9 +45,9 @@
+ rtrack   = 7 rup      = 8 rclick   = 9-;reservd = 10-;reservd = 11-;reservd = 12-;reservd = 13-;reservd = 14+mdown    = 10+mup      = 11+mclick   = 12+wdown    = 13+wup      = 14 ;reservd = 15
+
+Differences in s/io_i2c.s:
+--------------------------------------------------
+--- old/s/io_i2c.s
++++ new/s/io_i2c.s
+@@ -1,44 +1,10 @@
+-;----[ io_i2c.s ]------------------------;Header for i2c.lib.r-;Init called automatically by loadreloc-;init_   = 0-reset_   = 3-;  Takes no parameters.-;  Resets the I2C Bus.-prep_rw_ = 6-;  Regptr -> Pointer to memory buffer-;  A      -> Read/Write data length-;            (maximum 256 bytes)-;prep_rw must be called before a call to-;either readreg or writreg.-readreg_ = 9-;  Initialize with i2c_prep_rw-;  A -> i2c device address-;  Y -> device register-;  C -> Set = skip register write-;  A <- ok/nok response 0 = ok-;-;Register contents will be read from-;i2c device and copied to memory buffer.-writreg_ = 12-;  Initialize with i2c_prep_rw-;  A -> i2c device address-;  Y -> device register-;  A <- ok/nok response 0 = ok-;-;Contents of memory buffer will be-;written to the i2c device's register(s)-;----------------------------------------slvwait  = 50 ;wait time for slave-              ;to ack the address-datareg  = $dd01 ;CIA 2 PortB-datadir  = $dd03 ;1 = output, 0 = input-;response codes-ret_ok   = 0 ;Not an error-ret_nok  = 1-err_sdalo = 2-err_scllo = 3-;i2c address flags-writebit = 0    ;in i2c address byte-readbit  = 1    ;in i2c address byte-purebyte = $ff  ;don't modify data byte+slvwait         = $0032+datareg         = $dd01+datadir         = $dd03+ret_ok          = $0000+ret_nok         = $0001+err_sdalo       = $0002+err_scllo       = $0003+writebit        = $0000+readbit         = $0001+purebyte        = $00ff
+
+Differences in s/sidplay.s:
+--------------------------------------------------
+--- old/s/sidplay.s
++++ new/s/sidplay.s
+@@ -2,9 +2,6 @@
+ sps_hold        = $00ff sps_halt        = $00fe sps_play        = $00fd-loadtune_       = $0006-stattune_       = $0009-tuneinfo_       = $000c+spi_name        = $0000 spi_auth        = $0001-spi_name        = $0000 spi_copy        = $0002
+
+Differences in s/sidplay.t:
+--------------------------------------------------
+--- old/s/sidplay.t
++++ new/s/sidplay.t
+@@ -1,5 +1,4 @@
+-;----[ sidplay.t ]-----------------------;Header for sidplay.lib.r+;----[ sidplay.t for sidplay.lib.r ]---- spirqvec = $0334 ;$0335 sps_hold = $ff sps_halt = $fe@@ -7,21 +6,3 @@
+ spi_name = $00 spi_auth = $01 spi_copy = $02-;Init called automatically by loadlib.-;init    = 0-;Unload called automatically by unldlib.-;unload  = 3-loadtune_ = 6-;  RegPtr -> File Ref to relocated SID-;  C <- CLR = SID file loaded.-;  A <- Number of songs loaded.-;  X <- Start Song #.-;  C <- SET = SID NOT loaded.-;  RegPtr -> NULL to unload tune.-;  C <- CLR = Unloaded.-;  C <- SET = Nothing was loaded.-stattune_ = 9-;  A -> Tune State{SHIFT--}Tune# to init-tuneinfo_ = 12-;  A      -> Sidplay Tune Info Index-;  RegPtr <- Pointer to info string
+
+Differences in s/type.s:
+--------------------------------------------------
+--- old/s/type.s
++++ new/s/type.s
+@@ -12,7 +12,7 @@
+ ct_date  = 5 ct_dattim = 6 ct_fref  = 7-;ct_???   = 8+ct_hexdec = 8 ct_number = 9 ct_tel   = 10 ct_cal   = 11
+
+Differences in s/util.frame.s:
+--------------------------------------------------
+--- old/s/util.frame.s
++++ new/s/util.frame.s
+@@ -1,27 +1,6 @@
+-;----[ util.frame.s ]--------------------;Extended Exports Table in Utility.-scrlayer_ = utilbase+8-drawctx_ = utilbase+10-tkenv_   = utilbase+12-config_  = utilbase+14-confsize_ = utilbase+16-;Utility Framework's Jumptable-uf_kill  = $ff1b-uf_load  = $ff1e ;Load Utility-uf_init  = $ff21-uf_quit  = $ff24-uf_mapc  = $ff27 ;Map Colors-uf_draw  = $ff2a-uf_msrc  = $ff2d ;Mouse Row/Col-uf_chkb  = $ff30 ;Check Bounds-uf_pmus  = $ff33 ;Mouse Evts-uf_kcmd  = $ff36 ;KeyCmd Evts-uf_kprt  = $ff39 ;KeyPrnt Evts-uf_link  = $ff3c-metapage = $ff3f-;uf_init config flags-uf_settit = %00000001-uf_clrbuf = %00000010-uf_cnfglb = %00000100-uf_swpicn = %00001000-uf_umodal = %10000000+metapage        = $ff3f+uf_settit       = $0001+uf_clrbuf       = $0002+uf_cnfglb       = $0004+uf_swpicn       = $0008+uf_umodal       = $0080
+
+Differences in s/utilities.s:
+--------------------------------------------------
+--- old/s/utilities.s
++++ new/s/utilities.s
+@@ -1,8 +1,8 @@
+ ;---[ utilities.s ]----------------------;//os/library/:utils.lib.r+;os/library/:utils.lib.r ;Deallocates the old utilities menu. ;Rebuilds a new one from:-;//os/settings/:utilities.m+;os/settings/:utilities.m ;Linked Application menus will be ;relinked to the new utilities menu. readutils = $2100   ;3 Pages Relocatable
+
+Differences in tk/h/tkview.h:
+--------------------------------------------------
+--- old/tk/h/tkview.h
++++ new/tk/h/tkview.h
+@@ -8,7 +8,7 @@
+ musclik_ = tcobjsz+18 musdclik_ = tcobjsz+21 rmusdwn_ = tcobjsz+24-rmusup_  = tcobjsz+27+musalt_  = tcobjsz+27 addchild_ = tcobjsz+30 unparent_ = tcobjsz+33 resize_  = tcobjsz+36
+
+Differences in tk/h/tkview.t:
+--------------------------------------------------
+--- old/tk/h/tkview.t
++++ new/tk/h/tkview.t
+@@ -9,7 +9,7 @@
+ musclik_ = tcobjsz+18 musdclik_ = tcobjsz+21 rmusdwn_ = tcobjsz+24-rmusup_  = tcobjsz+27+musalt_  = tcobjsz+27 ;----Node Methods--------- addchild_ = tcobjsz+30 unparent_ = tcobjsz+33

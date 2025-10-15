@@ -1,0 +1,155 @@
+<html>
+<head>
+    <title>Unchanged File: s/icons.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Unchanged File: s/icons.t</h1>
+            <p>This file is identical in both directories.</p>
+            <pre class="unchanged_content">;----[ icons.t ]------------------------
+
+;System Icons (8x8, 1 custom character)
+
+;These can loaded into your application
+;or utility with the loadicn routine
+;from the screen KERNAL module.
+
+;---------------------------------------
+;Standard Set, included in ui.charset
+
+icn_clogo = $00 ;Commodore Logo
+icn_crght = $01 ;Copyright
+
+icn_uparr = $02 ;Up   Arrow
+icn_dnarr = $03 ;Down Arrow
+icn_lfarr = $04 ;Left Arrow
+icn_rtarr = $05 ;Rght Arrow
+
+icn_chk0 = $06  ;Checkbox: Off
+icn_chk1 = $07  ;Checkbox: On
+
+icn_rad0 = $08  ;RadioBut: Off
+icn_rad1 = $09  ;RadioBut: On
+
+icn_dhash = $0a ;Diagonal Hash
+icn_elips = $0b ;Ellipsis
+icn_check = $0c ;Checkmark
+icn_cycle = $0d ;Cycle Arrows
+
+icn_track = $0e ;Slider Track
+icn_slide = $0f ;Slider Nub
+
+icn_tabsp = $10 ;Tab Separator
+icn_hgrip = $11 ;Horizontal Grippy
+icn_vgrip = $12 ;Vertical   Grippy
+
+icn_close = $13 ;Panel Close Box
+icn_title = $14 ;Panel Title Bar
+
+;---------------------------------------
+;Optional Set, Pick and Choose upto 18
+
+;Drives/Media
+
+icn_5disk = $15 ;1541/1571 Disk
+icn_3disk = $16 ;1581/CMDFD Disk
+icn_hdisk = $17 ;Hard Disk
+icn_sdcrd = $18 ;SD Card
+icn_tape = $19  ;Tape Cassette
+
+;Input Devices
+
+icn_kbd  = $1a  ;Keyboard
+icn_mus  = $1b  ;Mouse
+icn_joy  = $1c  ;Joystick
+icn_pad  = $1d  ;Paddle
+icn_pen  = $1e  ;Light Pen
+
+;Misc. Hardware
+
+icn_wifi = $1f  ;Wifi Symbol
+icn_mem  = $20  ;Memory Chip
+icn_usb  = $21  ;USB Symbol
+icn_eth  = $22  ;Ethernet Symbol
+
+;File System
+
+icn_prg  = $23  ;PRG File
+icn_seq  = $24  ;SEQ File
+icn_dir  = $25  ;Directory
+
+icn_lock0 = $26 ;Lock: Open
+icn_lock1 = $27 ;Lock: Closed
+
+icn_trash = $28
+icn_eject = $29
+
+;Misc. Symbols
+
+icn_home = $2a
+icn_flag = $2b
+icn_ball = $2c
+icn_pin  = $2d
+icn_key  = $2e
+icn_mic  = $2f
+icn_man  = $30
+icn_chat = $31
+icn_face = $32
+icn_tab  = $33  ;TopRight Rounded Corner
+
+icn_qmark = $34 ;Fancy Question Mark
+icn_heart = $35
+icn_today = $36 ;Calendar
+icn_clock = $37
+icn_music = $38
+icn_cloud = $39
+icn_rcket = $3a ;Rocket (Launchable)
+icn_gear = $3b
+icn_table = $3c
+icn_list = $3d
+icn_text = $3e
+icn_ehart = $3f ;Empty Heart</pre>
+        </div>
+    </div>
+</body>
+</html>

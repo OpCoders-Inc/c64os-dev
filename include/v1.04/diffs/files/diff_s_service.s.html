@@ -1,0 +1,122 @@
+<html>
+<head>
+    <title>Diff for s/service.s</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for s/service.s</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: s/service.s</td><td class="diff_header">Old: s/service.s</td></tr>
+<tr><td class="">jiffylo         = $00a2</td><td class="">jiffylo         = $00a2</td></tr>
+<tr><td class="diff_unchanged_alt">jiffymi         = $00a1</td><td class="diff_unchanged_alt_old">jiffymi         = $00a1</td></tr>
+<tr><td class="">jiffyhi         = $00a0</td><td class="">jiffyhi         = $00a0</td></tr>
+<tr><td class="diff_unchanged_alt">jcount          = $00cd</td><td class="diff_unchanged_alt_old">jcount          = $00cd</td></tr>
+<tr><td class="">jc_min          = $00eb</td><td class="">jc_min          = $00eb</td></tr>
+<tr><td class="diff_unchanged_alt">sysjmp          = $0054</td><td class="diff_unchanged_alt_old">sysjmp          = $0054</td></tr>
+<tr><td class="">jmpvec          = $0055</td><td class="">jmpvec          = $0055</td></tr>
+<tr><td class="diff_unchanged_alt">raw_rts         = $02b2</td><td class="diff_unchanged_alt_old">raw_rts         = $02b2</td></tr>
+<tr><td class="">sec_rts         = $02b3</td><td class="">sec_rts         = $02b3</td></tr>
+<tr><td class="diff_unchanged_alt">clc_rts         = $02b5</td><td class="diff_unchanged_alt_old">clc_rts         = $02b5</td></tr>
+<tr><td class="">emptystr        = $02b7</td><td class="">emptystr        = $02b7</td></tr>
+<tr><td class="diff_unchanged_alt">sysfref         = $02c0</td><td class="diff_unchanged_alt_old">sysfref         = $02c0</td></tr>
+<tr><td class="">homebase        = $02e9</td><td class="">homebase        = $02e9</td></tr>
+<tr><td class="diff_unchanged_alt">evttime         = $02ff</td><td class="diff_unchanged_alt_old">evttime         = $02ff</td></tr>
+<tr><td class="">cpuusage        = $0217</td><td class="">cpuusage        = $0217</td></tr>
+<tr><td class="diff_unchanged_alt">busychar        = $00e6</td><td class="diff_unchanged_alt_old">busychar        = $00e6</td></tr>
+<tr><td class="">loopbrkvec      = $0336</td><td class="">loopbrkvec      = $0336</td></tr>
+<tr><td class="diff_unchanged_alt">appfileref      = $0338</td><td class="diff_unchanged_alt_old">appfileref      = $0338</td></tr>
+<tr><td class="">opnfileref      = $033a</td><td class="">opnfileref      = $033a</td></tr>
+<tr><td class="diff_unchanged_alt">berrcode        = $03b9</td><td class="diff_unchanged_alt_old">berrcode        = $03b9</td></tr>
+<tr><td class="">basicerr        = $08f0</td><td class="">basicerr        = $08f0</td></tr>
+<tr><td class="diff_unchanged_alt">redirect        = $08f4</td><td class="diff_unchanged_alt_old">redirect        = $08f4</td></tr>
+<tr><td class="">redirectvec     = $08f9</td><td class="">redirectvec     = $08f9</td></tr>
+<tr><td class="diff_unchanged_alt">opnutilmcmd     = $03fa</td><td class="diff_unchanged_alt_old">opnutilmcmd     = $03fa</td></tr>
+<tr><td class="">opnutilmdlo     = $03fb</td><td class="">opnutilmdlo     = $03fb</td></tr>
+<tr><td class="diff_unchanged_alt">opnutilmdhi     = $03fc</td><td class="diff_unchanged_alt_old">opnutilmdhi     = $03fc</td></tr>
+<tr><td class="">opnappmcmd      = $03fa</td><td class="">opnappmcmd      = $03fa</td></tr>
+<tr><td class="diff_unchanged_alt">opnappmdlo      = $03fb</td><td class="diff_unchanged_alt_old">opnappmdlo      = $03fb</td></tr>
+<tr><td class="">opnappmdhi      = $03fc</td><td class="">opnappmdhi      = $03fc</td></tr>
+<tr><td class="diff_unchanged_alt">syskvals        = $02b8</td><td class="diff_unchanged_alt_old">syskvals        = $02b8</td></tr>
+<tr><td class="">syskmods        = $02bc</td><td class="">syskmods        = $02bc</td></tr>
+<tr><td class="diff_unchanged_alt">himemuse        = $03fe</td><td class="diff_unchanged_alt_old">himemuse        = $03fe</td></tr>
+<tr><td class="">hmemfree        = $0000</td><td class="">hmemfree        = $0000</td></tr>
+<tr><td class="diff_unchanged_alt">hmemutil        = $0001</td><td class="diff_unchanged_alt_old">hmemutil        = $0001</td></tr>
+<tr><td class="">hmembuff        = $0002</td><td class="">hmembuff        = $0002</td></tr>
+<tr><td class="diff_unchanged_alt">hmembitm        = $0040</td><td class="diff_unchanged_alt_old">hmembitm        = $0040</td></tr>
+<tr><td class="">hmemmult        = $0080</td><td class="">hmemmult        = $0080</td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">ghimemflg       = $0000</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gcolhptr        = $0001</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gcolmptr        = $0003</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gbgcol          = $0005</span></td></tr>
+<tr><td class="diff_unchanged_alt">redrawflgs      = $03ff</td><td class="diff_unchanged_alt_old">redrawflgs      = $03ff</td></tr>
+<tr><td class="">rnewgfx         = $0001</td><td class="">rnewgfx         = $0001</td></tr>
+<tr><td class="diff_unchanged_alt">renagfx         = $0002</td><td class="diff_unchanged_alt_old">renagfx         = $0002</td></tr>
+<tr><td class="">rgraphix        = $0004</td><td class="">rgraphix        = $0004</td></tr>
+<tr><td class="diff_unchanged_alt">rmodal          = $0008</td><td class="diff_unchanged_alt_old">rmodal          = $0008</td></tr>
+<tr><td class="">rstatbar        = $0010</td><td class="">rstatbar        = $0010</td></tr>
+<tr><td class="diff_unchanged_alt">rcpubusy        = $0020</td><td class="diff_unchanged_alt_old">rcpubusy        = $0020</td></tr>
+<tr><td class="">rclock          = $0040</td><td class="">rclock          = $0040</td></tr>
+<tr><td class="diff_unchanged_alt">rmenubar        = $0080</td><td class="diff_unchanged_alt_old">rmenubar        = $0080</td></tr>
+<tr><td class="">libchrlo        = $08a2</td><td class="">libchrlo        = $08a2</td></tr>
+<tr><td class="diff_unchanged_alt">libchrhi        = $08ac</td><td class="diff_unchanged_alt_old">libchrhi        = $08ac</td></tr>
+<tr><td class="">libinfo         = $08b6</td><td class="">libinfo         = $08b6</td></tr>
+<tr><td class="diff_unchanged_alt">liblocs         = $08c0</td><td class="diff_unchanged_alt_old">liblocs         = $08c0</td></tr>
+<tr><td class="">slnoinit        = $0080</td><td class="">slnoinit        = $0080</td></tr>
+<tr><td class="diff_unchanged_alt">slunload        = $0080</td><td class="diff_unchanged_alt_old">slunload        = $0080</td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gbmapptr        = $0006</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gchbufsz        = $0008</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gcmbufsz        = $0009</span></td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">gbmbufsz        = $000a</span></td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>
