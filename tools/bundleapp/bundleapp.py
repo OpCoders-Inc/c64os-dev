@@ -1,7 +1,7 @@
 
 """
-    bundlapp - C64OS Bundle Application Tool
-    ========================================
+    bundelapp - C64OS Bundle Application Tool
+    =========================================
 
     Summary
     -------
@@ -181,6 +181,20 @@ CAR_CHECKSUM = 1
 if bundle.has_option("bundle", "car_checksum"):
     CAR_CHECKSUM = int(bundle.get("bundle", "car_checksum"))
 
+SRC_PATH = ""
+if bundle.has_option("bundle", "src_path"):
+    SRC_PATH = bundle.get("bundle", "src_path")
+
+OUT_PATH = "out"
+if bundle.has_option("bundle", "out_path"):
+    OUT_PATH = bundle.get("bundle", "out_path")
+
+# make sure output path exists
+
+if len(OUT_PATH) > 0:
+    if not os.path.exists(OUT_PATH):
+        os.mkdir(OUT_PATH)
+
 final_disk_name = APP_NAME + "." + DISK_TYPE
 final_car_name = APP_NAME + ".car"
 
@@ -195,6 +209,8 @@ logging.info("CAR_BUILD:    %s", CAR_BUILD)
 logging.info("CAR_TYPE:     %s", CAR_TYPE)
 logging.info("CAR_NOTE:     %s", CAR_NOTE)
 logging.info("CAR_CHECKSUM: %s", CAR_CHECKSUM)
+logging.info("SRC_PATH:     %s", SRC_PATH)
+logging.info("OUT_PATH:     %s", OUT_PATH)
 
 print()
 
@@ -204,13 +220,19 @@ logging.debug("final_car_name = %s", final_car_name)
 for section in bundle.sections():
     logging.debug(section)
 
+#
+# build files
+#
+
 for file in bundle.options('build'):
 
     logging.debug("building file %s", file)
-    file_src = bundle.get('build', file).strip()
+    file_src = os.path.join(SRC_PATH,bundle.get('build', file).strip())
     logging.debug("file source : %s", file_src )
+    file_out = os.path.join(OUT_PATH, file)
+    logging.debug("file out : %s", file_out )
     # subprocess.run([TMPX_PATH, file_src, "-o", file], shell=True, check=False, stdout=subprocess.DEVNULL)
-    process = subprocess.run([TMPX_PATH, "-i", file_src, "-o", file])
+    process = subprocess.run([TMPX_PATH, "-i", file_src, "-o", file_out])
     print(process)
 
 #
@@ -220,13 +242,6 @@ if DISK_BUILD > 0:
     create_disk_title = "%s,a1" % APP_NAME
     create_disk_name = "%s" % final_disk_name.lower()
     logging.debug(f"building disk {create_disk_name}")
-    # subprocess.run([C1541_PATH, "-format", 
-    #     create_disk_title, 
-    #     DISK_TYPE, 
-    #     create_disk_name], 
-    #     shell=True, 
-    #     check=False,
-    #     stdout=subprocess.DEVNULL)
     subprocess.run([C1541_PATH, "-format", 
         create_disk_title, 
         DISK_TYPE, 
@@ -344,6 +359,7 @@ for file in bundle.options('files'):
     file_type = "prg"
     file_from = file
     file_to = file
+    file_to_out = os.path.join(OUT_PATH, file)
 
     for prop in list_props:
 
@@ -387,8 +403,9 @@ for file in bundle.options('files'):
     logging.debug("file type:   %s", file_type)
     logging.debug("file from:   %s", file_from)
     logging.debug("file to:     %s", file_to)
+    logging.debug("file to out: %s", file_to_out)
 
-    final_file_from = file_from
+    final_file_from = os.path.join(OUT_PATH, file_from)
     final_file_to = file_to
 
     #
@@ -412,29 +429,29 @@ for file in bundle.options('files'):
         logging.debug(f"\n\n{content}\n")
 
         # new_from_file = tempfile.TemporaryFile(delete=False)
-        new_from_file = tempfile.NamedTemporaryFile(delete=False)
+        temp_from_file = tempfile.NamedTemporaryFile(delete=False)
 
-        with open(new_from_file.name, 'wb') as open_file:
+        with open(temp_from_file.name, 'wb') as open_file:
             open_file.write(content)
         
-        new_from_file.close()
+        temp_from_file.close()
 
         # subprocess.run([PETCAT_PATH, "-text", "-w2", "-o", file_to, "--", new_from_file.name], shell=True, check=False)
-        subprocess.run([PETCAT_PATH, "-text", "-w2", "-o", file_to, "--", new_from_file.name])
+        subprocess.run([PETCAT_PATH, "-text", "-w2", "-o", file_to_out, "--", temp_from_file.name])
 
         # convert left arrow to underscore (as intended)
 
-        with open(file_to, 'rb') as open_file:
+        with open(file_to_out, 'rb') as open_file:
 
             LEFT_ARROW = b'\x5f'
             UNDERSCORE = b'\xa4'
             content = open_file.read()
             content = content.replace(LEFT_ARROW, UNDERSCORE)
 
-        with open(file_to, 'wb') as open_file:
+        with open(file_to_out, 'wb') as open_file:
             open_file.write(content)
 
-        final_file_from = file_to
+        final_file_from = file_to_out
         final_file_to = f"{file_to},s"
 
     #
