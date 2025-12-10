@@ -1,5 +1,0 @@
-System;c
-Drop To READY:6bb
-*
-Go Home:6h!
-
