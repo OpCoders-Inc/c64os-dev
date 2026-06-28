@@ -28,10 +28,11 @@
 
     Note
     ----
-    For licensing reasons, the utility petcat.exe and
-    c1541.exe is not included in this repository. 
-    Use the configuration file to specify the path to
-    the location of that program on your computer.
+    For licensing reasons, the utility c1541.exe is
+    not included in this repository. Use the
+    configuration file to specify the path to the
+    location of c1541 on your computer.
+    PETSCII conversion is handled natively.
 
     Meta
     ----
@@ -56,7 +57,7 @@ import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.1.6")
+print("Version 1.1.7")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -108,13 +109,10 @@ config.read(config_filename)
 
 logging.debug(config.sections)
 
-# the location of the petcat utility from vice
-PETCAT_PATH = config.get("general", "petcat_path")
+PETCAT_PATH = config.get("general", "petcat_path", fallback="")
 
-# the location of the petcat utility from vice
 C1541_PATH = config.get("general", "c1541_path")
 
-# the location of the petcat utility from vice
 TMPX_PATH = config.get("general", "tmpx_path")
 
 # a place to store throw away things
@@ -124,7 +122,6 @@ print()
 
 logging.info("CONFIGURATION SETTINGS")
 logging.info("======================")
-logging.info("PETCAT_PATH:  %s", PETCAT_PATH)
 logging.info("C1541_PATH:   %s", C1541_PATH)
 logging.info("TMPX_PATH:    %s", TMPX_PATH)
 logging.info("TEMP_PATH:    %s", TEMP_PATH.name)
@@ -310,6 +307,21 @@ def to_petscii(text):
             result.append(b)
     return bytes(result)
 
+def petscii_bytes(data):
+    result = bytearray()
+    for b in data:
+        if 0x41 <= b <= 0x5A:
+            result.append(b | 0x80)
+        elif 0x61 <= b <= 0x7A:
+            result.append(b & 0x5F)
+        elif b == 0x0A:
+            result.append(0x0D)
+        elif b == 0x5F:
+            result.append(0xA4)
+        else:
+            result.append(b)
+    return bytes(result)
+
 CAR_DATA = b''
 
 if CAR_BUILD > 0:
@@ -447,42 +459,18 @@ for file in bundle.options('files'):
 
     if file_type == "seq":
 
-        logging.debug('converting crlf to lf in file %s', file_from)
+        logging.debug('converting ascii to petscii for file %s', file_from)
 
-        # create temp file that removes the crlf with just lf
+        with open(file_from, 'rb') as f:
+            content = f.read()
 
-        CRLF = b'\r\n'
-        LF = b'\n'
+        content = content.replace(b'\r\n', b'\n')
+        content = petscii_bytes(content)
 
-        with open(file_from, 'rb') as open_file:
-            content = open_file.read()
-
-        content = content.replace(CRLF, LF)
+        with open(file_to_out, 'wb') as f:
+            f.write(content)
 
         logging.debug(f"\n\n{content}\n")
-
-        # new_from_file = tempfile.TemporaryFile(delete=False)
-        temp_from_file = tempfile.NamedTemporaryFile(delete=False)
-
-        with open(temp_from_file.name, 'wb') as open_file:
-            open_file.write(content)
-        
-        temp_from_file.close()
-
-        # subprocess.run([PETCAT_PATH, "-text", "-w2", "-o", file_to, "--", new_from_file.name], shell=True, check=False)
-        subprocess.run([PETCAT_PATH, "-text", "-w2", "-o", file_to_out, "--", temp_from_file.name])
-
-        # convert left arrow to underscore (as intended)
-
-        with open(file_to_out, 'rb') as open_file:
-
-            LEFT_ARROW = b'\x5f'
-            UNDERSCORE = b'\xa4'
-            content = open_file.read()
-            content = content.replace(LEFT_ARROW, UNDERSCORE)
-
-        with open(file_to_out, 'wb') as open_file:
-            open_file.write(content)
 
         final_file_from = file_to_out
         final_file_to = f"{file_to},s"
