@@ -56,7 +56,7 @@ import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.1.2")
+print("Version 1.1.3")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -162,6 +162,8 @@ if bundle.has_option("bundle", "dev_name"):
 def resolve_template(template, vars_dict):
     def replace(match):
         key = match.group(1)
+        if key not in vars_dict:
+            logging.warning(f"Template variable '{{{key}}}' used in dev_name but not defined in [bundle] section")
         return vars_dict.get(key, match.group(0))
     return re.sub(r'\{(\w+)\}', replace, template)
 
@@ -231,6 +233,7 @@ if len(OUT_PATH) > 0:
 final_disk_name = DIST_NAME + "." + DISK_TYPE
 final_car_name = DIST_NAME + ".car"
 
+print(f"Distribution Name: {DIST_NAME}")
 print()
 
 logging.info("BUNDLE SETTINGS")
