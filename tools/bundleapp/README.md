@@ -9,7 +9,6 @@ This is a configuration file for the tool that will set the location of the util
 The contents looks like this
 ```ini
 [general]
-petcat_path=petcat.exe
 c1541_path=c1541.exe
 tmpx_path=tmpx.exe
 ```
@@ -33,9 +32,6 @@ The `helloworld` sample application has an example of how to use the bundleapp u
 Regardless, create a copy of the `bindleapp.ini` file from this tool folder and place it in one of those two locations.
 
 Then you can edit the file, and change the settings to let the tool know where some of the other programs it needs are located.
-
-### PETCAT_PATH
-The path and filename to the petcat utility. This utility is used to convert PETSCII to ASCII and vice-versa.
 
 ### C1541_PATH
 The path and filename to the c1541 utility. This utility is used to create a distribution disk for your application.
@@ -186,7 +182,7 @@ The second required setting is the file type. Currently three types are supporte
 - SEQ (S) = seqential files
 - PRG (P) = program files
 
-This setting is especially important for sequential file types because the tool will try to convert the file to PETSCII before adding it to the bundle.
+This setting is especially important for sequential file types because the tool will convert the file from ASCII to PETSCII (natively, without external utilities) before adding it to the bundle.
 
 Other types might be supported in the future.
 
