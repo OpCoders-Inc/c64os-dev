@@ -56,7 +56,7 @@ import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.1.4")
+print("Version 1.1.5")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -299,6 +299,15 @@ if DISK_BUILD > 0:
     print(f"Distribution Disk [{final_disk_name}] created.")
     print()
 
+def to_petscii(text):
+    result = bytearray()
+    for b in text.encode('ascii'):
+        if 0x41 <= b <= 0x5A:
+            result.append(b | 0x80)
+        else:
+            result.append(b)
+    return bytes(result)
+
 CAR_DATA = b''
 
 if CAR_BUILD > 0:
@@ -311,14 +320,14 @@ if CAR_BUILD > 0:
     logging.debug(f"C64Archive Magic: 0x00 C64Archive type={CAR_TYPE} date={(CAR_YY % 100)+100:02d}-{CAR_MM:02d}-{CAR_DD:02d} {CAR_HH:02d}:{CAR_MI:02d} note={CAR_NOTE}")
 
     header_data = b'\x00'
-    header_data += b'C64Archive'
+    header_data += to_petscii('C64Archive')
     header_data += CAR_TYPE.to_bytes(1, 'little')
     header_data += ((CAR_YY % 100) + 100).to_bytes(1, 'little')
     header_data += CAR_MM.to_bytes(1, 'little')
     header_data += CAR_DD.to_bytes(1, 'little')
     header_data += CAR_HH.to_bytes(1, 'little')
     header_data += CAR_MI.to_bytes(1, 'little')
-    header_data += CAR_NOTE.ljust(30)[:30].encode('ascii')
+    header_data += to_petscii(CAR_NOTE.ljust(30)[:30])
     header_data += b'\x00'
 
     logging.debug(f"\n\n{header_data}\n")
@@ -333,7 +342,7 @@ if CAR_BUILD > 0:
     dir_data = b'\x64\x00'
     dir_data += file_count.to_bytes(2, 'little')
     dir_data += b'\x00'
-    dir_data += dir_name.encode('ascii')[:16]
+    dir_data += to_petscii(dir_name)[:16]
     if name_remain > 0:
         dir_data += b'\xa0' * name_remain
     dir_data += b'\x00'
@@ -501,10 +510,10 @@ for file in bundle.options('files'):
 
         data_type = file_type[0]
 
-        entry_data = data_type.encode('ascii')
+        entry_data = to_petscii(data_type)
         entry_data += b'\x00'
         entry_data += data_len.to_bytes(3, 'little')
-        entry_data += file_name.encode('ascii')[:16]
+        entry_data += to_petscii(file_name)[:16]
         fill_needed = 16 - len(file_name)
         if fill_needed > 0:
             entry_data += b'\xa0' * fill_needed
