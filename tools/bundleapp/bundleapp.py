@@ -52,14 +52,17 @@ import configparser
 import tempfile
 import datetime
 import binascii
+import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.0")
+print("Version 1.1.1")
 print()
 
 LOGGING_LEVEL = logging.WARN
 
+
+FINAL_BUILD = False
 
 for arg in sys.argv:
 
@@ -68,6 +71,9 @@ for arg in sys.argv:
 
     if arg.lower() == "--info":
         LOGGING_LEVEL = logging.INFO
+
+    if arg.lower() == "--final":
+        FINAL_BUILD = True
 
 logging.basicConfig(level=LOGGING_LEVEL, format='[%(levelname)-8s] %(message)s')
 
@@ -144,6 +150,33 @@ APP_NAME = "myapp"
 if bundle.has_option("bundle", "app_name"):
     APP_NAME = bundle.get("bundle", "app_name")
 
+#
+# resolve the distribution name
+# uses {key} substitution in dev_name from other [bundle] settings
+#
+
+DEV_NAME = ""
+if bundle.has_option("bundle", "dev_name"):
+    DEV_NAME = bundle.get("bundle", "dev_name")
+
+def resolve_template(template, vars_dict):
+    def replace(match):
+        key = match.group(1)
+        return vars_dict.get(key, match.group(0))
+    return re.sub(r'\{(\w+)\}', replace, template)
+
+if FINAL_BUILD:
+    DIST_NAME = APP_NAME
+else:
+    if len(DEV_NAME) > 0:
+        bundle_vars = dict(bundle.items("bundle"))
+        DIST_NAME = resolve_template(DEV_NAME, bundle_vars)
+    else:
+        DIST_NAME = APP_NAME
+
+# truncated to 16 chars for C64 fields (disk title, CAR directory entry)
+DIST_NAME_SHORT = DIST_NAME[:16]
+
 now = datetime.datetime.now()
 
 CAR_YY = now.year
@@ -195,14 +228,16 @@ if len(OUT_PATH) > 0:
     if not os.path.exists(OUT_PATH):
         os.mkdir(OUT_PATH)
 
-final_disk_name = APP_NAME + "." + DISK_TYPE
-final_car_name = APP_NAME + ".car"
+final_disk_name = DIST_NAME + "." + DISK_TYPE
+final_car_name = DIST_NAME + ".car"
 
 print()
 
 logging.info("BUNDLE SETTINGS")
 logging.info("====================")
 logging.info("APP_NAME:     %s", APP_NAME)
+logging.info("DIST_NAME:    %s", DIST_NAME)
+logging.info("FINAL_BUILD:  %s", FINAL_BUILD)
 logging.info("DISK_TYPE:    %s", DISK_TYPE)
 logging.info("DISK_BUILD:   %s", DISK_BUILD)
 logging.info("CAR_BUILD:    %s", CAR_BUILD)
@@ -228,6 +263,7 @@ for file in bundle.options('build'):
 
     logging.debug("building file %s", file)
     file_src = os.path.join(SRC_PATH,bundle.get('build', file).strip())
+    # file_src = os.path.join(bundle.get('build', file).strip())
     logging.debug("file source : %s", file_src )
     file_out = os.path.join(OUT_PATH, file)
     logging.debug("file out : %s", file_out )
@@ -239,7 +275,7 @@ for file in bundle.options('build'):
 # create the disk
 #
 if DISK_BUILD > 0:
-    create_disk_title = "%s,a1" % APP_NAME
+    create_disk_title = "%s,a1" % DIST_NAME_SHORT
     create_disk_name = "%s" % final_disk_name.lower()
     logging.debug(f"building disk {create_disk_name}")
     subprocess.run([C1541_PATH, "-format", 
@@ -290,15 +326,25 @@ if CAR_BUILD > 0:
     # create the dir
 
     file_count = len(bundle['files'])
-    name_len = len(APP_NAME)
-    name_fill = "$a0," * (16 - name_len)
+    dir_name = DIST_NAME_SHORT
+    name_remain = 16 - len(dir_name)
 
-    DIR_STR = f"""
+    if name_remain > 0:
+        fill_str = "$a0," * (name_remain - 1) + "$a0"
+        DIR_STR = f"""
         .byte "d"
         .byte 0
         .byte {file_count}, 0, 0
-        .text "{APP_NAME}"
-        .byte {name_fill[:-1]}
+        .text "{dir_name}"
+        .byte {fill_str}
+        .byte 0
+        """
+    else:
+        DIR_STR = f"""
+        .byte "d"
+        .byte 0
+        .byte {file_count}, 0, 0
+        .text "{dir_name}"
         .byte 0
         """
 
@@ -474,20 +520,30 @@ for file in bundle.options('files'):
         # if file_type != "seq":
         #     data = data[2:]
 
-        name_len = len(file_to)
-        name_fill = "$a0," * (16 - name_len)
+        file_name = file_to[:16]
+        name_len = len(file_name)
         data_len_zen = 0
         data_len_hi = len(data) // 256
         data_len_lo = abs((data_len_hi * 256) - len(data))
 
         data_type = file_type[0]
 
-        FILE_STR = f"""
+        if name_len < 16:
+            name_fill = "$a0," * (15 - name_len) + "$a0"
+            FILE_STR = f"""
             .byte "{data_type}"
             .byte 0
             .byte {data_len_lo}, {data_len_hi}, {data_len_zen}
-            .text "{file_to}"
-            .byte {name_fill[:-1]}
+            .text "{file_name}"
+            .byte {name_fill}
+            .byte 0
+            """
+        else:
+            FILE_STR = f"""
+            .byte "{data_type}"
+            .byte 0
+            .byte {data_len_lo}, {data_len_hi}, {data_len_zen}
+            .text "{file_name}"
             .byte 0
             """
 

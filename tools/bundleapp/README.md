@@ -109,6 +109,31 @@ When archive type 3 is specified, you may optionally include a checksum on the f
 - 0 = No (default)
 - 1 = Yes
 
+#### DEV_NAME
+This optional setting lets you create a test/dev build with a different folder name than `app_name`. This is useful when you want to install a test version alongside the release version in C64 OS (where the folder name determines the app name in the launcher).
+
+The value can contain `{key}` placeholders that are replaced with other settings from the `[bundle]` section.
+
+```ini
+[bundle]
+app_name=TextView+
+dev_name=tvp-{version}.{release}build{build}
+version=1.2
+release=beta
+build=33
+```
+
+When `dev_name` is set, running the tool without `--final` will use the resolved `dev_name` for the disk image name, CAR archive name, disk volume title, and CAR directory entry (the C64 OS app folder name).
+
+To produce the release build with the original `app_name`, pass the `--final` flag:
+```
+> python bundleapp.py --final
+```
+
+**Variable substitution:** Any `{key}` in `dev_name` is replaced by the value of the same key in the `[bundle]` section. Undefined keys are left as-is.
+
+**Note:** The disk volume title in C64 OS is limited to 16 characters. The CAR directory entry (folder name) is similarly limited. Keep the resolved name short.
+
 ### The `Build` Section
 This section can be used to build file using the TMPx compiler. In future version, alternative assemblers like 64TASS might be supported.
 
@@ -190,6 +215,19 @@ msg=seq,msg.txt,msg.t
 
 ## How To Run This Tool
 Once you have made copies of your bundleapp.ini and bundle.ini files, and have made appropriate changes, you are ready to run the tool.
+
+```
+> python bundleapp.py
+```
+
+By default (without `--final`), the tool uses `dev_name` if it is set in `bundle.ini`, producing a test/dev build with a different folder name.
+
+To create a **release build** using the original `app_name`, pass the `--final` flag:
+```
+> python bundleapp.py --final
+```
+
+This allows you to have both a release version and a test/dev version of your app installed side-by-side in C64 OS.
 
 ### The Easy Way
 If you are not too familiar with Python or changing the Python path, the easiest thing to do is simply copy the `bundleapp.py` program to your project folder, and then run the following from the command line.
