@@ -50,14 +50,13 @@ import logging
 import sys
 import subprocess
 import configparser
-import tempfile
 import datetime
 import binascii
 import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.1.8")
+print("Version 1.1.9")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -109,14 +108,9 @@ config.read(config_filename)
 
 logging.debug(config.sections)
 
-PETCAT_PATH = config.get("general", "petcat_path", fallback="")
-
 C1541_PATH = config.get("general", "c1541_path")
 
 TMPX_PATH = config.get("general", "tmpx_path")
-
-# a place to store throw away things
-TEMP_PATH = tempfile.TemporaryDirectory()
 
 print()
 
@@ -124,7 +118,6 @@ logging.info("CONFIGURATION SETTINGS")
 logging.info("======================")
 logging.info("C1541_PATH:   %s", C1541_PATH)
 logging.info("TMPX_PATH:    %s", TMPX_PATH)
-logging.info("TEMP_PATH:    %s", TEMP_PATH.name)
 
 #
 # find the bundle.ini in the project folder file

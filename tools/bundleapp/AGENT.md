@@ -6,12 +6,12 @@ Python 3 and C64/6510 assembly programming expert. Specializes in the `bundleapp
 ## Purpose
 `bundleapp` automates the build and bundling workflow for distributing C64 OS software. It orchestrates:
 - **TMPx** cross-assembler to compile 6502/6510 assembly sources
-- **petcat** (VICE) to convert ASCII↔PETSCII text
 - **c1541** (VICE) to create `.d64`/`.d71`/`.d81` disk images
+- Native Python PETSCII conversion for SEQ text files
 - Native CAR (C64 OS Archive) file generation (V2/V3)
 
 ## Key concepts
-- **`bundleapp.ini`** — global/user config locating external tools (petcat, c1541, tmpx), searched in `$HOME` then CWD
+- **`bundleapp.ini`** — global/user config locating external tools (c1541, tmpx), searched in `$HOME` then CWD
 - **`bundle.ini`** — per-project bundle descriptor with `[bundle]`, `[build]`, `[files]` sections
 - **`[bundle]`** — app metadata, disk type, CAR type/note/checksum, build flags
 - **`[build]`** — source→object mapping fed to TMPx assembler
