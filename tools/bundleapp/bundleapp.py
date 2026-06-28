@@ -56,7 +56,7 @@ import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.1.1")
+print("Version 1.1.2")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -294,34 +294,21 @@ if CAR_BUILD > 0:
 
     # create the header
 
-    HEADER_STR = f"""
-        .byte 0
-        .text "C64Archive"
-        .byte {CAR_TYPE:2d}
-        .byte {(CAR_YY % 100)+100:2d}
-        .byte {CAR_MM:2d}
-        .byte {CAR_DD:2d}
-        .byte {CAR_HH:2d}
-        .byte {CAR_MI:2d}
-        .text "{CAR_NOTE:30}"
-        .byte 0
-        """
+    logging.debug(f"C64Archive Magic: 0x00 C64Archive type={CAR_TYPE} date={(CAR_YY % 100)+100:02d}-{CAR_MM:02d}-{CAR_DD:02d} {CAR_HH:02d}:{CAR_MI:02d} note={CAR_NOTE}")
 
-    logging.debug(f"\n\n{HEADER_STR}\n")
+    header_data = b'\x00'
+    header_data += b'C64Archive'
+    header_data += CAR_TYPE.to_bytes(1, 'little')
+    header_data += ((CAR_YY % 100) + 100).to_bytes(1, 'little')
+    header_data += CAR_MM.to_bytes(1, 'little')
+    header_data += CAR_DD.to_bytes(1, 'little')
+    header_data += CAR_HH.to_bytes(1, 'little')
+    header_data += CAR_MI.to_bytes(1, 'little')
+    header_data += CAR_NOTE.ljust(30)[:30].encode('ascii')
+    header_data += b'\x00'
 
-    header_filename = os.path.join(TEMP_PATH.name, "header.a")
-    header_outfile = os.path.join(TEMP_PATH.name, "header.o")
-    header_src = open(header_filename, "w", encoding=None)
-    header_src.write(HEADER_STR)
-    header_src.seek(0)
-    header_src.close()
-    # subprocess.run([TMPX_PATH, header_filename, "-o", header_outfile], shell=True, check=False, stdout=subprocess.DEVNULL)
-    subprocess.run([TMPX_PATH, "-i", header_filename, "-o", header_outfile])
-    header = open(header_outfile, "rb", encoding=None)
-    data = header.read()
-    header.close()
-    logging.debug(f"\n\n{data}\n")
-    CAR_DATA = CAR_DATA + data[2:]
+    logging.debug(f"\n\n{header_data}\n")
+    CAR_DATA = CAR_DATA + header_data
 
     # create the dir
 
@@ -329,41 +316,16 @@ if CAR_BUILD > 0:
     dir_name = DIST_NAME_SHORT
     name_remain = 16 - len(dir_name)
 
+    dir_data = b'\x64\x00'
+    dir_data += file_count.to_bytes(2, 'little')
+    dir_data += b'\x00'
+    dir_data += dir_name.encode('ascii')[:16]
     if name_remain > 0:
-        fill_str = "$a0," * (name_remain - 1) + "$a0"
-        DIR_STR = f"""
-        .byte "d"
-        .byte 0
-        .byte {file_count}, 0, 0
-        .text "{dir_name}"
-        .byte {fill_str}
-        .byte 0
-        """
-    else:
-        DIR_STR = f"""
-        .byte "d"
-        .byte 0
-        .byte {file_count}, 0, 0
-        .text "{dir_name}"
-        .byte 0
-        """
+        dir_data += b'\xa0' * name_remain
+    dir_data += b'\x00'
 
-    logging.debug(f"\n\n{DIR_STR}\n")
-
-
-    dir_filename = os.path.join(TEMP_PATH.name, "dir.a")
-    dir_outfile = os.path.join(TEMP_PATH.name, "dir.o")
-    dir_src = open(dir_filename, "w", encoding=None)
-    dir_src.write(DIR_STR)
-    dir_src.seek(0)
-    dir_src.close()
-    # subprocess.run([TMPX_PATH, dir_filename, "-o", dir_outfile], shell=True, check=False, stdout=subprocess.DEVNULL)
-    subprocess.run([TMPX_PATH, dir_filename, "-o", dir_outfile])
-    header = open(dir_outfile, "rb", encoding=None)
-    data = header.read()
-    header.close()
-    logging.debug(f"\n\n{data}\n")
-    CAR_DATA = CAR_DATA + data[2:]
+    logging.debug(f"\n\n{dir_data}\n")
+    CAR_DATA = CAR_DATA + dir_data
 
 
 #
@@ -521,48 +483,22 @@ for file in bundle.options('files'):
         #     data = data[2:]
 
         file_name = file_to[:16]
-        name_len = len(file_name)
-        data_len_zen = 0
-        data_len_hi = len(data) // 256
-        data_len_lo = abs((data_len_hi * 256) - len(data))
+        data_len = len(data)
 
         data_type = file_type[0]
 
-        if name_len < 16:
-            name_fill = "$a0," * (15 - name_len) + "$a0"
-            FILE_STR = f"""
-            .byte "{data_type}"
-            .byte 0
-            .byte {data_len_lo}, {data_len_hi}, {data_len_zen}
-            .text "{file_name}"
-            .byte {name_fill}
-            .byte 0
-            """
-        else:
-            FILE_STR = f"""
-            .byte "{data_type}"
-            .byte 0
-            .byte {data_len_lo}, {data_len_hi}, {data_len_zen}
-            .text "{file_name}"
-            .byte 0
-            """
+        entry_data = data_type.encode('ascii')
+        entry_data += b'\x00'
+        entry_data += data_len.to_bytes(3, 'little')
+        entry_data += file_name.encode('ascii')[:16]
+        fill_needed = 16 - len(file_name)
+        if fill_needed > 0:
+            entry_data += b'\xa0' * fill_needed
+        entry_data += b'\x00'
+        entry_data += data
 
-        logging.debug(f"\n\n{FILE_STR}\n")
-
-        file_filename = os.path.join(TEMP_PATH.name, "file.a")
-        file_outfilename = os.path.join(TEMP_PATH.name, "file.o")
-        file_src = open(file_filename, "w", encoding=None)
-        file_src.write(FILE_STR)
-        file_src.seek(0)
-        file_src.close()
-        # subprocess.run([TMPX_PATH, file_filename, "-o", file_outfilename], shell=True, check=False, stdout=subprocess.DEVNULL)
-        subprocess.run([TMPX_PATH, file_filename, "-o", file_outfilename])
-        file_outfile = open(file_outfilename, "rb", encoding=None)
-        file_data = file_outfile.read()
-        file_outfile.close()
-        logging.debug(f"\n\n{file_data}\n")
-        CAR_DATA = CAR_DATA + file_data[2:]
-        CAR_DATA = CAR_DATA + data
+        logging.debug(f"\n\n{entry_data}\n")
+        CAR_DATA = CAR_DATA + entry_data
 
 # write out the car file
 
