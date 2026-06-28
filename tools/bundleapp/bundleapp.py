@@ -56,7 +56,7 @@ import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.1.5")
+print("Version 1.1.6")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -304,6 +304,8 @@ def to_petscii(text):
     for b in text.encode('ascii'):
         if 0x41 <= b <= 0x5A:
             result.append(b | 0x80)
+        elif 0x61 <= b <= 0x7A:
+            result.append(b & 0x5F)
         else:
             result.append(b)
     return bytes(result)
