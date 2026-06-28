@@ -56,7 +56,7 @@ import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.1.3")
+print("Version 1.1.4")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -172,6 +172,17 @@ if FINAL_BUILD:
 else:
     if len(DEV_NAME) > 0:
         bundle_vars = dict(bundle.items("bundle"))
+        # auto-manage .build counter for {build} template variable
+        build_file = os.path.join(os.getcwd(), ".build")
+        if os.path.exists(build_file):
+            with open(build_file, "r") as f:
+                build_number = int(f.read().strip()) + 1
+        else:
+            build_number = 1
+        with open(build_file, "w") as f:
+            f.write(str(build_number))
+        if "build" not in bundle_vars:
+            bundle_vars["build"] = str(build_number)
         DIST_NAME = resolve_template(DEV_NAME, bundle_vars)
     else:
         DIST_NAME = APP_NAME
