@@ -57,7 +57,7 @@ import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.1.7")
+print("Version 1.1.8")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -353,7 +353,7 @@ if CAR_BUILD > 0:
     dir_name = DIST_NAME_SHORT
     name_remain = 16 - len(dir_name)
 
-    dir_data = b'\x64\x00'
+    dir_data = to_petscii('d') + b'\x00'
     dir_data += file_count.to_bytes(2, 'little')
     dir_data += b'\x00'
     dir_data += to_petscii(dir_name)[:16]
