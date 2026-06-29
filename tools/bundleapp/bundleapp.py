@@ -50,13 +50,14 @@ import logging
 import sys
 import subprocess
 import configparser
+import tempfile
 import datetime
 import binascii
 import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.2.0")
+print("Version 1.2.2")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -190,7 +191,8 @@ bundle_vars["app_name"] = APP_NAME
 # truncated to 16 chars for C64 fields (disk title, CAR directory entry)
 DIST_NAME_SHORT = DIST_NAME[:16]
 
-# generate dynamic text files from [bundle] templates
+# generate dynamic text content from [bundle] templates (in-memory PETSCII)
+gen_content = {}
 for file_key in ("about", "msg"):
     dev_setting = f"dev_{file_key}"
     rel_setting = f"app_{file_key}"
@@ -198,14 +200,12 @@ for file_key in ("about", "msg"):
         template = bundle.get("bundle", rel_setting)
         content = template.replace("\\n", "\n")
         content = resolve_template(content, bundle_vars)
-        with open(f"{file_key}.txt", "w") as f:
-            f.write(content)
+        gen_content[file_key] = petscii_bytes(content)
     elif not FINAL_BUILD and bundle.has_option("bundle", dev_setting):
         template = bundle.get("bundle", dev_setting)
         content = template.replace("\\n", "\n")
         content = resolve_template(content, bundle_vars)
-        with open(f"{file_key}.txt", "w") as f:
-            f.write(content)
+        gen_content[file_key] = petscii_bytes(content)
 
 CAR_YY = now.year
 CAR_MM = now.month
@@ -529,6 +529,27 @@ for file in bundle.options('files'):
         entry_data += data
 
         logging.debug(f"\n\n{entry_data}\n")
+        CAR_DATA = CAR_DATA + entry_data
+
+# inject generated content (about, msg) into disk and CAR
+for file_key, data in gen_content.items():
+    file_name = f"{file_key}.t"
+    if DISK_BUILD > 0:
+        tmp = tempfile.NamedTemporaryFile(delete=False)
+        tmp.write(data)
+        tmp.close()
+        subprocess.run([C1541_PATH, "-attach", create_disk_name, "-write", tmp.name, f"{file_name},s"])
+        os.unlink(tmp.name)
+    if CAR_BUILD > 0:
+        entry_data = to_petscii('s')
+        entry_data += b'\x00'
+        entry_data += len(data).to_bytes(3, 'little')
+        entry_data += to_petscii(file_name)[:16]
+        fill_needed = 16 - len(file_name)
+        if fill_needed > 0:
+            entry_data += b'\xa0' * fill_needed
+        entry_data += b'\x00'
+        entry_data += data
         CAR_DATA = CAR_DATA + entry_data
 
 # write out the car file
