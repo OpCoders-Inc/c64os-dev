@@ -57,7 +57,7 @@ import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.2.4")
+print("Version 1.2.5")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -367,7 +367,7 @@ if CAR_BUILD > 0:
 
     # create the dir
 
-    file_count = len(bundle['files'])
+    file_count = len(bundle['files']) + len(gen_content)
     dir_name = DIST_NAME_SHORT
     name_remain = 16 - len(dir_name)
 
