@@ -224,12 +224,12 @@ for file_key in ("about", "msg"):
     rel_setting = f"app_{file_key}"
     if FINAL_BUILD and bundle.has_option("bundle", rel_setting):
         template = bundle.get("bundle", rel_setting)
-        content = template.replace("\\n", "\n")
+        content = template.replace("\\s", " ").replace("\\n", "\n")
         content = resolve_template(content, bundle_vars)
         gen_content[file_key] = petscii_bytes(content.encode('ascii'))
     elif not FINAL_BUILD and bundle.has_option("bundle", dev_setting):
         template = bundle.get("bundle", dev_setting)
-        content = template.replace("\\n", "\n")
+        content = template.replace("\\s", " ").replace("\\n", "\n")
         content = resolve_template(content, bundle_vars)
         gen_content[file_key] = petscii_bytes(content.encode('ascii'))
 
