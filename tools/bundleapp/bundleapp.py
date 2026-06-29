@@ -57,7 +57,7 @@ import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.2.2")
+print("Version 1.2.3")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -191,6 +191,32 @@ bundle_vars["app_name"] = APP_NAME
 # truncated to 16 chars for C64 fields (disk title, CAR directory entry)
 DIST_NAME_SHORT = DIST_NAME[:16]
 
+def to_petscii(text):
+    result = bytearray()
+    for b in text.encode('ascii'):
+        if 0x41 <= b <= 0x5A:
+            result.append(b | 0x80)
+        elif 0x61 <= b <= 0x7A:
+            result.append(b & 0x5F)
+        else:
+            result.append(b)
+    return bytes(result)
+
+def petscii_bytes(data):
+    result = bytearray()
+    for b in data:
+        if 0x41 <= b <= 0x5A:
+            result.append(b | 0x80)
+        elif 0x61 <= b <= 0x7A:
+            result.append(b & 0x5F)
+        elif b == 0x0A:
+            result.append(0x0D)
+        elif b == 0x5F:
+            result.append(0xA4)
+        else:
+            result.append(b)
+    return bytes(result)
+
 # generate dynamic text content from [bundle] templates (in-memory PETSCII)
 gen_content = {}
 for file_key in ("about", "msg"):
@@ -313,32 +339,6 @@ if DISK_BUILD > 0:
         create_disk_name])
     print(f"Distribution Disk [{final_disk_name}] created.")
     print()
-
-def to_petscii(text):
-    result = bytearray()
-    for b in text.encode('ascii'):
-        if 0x41 <= b <= 0x5A:
-            result.append(b | 0x80)
-        elif 0x61 <= b <= 0x7A:
-            result.append(b & 0x5F)
-        else:
-            result.append(b)
-    return bytes(result)
-
-def petscii_bytes(data):
-    result = bytearray()
-    for b in data:
-        if 0x41 <= b <= 0x5A:
-            result.append(b | 0x80)
-        elif 0x61 <= b <= 0x7A:
-            result.append(b & 0x5F)
-        elif b == 0x0A:
-            result.append(0x0D)
-        elif b == 0x5F:
-            result.append(0xA4)
-        else:
-            result.append(b)
-    return bytes(result)
 
 CAR_DATA = b''
 
