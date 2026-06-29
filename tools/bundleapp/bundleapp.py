@@ -57,7 +57,7 @@ import re
 
 print()
 print("C64 OS Application Bundle Tool (bundleapp.py)")
-print("Version 1.2.3")
+print("Version 1.2.4")
 print()
 
 LOGGING_LEVEL = logging.WARN
@@ -226,12 +226,12 @@ for file_key in ("about", "msg"):
         template = bundle.get("bundle", rel_setting)
         content = template.replace("\\n", "\n")
         content = resolve_template(content, bundle_vars)
-        gen_content[file_key] = petscii_bytes(content)
+        gen_content[file_key] = petscii_bytes(content.encode('ascii'))
     elif not FINAL_BUILD and bundle.has_option("bundle", dev_setting):
         template = bundle.get("bundle", dev_setting)
         content = template.replace("\\n", "\n")
         content = resolve_template(content, bundle_vars)
-        gen_content[file_key] = petscii_bytes(content)
+        gen_content[file_key] = petscii_bytes(content.encode('ascii'))
 
 CAR_YY = now.year
 CAR_MM = now.month
