@@ -166,7 +166,7 @@ bundle_vars["date"] = date_str
 
 # auto-manage .build counter for {build} template variable
 build_file = os.path.join(os.getcwd(), ".build")
-build_number = 1
+build_number = 0
 if os.path.exists(build_file):
     with open(build_file, "r") as f:
         build_number = int(f.read().strip())
