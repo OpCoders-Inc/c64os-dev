@@ -268,6 +268,10 @@ CAR_CHECKSUM = 1
 if bundle.has_option("bundle", "car_checksum"):
     CAR_CHECKSUM = int(bundle.get("bundle", "car_checksum"))
 
+LISTING = 0
+if bundle.has_option("bundle", "listing"):
+    LISTING = int(bundle.get("bundle", "listing"))
+
 SRC_PATH = ""
 if bundle.has_option("bundle", "src_path"):
     SRC_PATH = bundle.get("bundle", "src_path")
@@ -323,7 +327,11 @@ for file in bundle.options('build'):
     file_out = os.path.join(OUT_PATH, file)
     logging.debug("file out : %s", file_out )
     # subprocess.run([TMPX_PATH, file_src, "-o", file], shell=True, check=False, stdout=subprocess.DEVNULL)
-    process = subprocess.run([TMPX_PATH, "-i", file_src, "-o", file_out])
+    tmpx_args = [TMPX_PATH, "-i", file_src, "-o", file_out]
+    if LISTING:
+        lst_out = os.path.splitext(file_out)[0] + ".lst"
+        tmpx_args += ["-l", lst_out]
+    process = subprocess.run(tmpx_args)
     print(process)
 
 #
