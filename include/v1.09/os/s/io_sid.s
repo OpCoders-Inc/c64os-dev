@@ -1,0 +1,10 @@
+voice1          = $0000
+voice2          = $0007
+voice3          = $000e
+sid_freq        = $0000
+sid_puls        = $0002
+sid_ctrl        = $0004
+sid_adsr        = $0005
+sid_filt        = $0015
+sid_resf        = $0017
+sid_vlmd        = $0018

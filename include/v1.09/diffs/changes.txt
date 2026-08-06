@@ -1,0 +1,393 @@
+Directory Comparison Report
+Generated: 2026-08-05 22:28:50
+Old Directory: ../../include/v1.08/os
+New Directory: ../../include/v1.09/os
+==================================================
+
+Summary:
+  Added Files: 10
+  Removed Files: 0
+  Modified Files: 11
+  Unchanged Files: 272
+
+Added Files:
+  - h/aswitch.h
+  - h/aswitch.t
+  - s/io_sid.s
+  - s/io_sid.t
+  - s/memory.t
+  - s/menu.t
+  - tk/h/tkprogress.h
+  - tk/h/tkprogress.t
+  - tk/s/tkprogress.s
+  - tk/s/tkprogress.t
+
+Modified Files:
+  - h/cnp.t (9 changes)
+  - h/memory.h (1 changes)
+  - h/memory.t (3 changes)
+  - h/network.t (22 changes)
+  - s/memory.s (30 changes)
+  - s/menu.s (37 changes)
+  - s/service.s (3 changes)
+  - s/service.t (4 changes)
+  - s/switcher.s (1 changes)
+  - s/switcher.t (4 changes)
+  - s/type.s (1 changes)
+
+Unchanged Files:
+  - h/calendar.h
+  - h/calendar.t
+  - h/checksum.h
+  - h/checksum.t
+  - h/cmp.h
+  - h/cmp.t
+  - h/cnp.h
+  - h/datetime.h
+  - h/datetime.t
+  - h/dir.h
+  - h/dir.t
+  - h/dt.img.h
+  - h/dt.img.t
+  - h/fcopy.h
+  - h/fcopy.t
+  - h/file.h
+  - h/file.t
+  - h/float.h
+  - h/float.t
+  - h/flock.h
+  - h/flock.t
+  - h/fname.h
+  - h/fname.t
+  - h/fpattern.h
+  - h/fpattern.t
+  - h/gfx.h
+  - h/gfx.t
+  - h/input.h
+  - h/input.t
+  - h/io_i2c.h
+  - h/io_i2c.t
+  - h/joy.h
+  - h/joy.t
+  - h/kbd.h
+  - h/kbd.t
+  - h/math.h
+  - h/math.t
+  - h/menu.h
+  - h/menu.t
+  - h/modules.h
+  - h/network.h
+  - h/nhd.h
+  - h/nhd.t
+  - h/path.h
+  - h/path.t
+  - h/places.h
+  - h/places.t
+  - h/ptr.h
+  - h/ptr.t
+  - h/qsort.h
+  - h/qsort.t
+  - h/rtc.h
+  - h/rtc.t
+  - h/screen.h
+  - h/screen.t
+  - h/service.h
+  - h/service.t
+  - h/sidplay.h
+  - h/sidplay.t
+  - h/string.h
+  - h/string.t
+  - h/switcher.h
+  - h/switcher.t
+  - h/timers.h
+  - h/timers.t
+  - h/toolkit.h
+  - h/toolkit.t
+  - h/util.frame.h
+  - h/util.frame.t
+  - h/wrap.h
+  - h/wrap.t
+  - s/app.s
+  - s/app.t
+  - s/args.s
+  - s/basic.s
+  - s/branch16.s
+  - s/c.s
+  - s/c64archive.s
+  - s/c64archive.t
+  - s/checksum.s
+  - s/checksum.t
+  - s/cmp.s
+  - s/cmp.t
+  - s/cnp.s
+  - s/cnp.t
+  - s/colors.s
+  - s/colors.t
+  - s/compare16.s
+  - s/ctxcolors.s
+  - s/ctxcolors.t
+  - s/ctxdraw.s
+  - s/ctxdraw.t
+  - s/dir.s
+  - s/dir.t
+  - s/drawbox.s
+  - s/dt.img.s
+  - s/dt.img.t
+  - s/exceptions.s
+  - s/file.s
+  - s/file.t
+  - s/filejobs.s
+  - s/filejobs.t
+  - s/fileop.s
+  - s/fileop.t
+  - s/float.s
+  - s/gfx.s
+  - s/gfx.t
+  - s/icons.s
+  - s/icons.t
+  - s/input.s
+  - s/input.t
+  - s/inttohex.s
+  - s/io.s
+  - s/io.t
+  - s/io_i2c.s
+  - s/io_i2c.t
+  - s/io_iec.s
+  - s/io_iec.t
+  - s/io_joy.s
+  - s/io_kbd.s
+  - s/io_mmc64.s
+  - s/io_mmc64.t
+  - s/io_ptr.s
+  - s/io_rec.s
+  - s/io_rec.t
+  - s/io_rs232.s
+  - s/io_rs232.t
+  - s/io_scpu.s
+  - s/io_scpu.t
+  - s/io_swiftlink.s
+  - s/io_swiftlink.t
+  - s/io_tc64.s
+  - s/io_tc64.t
+  - s/io_u64t.s
+  - s/io_u64t.t
+  - s/io_uaudio.s
+  - s/io_uci.s
+  - s/ker/file.s
+  - s/ker/iec.s
+  - s/ker/io.s
+  - s/ker/key.s
+  - s/ker/mem.s
+  - s/ker/scr.s
+  - s/ker/tim.s
+  - s/math.s
+  - s/mediactrl.s
+  - s/mediactrl.t
+  - s/missing.3icon.t
+  - s/network.s
+  - s/network.t
+  - s/nhd.s
+  - s/nhd.t
+  - s/openjobs.s
+  - s/openjobs.t
+  - s/pointer.s
+  - s/rtc.s
+  - s/rtc.t
+  - s/savejobs.s
+  - s/savejobs.t
+  - s/screen.s
+  - s/screen.t
+  - s/sidplay.s
+  - s/sidplay.t
+  - s/string.s
+  - s/switch.s
+  - s/t/3dk.t
+  - s/t/a.t
+  - s/t/art.t
+  - s/t/car.t
+  - s/t/cgx.s
+  - s/t/cgx.t
+  - s/t/chs.t
+  - s/t/cwg.t
+  - s/t/d.t
+  - s/t/d41.t
+  - s/t/d64.t
+  - s/t/d71.t
+  - s/t/d81.t
+  - s/t/dat.t
+  - s/t/dd.t
+  - s/t/ddl.t
+  - s/t/dnp.t
+  - s/t/ech.t
+  - s/t/gz.t
+  - s/t/h.t
+  - s/t/hbm.t
+  - s/t/hbw.t
+  - s/t/hed.t
+  - s/t/hs.t
+  - s/t/i.t
+  - s/t/joy.t
+  - s/t/kbd.t
+  - s/t/kla.t
+  - s/t/koa.t
+  - s/t/l.t
+  - s/t/m.t
+  - s/t/nhd.t
+  - s/t/o.t
+  - s/t/pa.t
+  - s/t/pbot.t
+  - s/t/pet.s
+  - s/t/ptr.t
+  - s/t/r.t
+  - s/t/rtc.t
+  - s/t/s.t
+  - s/t/sid.t
+  - s/t/t.t
+  - s/t/txt.t
+  - s/t/xl.t
+  - s/t/zip.t
+  - s/timers.s
+  - s/timers.t
+  - s/toolkit.s
+  - s/toolkit.t
+  - s/util.frame.s
+  - s/util.frame.t
+  - s/utilities.s
+  - s/wrap.s
+  - s/wrap.t
+  - tk/h/classes.h
+  - tk/h/tkbutton.h
+  - tk/h/tkctrl.h
+  - tk/h/tkctrl.t
+  - tk/h/tkdatepick.h
+  - tk/h/tkdatepick.t
+  - tk/h/tkfilemeta.h
+  - tk/h/tklabel.h
+  - tk/h/tklist.h
+  - tk/h/tkobj.h
+  - tk/h/tkplaces.h
+  - tk/h/tksbar.h
+  - tk/h/tkscroll.h
+  - tk/h/tkscroll.t
+  - tk/h/tksplit.h
+  - tk/h/tktabs.h
+  - tk/h/tktext.h
+  - tk/h/tktimepick.h
+  - tk/h/tktimepick.t
+  - tk/h/tktimer.h
+  - tk/h/tktimer.t
+  - tk/h/tkview.h
+  - tk/h/tkview.t
+  - tk/s/tkbutton.s
+  - tk/s/tkbutton.t
+  - tk/s/tkctrl.s
+  - tk/s/tkctrl.t
+  - tk/s/tkdatepick.s
+  - tk/s/tkfilemeta.s
+  - tk/s/tkicon.s
+  - tk/s/tkinput.s
+  - tk/s/tkinput.t
+  - tk/s/tklabel.s
+  - tk/s/tklist.s
+  - tk/s/tkobj.s
+  - tk/s/tkpbar.s
+  - tk/s/tkplaces.s
+  - tk/s/tkramu.s
+  - tk/s/tkreuu.s
+  - tk/s/tksbar.s
+  - tk/s/tkscroll.s
+  - tk/s/tksizes.s
+  - tk/s/tksplit.s
+  - tk/s/tktable.s
+  - tk/s/tktabs.s
+  - tk/s/tktabs.t
+  - tk/s/tktarea.s
+  - tk/s/tktcols.s
+  - tk/s/tktext.s
+  - tk/s/tktimepick.s
+  - tk/s/tktimer.s
+  - tk/s/tkview.s
+  - tk/s/tkview.t
+
+Detailed Differences:
+
+Differences in h/cnp.t:
+--------------------------------------------------
+--- old/h/cnp.t
++++ new/h/cnp.t
+@@ -1,4 +1,5 @@
+ ;----[ cnp.t for cnp.lib.r ]------------+;Commodore Network Protocol library ;link_   = $00 ;  Initializes cnp.lib ;unlink  = $03@@ -10,6 +11,9 @@
+ ;  of an open socket. Send auth. ;  Assigns itself as nhd data handler. ;  RegPtr -> CNP Auth Struct+;  C <- Set on Error+;    A <- 0 = ns_cpup already set+;    A <- 1 = No Carrier sessend_ = $0c ;  End CNP server session ;  Pauses the keep alive timer.@@ -19,25 +23,30 @@
+ opencnps_ = $0f ;  Open CNP Socket ;  RegPtr -> CNP Socket Struct+;  C <- Set = No free socket slot closcnps_ = $12 ;  Close CNP Socket ;  RegPtr -> CNP Socket Struct+;  C <- Clr = close packet sent cnpsout_ = $15 ;  Prepare CNP Socket for output ;  Equiv. of chkout in KERNAL ROM ;  RegPtr -> CNP Socket Struct+;  Raises exceptions. cnpsput_ = $18 ;  Output a byte to CNP Socket ;  Equiv. of chrout in KERNAL ROM ;  A -> byte to send ;  C <- Set = can take more data ;  C <- Clr = current packet full+;  Raises exceptions. cnpsclr_ = $1b ;  Clear to send packet. ;  The socket is still open, but no more ;  data will be written at this time. ;  Whatever is in the current packet can ;  be sent immediately.+;  Raises exceptions. cnpsin_  = $1e ;  Prepare CNP Socket for input ;  Equiv. of chkin in KERNAL ROM
+
+Differences in h/memory.h:
+--------------------------------------------------
+--- old/h/memory.h
++++ new/h/memory.h
+@@ -10,6 +10,7 @@
+ reuconf_        = $0018 pgfetch_        = $001b pgstash_        = $001e+freetemp_       = $0021 realloc_        = $0003 bkfree_         = $0006 bkalloc_        = $0009
+
+Differences in h/memory.t:
+--------------------------------------------------
+--- old/h/memory.t
++++ new/h/memory.t
+@@ -45,6 +45,9 @@
+ ;  RegPtr -> C64 Memory Buffer to stash ;  C      <- Set on failure to stash ;  C      <- Clr on successful stash+freetemp_ = $21+;  Mark all pages allocated as maptemp+;  as mapfree. Affects A, X and Y. ;--------------------------------------- ;memory.lib routines (not in KERNAL) realloc_ = $03
+
+Differences in h/network.t:
+--------------------------------------------------
+--- old/h/network.t
++++ new/h/network.t
+@@ -1,4 +1,19 @@
+ ;----[ network.t for network.lib.r ]----+;Network Control Library+;-----------------------+;+;- Loads cnp.lib (C= Network Protocol)+;- Loads driver settings+;- Loads nhd.* driver+;- Configs network.lib as command+;  mode data handler for driver.+;+;- Tells driver how to adjust baud rate+;- Tells driver which wifi to join+;- Tells driver to open a socket to+;  CNP server.+;- Passes online mode data handling to+;  cnp.lib, with auth credentials. ;link_   = $00 ;  Initializes network.lib ;  Loads cnp.lib@@ -30,16 +45,18 @@
+ ; ;  C <- Set on error ;  A <- Error code+;    0 = Carrier Detected+;    1 = Baud Match Test Failed ; ;  Driver settings must be populated. ;  Either by: loadset or Network Utility joinwifi_ = $12 ;  Join or Read Wifi Hotspot+;  RegPtr -> Next stage callback ;  C -> Clr = Read SSID ;  C <- Always clear ; ;  C -> Set = Join Hotspot-;  RegPtr -> Success callback ;  C <- Set on error ;    A <- 0 = Carrier Detect ;    A <- 1 = Not Configured@@ -53,10 +70,9 @@
+ ;                 (with SSID in it) cnpsrvr_ = $15 ;  Join/Part CNP server+;  RegPtr -> Next stage callback ;  C -> Set = Part from CNP Server-; ;  C -> Clr = Join CNP Server-;  RegPtr -> Success callback ;  C <- Set on error ;    A <- 0 = Carrier Detect ;    A <- 1 = Not Configured
+
+Differences in s/memory.s:
+--------------------------------------------------
+--- old/s/memory.s
++++ new/s/memory.s
+@@ -1,30 +1,16 @@
+-;----[ memory.s ]------------------------;Memory Mapping Routines-seeram   = $02a7-seeioker = $02ac-;Other bits can be used in the map for-;taken to mean that the OS allocated-;them, or that they are in the REU, etc.-memmap   = $0800 ;$08a0 (pages $09->$a0)-mapfree  = $00-mapsys   = $01  ;Allocated by the system-maputil  = $02  ;Allocated by the util-mapapp   = $ff  ;Allocated by the app-;This is used so we don't have to pass-;the default memory pool into every call-mempool  = $0380 ;Memory Pool Start Page-;Pages are allocated from the top down-;Page number of first page is configured-;and stored at mappgfst. But mappglst is-;static, it's always page #$09.-mappgfst = $08a1 ;First Page (variable)-mappglst = $09   ;Last  Page (constant)-;Memory Display Mode-memdisp  = $08cc ;0=Pages,1=Kilobytes-;Struct-mhfree   = 0 ;1 byte-mhlen    = 1 ;2 bytes-mhsize   = 3-;Malloc Header-;For realloc-memsize  = $61 ;$62+seeram          = $02a7+seeioker        = $02ac+memmap          = $0800+mapfree         = $0000+mapsys          = $0001+maputil         = $0002+mapapp          = $00ff+maptemp         = $007f+mempool         = $0380+mappgfst        = $08a1+mappglst        = $0009+memdisp         = $08cc+mhfree          = $0000+mhlen           = $0001+mhsize          = $0003+memsize         = $0061
+
+Differences in s/menu.s:
+--------------------------------------------------
+--- old/s/menu.s
++++ new/s/menu.s
+@@ -1,37 +1,30 @@
+-;----[ menu.s ]--------------------------mnuicon  = $f2 ;Hamburger menu, rvs'd-mnulayer = 3   ;Highest of 4-tptr     = $50 ;Text/Temp Pointer-lptr     = $52 ;LastSib/Line Pointer-cptr     = $26 ;ColorLine Pointer-rootpg   = $0382 ;Menu Structure Root Pg-defpg    = $0383 ;Menu Def's Root Page-defpgcnt = $0384 ;Menu Def's Page Count-umdefpg  = $0385 ;Util Def's Root Page-umdefpgc = $0386 ;Util Def's Page Count-timutil  = $08cd ;17 bytes-memutil  = $08de ;17 bytes-statmode = $08ef-;Status Modes-stat_drv = 0 ;Drive Status-stat_app = 1 ;Application Custom-stat_fil = 2 ;Path to Open File-;struct-nextptr  = 0 ;2 bytes-childptr = 2 ;2 bytes-titleptr = 4 ;2 bytes-codeptr  = 6 ;2 bytes-entrysize = 8-;menuentry-;struct-awidth   = 0 ;1 byte-petvalue = 1 ;1 byte-actcode  = 2 ;1 byte-modkeys  = 3 ;1 byte-actionsize = 4-;actioncode-;struct-hwidth   = 0  ;1 byte-hopen    = 1  ;1 byte-headersize = 2-;headercode+prevapp         = $dbe8+mnuicon         = $00f2+mnulayer        = $0003+tptr            = $0050+lptr            = $0052+cptr            = $0026+rootpg          = $0382+defpg           = $0383+defpgcnt        = $0384+umdefpg         = $0385+umdefpgc        = $0386+timutil         = $08cd+memutil         = $08de+statmode        = $08ef+stat_drv        = $0000+stat_app        = $0001+stat_fil        = $0002+nextptr         = $0000+childptr        = $0002+titleptr        = $0004+codeptr         = $0006+entrysize       = $0008+awidth          = $0000+petvalue        = $0001+actcode         = $0002+modkeys         = $0003+actionsize      = $0004+hwidth          = $0000+hopen           = $0001+headersize      = $0002
+
+Differences in s/service.s:
+--------------------------------------------------
+--- old/s/service.s
++++ new/s/service.s
+@@ -50,3 +50,6 @@
+ liblocs         = $08c0 slnoinit        = $0080 slunload        = $0080+auliblo         = $00d3+aulibhi         = $00d4+aulibinf        = $00d5
+
+Differences in s/service.t:
+--------------------------------------------------
+--- old/s/service.t
++++ new/s/service.t
+@@ -74,3 +74,7 @@
+ slnoinit = %10000000 ;Skip Auto Init ;unldlib: slunload = %10000000 ;Make Unload Call+;Auto unload library+auliblo  = $d3+aulibhi  = $d4+aulibinf = $d5
+
+Differences in s/switcher.s:
+--------------------------------------------------
+--- old/s/switcher.s
++++ new/s/switcher.s
+@@ -12,5 +12,5 @@
+ fas_stat        = $0011 fss_safe        = $0000 fss_usaf        = $0001-opnfrefreu      = $2000+opnmptrreu      = $2000 rtcdrvrreu      = $2100
+
+Differences in s/switcher.t:
+--------------------------------------------------
+--- old/s/switcher.t
++++ new/s/switcher.t
+@@ -52,11 +52,12 @@
+ ;FAS Slot States fss_safe = $00 ;Saved and quittable fss_usaf = $01 ;Unsaved content!-;Open File Reference placeholder-opnfrefreu = $2000 ;-> $20ff (1 Page)+;Open File Reference or Memory Page+opnmptrreu = $2000 ;-> $20ff (1 Page) ;Switcher passes an open file reference+;or page pointed to be a mc_mptr message ;between banks by first copying it to-;the REU workbank at opnfrefreu.+;the REU workbank at opnmptrreu. ;RTC Driver Cache rtcdrvrreu = $2100 ;-> $23ff (3 Pages) ;The booter loads the RTC driver and
+
+Differences in s/type.s:
+--------------------------------------------------
+--- old/s/type.s
++++ new/s/type.s
+@@ -24,6 +24,7 @@
+ ct_base64 = 2 ct_gzip  = 3 ct_uuenc = 4+ct_bin   = 5 ct_audio = 2 ct_raw   = 0 ct_aiff  = 1
