@@ -16,9 +16,8 @@
     Note
     ----
     For licensing reasons, the utility petcat.exe is not
-    included in this repository. Use the configuration
-    file to specify the path to the location of that
-    program on your computer.
+    included in this repository. Specify its location with
+    the --petcat option, or make sure it is on your PATH.
 
     Meta
     ----
@@ -28,17 +27,22 @@
 
 """
 
-import pathlib
-import os
+import argparse
 import logging
-import sys
-import subprocess
-import configparser
-import tempfile
+import os
+import pathlib
 import shutil
+import subprocess
+import sys
+import tempfile
+
+SUFFIX = "*.*"
+SKIP_BYTES = 26
+CONVERT_EXTS = {'.s00'}
+OUTPUT_EXTS = {'.h', '.s', '.t'}
 
 def lowercase_rename(folder):
-    print(folder)
+    logging.debug(folder)
     # Rename all subdirectories and files, starting from the bottom
     for root, dirs, files in os.walk(folder, topdown=False):
         # Rename directories
@@ -54,170 +58,157 @@ def lowercase_rename(folder):
             if old_path != new_path:
                 os.rename(old_path, new_path)
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Convert raw C64 OS headers into ASCII form for cross-platform development with TMPx"
+    )
+    parser.add_argument("-s", "--source", default="os_raw",
+                        help="directory containing the raw C64 OS headers (default: ./os_raw)")
+    parser.add_argument("-d", "--dest", default="os",
+                        help="destination directory for the converted headers (default: ./os)")
+    parser.add_argument("--petcat", default=None,
+                        help="path to the petcat utility; if omitted it is searched on PATH")
+    return parser.parse_args()
 
+def find_petcat(petcat_path):
+    if petcat_path:
+        petcat = pathlib.Path(petcat_path).absolute()
+    else:
+        found = shutil.which("petcat")
+        petcat = pathlib.Path(found) if found else None
+    if not petcat or not os.path.exists(petcat):
+        logging.error("petcat not found -- specify its location with --petcat or add it to PATH.")
+        sys.exit(1)
+    return petcat
 
-logging.basicConfig(level=logging.DEBUG)
+def main():
+    logging.basicConfig(level=logging.DEBUG)
 
-HOME_PATH = pathlib.Path.home()
-logging.debug(HOME_PATH)
+    args = parse_args()
 
-config_filename = os.path.join(HOME_PATH, "headconv.ini")
-logging.info("checking for configuration file %s", config_filename)
+    source_path = pathlib.Path(args.source)
+    dest_path = pathlib.Path(args.dest)
 
-if not os.path.exists(config_filename):
-    config_filename = os.path.join(pathlib.Path(os.getcwd()).absolute(), "headconv.ini")
-    logging.info("checking for configuration file %s", config_filename)
-
-    if not os.path.exists(config_filename):
-        logging.error("configuration file not found -- consult README.md and try again.")
+    if not source_path.exists() or not source_path.is_dir():
+        logging.error("source directory not found: %s", source_path)
         sys.exit(1)
 
-logging.info("opening configuration file %s", config_filename)
-config = configparser.ConfigParser()
-config.read(config_filename)
+    petcat = find_petcat(args.petcat)
 
-logging.debug(config.sections)
-# the final destination for converted files
-OS_PATH = config.get("general", "os_path")
-# the location of the raw files from c64os
-OS_RAW_PATH = config.get("general", "os_raw_path")
-# the location of the petcat utility from vice
-PETCAT_PATH = config.get("general", "petcat_path")
+    temp_path = tempfile.TemporaryDirectory()
 
-TEMP_PATH = tempfile.TemporaryDirectory()
+    logging.info("SETTINGS")
+    logging.info("========")
+    logging.info("SOURCE_PATH:  %s", source_path)
+    logging.info("DEST_PATH:    %s", dest_path)
+    logging.info("PETCAT_PATH:  %s", petcat)
+    logging.info("TEMP_PATH:    %s", temp_path.name)
 
-logging.info("CONFIGURATION SETTINGS")
-logging.info("======================")
-logging.info("OS_PATH:      %s", OS_PATH)
-logging.info("OS_RAW_PATH:  %s", OS_RAW_PATH)
-logging.info("PATCAT_PATH:  %s", PETCAT_PATH)
-logging.info("TEMP_PATH:    %s", TEMP_PATH.name)
+    #
+    # copy raw file to a temp location for transforming
+    #
 
-#
-# copy raw file to a temp location for transforming
-#
+    w_raw_path = source_path
+    w_temp_path = pathlib.Path(temp_path.name)
 
-SUFFIX = "*.*"
+    logging.debug(w_raw_path)
+    logging.debug(w_raw_path.rglob(SUFFIX))
 
-w_raw_path = pathlib.Path(OS_RAW_PATH)
-w_temp_path = pathlib.Path(TEMP_PATH.name)
+    for source in w_raw_path.rglob(SUFFIX):
+        subpath = source.relative_to(w_raw_path)
+        destination = w_temp_path.joinpath(subpath)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
 
-logging.debug(w_raw_path)
-logging.debug(w_raw_path.rglob(SUFFIX))
+    # convert all files to lowercase
 
-for source in w_raw_path.rglob(SUFFIX):
-    subpath = source.relative_to(w_raw_path)
-    destination = w_temp_path.joinpath(subpath)
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(source, destination)
+    lowercase_rename(w_temp_path)
 
-# convert all files to lowercase
+    #
+    # iterate thru all files and convery them from
+    # petscii to ascii using the petcat utility
+    # from the vice emulator distribution
+    #
 
-lowercase_rename(w_temp_path)
+    for filepath in w_temp_path.glob(r'**/*'):
 
-# folder = w_temp_path
-# for path in pathlib.Path(folder).glob("*.*"):
-#     path2 = path.parent.joinpath(str(path.name).lower())
-#     shutil.move(path, path2)   
-
-# for file in os.listdir(w_temp_path):
-#     os.rename(os.path.join(w_temp_path, file), os.path.join(w_temp_path, file.lower()))
-
-
-#
-# iterate thru all files and convery them from
-# petscii to ascii using the petcat utility
-# from the vice emulator distribution
-#
-
-filepaths = w_temp_path.glob(r'**/*')
-exts = {'.s00'}
-
-petcat = pathlib.Path(PETCAT_PATH).absolute()
-
-for filepath in filepaths:
-
-    # only cleanup convered files
-    logging.debug(filepath.absolute())
-
-    if filepath.suffix in exts:
-
-        cleanfile = filepath.with_suffix(".z")
-        print(cleanfile)
-
-        # copy file to temp skipping first 26 bytes
-
-        with open(filepath, 'rb') as in_file:
-
-            in_file.seek(26)  # Skip the first 26 bytes
-
-            with open(cleanfile, 'wb') as out_file:
-                # Copy the rest of the file in chunks to avoid high memory usage
-                for chunk in iter(lambda: in_file.read(16384), b''):
-                    out_file.write(chunk)   
-
-        file = cleanfile.absolute()
-        new_file = os.path.splitext(filepath.absolute())[0]
-
-        logging.debug(file)
-        logging.debug(new_file)
-
-        opts = [petcat, "-text", "-skip", "26", "-nh", "-o", new_file, "--", file]
-        print(opts)
-        subprocess.run(opts, shell=False, check=False)
-
-
-#
-# iterate thru all the transformed files and
-# put them in the final destination path
-# specified in the configuration file
-#
-
-filepaths = w_temp_path.glob(r'**/*')
-exts = {'.h', '.s', '.t'}
-
-for filepath in filepaths:
-
-    # only cleanup converted files
-
-    if filepath.suffix in exts:
-
+        # only cleanup convered files
         logging.debug(filepath.absolute())
-        file = open(filepath.absolute(), 'r', encoding='utf-8')
-        file_contents = file.read()
-        file_contents = file_contents.rstrip()
-        file.close()
 
-        # replace strings needed for cross platform development
+        if filepath.suffix in CONVERT_EXTS:
 
-        new_file_contents = file_contents.replace('{CBM-@}', '_')
-        new_file_contents = new_file_contents.replace('//os', 'os')
-        new_file_contents = new_file_contents.replace('/:@', '/@')
+            cleanfile = filepath.with_suffix(".z")
+            logging.debug(cleanfile)
 
-        # in the modules.h file we need to use .segment instead of .macro
-        # :todo why??
+            # copy file to temp skipping first 26 bytes
 
-        logging.debug(filepath.name)
-        if filepath.name == 'modules.h':
-            new_file_contents = new_file_contents.replace('.macro', '.segment')
+            with open(filepath, 'rb') as in_file:
 
-        new_file_lines = new_file_contents.splitlines()
+                in_file.seek(SKIP_BYTES)  # Skip the first 26 bytes
 
-        # search for any new special characters we have
-        # not yet converted (usually start with {CBM})
+                with open(cleanfile, 'wb') as out_file:
+                    # Copy the rest of the file in chunks to avoid high memory usage
+                    for chunk in iter(lambda: in_file.read(16384), b''):
+                        out_file.write(chunk)
 
-        for line in new_file_lines:
-            if line.find('{CBM') > 0:
-                logging.warning(line)
+            file = cleanfile.absolute()
+            new_file = os.path.splitext(filepath.absolute())[0]
 
-        new_filepath = str(filepath)[len(TEMP_PATH.name):]
-        new_filename = pathlib.Path(OS_PATH + new_filepath)
+            logging.debug(file)
+            logging.debug(new_file)
 
-        os.makedirs(os.path.dirname(new_filename),exist_ok=True)
+            opts = [petcat, "-text", "-skip", "26", "-nh", "-o", new_file, "--", file]
+            logging.debug(opts)
+            subprocess.run(opts, shell=False, check=False)
 
-        new_file = open(new_filename, 'w', encoding='utf-8')
-        new_file.write(new_file_contents)
-        new_file.close()
+    #
+    # iterate thru all the transformed files and
+    # put them in the final destination path
+    # specified on the command line
+    #
 
+    for filepath in w_temp_path.glob(r'**/*'):
 
-sys.exit(0)
+        # only cleanup converted files
+
+        if filepath.suffix in OUTPUT_EXTS:
+
+            logging.debug(filepath.absolute())
+            with open(filepath.absolute(), 'r', encoding='utf-8') as file:
+                file_contents = file.read().rstrip()
+
+            # replace strings needed for cross platform development
+
+            new_file_contents = file_contents.replace('{CBM-@}', '_')
+            new_file_contents = new_file_contents.replace('//os', 'os')
+            new_file_contents = new_file_contents.replace('/:@', '/@')
+
+            # in the modules.h file we need to use .segment instead of .macro
+            # TMPx: .macro implies .block/.bend (local label scope), while
+            # .segment defines the macro without the implied block, keeping the
+            # labels of .include'd module files global.
+            # see https://turbo.style64.org/docs/turbo-macro-pro-tmpx-syntax
+
+            logging.debug(filepath.name)
+            if filepath.name == 'modules.h':
+                new_file_contents = new_file_contents.replace('.macro', '.segment')
+
+            new_file_lines = new_file_contents.splitlines()
+
+            # search for any new special characters we have
+            # not yet converted (usually start with {CBM})
+
+            for line in new_file_lines:
+                if line.find('{CBM') > 0:
+                    logging.warning(line)
+
+            new_filepath = str(filepath)[len(temp_path.name):]
+            new_filename = pathlib.Path(str(dest_path) + new_filepath)
+
+            os.makedirs(os.path.dirname(new_filename), exist_ok=True)
+
+            with open(new_filename, 'w', encoding='utf-8') as new_file:
+                new_file.write(new_file_contents)
+
+if __name__ == "__main__":
+    main()

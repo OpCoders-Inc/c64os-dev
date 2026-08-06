@@ -42,7 +42,7 @@ def compare_directories(dir1_path, dir2_path, output_dir="report", title="C64OS 
     have darker green and red backgrounds, respectively, and are bold. Unchanged lines alternate
     with a subtle background, with the old file column slightly darker. Summary page uses
     a 4-column grid for file lists and includes a detailed statistics table with total lines
-    added/removed, average change count, and largest file by size. All-files page lists every
+    added/removed. All-files page lists every
     file with status, change count, and links, with toggleable buttons to show/hide rows by
     status, with states persisted using localStorage. The all-files page defaults to showing
     only Modified files on first load.
@@ -86,19 +86,11 @@ def compare_directories(dir1_path, dir2_path, output_dir="report", title="C64OS 
     change_counts = {}  # Store change counts for modified files
     total_lines_added = 0  # Track total lines added across modified files
     total_lines_removed = 0  # Track total lines removed across modified files
-    largest_file = {'path': 'N/A', 'size': -1, 'status': 'N/A'}  # Track largest file by size
 
     # Compare common files, ignoring blank lines, and collect statistics
     for relative_path in common_files:
         file1_path = dir1_files[relative_path]
         file2_path = dir2_files[relative_path]
-
-        # Update largest file
-        file_size = max(os.path.getsize(file1_path), os.path.getsize(file2_path))
-        if file_size > largest_file['size']:
-            largest_file['path'] = relative_path
-            largest_file['size'] = file_size
-            largest_file['status'] = 'Unchanged'  # Default, updated below if modified
 
         try:
             with open(file1_path, 'r', encoding='utf-8', errors='ignore') as f1, \
@@ -110,7 +102,6 @@ def compare_directories(dir1_path, dir2_path, output_dir="report", title="C64OS 
             # Compare non-blank lines to determine if file is modified
             if lines1 != lines2:
                 modified_files.append(relative_path)
-                largest_file['status'] = 'Modified' if relative_path == largest_file['path'] else largest_file['status']
                 # Count changes and lines added/removed
                 matcher = difflib.SequenceMatcher(None, lines1, lines2)
                 change_count = 0
@@ -132,38 +123,9 @@ def compare_directories(dir1_path, dir2_path, output_dir="report", title="C64OS 
             # Treat binary files or unreadable files as modified if their sizes differ
             if os.path.getsize(file1_path) != os.path.getsize(file2_path):
                 modified_files.append(relative_path)
-                largest_file['status'] = 'Modified' if relative_path == largest_file['path'] else largest_file['status']
                 change_counts[relative_path] = 0  # Binary files have no line-based change count
             else:
                 unchanged_files.append(relative_path)
-
-    # Check added and removed files for largest file
-    for relative_path in added_files:
-        file_size = os.path.getsize(dir2_files[relative_path])
-        if file_size > largest_file['size']:
-            largest_file['path'] = relative_path
-            largest_file['size'] = file_size
-            largest_file['status'] = 'Added'
-
-    for relative_path in removed_files:
-        file_size = os.path.getsize(dir1_files[relative_path])
-        if file_size > largest_file['size']:
-            largest_file['path'] = relative_path
-            largest_file['size'] = file_size
-            largest_file['status'] = 'Removed'
-
-    # Calculate average change count
-    avg_change_count = (sum(change_counts.values()) / len(modified_files)) if modified_files else 0
-    avg_change_count = f"{avg_change_count:.2f}" if modified_files else "N/A"
-
-    # Format largest file size in human-readable format
-    largest_file_size = largest_file['size']
-    if largest_file_size >= 1024 * 1024:
-        largest_file_size = f"{largest_file_size / (1024 * 1024):.2f} MB"
-    elif largest_file_size >= 1024:
-        largest_file_size = f"{largest_file_size / 1024:.2f} KB"
-    else:
-        largest_file_size = f"{largest_file_size} bytes"
 
     # Initialize timestamp before any report generation
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -779,8 +741,6 @@ def compare_directories(dir1_path, dir2_path, output_dir="report", title="C64OS 
                 <tr><th>Metric</th><th>Value</th></tr>
                 <tr><td>Total Lines Added (Modified Files)</td><td>{total_lines_added}</td></tr>
                 <tr><td>Total Lines Removed (Modified Files)</td><td>{total_lines_removed}</td></tr>
-                <tr><td>Average Change Count (Modified Files)</td><td>{avg_change_count}</td></tr>
-                <tr><td>Largest File by Size</td><td>{html.escape(largest_file['path'])} ({largest_file_size}, {largest_file['status']})</td></tr>
             </table>
         </div>
         <div class="accordion" id="fileLists">
