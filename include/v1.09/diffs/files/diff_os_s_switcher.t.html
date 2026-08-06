@@ -1,0 +1,160 @@
+<html>
+<head>
+    <title>Diff for os/s/switcher.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for os/s/switcher.t</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: os/s/switcher.t</td><td class="diff_header">Old: os/s/switcher.t</td></tr>
+<tr><td class="">;----[ switcher.t ]---------------------</td><td class="">;----[ switcher.t ]---------------------</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;For the Fast App Switcher. Defines the</td><td class="">;For the Fast App Switcher. Defines the</td></tr>
+<tr><td class="diff_unchanged_alt">;workspace bank, and where certain key</td><td class="diff_unchanged_alt_old">;workspace bank, and where certain key</td></tr>
+<tr><td class="">;properties are located in that bank.</td><td class="">;properties are located in that bank.</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">workbank = $00 ;REU bank $00 workspace</td><td class="">workbank = $00 ;REU bank $00 workspace</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;Switcher is found at appbase, just like</td><td class="">;Switcher is found at appbase, just like</td></tr>
+<tr><td class="diff_unchanged_alt">;loader and the bulk of booter.</td><td class="diff_unchanged_alt_old">;loader and the bulk of booter.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">magicadr = $00 ;Where &quot;C64 OS&quot; magic is.</td><td class="diff_unchanged_alt_old">magicadr = $00 ;Where &quot;C64 OS&quot; magic is.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;---------------------------------------</td><td class="diff_unchanged_alt_old">;---------------------------------------</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;Bank Order: 32 bytes, holds access</td><td class="diff_unchanged_alt_old">;Bank Order: 32 bytes, holds access</td></tr>
+<tr><td class="">;order of bank numbers from $01 to $20</td><td class="">;order of bank numbers from $01 to $20</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">bankordr = $1ae0 ;-&gt; $1aff   (32 bytes)</td><td class="">bankordr = $1ae0 ;-&gt; $1aff   (32 bytes)</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;Bank Map: 1 page, 256 bytes,</td><td class="">;Bank Map: 1 page, 256 bytes,</td></tr>
+<tr><td class="diff_unchanged_alt">;1 byte for each of up to 256 REU banks.</td><td class="diff_unchanged_alt_old">;1 byte for each of up to 256 REU banks.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">bankmap  = $1b00 ;-&gt; $1bff  (256 bytes)</td><td class="diff_unchanged_alt_old">bankmap  = $1b00 ;-&gt; $1bff  (256 bytes)</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;Bank usage values.</td><td class="diff_unchanged_alt_old">;Bank usage values.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">bnk_nota = $ff  ;Bank Not Available</td><td class="diff_unchanged_alt_old">bnk_nota = $ff  ;Bank Not Available</td></tr>
+<tr><td class="">bnk_free = $fe  ;Bank Not Allocated</td><td class="">bnk_free = $fe  ;Bank Not Allocated</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">bnk_empt = $fd  ;Bank Empty: Switchable</td><td class="">bnk_empt = $fd  ;Bank Empty: Switchable</td></tr>
+<tr><td class="diff_unchanged_alt">bnk_full = $fc  ;Bank Full:  Has an App</td><td class="diff_unchanged_alt_old">bnk_full = $fc  ;Bank Full:  Has an App</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;Values from $01 to $20 in the bankmap</td><td class="diff_unchanged_alt_old">;Values from $01 to $20 in the bankmap</td></tr>
+<tr><td class="">;represent allocated banks, whose owner</td><td class="">;represent allocated banks, whose owner</td></tr>
+<tr><td class="diff_unchanged_alt">;is the App assigned to that bank.</td><td class="diff_unchanged_alt_old">;is the App assigned to that bank.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;E.g.,</td><td class="diff_unchanged_alt_old">;E.g.,</td></tr>
+<tr><td class="">; App Launcher is in bank $01</td><td class="">; App Launcher is in bank $01</td></tr>
+<tr><td class="diff_unchanged_alt">; File Manager is in bank $02</td><td class="diff_unchanged_alt_old">; File Manager is in bank $02</td></tr>
+<tr><td class="">; Image Viewer is in bank $03</td><td class="">; Image Viewer is in bank $03</td></tr>
+<tr><td class="diff_unchanged_alt">;</td><td class="diff_unchanged_alt_old">;</td></tr>
+<tr><td class="">; If bankmap+$14 holds the value $03,</td><td class="">; If bankmap+$14 holds the value $03,</td></tr>
+<tr><td class="diff_unchanged_alt">; This means Image Viewer allocated REU</td><td class="diff_unchanged_alt_old">; This means Image Viewer allocated REU</td></tr>
+<tr><td class="">; bank number $14 for its own use.</td><td class="">; bank number $14 for its own use.</td></tr>
+<tr><td class="diff_unchanged_alt">;</td><td class="diff_unchanged_alt_old">;</td></tr>
+<tr><td class="">; If the Application in bank $03 is ever</td><td class="">; If the Application in bank $03 is ever</td></tr>
+<tr><td class="diff_unchanged_alt">; forceably expunged, all values in the</td><td class="diff_unchanged_alt_old">; forceably expunged, all values in the</td></tr>
+<tr><td class="">; bankmap that are currently $03 get</td><td class="">; bankmap that are currently $03 get</td></tr>
+<tr><td class="diff_unchanged_alt">; changed to bnk_free ($fe).</td><td class="diff_unchanged_alt_old">; changed to bnk_free ($fe).</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;Fast App Switch Slots: 4 pages.</td><td class="">;Fast App Switch Slots: 4 pages.</td></tr>
+<tr><td class="diff_unchanged_alt">;32 Slots at 32 bytes each.</td><td class="diff_unchanged_alt_old">;32 Slots at 32 bytes each.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">fasslots = $1c00 ;-&gt; $1fff (1024 bytes)</td><td class="diff_unchanged_alt_old">fasslots = $1c00 ;-&gt; $1fff (1024 bytes)</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;The index into fasslots is the bankmap</td><td class="diff_unchanged_alt_old">;The index into fasslots is the bankmap</td></tr>
+<tr><td class="">;index-1. I.e., if an Application is in</td><td class="">;index-1. I.e., if an Application is in</td></tr>
+<tr><td class="diff_unchanged_alt">;bank $03, its name appears in the slot</td><td class="diff_unchanged_alt_old">;bank $03, its name appears in the slot</td></tr>
+<tr><td class="">;fasslots,2 or (fasslots+(32*2))</td><td class="">;fasslots,2 or (fasslots+(32*2))</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;Temporary address where an App sets</td><td class="">;Temporary address where an App sets</td></tr>
+<tr><td class="diff_unchanged_alt">;its state during appfrze handler. This</td><td class="diff_unchanged_alt_old">;its state during appfrze handler. This</td></tr>
+<tr><td class="">;value gets copied to the FAS Slot by</td><td class="">;value gets copied to the FAS Slot by</td></tr>
+<tr><td class="diff_unchanged_alt">;switcher before loading the next App.</td><td class="diff_unchanged_alt_old">;switcher before loading the next App.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">fss_stat = $03b8 ;Temporary address</td><td class="diff_unchanged_alt_old">fss_stat = $03b8 ;Temporary address</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;Structure of a FAS Slot</td><td class="diff_unchanged_alt_old">;Structure of a FAS Slot</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">fas_name = $00 ;16-chars + NULL</td><td class="diff_unchanged_alt_old">fas_name = $00 ;16-chars + NULL</td></tr>
+<tr><td class="">fas_stat = $11 ;Saved State</td><td class="">fas_stat = $11 ;Saved State</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;FAS Slot States</td><td class="">;FAS Slot States</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">fss_safe = $00 ;Saved and quittable</td><td class="">fss_safe = $00 ;Saved and quittable</td></tr>
+<tr><td class="diff_unchanged_alt">fss_usaf = $01 ;Unsaved content!</td><td class="diff_unchanged_alt_old">fss_usaf = $01 ;Unsaved content!</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="diff_chg">;Open File Reference <span class="diff_text_add">or Memory P</span>a<span class="diff_text_add">g</span>e</td><td class="diff_chg">;Open File Reference <span class="diff_text_sub">pl</span>a<span class="diff_text_sub">c</span>e<span class="diff_text_sub">holder</span></td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_chg">opn<span class="diff_text_add">mpt</span>rreu = $2000 ;-&gt; $20ff (1 Page)</td><td class="diff_chg">opn<span class="diff_text_sub">f</span>r<span class="diff_text_sub">ef</span>reu = $2000 ;-&gt; $20ff (1 Page)</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;Switcher passes an open file reference</td><td class="">;Switcher passes an open file reference</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;or page pointed to be a mc_mptr message</span></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;between banks by first copying it to</td><td class="diff_unchanged_alt_old">;between banks by first copying it to</td></tr>
+<tr><td class="diff_chg">;the REU workbank at opn<span class="diff_text_add">mpt</span>rreu.</td><td class="diff_chg">;the REU workbank at opn<span class="diff_text_sub">f</span>r<span class="diff_text_sub">ef</span>reu.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;RTC Driver Cache</td><td class="diff_unchanged_alt_old">;RTC Driver Cache</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">rtcdrvrreu = $2100 ;-&gt; $23ff (3 Pages)</td><td class="diff_unchanged_alt_old">rtcdrvrreu = $2100 ;-&gt; $23ff (3 Pages)</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;The booter loads the RTC driver and</td><td class="diff_unchanged_alt_old">;The booter loads the RTC driver and</td></tr>
+<tr><td class="">;relocates it to $2100. Then stashes it</td><td class="">;relocates it to $2100. Then stashes it</td></tr>
+<tr><td class="diff_unchanged_alt">;here in workbank. Switcher swaps this</td><td class="diff_unchanged_alt_old">;here in workbank. Switcher swaps this</td></tr>
+<tr><td class="">;code in, and calls gettime, during</td><td class="">;code in, and calls gettime, during</td></tr>
+<tr><td class="diff_unchanged_alt">;reurstr to refresh the date/time.</td><td class="diff_unchanged_alt_old">;reurstr to refresh the date/time.</td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

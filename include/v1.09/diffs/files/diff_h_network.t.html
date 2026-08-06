@@ -1,0 +1,165 @@
+<html>
+<head>
+    <title>Diff for h/network.t</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Difference for h/network.t</h1>
+            <div class="legend-card">
+                <p><strong>Legend:</strong></p>
+                <p><span style="background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;">Changed lines</span> are yellow with darker yellow-brown text; <span style="background-color: #ffda73; color: #1a1200; font-weight: bold;">changed text</span> within lines is darker, bold, with a darker yellow background.</p>
+                <p><span style="background-color: #d4edda; color: #1a3c34; padding: 2px 5px;">Added lines</span> are green with darker green text; <span style="background-color: #a3d6b0; color: #1a3c34; font-weight: bold;">added text</span> is bold with a darker green background (new file).</p>
+                <p><span style="background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;">Removed lines</span> are red with darker red text; <span style="background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;">removed text</span> is bold with a darker red background (old file).</p>
+                <p>Unchanged lines have no background color or alternate with a subtle gray background (<span style="background-color: #f5f6f5; padding: 2px 5px;">new file</span>, <span style="background-color: #eceeed; padding: 2px 5px;">old file</span>).</p>
+            </div>
+            <p>Side-by-side comparison of changes (new file on left, old file on right).</p>
+            <table class="diff">
+<tr><td class="diff_header">New: h/network.t</td><td class="diff_header">Old: h/network.t</td></tr>
+<tr><td class="">;----[ network.t for network.lib.r ]----</td><td class="">;----[ network.t for network.lib.r ]----</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add"></span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;Network Control Library</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;-----------------------</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;- Loads cnp.lib (C= Network Protocol)</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;- Loads driver settings</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;- Loads nhd.* driver</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;- Configs network.lib as command</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  mode data handler for driver.</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;- Tells driver how to adjust baud rate</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;- Tells driver which wifi to join</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;- Tells driver to open a socket to</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  CNP server.</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;- Passes online mode data handling to</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  cnp.lib, with auth credentials.</span></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">;link_   = $00</td><td class="">;link_   = $00</td></tr>
+<tr><td class="diff_unchanged_alt">;  Initializes network.lib</td><td class="diff_unchanged_alt_old">;  Initializes network.lib</td></tr>
+<tr><td class="">;  Loads cnp.lib</td><td class="">;  Loads cnp.lib</td></tr>
+<tr><td class="diff_unchanged_alt">;  Attempts full connection including</td><td class="diff_unchanged_alt_old">;  Attempts full connection including</td></tr>
+<tr><td class="">;    installing nhd.* driver</td><td class="">;    installing nhd.* driver</td></tr>
+<tr><td class="diff_unchanged_alt">;  Opens Network Utility on failure.</td><td class="diff_unchanged_alt_old">;  Opens Network Utility on failure.</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">;unlink  = $03</td><td class="diff_unchanged_alt_old">;unlink  = $03</td></tr>
+<tr><td class="">;  Unloads cnp.lib</td><td class="">;  Unloads cnp.lib</td></tr>
+<tr><td class="diff_unchanged_alt">;  Unintalls nhd.* driver</td><td class="diff_unchanged_alt_old">;  Unintalls nhd.* driver</td></tr>
+<tr><td class=""></td><td class=""></td></tr>
+<tr><td class="diff_unchanged_alt">loadset_ = $06</td><td class="diff_unchanged_alt_old">loadset_ = $06</td></tr>
+<tr><td class="">;  Load settings from</td><td class="">;  Load settings from</td></tr>
+<tr><td class="diff_unchanged_alt">;  os/settings/:network.t</td><td class="diff_unchanged_alt_old">;  os/settings/:network.t</td></tr>
+<tr><td class="">;  C &lt;- Set on error (file not found)</td><td class="">;  C &lt;- Set on error (file not found)</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">readset_ = $09</td><td class="">readset_ = $09</td></tr>
+<tr><td class="diff_unchanged_alt">;  Fetch pointer to settings buffer</td><td class="diff_unchanged_alt_old">;  Fetch pointer to settings buffer</td></tr>
+<tr><td class="">;  X -&gt; settings index</td><td class="">;  X -&gt; settings index</td></tr>
+<tr><td class="diff_unchanged_alt">;       (see: os/s/:network.t)</td><td class="diff_unchanged_alt_old">;       (see: os/s/:network.t)</td></tr>
+<tr><td class="">;  RegPtr &lt;- buffer of requested setting</td><td class="">;  RegPtr &lt;- buffer of requested setting</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">loadnhd_ = $0c</td><td class="">loadnhd_ = $0c</td></tr>
+<tr><td class="diff_unchanged_alt">;  Load network hardware driver.</td><td class="diff_unchanged_alt_old">;  Load network hardware driver.</td></tr>
+<tr><td class="">;  Uninstalls any previous driver.</td><td class="">;  Uninstalls any previous driver.</td></tr>
+<tr><td class="diff_unchanged_alt">;  C &lt;- Set on error (driver not found)</td><td class="diff_unchanged_alt_old">;  C &lt;- Set on error (driver not found)</td></tr>
+<tr><td class="">;</td><td class="">;</td></tr>
+<tr><td class="diff_unchanged_alt">;  Driver settings must be populated.</td><td class="diff_unchanged_alt_old">;  Driver settings must be populated.</td></tr>
+<tr><td class="">;  Either by: loadset or Network Utility</td><td class="">;  Either by: loadset or Network Utility</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">confbaud_ = $0f</td><td class="">confbaud_ = $0f</td></tr>
+<tr><td class="diff_unchanged_alt">;  Configure device and driver to step</td><td class="diff_unchanged_alt_old">;  Configure device and driver to step</td></tr>
+<tr><td class="">;  up from initial to maximum baud rate.</td><td class="">;  up from initial to maximum baud rate.</td></tr>
+<tr><td class="diff_unchanged_alt">;</td><td class="diff_unchanged_alt_old">;</td></tr>
+<tr><td class="">;  C &lt;- Set on error</td><td class="">;  C &lt;- Set on error</td></tr>
+<tr><td class="diff_unchanged_alt">;  A &lt;- Error code</td><td class="diff_unchanged_alt_old">;  A &lt;- Error code</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;    0 = Carrier Detected</span></td><td class=""></td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;    1 = Baud Match Test Failed</span></td><td class=""></td></tr>
+<tr><td class="">;</td><td class="">;</td></tr>
+<tr><td class="diff_unchanged_alt">;  Driver settings must be populated.</td><td class="diff_unchanged_alt_old">;  Driver settings must be populated.</td></tr>
+<tr><td class="">;  Either by: loadset or Network Utility</td><td class="">;  Either by: loadset or Network Utility</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">joinwifi_ = $12</td><td class="">joinwifi_ = $12</td></tr>
+<tr><td class="diff_unchanged_alt">;  Join or Read Wifi Hotspot</td><td class="diff_unchanged_alt_old">;  Join or Read Wifi Hotspot</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  RegPtr -&gt; Next stage callback</span></td><td class=""></td></tr>
+<tr><td class="">;  C -&gt; Clr = Read SSID</td><td class="">;  C -&gt; Clr = Read SSID</td></tr>
+<tr><td class="diff_unchanged_alt">;  C &lt;- Always clear</td><td class="diff_unchanged_alt_old">;  C &lt;- Always clear</td></tr>
+<tr><td class="">;</td><td class="">;</td></tr>
+<tr><td class="diff_unchanged_alt">;  C -&gt; Set = Join Hotspot</td><td class="diff_unchanged_alt_old">;  C -&gt; Set = Join Hotspot</td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  RegPtr -&gt; Success callback</span></td></tr>
+<tr><td class="">;  C &lt;- Set on error</td><td class="">;  C &lt;- Set on error</td></tr>
+<tr><td class="diff_unchanged_alt">;    A &lt;- 0 = Carrier Detect</td><td class="diff_unchanged_alt_old">;    A &lt;- 0 = Carrier Detect</td></tr>
+<tr><td class="">;    A &lt;- 1 = Not Configured</td><td class="">;    A &lt;- 1 = Not Configured</td></tr>
+<tr><td class="diff_unchanged_alt">;</td><td class="diff_unchanged_alt_old">;</td></tr>
+<tr><td class="">;  Wifi settings must be populated.</td><td class="">;  Wifi settings must be populated.</td></tr>
+<tr><td class="diff_unchanged_alt">;  Either by: loadset or Network Utility</td><td class="diff_unchanged_alt_old">;  Either by: loadset or Network Utility</td></tr>
+<tr><td class="">;</td><td class="">;</td></tr>
+<tr><td class="diff_unchanged_alt">;     Callback</td><td class="diff_unchanged_alt_old">;     Callback</td></tr>
+<tr><td class="">;       A &lt;- response code</td><td class="">;       A &lt;- response code</td></tr>
+<tr><td class="diff_unchanged_alt">;       RegPtr &lt;- response buffer</td><td class="diff_unchanged_alt_old">;       RegPtr &lt;- response buffer</td></tr>
+<tr><td class="">;                 (with SSID in it)</td><td class="">;                 (with SSID in it)</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">cnpsrvr_ = $15</td><td class="">cnpsrvr_ = $15</td></tr>
+<tr><td class="diff_unchanged_alt">;  Join/Part CNP server</td><td class="diff_unchanged_alt_old">;  Join/Part CNP server</td></tr>
+<tr><td class="diff_add"><span class="diff_text_add">;  RegPtr -&gt; Next stage callback</span></td><td class=""></td></tr>
+<tr><td class="">;  C -&gt; Set = Part from CNP Server</td><td class="">;  C -&gt; Set = Part from CNP Server</td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;</span></td></tr>
+<tr><td class="diff_unchanged_alt">;  C -&gt; Clr = Join CNP Server</td><td class="diff_unchanged_alt_old">;  C -&gt; Clr = Join CNP Server</td></tr>
+<tr><td class=""></td><td class="diff_sub"><span class="diff_text_sub">;  RegPtr -&gt; Success callback</span></td></tr>
+<tr><td class="">;  C &lt;- Set on error</td><td class="">;  C &lt;- Set on error</td></tr>
+<tr><td class="diff_unchanged_alt">;    A &lt;- 0 = Carrier Detect</td><td class="diff_unchanged_alt_old">;    A &lt;- 0 = Carrier Detect</td></tr>
+<tr><td class="">;    A &lt;- 1 = Not Configured</td><td class="">;    A &lt;- 1 = Not Configured</td></tr>
+<tr><td class="diff_unchanged_alt">;</td><td class="diff_unchanged_alt_old">;</td></tr>
+<tr><td class="">;  CNP settings must be populated.</td><td class="">;  CNP settings must be populated.</td></tr>
+<tr><td class="diff_unchanged_alt">;  Either by: loadset or Network Utility</td><td class="diff_unchanged_alt_old">;  Either by: loadset or Network Utility</td></tr>
+<tr><td class="">;</td><td class="">;</td></tr>
+<tr><td class="diff_unchanged_alt">;     Callback</td><td class="diff_unchanged_alt_old">;     Callback</td></tr>
+<tr><td class="">;       A &lt;- response code</td><td class="">;       A &lt;- response code</td></tr>
+<tr><td class="diff_unchanged_alt"></td><td class="diff_unchanged_alt_old"></td></tr>
+<tr><td class="">cnpctrl_ = $18</td><td class="">cnpctrl_ = $18</td></tr>
+<tr><td class="diff_unchanged_alt">;  Transfer control to CNP.lib</td><td class="diff_unchanged_alt_old">;  Transfer control to CNP.lib</td></tr>
+<tr><td class="">;  C -&gt; Set = Network.lib handles</td><td class="">;  C -&gt; Set = Network.lib handles</td></tr>
+<tr><td class="diff_unchanged_alt">;             disconnect state.</td><td class="diff_unchanged_alt_old">;             disconnect state.</td></tr>
+<tr><td class="">;  C -&gt; Clr = Specify disconnect</td><td class="">;  C -&gt; Clr = Specify disconnect</td></tr>
+<tr><td class="diff_unchanged_alt">;  RegPtr -&gt; disconnect handler</td><td class="diff_unchanged_alt_old">;  RegPtr -&gt; disconnect handler</td></tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

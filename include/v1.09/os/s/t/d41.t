@@ -1,0 +1,1 @@
+;1541 disk image. Alternative extension to .d64

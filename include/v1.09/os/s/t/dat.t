@@ -1,0 +1,1 @@
+;Raw Data. No defined structure. Alternative to .d

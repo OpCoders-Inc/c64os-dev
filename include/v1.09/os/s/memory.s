@@ -1,0 +1,16 @@
+seeram          = $02a7
+seeioker        = $02ac
+memmap          = $0800
+mapfree         = $0000
+mapsys          = $0001
+maputil         = $0002
+mapapp          = $00ff
+maptemp         = $007f
+mempool         = $0380
+mappgfst        = $08a1
+mappglst        = $0009
+memdisp         = $08cc
+mhfree          = $0000
+mhlen           = $0001
+mhsize          = $0003
+memsize         = $0061

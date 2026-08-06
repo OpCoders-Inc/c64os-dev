@@ -1,0 +1,11 @@
+stack           = $0100
+scrbuf          = $0400
+charset         = $d000
+colbuf          = $d800
+scrmem          = $dc00
+bmapmem         = $e000
+vic             = $d000
+sid             = $d400
+colmem          = $d800
+cia1            = $dc00
+cia2            = $dd00

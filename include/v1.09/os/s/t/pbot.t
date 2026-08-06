@@ -1,0 +1,1 @@
+;PETSCII Bot. Hi-Res character mode images. Either 5x7 chars or 12x16 chars.

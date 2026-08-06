@@ -1,0 +1,277 @@
+<html>
+<head>
+    <title>Removed File: diffs/files/diff_s_io_swiftlink.t.html</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="btn-back">Back to Main Report</a>
+        <a href="../files.html" class="btn-back">View All Files</a>
+        <div class="card p-4">
+            <h1>Removed File: diffs/files/diff_s_io_swiftlink.t.html</h1>
+            <p>This file was removed in the new directory.</p>
+            <pre class="removed_content">&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Diff for s/io_swiftlink.t&lt;/title&gt;
+    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;style&gt;
+        body { font-family: -apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, Roboto, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #343a40; font-size: 1.75rem; }
+        pre { background: #ffffff; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; font-size: 14px; overflow-x: auto; }
+        table.diff { font-family: monospace; width: 100%; border-collapse: collapse; }
+        .diff_header { background-color: #e9ecef; font-weight: bold; padding: 8px; text-align: center; }
+        .diff_add { background-color: #d4edda; color: #1a3c34; } /* Green for added lines */
+        .diff_sub { background-color: #f8d7da; color: #6b1a1c; } /* Red for removed lines */
+        .diff_chg { background-color: #fff3cd; color: #5a3e03; } /* Yellow for changed lines */
+        .diff_text { color: #1a1200; font-weight: bold; background-color: #ffda73; } /* Darker hue, bold, darker yellow for changed text */
+        .diff_text_add { color: #1a3c34; background-color: #a3d6b0; font-weight: bold; } /* Darker green for added text, bold */
+        .diff_text_sub { color: #6b1a1c; background-color: #f1a6ac; font-weight: bold; } /* Darker red for deleted text, bold */
+        .diff_unchanged_alt { background-color: #f5f6f5; } /* Subtle background for alternating unchanged lines (new file) */
+        .diff_unchanged_alt_old { background-color: #eceeed; } /* Slightly darker background for alternating unchanged lines (old file) */
+        .added_content { background-color: #d4edda; padding: 15px; border-radius: 5px; }
+        .removed_content { background-color: #f8d7da; padding: 15px; border-radius: 5px; }
+        .unchanged_content { background-color: #ffffff; padding: 15px; border-radius: 5px; }
+        .btn-back, .btn-all-files { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 20px; margin-right: 10px; }
+        .btn-back:hover, .btn-all-files:hover { background-color: #0056b3; }
+        .legend-card { background-color: #ffffff; padding: 10px; margin-bottom: 20px; }
+        td { padding: 8px; vertical-align: top; }
+        .file-item { border: 1px solid #dee2e6; padding: 8px; margin-bottom: 8px; background-color: #ffffff; border-radius: 4px; }
+        .file-item a { color: #007bff; text-decoration: none; display: block; }
+        .file-item a:hover { color: #0056b3; background-color: #f1f3f5; }
+        .status-added { background-color: #d4edda; color: #1a3c34; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-removed { background-color: #f8d7da; color: #6b1a1c; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-modified { background-color: #fff3cd; color: #5a3e03; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .status-unchanged { background-color: #f5f6f5; color: #343a40; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        .table-all-files { font-size: 14px; }
+        .filter-controls { margin-bottom: 20px; }
+        .filter-controls .btn { margin-right: 10px; font-size: 14px; padding: 6px 12px; }
+        .filter-controls .btn.active { background-color: #007bff; color: white; }
+        .filter-controls .btn:not(.active) { background-color: #ffffff; color: #007bff; border: 1px solid #007bff; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;a href=&quot;../index.html&quot; class=&quot;btn-back&quot;&gt;Back to Main Report&lt;/a&gt;
+        &lt;a href=&quot;../files.html&quot; class=&quot;btn-back&quot;&gt;View All Files&lt;/a&gt;
+        &lt;div class=&quot;card p-4&quot;&gt;
+            &lt;h1&gt;Difference for s/io_swiftlink.t&lt;/h1&gt;
+            &lt;div class=&quot;legend-card&quot;&gt;
+                &lt;p&gt;&lt;strong&gt;Legend:&lt;/strong&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;span style=&quot;background-color: #fff3cd; color: #5a3e03; padding: 2px 5px;&quot;&gt;Changed lines&lt;/span&gt; are yellow with darker yellow-brown text; &lt;span style=&quot;background-color: #ffda73; color: #1a1200; font-weight: bold;&quot;&gt;changed text&lt;/span&gt; within lines is darker, bold, with a darker yellow background.&lt;/p&gt;
+                &lt;p&gt;&lt;span style=&quot;background-color: #d4edda; color: #1a3c34; padding: 2px 5px;&quot;&gt;Added lines&lt;/span&gt; are green with darker green text; &lt;span style=&quot;background-color: #a3d6b0; color: #1a3c34; font-weight: bold;&quot;&gt;added text&lt;/span&gt; is bold with a darker green background (new file).&lt;/p&gt;
+                &lt;p&gt;&lt;span style=&quot;background-color: #f8d7da; color: #6b1a1c; padding: 2px 5px;&quot;&gt;Removed lines&lt;/span&gt; are red with darker red text; &lt;span style=&quot;background-color: #f1a6ac; color: #6b1a1c; font-weight: bold;&quot;&gt;removed text&lt;/span&gt; is bold with a darker red background (old file).&lt;/p&gt;
+                &lt;p&gt;Unchanged lines have no background color or alternate with a subtle gray background (&lt;span style=&quot;background-color: #f5f6f5; padding: 2px 5px;&quot;&gt;new file&lt;/span&gt;, &lt;span style=&quot;background-color: #eceeed; padding: 2px 5px;&quot;&gt;old file&lt;/span&gt;).&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;p&gt;Side-by-side comparison of changes (new file on left, old file on right).&lt;/p&gt;
+            &lt;table class=&quot;diff&quot;&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_header&quot;&gt;New: s/io_swiftlink.t&lt;/td&gt;&lt;td class=&quot;diff_header&quot;&gt;Old: s/io_swiftlink.t&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;----[ io_swiftlink.t ]-----------------&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;----[ io_swiftlink.t ]-----------------&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;Workspace memory addresses for&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;Workspace memory addresses for&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;swiftlink serial buffers and state.&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;swiftlink serial buffers and state.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;driver code addressing scheme&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;driver code addressing scheme&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;; e0 = $de00&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;; e0 = $de00&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;; e2 = $de20&lt;/td&gt;&lt;td class=&quot;&quot;&gt;; e2 = $de20&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;; e4 = $de40&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;; e4 = $de40&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;; e6 = $de60&lt;/td&gt;&lt;td class=&quot;&quot;&gt;; e6 = $de60&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;; e8 = $de80&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;; e8 = $de80&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;; ea = $dea0&lt;/td&gt;&lt;td class=&quot;&quot;&gt;; ea = $dea0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;; ec = $dec0&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;; ec = $dec0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;; ee = $dee0&lt;/td&gt;&lt;td class=&quot;&quot;&gt;; ee = $dee0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;; f0 = $df00&lt;/td&gt;&lt;td class=&quot;&quot;&gt;; f0 = $df00&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;; f2 = $df20&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;; f2 = $df20&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;; f4 = $df40&lt;/td&gt;&lt;td class=&quot;&quot;&gt;; f4 = $df40&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;; f6 = $df60&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;; f6 = $df60&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;; f8 = $df80&lt;/td&gt;&lt;td class=&quot;&quot;&gt;; f8 = $df80&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;; fa = $dfa0&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;; fa = $dfa0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;; fc = $dfc0&lt;/td&gt;&lt;td class=&quot;&quot;&gt;; fc = $dfc0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;; fe = $dfe0&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;; fe = $dfe0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;--- Buffer Management ---&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;--- Buffer Management ---&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swibuf   = $f7 ;$f8 ;Input  Buf Ptr&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swibuf   = $f7 ;$f8 ;Input  Buf Ptr&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swobuf   = $f9 ;$fa ;Output Buf Ptr&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swobuf   = $f9 ;$fa ;Output Buf Ptr&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swidbe   = $029b  ;Input buf end   index&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swidbe   = $029b  ;Input buf end   index&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swidbs   = $029c  ;Input buf start index&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swidbs   = $029c  ;Input buf start index&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swodbe   = $029d ;Output buf end   index&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swodbe   = $029d ;Output buf end   index&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swodbs   = $029e ;Output buf start index&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swodbs   = $029e ;Output buf start index&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;--- ACIA Registers ------&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;--- ACIA Registers ------&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;sw_data  = sw+$00 ;Data Read/Write&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;sw_data  = sw+$00 ;Data Read/Write&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;sw_stat  = sw+$01 ;Status Read/Reset&lt;/td&gt;&lt;td class=&quot;&quot;&gt;sw_stat  = sw+$01 ;Status Read/Reset&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;sw_cmd   = sw+$02 ;Command Read/Write&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;sw_cmd   = sw+$02 ;Command Read/Write&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;sw_ctrl  = sw+$03 ;Control Read/Write&lt;/td&gt;&lt;td class=&quot;&quot;&gt;sw_ctrl  = sw+$03 ;Control Read/Write&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_add&quot;&gt;&lt;span class=&quot;diff_text_add&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_add&quot;&gt;&lt;span class=&quot;diff_text_add&quot;&gt;t2_esreg = sw+$07 ;T232 Enhanced Speed&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;--- Status Bits ---------&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;--- Status Bits ---------&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;sws_per  = %00000001 ;Parity  Error&lt;/td&gt;&lt;td class=&quot;&quot;&gt;sws_per  = %00000001 ;Parity  Error&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;sws_fer  = %00000010 ;Framing Error&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;sws_fer  = %00000010 ;Framing Error&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;sws_oer  = %00000100 ;Overrun Error&lt;/td&gt;&lt;td class=&quot;&quot;&gt;sws_oer  = %00000100 ;Overrun Error&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;sws_rrd  = %00001000 ;Receiver    Full&lt;/td&gt;&lt;td class=&quot;&quot;&gt;sws_rrd  = %00001000 ;Receiver    Full&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;sws_trd  = %00010000 ;Transmitter Empty&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;sws_trd  = %00010000 ;Transmitter Empty&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;sws_dsr  = %00100000 ;Data Set Ready&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;sws_dsr  = %00100000 ;Data Set Ready&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;                     ;Hi = Not Ready&lt;/td&gt;&lt;td class=&quot;&quot;&gt;                     ;Hi = Not Ready&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;                     ;Lo = Ready&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;                     ;Lo = Ready&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;sws_dcd  = %01000000 ;Carrier Detect&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;sws_dcd  = %01000000 ;Carrier Detect&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;                     ;Hi = Not Detected&lt;/td&gt;&lt;td class=&quot;&quot;&gt;                     ;Hi = Not Detected&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;                     ;Lo = Detected&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;                     ;Lo = Detected&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;sws_irq  = %10000000 ;Interrupt Flag&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;sws_irq  = %10000000 ;Interrupt Flag&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;                     ;Hi = IRQ Occurred&lt;/td&gt;&lt;td class=&quot;&quot;&gt;                     ;Hi = IRQ Occurred&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;                     ;Lo = No IRQ occur.&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;                     ;Lo = No IRQ occur.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;                     ;Unreliable &amp;gt;9600&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;                     ;Unreliable &amp;gt;9600&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;--- Command Bits --------&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;--- Command Bits --------&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swc_dtr  = %00000001 ;Data Term. Ready&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swc_dtr  = %00000001 ;Data Term. Ready&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;                     ;Hi = Enable  Rx/Tx&lt;/td&gt;&lt;td class=&quot;&quot;&gt;                     ;Hi = Enable  Rx/Tx&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;                     ;Lo = Disable Rx/Tx&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;                     ;Lo = Disable Rx/Tx&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swc_irq  = %00000010 ;IRQ Mask:&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swc_irq  = %00000010 ;IRQ Mask:&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;                     ;Hi = Disable IRQs&lt;/td&gt;&lt;td class=&quot;&quot;&gt;                     ;Hi = Disable IRQs&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;                     ;Lo = Enable  IRQs&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;                     ;Lo = Enable  IRQs&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swc_tc0  = %00000100 ;Transmitter Ctrl 0&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swc_tc0  = %00000100 ;Transmitter Ctrl 0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swc_tc1  = %00001000 ;Transmitter Ctrl 1&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swc_tc1  = %00001000 ;Transmitter Ctrl 1&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swc_ech  = %00010000 ;Echo&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swc_ech  = %00010000 ;Echo&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;                     ;Hi = Echo On&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;                     ;Hi = Echo On&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;                     ;Lo = Echo Off&lt;/td&gt;&lt;td class=&quot;&quot;&gt;                     ;Lo = Echo Off&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swc_par  = %00100000 ;Parity Enable&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swc_par  = %00100000 ;Parity Enable&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;swc_pm0 = %01000000 ;Parity Mode 0&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;swc_pm0 = %01000000 ;Parity Mode 0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;swc_pm1 = %10000000 ;Parity Mode 1&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;swc_pm1 = %10000000 ;Parity Mode 1&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;Transmitter Control Bits&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;Transmitter Control Bits&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swt_tmrh = %00000000 ;TxIRQ=Mask,RTS=Hi&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swt_tmrh = %00000000 ;TxIRQ=Mask,RTS=Hi&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swt_torl = %00000100 ;TxIRQ=On  ,RTS=Lo&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swt_torl = %00000100 ;TxIRQ=On  ,RTS=Lo&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swt_tmrl = %00001000 ;TxIRQ=Mask,RTS=Lo&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swt_tmrl = %00001000 ;TxIRQ=Mask,RTS=Lo&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swt_tbrk = %00001100 ;TxIRQ=Mask,RTS=Lo&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swt_tbrk = %00001100 ;TxIRQ=Mask,RTS=Lo&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;                     ;And... Tx BRK ??&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;                     ;And... Tx BRK ??&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;Parity Mode Bits&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;Parity Mode Bits&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swp_odd  = %00000000 ;R-Odd  Parity 0&amp;lt;&amp;lt;6&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swp_odd  = %00000000 ;R-Odd  Parity 0&amp;lt;&amp;lt;6&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swp_evn  = %01000000 ;R-Even Parity 1&amp;lt;&amp;lt;6&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swp_evn  = %01000000 ;R-Even Parity 1&amp;lt;&amp;lt;6&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swp_mrk  = %10000000 ;X-Mark Parity 2&amp;lt;&amp;lt;6&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swp_mrk  = %10000000 ;X-Mark Parity 2&amp;lt;&amp;lt;6&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swp_spc  = %11000000 ;X-Spc  Parity 3&amp;lt;&amp;lt;6&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swp_spc  = %11000000 ;X-Spc  Parity 3&amp;lt;&amp;lt;6&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;--- Control Bits --------&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;--- Control Bits --------&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;swx_br0 = %00000001 ;Baud Rate 0&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;swx_br0 = %00000001 ;Baud Rate 0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;swx_br1 = %00000010 ;Baud Rate 1&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;swx_br1 = %00000010 ;Baud Rate 1&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;swx_br2 = %00000100 ;Baud Rate 2&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;swx_br2 = %00000100 ;Baud Rate 2&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;swx_br3 = %00001000 ;Baud Rate 3&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;swx_br3 = %00001000 ;Baud Rate 3&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swx_brc  = %00010000 ;Baud Rate Clocked&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swx_brc  = %00010000 ;Baud Rate Clocked&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;swx_wl0 = %00100000 ;Word Length 0&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;swx_wl0 = %00100000 ;Word Length 0&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;swx_wl1 = %01000000 ;Word Length 1&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;swx_wl1 = %01000000 ;Word Length 1&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swx_stp  = %10000000 ;Lo = 1 Stop Bit&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swx_stp  = %10000000 ;Lo = 1 Stop Bit&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;                     ;Hi = 2 Stop Bits&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;                     ;Hi = 2 Stop Bits&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;Baud Rate Values (2x Crystal Speed)&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;Baud Rate Values (2x Crystal Speed)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;                ;brc_ from /s/:nhd.t&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;                ;brc_ from /s/:nhd.t&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swb_100  = $01&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swb_100  = $01&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swb_150  = $02&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swb_150  = $02&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swb_220  = $03&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swb_220  = $03&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swb_270  = $04&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swb_270  = $04&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swb_300  = $05  ;brc_3&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swb_300  = $05  ;brc_3&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swb_600  = $06&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swb_600  = $06&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swb_1200 = $07  ;brc_12&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swb_1200 = $07  ;brc_12&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swb_2400 = $08  ;brc_24&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swb_2400 = $08  ;brc_24&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swb_3600 = $09&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swb_3600 = $09&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swb_4800 = $0a  ;brc_48&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swb_4800 = $0a  ;brc_48&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swb_7200 = $0b&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swb_7200 = $0b&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swb_9600 = $0c  ;brc_96&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swb_9600 = $0c  ;brc_96&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swb14400 = $0d  ;brc_144&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swb14400 = $0d  ;brc_144&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swb19200 = $0e  ;brc_192&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swb19200 = $0e  ;brc_192&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swb38400 = $0f  ;brc_384&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swb38400 = $0f  ;brc_384&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_add&quot;&gt;&lt;span class=&quot;diff_text_add&quot;&gt;;When these are set on t2_esreg&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_add&quot;&gt;&lt;span class=&quot;diff_text_add&quot;&gt;;The low 4 bits of sw_ctrl must be 0.&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_add&quot;&gt;&lt;span class=&quot;diff_text_add&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_add&quot;&gt;&lt;span class=&quot;diff_text_add&quot;&gt;t2b57k   = %00000010&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_add&quot;&gt;&lt;span class=&quot;diff_text_add&quot;&gt;t2b115k  = %00000001&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_add&quot;&gt;&lt;span class=&quot;diff_text_add&quot;&gt;t2b230k  = %00000000&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_add&quot;&gt;&lt;span class=&quot;diff_text_add&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;Word length padding, left-shifted 5x.&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;Word length padding, left-shifted 5x.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swx_w8b  = %00000000 ;Word Length: 8-bit&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swx_w8b  = %00000000 ;Word Length: 8-bit&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swx_w7b  = %00100000 ;Word Length: 7-bit&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swx_w7b  = %00100000 ;Word Length: 7-bit&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swx_w6b  = %01000000 ;Word Length: 6-bit&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swx_w6b  = %01000000 ;Word Length: 6-bit&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swx_w5b  = %01100000 ;Word Length: 5-bit&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swx_w5b  = %01100000 ;Word Length: 5-bit&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;;--- NMI Control ---------&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;;--- NMI Control ---------&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;swn_rxtx = $b6 ;Rx{SHIFT--}Tx Ready NMIs (both)&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;swn_rxtx = $b6 ;Rx{SHIFT--}Tx Ready NMIs (both)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;swn_rx   = $bd ;Rx    Ready NMIs (only)&lt;/td&gt;&lt;td class=&quot;&quot;&gt;swn_rx   = $bd ;Rx    Ready NMIs (only)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;;--- Buffer Control ------&lt;/td&gt;&lt;td class=&quot;&quot;&gt;;--- Buffer Control ------&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;&quot;&gt;tbuf_cnt = $ab ;Tx Buffer byte count&lt;/td&gt;&lt;td class=&quot;&quot;&gt;tbuf_cnt = $ab ;Tx Buffer byte count&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class=&quot;diff_unchanged_alt&quot;&gt;rbuf_cnt = $b4 ;Rx Buffer byte count&lt;/td&gt;&lt;td class=&quot;diff_unchanged_alt_old&quot;&gt;rbuf_cnt = $b4 ;Rx Buffer byte count&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+    </div>
+</body>
+</html>

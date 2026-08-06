@@ -1,0 +1,1 @@
+Hi-Res Sprite data (SEQ, 63 bytes)

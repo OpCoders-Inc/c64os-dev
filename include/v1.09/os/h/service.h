@@ -1,0 +1,17 @@
+lser            = $00f2
+alert_          = $0000
+confirq_        = $0003
+getargs_        = $0006
+updstat_        = $0009
+setflags_       = $000c
+redrwtod_       = $000f
+setgfx_         = $0012
+getsfref_       = $0015
+syskcmd_        = $0018
+initextern_     = $001b
+loadutil_       = $001e
+quitapp_        = $0021
+loadapp_        = $0024
+loadreloc_      = $0027
+loadlib_        = $002a
+unldlib_        = $002d

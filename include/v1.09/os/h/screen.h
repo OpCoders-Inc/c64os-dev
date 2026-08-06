@@ -1,0 +1,15 @@
+lscr            = $00f6
+evtloop_        = $0000
+markredraw_     = $0003
+layerpush_      = $0006
+layerpop_       = $0009
+setlrc_         = $000c
+setdprops_      = $000f
+ctxclear_       = $0012
+ctxdraw_        = $0015
+ctx2scr_        = $0018
+redraw_         = $001b
+scrrow_         = $001e
+loadclr_        = $0021
+loadicns_       = $0024
+copybufs_       = $0027

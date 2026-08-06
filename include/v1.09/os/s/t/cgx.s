@@ -1,0 +1,16 @@
+cgm_artist      = $0000
+cgm_source      = $0020
+cgm_releas      = $0040
+cgm_title       = $0060
+cgf_mxrws       = $0000
+cgf_mxcls       = $0001
+cgf_mxsri       = $0002
+cgf_mxsci       = $0003
+cgf_frcnt       = $0004
+cgf_frdel       = $0005
+cgf_lpcnt       = $0006
+cgf_mdctl       = $0007
+cgf_fsrws       = $0008
+cgf_fscls       = $0009
+cgf_vdmod       = $000a
+cgf_vdatr       = $000b
